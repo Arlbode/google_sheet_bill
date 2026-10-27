@@ -1,4 +1,4 @@
-# Hogar Playa 1.2.2 · instalación y uso en Android
+# Hogar Playa 1.3.0 · instalación y uso en Android
 
 La APK funciona en **Android 8 o posterior**. Cada persona crea su nombre y PIN al abrir la app. Puedes usar dos perfiles en un teléfono o instalarla en dos teléfonos conectados a la misma hoja.
 
@@ -7,10 +7,10 @@ La APK funciona en **Android 8 o posterior**. Cada persona crea su nombre y PIN 
 1. Conserva la APK instalada. En tu Sheet, sustituye todo Código.gs por **Script_Completo_Hogar_Android.txt**, guarda y ejecuta **iniciarHogar**. No pegues fragmentos.
 2. Recarga la hoja. Revisa el desglose inicial: **Cuentas B7** es el CUP inicial total; **B24** indica qué parte de ese mismo total estaba en transferencia. No sumes B24 otra vez a B7.
 3. Actualiza la implementación existente: **Implementar → Gestionar implementaciones → lápiz → Nueva versión → Implementar**. Conserva tu URL /exec y sus permisos.
-4. Instala **Hogar_Playa.apk 1.2.2 encima de la anterior**, en todos los teléfonos que vayan a registrar transferencias. No desinstales ni borres datos. La actualización conserva perfiles, PIN, cestas, movimientos y credenciales.
+4. Instala **Hogar_Playa.apk 1.3.0 encima de la anterior**, en todos los teléfonos que vayan a registrar transferencias. No desinstales ni borres datos. La actualización conserva perfiles, PIN, cestas, movimientos y credenciales.
 5. Abre la APK y sincroniza. Si ya estaba vinculada y conservaste la URL, no necesitas generar otro código. La nueva APK exige el servidor actualizado para evitar que un servidor antiguo ignore el formato CUP.
 
-La versión 1.2.2 añade Planes app y Plan CUP L:Q para gestionar y auditar planes desde Android. Conserva Registro U/V, Cambios R, Cuentas B24:B26, Lista compras N y dos indicadores al final del Tablero. Los registros antiguos sin formato se consideran **Efectivo**; puedes corregir su formato en Registro U o Cambios R sin cambiar el importe ni anotar otro ingreso.
+La instalación incluye Planes app y Plan CUP L:Q para gestionar y auditar planes desde Android. Conserva Registro U/V, Cambios R, Cuentas B24:B26, Lista compras N y dos indicadores al final del Tablero. Los registros antiguos sin formato se consideran **Efectivo**; puedes corregir su formato en Registro U o Cambios R sin cambiar el importe ni anotar otro ingreso.
 
 ## 1. Preparar tu hoja una vez
 
@@ -18,7 +18,7 @@ La versión 1.2.2 añade Planes app y Plan CUP L:Q para gestionar y auditar plan
 2. En la hoja, abre **Extensiones → Apps Script**.
 3. En `Código.gs`, sustituye todo el código por el contenido completo del archivo. No añadas fragmentos al final del script anterior. Si creaste otros archivos `.gs` con copias de las mismas funciones, conserva un solo script completo; no borres tus datos de la hoja.
 4. Guarda y elige **iniciarHogar** en el selector de funciones. Pulsa **Ejecutar** y autoriza con tu cuenta de Google. La primera ejecución puede tardar por las consultas de precios.
-5. Vuelve a la hoja y recarga la página. Aparecerá **Hogar → Conectar app Android**. Las instrucciones también quedan en **Guía**, pasos 15 a 39.
+5. Vuelve a la hoja y recarga la página. Aparecerá **Hogar → Conectar app Android**. Las instrucciones también quedan en **Guía**, pasos 15 a 41.
 
 La actualización conserva Registro, Cambios, presupuestos, ajustes y reservas. Añade Perfiles app, Dispositivos app y Auditoría app, además de columnas de trazabilidad. No introduce movimientos de ejemplo en tu hoja.
 
@@ -199,3 +199,13 @@ Haz la prueba en una copia de tu hoja si no quieres añadir movimientos de ensay
 5. Pulsa Sincronizar otra vez: no debe crear filas nuevas ni descontar otra vez ese gasto.
 
 La APK y el servidor se han probado en emulador con servicios Google simulados. La autorización e implementación en tu cuenta real se completan con los pasos 1 a 3.
+
+## Catálogo ilustrado, libras y fondo de gasolina
+
+Las 91 tarjetas tienen ilustraciones originales del producto, incluidas en la APK y disponibles sin internet. Se usan también en el detalle, la cesta y la lista del Modo compra. Guayaba, frutabomba, plátano, plátano macho maduro, cebollas y variedades de frijoles tienen imágenes distintas. Las ilustraciones representan el producto; no son fotografías de un vendedor ni certifican marcas o presentaciones.
+
+**Guayaba se registra en libras.** Ya no se redondea su planificación a bolsas de 5 lb. La referencia online anterior era 4,83 USD por 5 lb: equivale a 0,966 USD/lb, aproximadamente 0,97 en el formulario. La oferta de origen sigue siendo por bolsa; confirma precio real y venta suelta con tu vendedor. Se conservan cantidades y precios propios cuando ya estaban expresados por libra; las unidades de masa compatibles se convierten. Los movimientos históricos y las compras ya confirmadas conservan su unidad original.
+
+**Jamón y Queso** se añaden por libra, opcionales inicialmente y con precio pendiente: introdúcelo al comprar. **Gasolina** se añade por litro en la categoría **Fondo gasolina**. No se inventan precios ni proveedores.
+
+**Fondo gasolina** figura en Presupuesto fila 17 y Fondos fila 11. Empieza con asignación 0; tú decides cuánto reservar. Registrar → Aporte fondo → Fondo gasolina anota dinero separado, sin descontarlo de las cuentas. Registrar → Gasto → Fondo gasolina o confirmar el producto Gasolina anota el pago real, reduce su saldo y el efectivo o transferencia utilizados. No vuelve a cargar esa misma compra a la partida de consumo. El fondo puede quedar negativo si gastas antes de reservar; el tablero lo señala. Se conserva el mínimo de ahorro del 50%; redistribuye asignaciones si el total supera el límite.

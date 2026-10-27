@@ -1,4 +1,4 @@
-# Hogar Playa · Android 1.2.2
+# Hogar Playa · Android 1.3.0
 
 Android 8 o posterior. Instala encima de la versión anterior para conservar perfiles, PIN, movimientos y conexión.
 
@@ -9,17 +9,16 @@ Android 8 o posterior. Instala encima de la versión anterior para conservar per
 
 ## Novedades
 
-- Inicio o Perfil → Plan CUP y protección de USD: consultar, añadir, editar, cancelar y reactivar planes. Muestra previsto, pagado y pendiente, con filtros para pendientes, pagados y cancelados.
-- Cambios de planes offline, guardados separados de los movimientos de dinero. Se sincroniza primero el plan y después sus pagos. Las ediciones simultáneas se muestran para revisión. Cancelar conserva pagos y trazabilidad.
-- Registrar → Ingreso reúne USD y CUP. Al elegir CUP aparece Efectivo/Transferencia, también desde Registrar movimiento → Ingreso. Se elimina el acceso separado a otro ingreso CUP. El Sheet utiliza un único menú Registrar ingreso · USD o CUP.
-- Conserva selección múltiple, importe de la lista pendiente, tope diario, desglose de saldos, protección USD, perfiles/PIN, estadísticas, prueba de aviso y oferta Yosvany.
+- 91 ilustraciones originales específicas, incluidas en la APK: funcionan sin internet. Guayaba, frutabomba, plátanos, cebollas, frijoles, productos de limpieza, carnes, servicios y demás artículos se identifican con su propia imagen.
+- Guayaba por libra, sin redondear el plan a bolsas de cinco. La referencia anterior se convierte por libra, conservando que su oferta de origen era por bolsa y sin afirmar venta suelta.
+- Jamón y queso por libra, con precio real editable y proveedor pendiente.
+- Gasolina por litro y Fondo gasolina disponible para aportes y gastos. Asignación inicial 0 para que el hogar decida cuánto reservar. Los gastos desde el fondo no se vuelven a descontar de la partida de consumo.
+- Conserva gestión de Plan CUP, cola offline, PIN, ingresos USD/CUP unificados, efectivo/transferencia, selección múltiple, tope diario y estadísticas.
 
 ## Actualizar
 
-1. En el Sheet → Extensiones → Apps Script, sustituye TODO Código.gs por el archivo completo. Guarda y ejecuta iniciarHogar.
+1. Sheet → Extensiones → Apps Script: sustituye TODO Código.gs por el archivo completo. Guarda y ejecuta iniciarHogar.
 2. Implementar → Gestionar implementaciones → lápiz → Nueva versión → Implementar. Conserva URL /exec y permisos.
 3. Instala la APK encima de la anterior y sincroniza. Si conservaste la URL y el proyecto, no necesitas otro código de conexión.
 
-La gestión móvil de planes necesita el script y la implementación actualizados. El menú Guía incluye los nuevos pasos de operación. Crear o editar un plan no descuenta dinero: cada gasto real se registra una vez y su vínculo reduce lo pendiente del plan.
-
-La autorización e implementación de Google las realiza el propietario. No se publican credenciales ni movimientos financieros reales.
+Guía incluye los pasos 40 y 41. Se conservan los registros y asignaciones anteriores. La autorización e implementación de Google las realiza el propietario. No se publican credenciales ni movimientos financieros reales.
