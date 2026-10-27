@@ -6,10 +6,14 @@
   "product_images": 91,
   "products": 91,
   "offer_rows": 56,
-  "tests_passed": 6,
+  "tests_passed": 8,
   "java_source_provenance": "JADX 1.5.1 decompilation; NOT approved for production; NOT used by build",
   "native_code_strategy": "preserve original classes.dex byte-for-byte",
   "original_signing_private_key_recovered": false,
   "new_signed_apk_generated": false,
-  "existing_published_apk_modified": false
+  "existing_published_apk_modified": false,
+  "user_selected_existing_app_only": true,
+  "parallel_app_created": false,
+  "backup_manifest": "MANIFIESTO_RESPALDO.json",
+  "publication_verified": false
 }

@@ -1,4 +1,14 @@
-# Hogar Playa · Android 1.3.0
+# Hogar Playa · recuperación del entorno
+
+**Conserva la app que ya tienes instalada.** En esta rama no hay una nueva APK: `Hogar_Playa.apk` sigue siendo la versión 1.3.0 publicada. La firma privada original no está disponible y el usuario ha elegido conservar únicamente su app actual.
+
+- [Qué hacer ahora](LEEME_PRIMERO.md): instrucciones para el respaldo, la app y la publicación del entorno.
+- [Hogar_Playa_Recuperacion_Fuentes.zip](Hogar_Playa_Recuperacion_Fuentes.zip): respaldo del código y los recursos recuperados; no se instala en Android.
+- [Estado y límites de la recuperación](RECUPERACION.md).
+
+La rama `descargas-android-1.1.0` y sus instaladores originales permanecen intactos. Las instrucciones siguientes documentan aquella publicación; esta reparación del entorno no requiere reinstalar la app ni sustituir el script de tu Sheet.
+
+# Publicación original · Android 1.3.0
 
 Android 8 o posterior. Instala encima de la versión anterior para conservar perfiles, PIN, movimientos y conexión.
 

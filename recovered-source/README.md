@@ -20,22 +20,21 @@ Por eso el constructor de comprobación **no compila ni ejecuta esos archivos**.
 
 ## Comprobar la recuperación
 
-Desde la raíz del repositorio:
+Desde la raíz del repositorio, con las dependencias instaladas:
 
 ```sh
-python3 -m unittest discover -s recovered-source/tests -v
-node --check recovered-source/android/assets/app.js
-node --check < recovered-source/backend/Code.gs
-python3 recovered-source/scripts/build_unsigned.py
+bash recovered-source/scripts/verify_environment.sh
 ```
 
 La prueba financiera requiere openpyxl 3.1.5 y LibreOffice/soffice. No usa la hoja real del usuario: genera datos ficticios en un directorio temporal.
+
+El respaldo se comprueba con `python3 recovered-source/scripts/create_backup.py --check Hogar_Playa_Recuperacion_Fuentes.zip`. Para reconstruirlo después de un cambio de fuentes, ejecuta `python3 recovered-source/scripts/create_backup.py`; incluye las fuentes actuales y un manifiesto de integridad, sin cachés ni claves privadas. El ZIP no contiene los datos reales de los teléfonos ni permite recuperar la firma perdida. Consulta [Qué hacer ahora](../LEEME_PRIMERO.md).
 
 El constructor produce `recovered-source/build/Hogar_Playa_UNFIRMADA.apk`. Ese archivo **no está firmado y no es una nueva APK instalable**. Se usa para comprobar que los recursos y el código original pueden reempaquetarse sin alterarlos.
 
 ## Firma: bloqueo pendiente
 
-La clave privada original y su contraseña no estaban en GitHub y no se han recuperado del entorno anterior. El certificado público no permite reconstruirla. No se ha generado otra firma ni sustituido la APK que funciona.
+La clave privada original y su contraseña no estaban en GitHub y no se han recuperado del entorno anterior. El certificado público no permite reconstruirla. El usuario eligió conservar solo la app actual: no se ha generado otra firma, creado una app paralela ni sustituido la APK que funciona.
 
 El ayudante `scripts/sign_original.py` solo podrá usarse si se recupera la firma privada original por un medio privado. Recibe rutas de archivos, nunca la contraseña en un argumento. Comprueba que el certificado coincide con el original antes de firmar; una clave diferente se rechaza. Las claves y contraseñas no deben subirse a este repositorio público.
 
