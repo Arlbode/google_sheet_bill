@@ -1,0 +1,15 @@
+{
+  "base_commit": "64ac245f1797510da5a8a4a6303c927bd1ef2825",
+  "base_apk_sha256": "bc855b31309b1fc3e9569cf16614a9952490b9304860c46010a9633ab38ea152",
+  "original_certificate_sha256": "911fdea8894025eb62ca8e775aa23ded1725830526f46d7c3d2194c6f634a569",
+  "assets_recovered_exactly": 96,
+  "product_images": 91,
+  "products": 91,
+  "offer_rows": 56,
+  "tests_passed": 6,
+  "java_source_provenance": "JADX 1.5.1 decompilation; NOT approved for production; NOT used by build",
+  "native_code_strategy": "preserve original classes.dex byte-for-byte",
+  "original_signing_private_key_recovered": false,
+  "new_signed_apk_generated": false,
+  "existing_published_apk_modified": false
+}

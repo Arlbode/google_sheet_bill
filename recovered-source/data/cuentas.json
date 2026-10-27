@@ -1,0 +1,656 @@
+{
+  "sheets": [
+    {
+      "name": "Cuentas",
+      "cells": [
+        {
+          "r": 1,
+          "c": 1,
+          "v": "Tus cuentas · USD y CUP",
+          "format": "General",
+          "input": false
+        },
+        {
+          "r": 2,
+          "c": 1,
+          "v": "Saldos totales por moneda, incluidos ahorro y fondos. El salario suma USD; cambiar moneda mueve USD a CUP; pagar descuenta la moneda utilizada. Separar ahorro o fondos solo reserva dinero dentro de estos saldos.",
+          "format": "General",
+          "input": false
+        },
+        {
+          "r": 5,
+          "c": 1,
+          "v": "Moneda",
+          "format": "General",
+          "input": false
+        },
+        {
+          "r": 5,
+          "c": 2,
+          "v": "Saldo inicial",
+          "format": "General",
+          "input": false
+        },
+        {
+          "r": 5,
+          "c": 3,
+          "v": "Ingresos acumulados",
+          "format": "General",
+          "input": false
+        },
+        {
+          "r": 5,
+          "c": 4,
+          "v": "Pagos acumulados",
+          "format": "General",
+          "input": false
+        },
+        {
+          "r": 5,
+          "c": 5,
+          "v": "Cambio de moneda (+/−)",
+          "format": "General",
+          "input": false
+        },
+        {
+          "r": 5,
+          "c": 6,
+          "v": "Saldo total",
+          "format": "General",
+          "input": false
+        },
+        {
+          "r": 6,
+          "c": 1,
+          "v": "USD",
+          "format": "General",
+          "input": false
+        },
+        {
+          "r": 6,
+          "c": 2,
+          "v": 0,
+          "format": "#,##0.00\" USD\"",
+          "input": true
+        },
+        {
+          "r": 6,
+          "c": 3,
+          "v": "=SUMIFS(Registro!$F$6:$F$1005,Registro!$B$6:$B$1005,\"Ingreso\",Registro!$E$6:$E$1005,A6,Registro!$K$6:$K$1005,\"OK\",Registro!$A$6:$A$1005,\">=\"&Ajustes!$B$12,Registro!$A$6:$A$1005,\"<\"&($B$9+1))",
+          "format": "#,##0.00\" USD\"",
+          "input": false
+        },
+        {
+          "r": 6,
+          "c": 4,
+          "v": "=SUMIFS(Registro!$F$6:$F$1005,Registro!$B$6:$B$1005,\"Gasto\",Registro!$E$6:$E$1005,A6,Registro!$K$6:$K$1005,\"OK\",Registro!$A$6:$A$1005,\">=\"&Ajustes!$B$12,Registro!$A$6:$A$1005,\"<\"&($B$9+1))",
+          "format": "#,##0.00\" USD\"",
+          "input": false
+        },
+        {
+          "r": 6,
+          "c": 5,
+          "v": "=-SUMIFS(Cambios!$B$6:$B$505,Cambios!$G$6:$G$505,\"OK\",Cambios!$A$6:$A$505,\">=\"&Ajustes!$B$12,Cambios!$A$6:$A$505,\"<\"&($B$9+1))",
+          "format": "#,##0.00\" USD\"",
+          "input": false
+        },
+        {
+          "r": 6,
+          "c": 6,
+          "v": "=IF($B$9<Ajustes!$B$12,0,IF(AND(ISNUMBER(B6),B6>=0),ROUND(B6+C6-D6+E6,2),\"\"))",
+          "format": "#,##0.00\" USD\"",
+          "input": false
+        },
+        {
+          "r": 7,
+          "c": 1,
+          "v": "CUP",
+          "format": "General",
+          "input": false
+        },
+        {
+          "r": 7,
+          "c": 2,
+          "v": 0,
+          "format": "#,##0.00\" CUP\"",
+          "input": true
+        },
+        {
+          "r": 7,
+          "c": 3,
+          "v": "=SUMIFS(Registro!$F$6:$F$1005,Registro!$B$6:$B$1005,\"Ingreso\",Registro!$E$6:$E$1005,A7,Registro!$K$6:$K$1005,\"OK\",Registro!$A$6:$A$1005,\">=\"&Ajustes!$B$12,Registro!$A$6:$A$1005,\"<\"&($B$9+1))",
+          "format": "#,##0.00\" CUP\"",
+          "input": false
+        },
+        {
+          "r": 7,
+          "c": 4,
+          "v": "=SUMIFS(Registro!$F$6:$F$1005,Registro!$B$6:$B$1005,\"Gasto\",Registro!$E$6:$E$1005,A7,Registro!$K$6:$K$1005,\"OK\",Registro!$A$6:$A$1005,\">=\"&Ajustes!$B$12,Registro!$A$6:$A$1005,\"<\"&($B$9+1))",
+          "format": "#,##0.00\" CUP\"",
+          "input": false
+        },
+        {
+          "r": 7,
+          "c": 5,
+          "v": "=SUMIFS(Cambios!$D$6:$D$505,Cambios!$G$6:$G$505,\"OK\",Cambios!$A$6:$A$505,\">=\"&Ajustes!$B$12,Cambios!$A$6:$A$505,\"<\"&($B$9+1))",
+          "format": "#,##0.00\" CUP\"",
+          "input": false
+        },
+        {
+          "r": 7,
+          "c": 6,
+          "v": "=IF($B$9<Ajustes!$B$12,0,IF(AND(ISNUMBER(B7),B7>=0),ROUND(B7+C7-D7+E7,2),\"\"))",
+          "format": "#,##0.00\" CUP\"",
+          "input": false
+        },
+        {
+          "r": 9,
+          "c": 1,
+          "v": "Corte del saldo",
+          "format": "General",
+          "input": false
+        },
+        {
+          "r": 9,
+          "c": 2,
+          "v": "=MIN(TODAY(),EOMONTH(Ajustes!B6,0))",
+          "format": "dd/mm/yyyy",
+          "input": false
+        },
+        {
+          "r": 10,
+          "c": 1,
+          "v": "Saldos iniciales a fecha de",
+          "format": "General",
+          "input": false
+        },
+        {
+          "r": 10,
+          "c": 2,
+          "v": "=Ajustes!B12",
+          "format": "dd/mm/yyyy",
+          "input": false
+        },
+        {
+          "r": 11,
+          "c": 1,
+          "v": "B6/B7: dinero que tenías ANTES de los movimientos registrados desde Ajustes B12. No incluyas de nuevo salarios ya anotados.",
+          "format": "General",
+          "input": false
+        },
+        {
+          "r": 12,
+          "c": 1,
+          "v": "Los saldos iniciales incluyen el dinero que ya estaba reservado en ahorro y fondos. Esas reservas no se suman otra vez a las cuentas.",
+          "format": "General",
+          "input": false
+        },
+        {
+          "r": 13,
+          "c": 1,
+          "v": "Cambios por revisar",
+          "format": "General",
+          "input": false
+        },
+        {
+          "r": 13,
+          "c": 2,
+          "v": "=COUNTIF(Cambios!G6:G505,\"?*\")-COUNTIF(Cambios!G6:G505,\"OK\")",
+          "format": "General",
+          "input": false
+        },
+        {
+          "r": 14,
+          "c": 1,
+          "v": "Registro por revisar",
+          "format": "General",
+          "input": false
+        },
+        {
+          "r": 14,
+          "c": 2,
+          "v": "=Inicio!B21",
+          "format": "General",
+          "input": false
+        },
+        {
+          "r": 15,
+          "c": 1,
+          "v": "Estado",
+          "format": "General",
+          "input": false
+        },
+        {
+          "r": 15,
+          "c": 2,
+          "v": "=IF(B9<Ajustes!B12,\"PERIODO ANTERIOR AL INICIO\",IF(OR(NOT(ISNUMBER(B6)),NOT(ISNUMBER(B7)),B6<0,B7<0,F6<0,F7<0,B13>0,B14>0),\"REVISAR CUENTAS\",\"SALDOS SEGÚN REGISTRO\"))",
+          "format": "General",
+          "input": false
+        },
+        {
+          "r": 17,
+          "c": 1,
+          "v": "Cambiar moneda NO es ingreso ni gasto: no aumenta el salario ni cumple la meta de ahorro. El historial conserva la tasa real de cada cambio.",
+          "format": "General",
+          "input": false
+        },
+        {
+          "r": 18,
+          "c": 1,
+          "v": "Al gastar CUP, registra también la tasa histórica para expresar ese gasto en USD en el presupuesto. El saldo CUP descuenta siempre el importe original pagado.",
+          "format": "General",
+          "input": false
+        },
+        {
+          "r": 19,
+          "c": 1,
+          "v": "Si falta un cambio antiguo, regístralo con su fecha real y tasa. Un saldo negativo suele indicar movimientos o saldos iniciales por completar.",
+          "format": "General",
+          "input": false
+        },
+        {
+          "r": 21,
+          "c": 1,
+          "v": "Más/menos CUP por tasa · mes",
+          "format": "General",
+          "input": false
+        },
+        {
+          "r": 21,
+          "c": 2,
+          "v": "=SUMIFS(Cambios!$I$6:$I$505,Cambios!$G$6:$G$505,\"OK\",Cambios!$A$6:$A$505,\">=\"&DATE(YEAR(Ajustes!B6),MONTH(Ajustes!B6),1),Cambios!$A$6:$A$505,\"<\"&(B9+1))",
+          "format": "#,##0.00\" CUP\"",
+          "input": false
+        },
+        {
+          "r": 22,
+          "c": 1,
+          "v": "Cambios sin tasa al cobrar · mes",
+          "format": "General",
+          "input": false
+        },
+        {
+          "r": 22,
+          "c": 2,
+          "v": "=COUNTIFS(Cambios!$G$6:$G$505,\"OK\",Cambios!$H$6:$H$505,\"\",Cambios!$A$6:$A$505,\">=\"&DATE(YEAR(Ajustes!B6),MONTH(Ajustes!B6),1),Cambios!$A$6:$A$505,\"<\"&(B9+1))",
+          "format": "General",
+          "input": false
+        }
+      ],
+      "merges": [
+        "A11:F11",
+        "A2:F3",
+        "A19:F19",
+        "B15:F15",
+        "A1:F1",
+        "A17:F17",
+        "A12:F12",
+        "A18:F18"
+      ],
+      "columns": [
+        238,
+        196,
+        182,
+        182,
+        196,
+        210
+      ],
+      "lastRow": 32,
+      "lastCol": 6,
+      "validation": [
+        {
+          "type": "decimal",
+          "range": "B6:B7",
+          "one": "0",
+          "two": null,
+          "operator": "greaterThanOrEqual"
+        }
+      ]
+    },
+    {
+      "name": "Cambios",
+      "cells": [
+        {
+          "r": 1,
+          "c": 1,
+          "v": "Historial de cambios · USD → CUP",
+          "format": "General",
+          "input": false
+        },
+        {
+          "r": 2,
+          "c": 1,
+          "v": "Registra desde Hogar → Cambiar USD a CUP. Cada fila descuenta USD y suma CUP. Conserva la tasa del cambio y la tasa al cobrar para mostrar CUP ganados/perdidos frente a esa referencia. D, G e I se calculan; F evita duplicar un envío. Capacidad: 500 cambios.",
+          "format": "General",
+          "input": false
+        },
+        {
+          "r": 5,
+          "c": 1,
+          "v": "Fecha",
+          "format": "General",
+          "input": false
+        },
+        {
+          "r": 5,
+          "c": 2,
+          "v": "USD entregados",
+          "format": "General",
+          "input": false
+        },
+        {
+          "r": 5,
+          "c": 3,
+          "v": "CUP por 1 USD · cambio",
+          "format": "General",
+          "input": false
+        },
+        {
+          "r": 5,
+          "c": 4,
+          "v": "CUP recibidos",
+          "format": "General",
+          "input": false
+        },
+        {
+          "r": 5,
+          "c": 5,
+          "v": "Nota",
+          "format": "General",
+          "input": false
+        },
+        {
+          "r": 5,
+          "c": 6,
+          "v": "Identificador",
+          "format": "General",
+          "input": false
+        },
+        {
+          "r": 5,
+          "c": 7,
+          "v": "Validación",
+          "format": "General",
+          "input": false
+        },
+        {
+          "r": 5,
+          "c": 8,
+          "v": "CUP por USD · al cobrar",
+          "format": "General",
+          "input": false
+        },
+        {
+          "r": 5,
+          "c": 9,
+          "v": "Más/menos CUP por tasa",
+          "format": "General",
+          "input": false
+        }
+      ],
+      "merges": [
+        "A1:I1",
+        "A2:I3"
+      ],
+      "columns": [
+        119,
+        154,
+        154,
+        175,
+        336,
+        280,
+        210,
+        168,
+        196
+      ],
+      "lastRow": 505,
+      "lastCol": 9,
+      "validation": [
+        {
+          "type": "date",
+          "range": "A6:A505",
+          "one": "DATE(2000,1,1)",
+          "two": "DATE(2099,12,31)",
+          "operator": "between"
+        },
+        {
+          "type": "decimal",
+          "range": "B6:C505 H6:H505",
+          "one": "0",
+          "two": null,
+          "operator": "greaterThan"
+        }
+      ]
+    }
+  ],
+  "dashboard": [
+    [
+      46,
+      "SALDO TOTAL USD",
+      "=Cuentas!F6",
+      "#,##0.00\" USD\"",
+      "Incluye ahorro y fondos reservados; no todo está libre para gastar."
+    ],
+    [
+      47,
+      "SALDO TOTAL CUP",
+      "=Cuentas!F7",
+      "#,##0.00\" CUP\"",
+      "Cada cambio suma los CUP recibidos; cada pago en CUP los descuenta."
+    ],
+    [
+      48,
+      "Cuentas hasta",
+      "=Cuentas!B9",
+      "dd/mm/yyyy",
+      "Hasta hoy o el cierre del mes consultado, si es anterior. Se arrastran saldos."
+    ],
+    [
+      49,
+      "Cambios por revisar",
+      "=Cuentas!B13",
+      "0",
+      "Un cambio con error se excluye de los saldos; revisa Cambios."
+    ],
+    [
+      50,
+      "Estado de las cuentas",
+      "=Cuentas!B15",
+      "General",
+      "Concilia los saldos con el dinero que realmente tienes."
+    ],
+    [
+      51,
+      "Variación por tasa · CUP",
+      "=Cuentas!B21",
+      "#,##0.00\" CUP\"",
+      "Más/menos CUP frente a la tasa al cobrar, en cambios del mes. No suma otro ingreso."
+    ],
+    [
+      52,
+      "Cambios sin tasa al cobrar",
+      "=Cuentas!B22",
+      "0",
+      "Sin referencia histórica no se calcula ganancia o pérdida comparativa."
+    ]
+  ],
+  "manual": [
+    [
+      "MANUAL DE OPERACIÓN · PASO A PASO",
+      "Sigue esta rutina. Registra cada operación una sola vez; el tablero se recalcula al guardar. Las celdas amarillas son editables. No escribas sobre fórmulas del tablero ni sobre las columnas calculadas."
+    ],
+    [
+      "1 · Preparar Ajustes",
+      "Revisa ingreso previsto: 350 USD, ahorro mínimo: 50%, mes consultado y fecha de inicio del control (B12). La tasa de Ajustes B7 sirve para cotizar el plan; no cambia los cambios de moneda ni las compras ya registradas."
+    ],
+    [
+      "2 · Saldos iniciales en Cuentas",
+      "En Cuentas B6 escribe los USD y en B7 los CUP que tenías al comenzar el control, ANTES de los movimientos ya anotados. Si empiezas desde cero, deja 0. Incluye también el dinero reservado para ahorro y fondos. No vuelvas a sumar como saldo inicial un salario que ya aparece en Registro."
+    ],
+    [
+      "3 · Cobrar el salario",
+      "Hogar → Registrar salario / ingreso del mes. Elige la moneda que recibiste, el importe y la tasa al cobrar. Si recibiste 350 USD, acredita 350 USD y conserva la tasa solo como referencia. Si recibiste 294 000 CUP a 840, acredita esos CUP y calcula un ingreso equivalente a 350 USD. No registra ambas monedas a la vez. El ingreso previsto de Ajustes no suma dinero a las cuentas."
+    ],
+    [
+      "4 · Cambiar USD a CUP",
+      "Después de hacer el cambio, abre Hogar → Cambiar USD a CUP. Indica fecha, USD entregados y la tasa real en CUP por USD; revisa los CUP recibidos y guarda. Ejemplo: 100 USD × 870 = 87 000 CUP. Tras un salario de 350 USD, sin otros movimientos, quedan 250 USD y 87 000 CUP. El cambio queda en Cambios; no es otro salario ni un gasto."
+    ],
+    [
+      "5 · Cambiar otra vez",
+      "Registra cada cambio por separado, aunque hagas uno o dos al mes. Ejemplo: otros 50 USD a 900 suman 45 000 CUP: quedan 200 USD y 132 000 CUP antes de comprar. Cada fila conserva su propia tasa. No registres además los CUP recibidos como Ingreso ni los USD entregados como Gasto."
+    ],
+    [
+      "Tasa al cobrar frente a tasa al cambiar",
+      "En cada cambio guarda también la tasa de referencia del salario que estás cambiando. Se sugiere la tasa del último ingreso en USD, si está registrada; confírmala si estás usando dólares de otro cobro. A 840 al cobrar y 870 al cambiar, 100 USD generan 3 000 CUP más; a 800, generan 4 000 CUP menos. La comparación queda en Cambios y Tablero, sin volver a sumarla como ingreso ni ahorro. Si no sabes la tasa al cobrar, déjala vacía: no se inventa."
+    ],
+    [
+      "6 · Separar el ahorro",
+      "Después de apartar realmente el dinero, Hogar → Registrar ahorro que ya separaste. La meta inicial es 175 USD. Este registro marca dinero reservado dentro de tus saldos: no lo descuenta de Cuentas ni crea dinero nuevo. Los saldos USD/CUP incluyen ahorro y fondos; no equivalen a dinero libre para gastar."
+    ],
+    [
+      "7 · Separar los fondos",
+      "Después de apartar las reservas, Hogar → Registrar aportes a fondos que ya separaste. Propuesta: vehículo 5, casa 10, medicina 10, veterinario 15 y jardinería 2 USD; total 42 USD. El menú descuenta aportes ya registrados para evitar repetirlos. El consumo y servicios tienen inicialmente 133 USD."
+    ],
+    [
+      "8 · Registrar cada compra",
+      "Hogar → Registrar una compra / gasto. Elige fecha, categoría, importe y moneda realmente pagada. Una compra de 4 350 CUP descuenta 4 350 de la cuenta CUP. Si corresponde al cambio de 870, escribe esa tasa en el gasto: equivale a 5 USD en el presupuesto. La referencia sugerida puede ser distinta: comprueba la tasa histórica que aplicas."
+    ],
+    [
+      "9 · Pagar desde un fondo",
+      "Una consulta veterinaria se registra como Gasto / Fondo veterinario, indicando CUP o USD según el pago. Descuenta de la cuenta de esa moneda y del fondo, sin volver a consumir su asignación mensual. Ejemplo: aporte de 15 USD y consulta de 10 dejan 5 USD en el fondo para el siguiente mes."
+    ],
+    [
+      "10 · Planificar la compra",
+      "Lista compras es el plan, no una compra realizada. Ajusta cantidades y precios. C indica la unidad y M cuánto trae cada envase: el subtotal compra envases completos, sin suponer que venden fracciones. Se conservan las 10 lb semanales de boniato para los perros; completa arroz y pollo o bofe. Si Col o Plátano cambian de libras a unidades/manos, la cantidad anterior se guarda en Observaciones: introduce la nueva cantidad mensual."
+    ],
+    [
+      "11 · Buscar dónde comprar",
+      "En Directorio abre el enlace de cada producto. Revisa presentación, existencia, mensajería a Playa y compra mínima. PROVEEDOR PENDIENTE es una búsqueda por completar. Incluye canasta, complementarios, perros, ocio, aseo, higiene y limpieza."
+    ],
+    [
+      "12 · Revisar el tablero",
+      "Mira meta y ahorro real, consumo, margen, reservas, alertas y los nuevos saldos por moneda al pie del Tablero. Cuentas muestra el desglose. Los saldos se arrastran entre meses y se calculan hasta hoy o el cierre del mes consultado si es anterior. Un saldo negativo pide revisar ingresos, cambios, gastos y saldos iniciales."
+    ],
+    [
+      "13 · Actualizar referencias",
+      "Hogar → Actualizar referencias ahora. Actualizaciones registra INICIO, cada precio incluso SIN CAMBIOS, alternativas, pendientes, errores y FIN. El catálogo de tiendas permite consultar sin depender de Revolico. Si falla una fuente, se intenta una alternativa compatible y se conserva el precio anterior si ninguna sirve. El directorio detalla mínimos de pedido y pago: Cubakilos exige 50 USD y pago online; los precios online no equivalen al agromercado de Playa. Las revisiones diarias son entre 08:00 y 09:00 de Cuba y no alteran tasas históricas ni saldos de tus cuentas."
+    ],
+    [
+      "14 · Cambiar de mes y corregir",
+      "No borres Registro ni Cambios al terminar el mes. El mes actual cambia automáticamente; consulta meses anteriores en Ajustes B6 y vuelve con Hogar → Consultar mes actual. Corrige una operación equivocada en su fila original; no la registres otra vez. En Cambios no edites D (CUP calculados), F (identificador), G (validación) ni I (diferencia calculada)."
+    ],
+    [
+      "15 · Instalar la app Android",
+      "Instala Hogar_Playa.apk en Android 8 o posterior. Cada persona crea su perfil y un PIN de 4 a 6 cifras al abrir la app. Para la segunda persona en el mismo teléfono: Perfil → Crear otro perfil. Los perfiles identifican al registrador; no son cuentas de Google."
+    ],
+    [
+      "16 · Publicar la conexión una vez",
+      "Con este script completo guardado y tras ejecutar iniciarHogar, abre Implementar → Nueva implementación → Aplicación web. Ejecutar como: tú. Quién tiene acceso: Cualquier persona. Autoriza y copia la URL que termina en /exec. No necesitas Google Workspace. El servicio exige además la credencial privada de cada teléfono."
+    ],
+    [
+      "17 · Vincular cada teléfono",
+      "Recarga el Sheet y abre Hogar → Conectar app Android → Generar código. En la APK: Perfil → Conectar Google Sheets; pega URL /exec y código, e indica el nombre del teléfono. El código dura 10 minutos, se usa una vez y admite 5 intentos. Genera otro para un segundo teléfono."
+    ],
+    [
+      "18 · Registrar desde la cesta",
+      "En Comprar, busca un producto y toca +. Revisa presentación, cantidad, precio real, moneda y tasa histórica. Mi cesta → Guardar compra como gasto crea un movimiento por categoría, moneda y tasa, con el detalle de artículos. Añadir a la cesta no descuenta dinero; guardar la compra sí registra el gasto."
+    ],
+    [
+      "19 · Trabajar sin internet",
+      "El teléfono guarda primero cada ingreso, gasto o cambio en su base local. En el teléfono significa pendiente; Sincronizado significa que el Sheet lo confirmó. Los reintentos conservan el mismo identificador y no vuelven a contabilizarlo. Android puede retrasar trabajos en segundo plano: abre Movimientos → Sincronizar para comprobar el envío."
+    ],
+    [
+      "20 · Trazabilidad y correcciones",
+      "Registro conserva la operación original en A:K y añade datos de la app en L:S. Cambios conserva A:I y añade J:Q. Auditoría app guarda perfil, dispositivo, fechas, detalle y destino; Perfiles app y Dispositivos app permiten revisar quién participa. No borres los identificadores ni las huellas. Abre un movimiento con Revisar en la APK para ver el motivo y corregirlo; los ya sincronizados se corrigen en la fila original del Sheet."
+    ],
+    [
+      "21 · Proteger y recuperar",
+      "En Dispositivos app cambia ACTIVO por REVOCADO para desactivar un teléfono. En Perfiles app puedes desactivar un perfil de igual forma. Para recuperar un PIN local, vuelve a vincular con un código nuevo generado desde el Sheet y usa Restablecer un PIN local en la pantalla de perfiles. Antes de borrar datos o desinstalar, sincroniza o exporta desde Perfil → Exportar respaldo local; el respaldo JSON no contiene PIN ni credenciales."
+    ],
+    [
+      "22 · Actualizar la conexión",
+      "Al modificar el script, actualiza la implementación existente: Implementar → Gestionar implementaciones → lápiz → Nueva versión → Implementar. Así conservas la URL /exec. En el teléfono usa Sincronizar para recibir el catálogo del Sheet. La APK muestra la última copia y señala las proyecciones que incluyen movimientos locales; sincroniza ambos teléfonos antes de tomar decisiones de saldo."
+    ],
+    [
+      "23 · Disponible para consumo en el móvil",
+      "Inicio muestra Disponible para consumo: suma de las asignaciones con destino Consumo en Presupuesto C6:C17 menos los gastos del mes en esas categorías. La propuesta inicial es 133 USD. Una compra de 20 deja 113 USD. Se descuentan también los pendientes de este teléfono en la vista provisional; rechazados, aportes a ahorro/fondos y cambios de moneda no consumen esta partida. Los pagos desde fondos afectan al fondo y al efectivo. Toca la tarjeta para ver cada categoría. Edita las asignaciones en el Sheet y sincroniza para actualizar el plan. El disponible del presupuesto es distinto de los saldos USD/CUP que incluyen reservas; una partida positiva tampoco confirma que el plan de compras esté completo."
+    ],
+    [
+      "24 · Otros ingresos en CUP",
+      "Hogar → Registrar ingreso · USD o CUP, elige CUP y su formato Efectivo o Transferencia. En Android usa Registrar → Ingreso; desde cualquier formulario de movimiento elige Ingreso y CUP. Escribe concepto, fecha, importe CUP y tasa de referencia para el presupuesto. Acredita solo la cuenta CUP, sin descontar USD ni crear un cambio. El presupuesto asignado a consumo no aumenta automáticamente; el nuevo efectivo sí reduce la necesidad de cambiar dólares."
+    ],
+    [
+      "25 · Planificar antes de cambiar USD",
+      "En Android abre Inicio → Plan CUP y protección de USD → Añadir Plan CUP. Puedes ver, editar, cancelar y reactivar tus pagos. En el Sheet, Hogar → Planificar pagos en CUP abre Plan CUP. Completa las celdas amarillas de cada pago: fecha, concepto, categoría, importe CUP, imprescindible Sí/No y activo Sí/No. Los pagos son opcionales por defecto: marca Sí solo en los imprescindibles reales. No son gastos contabilizados ni cobros futuros. Pagado y pendiente se calculan desde los gastos vinculados. Asocia la compra a su plan en el formulario o la APK; si la anotaste directamente en Registro, copia el Plan ID a la columna T."
+    ],
+    [
+      "26 · Protección USD y cálculo de necesidad",
+      "Protección USD reserva al menos 175 USD con el ingreso previsto actual de 350 y ahorro mínimo 50%. B7 fija el horizonte del cambio, inicialmente 15 días; B8 avisa 3 días antes del primer pago imprescindible no cubierto. B9 permite proteger más USD y B10 reservar CUP que no están libres. Se usan primero los CUP disponibles: pagos próximos menos CUP utilizables. El cambio máximo es el menor entre el déficit convertido a tu tasa real, redondeado a centavos hacia arriba, y los USD que superan la reserva. Si no es necesario o supera el máximo, Hogar y la API lo rechazan; no se convierte dinero automáticamente."
+    ],
+    [
+      "27 · Avisos en el móvil y tasa del día",
+      "APK → Perfil → Avisos de necesidad de CUP: permite las notificaciones de Android. Plan CUP y protección de USD muestra el cálculo y la fecha de cada pago; Registrar pago lo vincula al plan. La app revisa al abrir, sincronizar y mediante un trabajo periódico de 6 horas. Android puede retrasarlo por batería o cierre forzado. El aviso muestra elTOQUE como referencia con su fecha de consulta; si es antigua o no se pudo verificar, se indica y no se presenta como tasa de hoy. Confirma siempre la tasa real acordada antes de registrar el cambio. Los fallos y consultas quedan en Actualizaciones."
+    ],
+    [
+      "28 · Resolver error 401 o 403 de conexión",
+      "En la hoja abre Extensiones → Apps Script → Implementar → Gestionar implementaciones → lápiz. Ejecutar como: Yo. Quién tiene acceso: Cualquier persona, sin iniciar sesión en Google. Selecciona Nueva versión y pulsa Implementar. Abre la URL /exec en una ventana de incógnito: debe mostrar Hogar Playa y apiVersion sin pedir iniciar sesión. Si es la primera conexión, genera otro código en Hogar → Conectar app Android y conecta la APK con esa URL. Si ya estaba vinculada y conservaste la URL, prueba Sincronizar primero. No desinstales la APK ni borres sus datos: los pendientes siguen guardados."
+    ],
+    [
+      "29 · Una cuenta CUP, efectivo y transferencia",
+      "Registro U indica Efectivo o Transferencia en cada ingreso/gasto CUP; Cambios R indica el formato recibido al cambiar USD, por defecto efectivo. El tablero y la APK muestran USD, CUP efectivo y CUP transferencia, además del total CUP. Cuentas B7 conserva el CUP inicial total; en B24 indica qué parte de B7 estaba en transferencia. No vuelvas a sumarla a B7. Los registros antiguos sin formato cuentan como efectivo: puedes reclasificarlos sin cambiar sus importes."
+    ],
+    [
+      "30 · Modo compra y tope diario",
+      "APK → Comprar → Iniciar Modo compra. Fija el límite en CUP o USD y una tasa de comparación que queda fija durante la jornada. Añade productos a la lista con cantidad, unidad y precio real. Al confirmar y tachar se guarda el gasto con tu perfil, de forma atómica, también sin internet. Si supera el tope, se bloquea antes de guardarlo. Una jornada por fecha en este teléfono, compartida entre sus perfiles: salir o reiniciar no reinicia el gasto. Puedes retomar la lista. El límite no puede controlar compras de otro teléfono sin conexión."
+    ],
+    [
+      "31 · Unidades y compra mensual",
+      "Cada producto admite Paquete, Libra, Kilogramo o Unidad. El precio siempre corresponde a la unidad elegida. Si cambias la unidad, vuelve a introducir su precio real: no se inventa el peso de un paquete. En Lista compras N, 1 indica una compra mensual y 0 permite compras repetidas; por defecto se sugiere 1 cuando D indica una unidad mensual. Los mensuales comprados se ocultan; Mostrar mensuales ya comprados permite verlos. Antes de repetir, confirma el aviso; la app permite continuar y contabiliza la compra normalmente."
+    ],
+    [
+      "32 · Sugerencias con historial",
+      "Modo compra estima reposición con la mediana de los intervalos entre al menos 3 fechas distintas de compra de un producto. Por ejemplo, intervalos de 15 y 15 días sugieren volver a comprar a los 15 días de la última compra. Indica la cantidad de fechas usadas y que es una estimación. Usa detalle de artículos de compras confirmadas y pendientes locales, sin duplicar sincronizados; los gastos sin producto identificado no permiten calcular hábitos. Sin internet no conoce las compras recién hechas en otro teléfono."
+    ],
+    [
+      "33 · Qué es Plan CUP y el vínculo opcional",
+      "Plan CUP es tu agenda de pagos futuros en pesos: fecha, concepto, importe y prioridad. Anotarlo no descuenta dinero ni registra un gasto. La protección lo compara con tus CUP para decidir si hace falta vender USD. Pago planificado CUP (opcional) vincula una compra real a ese compromiso y reduce lo pendiente. Ejemplo: plan de alimentos de 10000 CUP y pago vinculado de 3000 dejan 7000 pendientes. Si no habías creado un plan, deja Sin asociar; el gasto se registra normalmente."
+    ],
+    [
+      "34 · Probar el aviso sin alterar dinero",
+      "En la APK: Perfil → Avisos de necesidad de CUP, permite las notificaciones. Después Perfil → Probar aviso de protección USD: envía una notificación marcada PRUEBA y muestra el diagnóstico del cálculo actual. No registra ingresos, gastos ni cambios; no modifica el plan ni el aviso real. Para probar la regla, puedes crear temporalmente un pago de prueba hoy en Plan CUP, con categoría válida, imprescindible Sí y activo Sí, por más CUP de los disponibles. Sincroniza la APK y mira Plan CUP y protección USD. Al terminar, marca Activo No y sincroniza; no anotes un cambio de dinero ficticio."
+    ],
+    [
+      "35 · Oferta Yosvany del 27/10/2026",
+      "Ofertas recibidas conserva los 56 precios aportados por el usuario. Se confirmó CUP y libras para productos a granel; se respetan los paquetes, cartones, tubos, latas y potes indicados. Se añaden 41 productos, inicialmente opcionales con cantidad 0. Directorio identifica Oferta Yosvany, con contacto, dirección y entrega pendientes. No se sustituyen estas referencias manuales por precios de otras tiendas en el disparador diario. Al pasar de kg a lb se convierte la cantidad; si no hay equivalencia comprobada, se guarda la cantidad anterior en observaciones y se pide revisar. No se alteran ingresos, gastos, cambios ni reservas."
+    ],
+    [
+      "36 · Elegir varios productos de una vez",
+      "En Modo compra → Elegir productos para la lista → Seleccionar varios productos. Marca los que quieras y pulsa Añadir seleccionados a mi lista. Revisa cantidades, unidades y precios en una sola pantalla y guarda el grupo. Puedes vincular un pago de Plan CUP una sola vez por categoría para los artículos pagados en CUP. Puedes dejar precios o presentaciones pendientes y completarlos después. La lista se guarda completa o no se guarda ninguna fila si hay un error. Añadir productos no crea gastos; confirma y tacha cada uno al comprarlo realmente. Una presentación pendiente no permite confirmar un gasto."
+    ],
+    [
+      "37 · Disponible del tope con toda la lista",
+      "La tarjeta verde del Modo compra muestra cuánto gastarías en todos los productos pendientes y el disponible que quedaría: tope diario menos compras confirmadas menos estimación de la lista pendiente. Usa cantidad por precio, convierte monedas con la tasa fija de la jornada y redondea cada línea a centavos. Al confirmar un producto pasa de pendiente a comprado sin descontarse dos veces. Si falta precio o unidad, muestra estimación parcial y cuántos productos faltan. Un valor negativo avisa cuánto supera la lista al tope; ajusta cantidades o quita productos antes de comprar."
+    ],
+    [
+      "38 · Gestionar Plan CUP desde Android",
+      "Inicio o Perfil → Plan CUP y protección USD. Añadir Plan CUP pide concepto, fecha, categoría, total previsto CUP, imprescindible, activo y notas. Previsto incluye lo ya pagado; Pendiente descuenta gastos vinculados. Filtra pendientes, pagados y cancelados. Editar no permite reducir el total por debajo de lo ya pagado ni cambiar la categoría con pagos. Cancelar conserva pagos e historial y elimina la obligación futura; Reactivar recupera el pendiente. Los cambios se guardan offline y se sincronizan antes de sus pagos asociados. Si otro teléfono o el Sheet cambió el plan, revisa y corrige el conflicto; nunca se sobrescribe sin comprobar la versión."
+    ],
+    [
+      "39 · Ingreso en un solo lugar",
+      "Registrar → Ingreso admite USD o CUP. Al seleccionar CUP aparece obligatoriamente Efectivo o Transferencia; al seleccionar USD se oculta. Funciona también eligiendo Ingreso en Registrar movimiento. Se eliminó el acceso separado Registrar otro ingreso en CUP. En el Sheet usa Hogar → Registrar ingreso · USD o CUP. Un ingreso CUP suma únicamente al formato elegido y no descuenta USD."
+    ],
+    [
+      "40 · Catálogo con imágenes",
+      "Las tarjetas de productos usan ilustraciones específicas incluidas en la APK, visibles sin internet. Guayaba, frutabomba, plátano y las variedades de frijoles tienen imágenes distintas. Jamón y queso se añaden por libra, con cantidad mensual inicial 0 y precio pendiente de confirmar. Guayaba se registra y planifica por libra; si la referencia procede de una bolsa de 5 lb, se divide el precio por cinco y se informa del origen sin afirmar venta suelta."
+    ],
+    [
+      "41 · Reservar y gastar gasolina",
+      "Fondo gasolina se añade en Presupuesto fila 17 y Fondos fila 11. La asignación inicial es 0: decide cuánto reservar sin reducir la meta de ahorro del 50%. Registrar → Aporte fondo → Fondo gasolina reserva el dinero; Registrar → Gasto → Fondo gasolina registra el pago real. La gasolina del catálogo se registra por litro y carga al mismo fondo. El aporte no resta efectivo y el gasto lo descuenta una sola vez, sin volver a cargarlo a consumo. Ajusta otras asignaciones si el total supera el límite mensual."
+    ]
+  ],
+  "changeTemplates": {
+    "D": "=IF(G{r}=\"OK\",ROUND(B{r}*C{r},2),\"\")",
+    "G": "=IF(COUNTA(A{r}:C{r},E{r}:F{r},H{r})=0,\"\",IF(NOT(AND(ISNUMBER(A{r}),A{r}>=Ajustes!$B$12,A{r}<TODAY()+1)),\"Revisar fecha\",IF(NOT(AND(ISNUMBER(B{r}),B{r}>0,B{r}=IFERROR(ROUND(B{r},2),0))),\"Revisar USD\",IF(NOT(AND(ISNUMBER(C{r}),C{r}>0,C{r}<=1000000,IFERROR(ROUND(B{r}*C{r},2),0)>0)),\"Revisar tasa\",IF(AND(H{r}<>\"\",NOT(AND(ISNUMBER(H{r}),H{r}>0,H{r}<=1000000))),\"Revisar tasa al cobrar\",IF(F{r}=\"\",\"Falta identificador\",IF(COUNTIF($F$6:$F$505,F{r})>1,\"Identificador repetido\",\"OK\")))))))",
+    "I": "=IF(AND(G{r}=\"OK\",ISNUMBER(H{r}),H{r}>0),IFERROR(ROUND(B{r}*(C{r}-H{r}),2),\"\"),\"\")"
+  }
+}

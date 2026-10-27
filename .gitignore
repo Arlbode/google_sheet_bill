@@ -1,0 +1,13 @@
+# Secretos de firma: nunca se publican.
+.android-signing/
+*.p12
+*.jks
+*.keystore
+**/password
+**/password.txt
+**/*password-file*
+# Archivos de trabajo regenerables.
+recovered-source/build/
+.venv/
+node_modules/
+__pycache__/

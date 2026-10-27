@@ -1,0 +1,4606 @@
+{
+  "exchange": {
+    "id": "TC1",
+    "source": "elTOQUE",
+    "url": "https://eltoque.com/",
+    "observed_on": "2026-10-26",
+    "cup_per_usd": 840,
+    "title": "Mercado Informal de Divisas en Cuba",
+    "quote": "1 USD = 840.00 CUP; fecha mostrada: 26 de octubre de 2026 a las 10:22 a. m.",
+    "location": "Cuba · mercado informal",
+    "note": "Mediana de ofertas publicadas; no tasa oficial ni garantía del cambio que obtendrás. Referencia editable; cada operación conserva su tasa real."
+  },
+  "version": "5-2180a5c1a0aa",
+  "observedOn": "2026-10-27",
+  "rules": [
+    {
+      "kind": "alamesa",
+      "id": "pizza-de-queso-o-33-cm-mercy",
+      "url": "https://www.alamesacuba.com/es/la-habana/a-domicilio/detalles/pizza-de-queso-o-33-cm-mercy/",
+      "unit": "pedido",
+      "pattern": "pizza de queso.*33\\s*cm",
+      "currency": "USD",
+      "names": [
+        "Comida a domicilio (para 2)"
+      ],
+      "priceMultiplier": 2,
+      "packQuantity": 1,
+      "offerUnit": "pedido de 2 pizzas de queso de 33 cm",
+      "verifyUrl": "https://www.alamesacuba.com/es/la-habana/a-domicilio/products/playa?q=pizza%20de%20queso",
+      "vendor": {
+        "name": "Mercy Bar Café · AlaMesa",
+        "municipality": "La Habana · oferta listada para Playa",
+        "address": "Pedido online por AlaMesa",
+        "delivery": "El precio de los dos platos no incluye mensajería. Confirmar cargo y pago.",
+        "stock": "OFERTA PUBLICADA · catálogo para Playa"
+      }
+    },
+    {
+      "kind": "woocommerce",
+      "id": "2512",
+      "url": "https://cubakilos.com/tienda/producto/boniato-5-lb/",
+      "fetchUrl": "https://cubakilos.com/tienda/wp-json/wc/store/v1/products/2512",
+      "unit": "lb",
+      "pattern": "boniato.*5\\s*lb",
+      "currency": "USD",
+      "names": [
+        "Boniato",
+        "Boniato para los 3 perros"
+      ],
+      "priceDivisor": 5,
+      "packQuantity": 5,
+      "offerUnit": "bolsa de 5 lb",
+      "vendor": {
+        "name": "Cubakilos · catálogo online",
+        "municipality": "La Habana · confirmar Playa al seleccionar destino",
+        "address": "Compra online; entrega por transporte del proveedor",
+        "delivery": "Pedido mínimo 50 USD; pago online con tarjeta/Bizum. Seleccionar Playa y confirmar cobertura y envío antes de comprar.",
+        "stock": "OFERTA PUBLICADA · catálogo indica existencias; confirmar destino y mínimo"
+      }
+    },
+    {
+      "kind": "woocommerce",
+      "id": "2513",
+      "url": "https://cubakilos.com/tienda/producto/calabaza-5-lb/",
+      "fetchUrl": "https://cubakilos.com/tienda/wp-json/wc/store/v1/products/2513",
+      "unit": "lb",
+      "pattern": "calabaza.*5\\s*lb",
+      "currency": "USD",
+      "names": [
+        "Calabaza"
+      ],
+      "priceDivisor": 5,
+      "packQuantity": 5,
+      "offerUnit": "bolsa de 5 lb",
+      "vendor": {
+        "name": "Cubakilos · catálogo online",
+        "municipality": "La Habana · confirmar Playa al seleccionar destino",
+        "address": "Compra online; entrega por transporte del proveedor",
+        "delivery": "Pedido mínimo 50 USD; pago online con tarjeta/Bizum. Seleccionar Playa y confirmar cobertura y envío antes de comprar.",
+        "stock": "OFERTA PUBLICADA · catálogo indica existencias; confirmar destino y mínimo"
+      }
+    },
+    {
+      "kind": "woocommerce",
+      "id": "2518",
+      "url": "https://cubakilos.com/tienda/producto/pepino-5-lb/",
+      "fetchUrl": "https://cubakilos.com/tienda/wp-json/wc/store/v1/products/2518",
+      "unit": "lb",
+      "pattern": "pepino.*5\\s*lb",
+      "currency": "USD",
+      "names": [
+        "Pepino"
+      ],
+      "priceDivisor": 5,
+      "packQuantity": 5,
+      "offerUnit": "bolsa de 5 lb",
+      "vendor": {
+        "name": "Cubakilos · catálogo online",
+        "municipality": "La Habana · confirmar Playa al seleccionar destino",
+        "address": "Compra online; entrega por transporte del proveedor",
+        "delivery": "Pedido mínimo 50 USD; pago online con tarjeta/Bizum. Seleccionar Playa y confirmar cobertura y envío antes de comprar.",
+        "stock": "OFERTA PUBLICADA · catálogo indica existencias; confirmar destino y mínimo"
+      }
+    },
+    {
+      "kind": "woocommerce",
+      "id": "2514",
+      "url": "https://cubakilos.com/tienda/producto/fruta-bomba-5-lb/",
+      "fetchUrl": "https://cubakilos.com/tienda/wp-json/wc/store/v1/products/2514",
+      "unit": "lb",
+      "pattern": "fruta\\s*bomba.*5\\s*lb",
+      "currency": "USD",
+      "names": [
+        "Frutabomba"
+      ],
+      "priceDivisor": 5,
+      "packQuantity": 5,
+      "offerUnit": "bolsa de 5 lb",
+      "vendor": {
+        "name": "Cubakilos · catálogo online",
+        "municipality": "La Habana · confirmar Playa al seleccionar destino",
+        "address": "Compra online; entrega por transporte del proveedor",
+        "delivery": "Pedido mínimo 50 USD; pago online con tarjeta/Bizum. Seleccionar Playa y confirmar cobertura y envío antes de comprar.",
+        "stock": "OFERTA PUBLICADA · catálogo indica existencias; confirmar destino y mínimo"
+      }
+    },
+    {
+      "kind": "woocommerce",
+      "id": "2515",
+      "url": "https://cubakilos.com/tienda/producto/guayaba-5-lb/",
+      "fetchUrl": "https://cubakilos.com/tienda/wp-json/wc/store/v1/products/2515",
+      "unit": "lb",
+      "pattern": "guayaba.*5\\s*lb",
+      "currency": "USD",
+      "names": [
+        "Guayaba"
+      ],
+      "priceDivisor": 5,
+      "packQuantity": 0,
+      "offerUnit": "lb · referencia calculada desde una bolsa de 5 lb",
+      "vendor": {
+        "name": "Cubakilos · catálogo online",
+        "municipality": "La Habana · confirmar Playa al seleccionar destino",
+        "address": "Compra online; entrega por transporte del proveedor",
+        "delivery": "Pedido mínimo 50 USD; pago online con tarjeta/Bizum. Seleccionar Playa y confirmar cobertura y envío antes de comprar.",
+        "stock": "OFERTA PUBLICADA · catálogo indica existencias; confirmar destino y mínimo"
+      }
+    },
+    {
+      "kind": "woocommerce",
+      "id": "2520",
+      "url": "https://cubakilos.com/tienda/producto/platanos-burros-2-manos/",
+      "fetchUrl": "https://cubakilos.com/tienda/wp-json/wc/store/v1/products/2520",
+      "unit": "mano",
+      "pattern": "platanos burros.*2\\s*manos",
+      "currency": "USD",
+      "names": [
+        "Plátano"
+      ],
+      "priceDivisor": 2,
+      "packQuantity": 2,
+      "offerUnit": "paquete de 2 manos de plátanos burros",
+      "vendor": {
+        "name": "Cubakilos · catálogo online",
+        "municipality": "La Habana · confirmar Playa al seleccionar destino",
+        "address": "Compra online; entrega por transporte del proveedor",
+        "delivery": "Pedido mínimo 50 USD; pago online con tarjeta/Bizum. Seleccionar Playa y confirmar cobertura y envío antes de comprar.",
+        "stock": "OFERTA PUBLICADA · catálogo indica existencias; confirmar destino y mínimo"
+      }
+    },
+    {
+      "kind": "woocommerce",
+      "id": "1932",
+      "url": "https://bodegonselecto.com/product/2-lb-cebolla-blanca/",
+      "fetchUrl": "https://bodegonselecto.com/wp-json/wc/store/v1/products/1932",
+      "unit": "lb",
+      "pattern": "cebolla.*2\\s*(lb|libras)",
+      "currency": "USD",
+      "names": [
+        "Cebolla"
+      ],
+      "priceDivisor": 2,
+      "packQuantity": 2,
+      "offerUnit": "bolsa de 2 lb",
+      "vendor": {
+        "name": "Bodegón Selecto",
+        "municipality": "La Habana",
+        "address": "Compra online; consultar entrega a Playa",
+        "delivery": "Confirmar cobertura, mensajería, mínimo de pedido y forma de pago antes de comprar.",
+        "stock": "OFERTA PUBLICADA · catálogo indica existencias"
+      }
+    },
+    {
+      "kind": "woocommerce",
+      "id": "2017",
+      "url": "https://bodegonselecto.com/product/3-lb-tomate-mediano/",
+      "fetchUrl": "https://bodegonselecto.com/wp-json/wc/store/v1/products/2017",
+      "unit": "lb",
+      "pattern": "tomate[\\s\\S]*3\\s*lb|3\\s*lb[\\s\\S]*tomate",
+      "currency": "USD",
+      "names": [
+        "Tomate"
+      ],
+      "priceDivisor": 3,
+      "packQuantity": 3,
+      "offerUnit": "módulo de 3 lb",
+      "vendor": {
+        "name": "Bodegón Selecto",
+        "municipality": "La Habana",
+        "address": "Compra online; consultar entrega a Playa",
+        "delivery": "Confirmar cobertura, mensajería, mínimo de pedido y forma de pago antes de comprar.",
+        "stock": "OFERTA PUBLICADA · catálogo indica existencias"
+      }
+    },
+    {
+      "kind": "woocommerce",
+      "id": "1936",
+      "url": "https://bodegonselecto.com/product/1-unidad-col/",
+      "fetchUrl": "https://bodegonselecto.com/wp-json/wc/store/v1/products/1936",
+      "unit": "unidad",
+      "pattern": "col (entera|mediana)",
+      "currency": "USD",
+      "names": [
+        "Col"
+      ],
+      "priceDivisor": 1,
+      "packQuantity": 1,
+      "offerUnit": "col entera mediana a grande",
+      "vendor": {
+        "name": "Bodegón Selecto",
+        "municipality": "La Habana",
+        "address": "Compra online; consultar entrega a Playa",
+        "delivery": "Confirmar cobertura, mensajería, mínimo de pedido y forma de pago antes de comprar.",
+        "stock": "OFERTA PUBLICADA · catálogo indica existencias"
+      }
+    },
+    {
+      "kind": "alamesa",
+      "id": "ajo-pelado-05-lb",
+      "url": "https://www.alamesacuba.com/es/la-habana/a-domicilio/detalles/ajo-pelado-05-lb/",
+      "unit": "lb",
+      "pattern": "ajo pelado.*0[.,]5\\s*lb",
+      "currency": "USD",
+      "names": [
+        "Ajo"
+      ],
+      "priceDivisor": 0.5,
+      "packQuantity": 0.5,
+      "offerUnit": "paquete de 0,5 lb de ajo pelado",
+      "verifyUrl": "https://www.alamesacuba.com/es/la-habana/a-domicilio/products/playa?q=ajo",
+      "vendor": {
+        "name": "Pan&Más · AlaMesa",
+        "municipality": "La Habana · oferta listada para Playa",
+        "address": "Pedido por AlaMesa; confirmar punto de recogida si procede",
+        "delivery": "Oferta listada en resultados para Playa; mensajería se suma aparte. Confirmar pago USD/CUP.",
+        "stock": "OFERTA PUBLICADA · catálogo para Playa"
+      }
+    },
+    {
+      "kind": "woocommerce",
+      "id": "4150",
+      "url": "https://www.lacuevashop.com/product/almohadillas-sanitarias-giggles-normal-10-unidades/",
+      "fetchUrl": "https://www.lacuevashop.com/wp-json/wc/store/v1/products/4150",
+      "unit": "paquete de 10 unidades",
+      "pattern": "10",
+      "currency": "CUP",
+      "names": [
+        "Almohadillas sanitarias"
+      ],
+      "priceDivisor": 1,
+      "packQuantity": 1,
+      "offerUnit": "paquete de 10 íntimas Giggles normal",
+      "vendor": {
+        "name": "La Cueva de Alibaba",
+        "municipality": "Cerro",
+        "address": "Calzada del Cerro #2203 e/ Prensa y Colón",
+        "delivery": "Gratis en La Habana desde 25000 CUP; por debajo confirmar cargo.",
+        "stock": "OFERTA PUBLICADA · catálogo indica existencias"
+      }
+    },
+    {
+      "id": "57308270",
+      "url": "https://www.revolico.com/item/cloro-57308270",
+      "unit": "envase de 1 litro",
+      "pattern": "1\\s*litro",
+      "currency": "CUP",
+      "names": [
+        "Cloro / lejía"
+      ],
+      "packQuantity": 1,
+      "offerUnit": "pomo de 1 litro",
+      "vendor": {
+        "name": "Botánica Pura · anuncio de Jennifer Gordillo",
+        "municipality": "Guanabacoa",
+        "address": "Consultar dirección en el anuncio",
+        "delivery": "Confirmar entrega y cargo a Playa antes de comprar.",
+        "stock": "OFERTA PUBLICADA · confirmar disponibilidad y entrega"
+      }
+    },
+    {
+      "id": "58158599",
+      "url": "https://www.revolico.com/item/set-de-esponjitas-y-estropajos-58158599",
+      "unit": "set",
+      "pattern": "2\\s*estropajos de acero",
+      "currency": "CUP",
+      "names": [
+        "Esponjas / estropajos"
+      ],
+      "packQuantity": 1,
+      "offerUnit": "set de 2 esponjas y 2 estropajos",
+      "vendor": {
+        "name": "Maria Perera",
+        "municipality": "Diez de Octubre",
+        "address": "Consultar dirección en el anuncio",
+        "delivery": "Mensajería con cargo adicional; confirmar a Playa.",
+        "stock": "OFERTA PUBLICADA · confirmar existencias"
+      }
+    },
+    {
+      "id": "58358425",
+      "url": "https://www.revolico.com/item/leche-en-polvo-de-1-kg-58358425",
+      "unit": "kg",
+      "pattern": "1\\s*kg",
+      "currency": "CUP",
+      "names": [
+        "Leche en polvo"
+      ]
+    },
+    {
+      "id": "58279590",
+      "url": "https://www.revolico.com/item/huevo-por-carton-58279590",
+      "unit": "cartón",
+      "pattern": "carton",
+      "currency": "CUP",
+      "names": [
+        "Huevo"
+      ]
+    },
+    {
+      "id": "57775294",
+      "url": "https://www.revolico.com/item/carne-de-cerdo-deshuesada2500-la-libra-57775294",
+      "unit": "lb",
+      "pattern": "libra",
+      "currency": "CUP",
+      "names": [
+        "Carne de cerdo deshuesada"
+      ]
+    },
+    {
+      "id": "58332918",
+      "url": "https://www.revolico.com/item/pollo-congelado-paquete-de-11-libras-58332918",
+      "unit": "paquete de 11 lb",
+      "pattern": "11\\s*(lb|libras)",
+      "currency": "CUP",
+      "names": [
+        "Pollo congelado",
+        "Pollo para los 3 perros"
+      ]
+    },
+    {
+      "id": "57700553",
+      "url": "https://www.revolico.com/item/arroz-57700553",
+      "unit": "kg",
+      "pattern": "1\\s*kg",
+      "currency": "CUP",
+      "names": [
+        "Arroz",
+        "Arroz para los 3 perros"
+      ]
+    },
+    {
+      "id": "57245007",
+      "url": "https://www.revolico.com/item/azucar-1kg-57245007",
+      "unit": "kg",
+      "pattern": "1\\s*kg",
+      "currency": "USD",
+      "names": [
+        "Azúcar"
+      ]
+    },
+    {
+      "id": "57719044",
+      "url": "https://www.revolico.com/item/sal-fina-paquete-2lb-57719044",
+      "unit": "paquete de 2 lb",
+      "pattern": "2\\s*(lb|libras)",
+      "currency": "CUP",
+      "names": [
+        "Sal fina"
+      ]
+    },
+    {
+      "id": "58121649",
+      "url": "https://www.revolico.com/item/aceite-1-litro-58121649",
+      "unit": "litro",
+      "pattern": "1\\s*litro",
+      "currency": "USD",
+      "names": [
+        "Aceite comestible"
+      ]
+    },
+    {
+      "id": "58084560",
+      "url": "https://www.revolico.com/item/picadillo-de-pollo-a-granel-2-libras-58084560",
+      "unit": "bolsa de 2 lb",
+      "pattern": "2\\s*(lb|lbs|libras)",
+      "currency": "USD",
+      "names": [
+        "Picadillo de pollo"
+      ]
+    },
+    {
+      "id": "58326627",
+      "url": "https://www.revolico.com/item/pienso-para-perros-por-libras-de-la-mejor-calidad-58326627",
+      "unit": "lb",
+      "pattern": "por libras",
+      "currency": "CUP",
+      "names": [
+        "Pienso para los 3 perros"
+      ]
+    },
+    {
+      "id": "57361630",
+      "url": "https://www.revolico.com/item/comida-para-perro-saco-de-20kg-57361630",
+      "unit": "saco de 20 kg",
+      "pattern": "20\\s*kg",
+      "currency": "USD",
+      "names": [
+        "Alternativa: pienso en saco"
+      ]
+    },
+    {
+      "id": "58154259",
+      "url": "https://www.revolico.com/item/champu-58154259",
+      "unit": "envase de 750 ml",
+      "pattern": "750\\s*ml",
+      "currency": "CUP",
+      "names": [
+        "Champú"
+      ]
+    },
+    {
+      "id": "58161740",
+      "url": "https://www.revolico.com/item/papel-higienico-la-excelencia-4-unidades-58161740",
+      "unit": "paquete de 4 unidades",
+      "pattern": "4\\s*(unidades|u\\b)",
+      "currency": "CUP",
+      "names": [
+        "Papel higiénico"
+      ]
+    },
+    {
+      "id": "58202530",
+      "url": "https://www.revolico.com/item/detergente-en-polvo-gal-1-kg-rosas-flores-lavanda-o-limon-58202530",
+      "unit": "paquete de 1 kg",
+      "pattern": "1\\s*kg",
+      "currency": "CUP",
+      "names": [
+        "Detergente para ropa"
+      ]
+    },
+    {
+      "id": "58209911",
+      "url": "https://www.revolico.com/item/limpiahogar-multiuso-de-pino-15-litros-58209911",
+      "unit": "envase de 1,5 litros",
+      "pattern": "1[.,]5\\s*litro",
+      "currency": "CUP",
+      "names": [
+        "Limpiador de pisos"
+      ]
+    },
+    {
+      "id": "58300720",
+      "url": "https://www.revolico.com/item/bolsas-de-basura-con-aroma-a-lavanda-rollo-de-10u-58300720",
+      "unit": "rollo de 10 unidades",
+      "pattern": "10\\s*(unidades|u\\b)",
+      "currency": "CUP",
+      "names": [
+        "Bolsas de basura"
+      ]
+    },
+    {
+      "kind": "store",
+      "id": "jabon-doxa-100g",
+      "url": "https://www.lacuevashop.com/product/jabon-doxa-100g/",
+      "unit": "pastilla de 100 g",
+      "pattern": "100\\s*g",
+      "currency": "CUP",
+      "names": [
+        "Jabón de baño"
+      ]
+    },
+    {
+      "kind": "woocommerce",
+      "id": "5040",
+      "url": "https://www.lacuevashop.com/product/pasta-dental-colgate-triple-accion-150ml/",
+      "unit": "tubo de 150 ml",
+      "pattern": "150\\s*ml",
+      "currency": "CUP",
+      "names": [
+        "Pasta dental"
+      ],
+      "fetchUrl": "https://www.lacuevashop.com/wp-json/wc/store/v1/products/5040",
+      "vendor": {
+        "name": "La Cueva de Alibaba",
+        "municipality": "Cerro",
+        "address": "Calzada del Cerro #2203 e/ Prensa y Colón",
+        "delivery": "Gratis en La Habana desde 25000 CUP; por debajo confirmar cargo.",
+        "stock": "OFERTA PUBLICADA · catálogo indica existencias"
+      }
+    },
+    {
+      "kind": "store",
+      "id": "pasta-dental-colgate-triple-accion-150ml",
+      "url": "https://www.lacuevashop.com/product/pasta-dental-colgate-triple-accion-150ml/",
+      "unit": "tubo de 150 ml",
+      "pattern": "150\\s*ml",
+      "currency": "CUP",
+      "names": [
+        "Pasta dental"
+      ]
+    },
+    {
+      "kind": "woocommerce",
+      "id": "4173",
+      "url": "https://www.lacuevashop.com/product/desodorante-old-spice-pure-sport-63-g/",
+      "unit": "barra de 63 g",
+      "pattern": "63\\s*g",
+      "currency": "CUP",
+      "names": [
+        "Desodorante"
+      ],
+      "fetchUrl": "https://www.lacuevashop.com/wp-json/wc/store/v1/products/4173",
+      "vendor": {
+        "name": "La Cueva de Alibaba",
+        "municipality": "Cerro",
+        "address": "Calzada del Cerro #2203 e/ Prensa y Colón",
+        "delivery": "Gratis en La Habana desde 25000 CUP; por debajo confirmar cargo.",
+        "stock": "OFERTA PUBLICADA · catálogo indica existencias"
+      }
+    },
+    {
+      "kind": "store",
+      "id": "desodorante-old-spice-pure-sport-63-g",
+      "url": "https://www.lacuevashop.com/product/desodorante-old-spice-pure-sport-63-g/",
+      "unit": "barra de 63 g",
+      "pattern": "63\\s*g",
+      "currency": "CUP",
+      "names": [
+        "Desodorante"
+      ]
+    },
+    {
+      "kind": "woocommerce",
+      "id": "195",
+      "url": "https://www.lacuevashop.com/product/legia-de-cloro-b-l-1l/",
+      "unit": "envase de 1 litro",
+      "pattern": "1\\s*litro",
+      "currency": "CUP",
+      "names": [
+        "Cloro / lejía"
+      ],
+      "fetchUrl": "https://www.lacuevashop.com/wp-json/wc/store/v1/products/195",
+      "vendor": {
+        "name": "La Cueva de Alibaba",
+        "municipality": "Cerro",
+        "address": "Calzada del Cerro #2203 e/ Prensa y Colón",
+        "delivery": "Gratis en La Habana desde 25000 CUP; por debajo confirmar cargo.",
+        "stock": "OFERTA PUBLICADA · catálogo indica existencias"
+      }
+    },
+    {
+      "kind": "store",
+      "id": "legia-de-cloro-b-l-1l",
+      "url": "https://www.lacuevashop.com/product/legia-de-cloro-b-l-1l/",
+      "unit": "envase de 1 litro",
+      "pattern": "1\\s*litro",
+      "currency": "CUP",
+      "names": [
+        "Cloro / lejía"
+      ]
+    },
+    {
+      "kind": "woocommerce",
+      "id": "193",
+      "url": "https://www.lacuevashop.com/product/lavavajillas-b-l-limon-1-lt/",
+      "unit": "envase de 1 litro",
+      "pattern": "1\\s*litro",
+      "currency": "CUP",
+      "names": [
+        "Detergente para platos"
+      ],
+      "fetchUrl": "https://www.lacuevashop.com/wp-json/wc/store/v1/products/193",
+      "vendor": {
+        "name": "La Cueva de Alibaba",
+        "municipality": "Cerro",
+        "address": "Calzada del Cerro #2203 e/ Prensa y Colón",
+        "delivery": "Gratis en La Habana desde 25000 CUP; por debajo confirmar cargo.",
+        "stock": "OFERTA PUBLICADA · catálogo indica existencias"
+      }
+    },
+    {
+      "kind": "store",
+      "id": "lavavajillas-b-l-limon-1-lt",
+      "url": "https://www.lacuevashop.com/product/lavavajillas-b-l-limon-1-lt/",
+      "unit": "envase de 1 litro",
+      "pattern": "1\\s*litro",
+      "currency": "CUP",
+      "names": [
+        "Detergente para platos"
+      ]
+    },
+    {
+      "kind": "woocommerce",
+      "id": "2985",
+      "url": "https://www.lacuevashop.com/product/cepillo-dental-colgate-1-unidad/",
+      "unit": "unidad",
+      "pattern": "cepillo de dientes colgate",
+      "currency": "CUP",
+      "names": [
+        "Cepillos dentales"
+      ],
+      "fetchUrl": "https://www.lacuevashop.com/wp-json/wc/store/v1/products/2985",
+      "vendor": {
+        "name": "La Cueva de Alibaba",
+        "municipality": "Cerro",
+        "address": "Calzada del Cerro #2203 e/ Prensa y Colón",
+        "delivery": "Gratis en La Habana desde 25000 CUP; por debajo confirmar cargo.",
+        "stock": "OFERTA PUBLICADA · catálogo indica existencias"
+      }
+    },
+    {
+      "kind": "store",
+      "id": "cepillo-dental-colgate-1-unidad",
+      "url": "https://www.lacuevashop.com/product/cepillo-dental-colgate-1-unidad/",
+      "unit": "unidad",
+      "pattern": "cepillo de dientes colgate",
+      "currency": "CUP",
+      "names": [
+        "Cepillos dentales"
+      ]
+    },
+    {
+      "kind": "woocommerce",
+      "id": "4870",
+      "url": "https://www.lacuevashop.com/product/paquete-de-pollo-11-lbr/",
+      "fetchUrl": "https://www.lacuevashop.com/wp-json/wc/store/v1/products/4870",
+      "unit": "paquete de 11 lb",
+      "pattern": "11\\s*libras",
+      "currency": "CUP",
+      "names": [
+        "Pollo",
+        "Pollo para los 3 perros"
+      ],
+      "vendor": {
+        "name": "La Cueva de Alibaba",
+        "municipality": "Cerro",
+        "address": "Calzada del Cerro #2203 e/ Prensa y Colón",
+        "delivery": "Gratis en La Habana desde 25000 CUP; por debajo confirmar cargo.",
+        "stock": "OFERTA PUBLICADA · catálogo indica existencias"
+      }
+    },
+    {
+      "kind": "woocommerce",
+      "id": "42",
+      "url": "https://www.lacuevashop.com/product/arroz-el-rey-del-arroz-1-kg/",
+      "fetchUrl": "https://www.lacuevashop.com/wp-json/wc/store/v1/products/42",
+      "unit": "kg",
+      "pattern": "1\\s*kg",
+      "currency": "CUP",
+      "names": [
+        "Arroz",
+        "Arroz para los 3 perros"
+      ],
+      "vendor": {
+        "name": "La Cueva de Alibaba",
+        "municipality": "Cerro",
+        "address": "Calzada del Cerro #2203 e/ Prensa y Colón",
+        "delivery": "Gratis en La Habana desde 25000 CUP; por debajo confirmar cargo.",
+        "stock": "OFERTA PUBLICADA · catálogo indica existencias"
+      }
+    },
+    {
+      "kind": "store",
+      "id": "2512",
+      "url": "https://cubakilos.com/tienda/producto/boniato-5-lb/",
+      "unit": "lb",
+      "pattern": "boniato.*5\\s*lb",
+      "currency": "USD",
+      "names": [
+        "Boniato",
+        "Boniato para los 3 perros"
+      ],
+      "priceDivisor": 5,
+      "packQuantity": 5,
+      "offerUnit": "bolsa de 5 lb",
+      "vendor": {
+        "name": "Cubakilos · catálogo online",
+        "municipality": "La Habana · confirmar Playa al seleccionar destino",
+        "address": "Compra online; entrega por transporte del proveedor",
+        "delivery": "Pedido mínimo 50 USD; pago online con tarjeta/Bizum. Seleccionar Playa y confirmar cobertura y envío antes de comprar.",
+        "stock": "OFERTA PUBLICADA · catálogo indica existencias; confirmar destino y mínimo"
+      }
+    },
+    {
+      "kind": "store",
+      "id": "2513",
+      "url": "https://cubakilos.com/tienda/producto/calabaza-5-lb/",
+      "unit": "lb",
+      "pattern": "calabaza.*5\\s*lb",
+      "currency": "USD",
+      "names": [
+        "Calabaza"
+      ],
+      "priceDivisor": 5,
+      "packQuantity": 5,
+      "offerUnit": "bolsa de 5 lb",
+      "vendor": {
+        "name": "Cubakilos · catálogo online",
+        "municipality": "La Habana · confirmar Playa al seleccionar destino",
+        "address": "Compra online; entrega por transporte del proveedor",
+        "delivery": "Pedido mínimo 50 USD; pago online con tarjeta/Bizum. Seleccionar Playa y confirmar cobertura y envío antes de comprar.",
+        "stock": "OFERTA PUBLICADA · catálogo indica existencias; confirmar destino y mínimo"
+      }
+    },
+    {
+      "kind": "store",
+      "id": "2518",
+      "url": "https://cubakilos.com/tienda/producto/pepino-5-lb/",
+      "unit": "lb",
+      "pattern": "pepino.*5\\s*lb",
+      "currency": "USD",
+      "names": [
+        "Pepino"
+      ],
+      "priceDivisor": 5,
+      "packQuantity": 5,
+      "offerUnit": "bolsa de 5 lb",
+      "vendor": {
+        "name": "Cubakilos · catálogo online",
+        "municipality": "La Habana · confirmar Playa al seleccionar destino",
+        "address": "Compra online; entrega por transporte del proveedor",
+        "delivery": "Pedido mínimo 50 USD; pago online con tarjeta/Bizum. Seleccionar Playa y confirmar cobertura y envío antes de comprar.",
+        "stock": "OFERTA PUBLICADA · catálogo indica existencias; confirmar destino y mínimo"
+      }
+    },
+    {
+      "kind": "store",
+      "id": "2514",
+      "url": "https://cubakilos.com/tienda/producto/fruta-bomba-5-lb/",
+      "unit": "lb",
+      "pattern": "fruta\\s*bomba.*5\\s*lb",
+      "currency": "USD",
+      "names": [
+        "Frutabomba"
+      ],
+      "priceDivisor": 5,
+      "packQuantity": 5,
+      "offerUnit": "bolsa de 5 lb",
+      "vendor": {
+        "name": "Cubakilos · catálogo online",
+        "municipality": "La Habana · confirmar Playa al seleccionar destino",
+        "address": "Compra online; entrega por transporte del proveedor",
+        "delivery": "Pedido mínimo 50 USD; pago online con tarjeta/Bizum. Seleccionar Playa y confirmar cobertura y envío antes de comprar.",
+        "stock": "OFERTA PUBLICADA · catálogo indica existencias; confirmar destino y mínimo"
+      }
+    },
+    {
+      "kind": "store",
+      "id": "2515",
+      "url": "https://cubakilos.com/tienda/producto/guayaba-5-lb/",
+      "unit": "lb",
+      "pattern": "guayaba.*5\\s*lb",
+      "currency": "USD",
+      "names": [
+        "Guayaba"
+      ],
+      "priceDivisor": 5,
+      "packQuantity": 0,
+      "offerUnit": "lb · referencia calculada desde una bolsa de 5 lb",
+      "vendor": {
+        "name": "Cubakilos · catálogo online",
+        "municipality": "La Habana · confirmar Playa al seleccionar destino",
+        "address": "Compra online; entrega por transporte del proveedor",
+        "delivery": "Pedido mínimo 50 USD; pago online con tarjeta/Bizum. Seleccionar Playa y confirmar cobertura y envío antes de comprar.",
+        "stock": "OFERTA PUBLICADA · catálogo indica existencias; confirmar destino y mínimo"
+      }
+    },
+    {
+      "kind": "store",
+      "id": "2520",
+      "url": "https://cubakilos.com/tienda/producto/platanos-burros-2-manos/",
+      "unit": "mano",
+      "pattern": "platanos burros.*2\\s*manos",
+      "currency": "USD",
+      "names": [
+        "Plátano"
+      ],
+      "priceDivisor": 2,
+      "packQuantity": 2,
+      "offerUnit": "paquete de 2 manos de plátanos burros",
+      "vendor": {
+        "name": "Cubakilos · catálogo online",
+        "municipality": "La Habana · confirmar Playa al seleccionar destino",
+        "address": "Compra online; entrega por transporte del proveedor",
+        "delivery": "Pedido mínimo 50 USD; pago online con tarjeta/Bizum. Seleccionar Playa y confirmar cobertura y envío antes de comprar.",
+        "stock": "OFERTA PUBLICADA · catálogo indica existencias; confirmar destino y mínimo"
+      }
+    }
+  ],
+  "products": [
+    {
+      "category": "Canasta básica",
+      "name": "Leche en polvo",
+      "unit": "kg",
+      "quantity": 1,
+      "price": 4200,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-43",
+      "observed_on": "2026-10-27",
+      "note": "Oferta Yosvany recibida el 27/10/2026: Leche en polvo 4200 CUP por paquete de 1 kg. Confirmar disponibilidad, contacto, dirección y entrega a Playa.",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REFERENCIA DEL HOGAR · Oferta Yosvany"
+      },
+      "pack_quantity": 0,
+      "offer_unit": "paquete de 1 kg",
+      "price_unit_pending": false,
+      "offer_price": 4200,
+      "offer_id": "oferta-20261027-43",
+      "source_type": "user_offer"
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Huevo",
+      "unit": "cartón",
+      "quantity": 1,
+      "price": 3800,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-36",
+      "observed_on": "2026-10-27",
+      "note": "Oferta Yosvany recibida el 27/10/2026: Huevo 3800 CUP por cartón. Confirmar disponibilidad, contacto, dirección y entrega a Playa. No se indicó el número de huevos por cartón.",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REFERENCIA DEL HOGAR · Oferta Yosvany"
+      },
+      "pack_quantity": 0,
+      "offer_unit": "cartón",
+      "price_unit_pending": false,
+      "offer_price": 3800,
+      "offer_id": "oferta-20261027-36",
+      "source_type": "user_offer"
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Pan",
+      "unit": "bolsa de 8 panes",
+      "quantity": 4,
+      "price": 550,
+      "currency": "CUP",
+      "url": "https://www.revolico.com/item/la-habana-53584876-o-76471065-bolsa-de-pan-hornos-de-la-torre-_bolsa-de-4-panes-de-hamburguesa650-cup-_bolsa-de-57604970",
+      "observed_on": "2026-10-26",
+      "note": "Oferta de Arroyo Naranjo. No usar el precio de un paquete como si fuera el de un pan; confirmar entrega a Playa.",
+      "vendor": {
+        "name": "Vendedor de Revolico · 57604970",
+        "municipality": "Arroyo Naranjo",
+        "address": "Consultar dirección en el anuncio",
+        "delivery": "Por confirmar"
+      }
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Carne de cerdo deshuesada",
+      "unit": "lb",
+      "quantity": 2,
+      "price": 2500,
+      "currency": "CUP",
+      "url": "https://www.revolico.com/item/carne-de-cerdo-deshuesada2500-la-libra-57775294",
+      "observed_on": "2026-10-26",
+      "note": "Oferta de Diez de Octubre. Corte deshuesado; no representa todos los cortes. Confirmar entrega.",
+      "vendor": {
+        "name": "Vendedor de Revolico · 57775294",
+        "municipality": "Diez de Octubre",
+        "address": "Consultar dirección en el anuncio",
+        "delivery": "Por confirmar"
+      }
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Pollo congelado",
+      "unit": "paquete de 11 lb",
+      "quantity": 1,
+      "price": 9500,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-29",
+      "observed_on": "2026-10-27",
+      "note": "Oferta Yosvany recibida el 27/10/2026: Pollo muslo y contramuslo 9500 CUP por paquete de 11 lb. Confirmar disponibilidad, contacto, dirección y entrega a Playa.",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REFERENCIA DEL HOGAR · Oferta Yosvany"
+      },
+      "pack_quantity": 0,
+      "offer_unit": "paquete de 11 lb",
+      "price_unit_pending": false,
+      "offer_price": 9500,
+      "offer_id": "oferta-20261027-29",
+      "source_type": "user_offer"
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Arroz",
+      "unit": "lb",
+      "quantity": 13.227736,
+      "price": 370,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-22",
+      "observed_on": "2026-10-27",
+      "note": "Oferta Yosvany recibida el 27/10/2026: Arroz a granel 370 CUP por lb. Libra confirmada por el usuario. Confirmar disponibilidad, contacto, dirección y entrega a Playa.",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REFERENCIA DEL HOGAR · Oferta Yosvany"
+      },
+      "pack_quantity": 0,
+      "offer_unit": "lb",
+      "price_unit_pending": false,
+      "offer_price": 370,
+      "offer_id": "oferta-20261027-22",
+      "source_type": "user_offer"
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Azúcar",
+      "unit": "lb",
+      "quantity": 2.204623,
+      "price": 600,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-14",
+      "observed_on": "2026-10-27",
+      "note": "Oferta Yosvany recibida el 27/10/2026: Azúcar blanca 600 CUP por lb. Libra confirmada por el usuario. Confirmar disponibilidad, contacto, dirección y entrega a Playa.",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REFERENCIA DEL HOGAR · Oferta Yosvany"
+      },
+      "pack_quantity": 0,
+      "offer_unit": "lb",
+      "price_unit_pending": false,
+      "offer_price": 600,
+      "offer_id": "oferta-20261027-14",
+      "source_type": "user_offer"
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Sal fina",
+      "unit": "paquete de 2 lb",
+      "quantity": 1,
+      "price": 550,
+      "currency": "CUP",
+      "url": "https://www.revolico.com/item/sal-fina-paquete-2lb-57719044",
+      "observed_on": "2026-10-26",
+      "note": "Oferta de Playa; anuncia mensajería y transferencia, cargo sin especificar.",
+      "vendor": {
+        "name": "Vendedor de sal · Revolico",
+        "municipality": "Playa",
+        "address": "Playa; dirección exacta por el anuncio",
+        "delivery": "Anuncia mensajería; importe por confirmar"
+      }
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Aceite comestible",
+      "unit": "litro",
+      "quantity": 1,
+      "price": 3111.111111111111,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-37",
+      "observed_on": "2026-10-27",
+      "note": "Oferta Yosvany recibida el 27/10/2026: Aceite 2800 CUP por envase de 900 ml. Confirmar disponibilidad, contacto, dirección y entrega a Playa.",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REFERENCIA DEL HOGAR · Oferta Yosvany"
+      },
+      "pack_quantity": 0.9,
+      "offer_unit": "envase de 900 ml",
+      "price_unit_pending": false,
+      "offer_price": 2800,
+      "offer_id": "oferta-20261027-37",
+      "source_type": "user_offer"
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Picadillo de pollo",
+      "unit": "tubo",
+      "quantity": null,
+      "price": 1000,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-32",
+      "observed_on": "2026-10-27",
+      "note": "Oferta Yosvany recibida el 27/10/2026: Picadillo de pollo 1000 CUP por tubo. Confirmar disponibilidad, contacto, dirección y entrega a Playa. Peso del tubo no indicado; no equivale a la bolsa anterior de 2 lb.",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REFERENCIA DEL HOGAR · Oferta Yosvany"
+      },
+      "pack_quantity": 0,
+      "offer_unit": "tubo",
+      "price_unit_pending": false,
+      "offer_price": 1000,
+      "offer_id": "oferta-20261027-32",
+      "source_type": "user_offer"
+    },
+    {
+      "category": "Complementarios",
+      "name": "Boniato",
+      "unit": "lb",
+      "quantity": 8,
+      "currency": "CUP",
+      "note": "Oferta Yosvany recibida el 27/10/2026: Boniato 150 CUP por lb. Libra confirmada por el usuario. Confirmar disponibilidad, contacto, dirección y entrega a Playa.",
+      "price": 150,
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-02",
+      "observed_on": "2026-10-27",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REFERENCIA DEL HOGAR · Oferta Yosvany"
+      },
+      "pack_quantity": 0,
+      "offer_unit": "lb",
+      "price_unit_pending": false,
+      "offer_price": 150,
+      "offer_id": "oferta-20261027-02",
+      "source_type": "user_offer"
+    },
+    {
+      "category": "Complementarios",
+      "name": "Calabaza",
+      "unit": "lb",
+      "quantity": 4,
+      "currency": "CUP",
+      "note": "Oferta Yosvany recibida el 27/10/2026: Calabaza 400 CUP por lb. Libra confirmada por el usuario. Confirmar disponibilidad, contacto, dirección y entrega a Playa.",
+      "price": 400,
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-11",
+      "observed_on": "2026-10-27",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REFERENCIA DEL HOGAR · Oferta Yosvany"
+      },
+      "pack_quantity": 0,
+      "offer_unit": "lb",
+      "price_unit_pending": false,
+      "offer_price": 400,
+      "offer_id": "oferta-20261027-11",
+      "source_type": "user_offer"
+    },
+    {
+      "category": "Complementarios",
+      "name": "Pepino",
+      "unit": "lb",
+      "quantity": 4,
+      "currency": "USD",
+      "note": "Cotización online verificada el 26/10/2026: Pepino (5 Lb) · 3.85 USD por bolsa de 5 lb. El subtotal redondea a envases completos. Pedido mínimo 50 USD; pago online con tarjeta/Bizum. Seleccionar Playa y confirmar cobertura y envío antes de comprar. No es precio comprobado de un agromercado físico de Playa.",
+      "price": 0.77,
+      "url": "https://cubakilos.com/tienda/producto/pepino-5-lb/",
+      "observed_on": "2026-10-26",
+      "vendor": {
+        "name": "Cubakilos · catálogo online",
+        "municipality": "La Habana · confirmar Playa al seleccionar destino",
+        "address": "Compra online; entrega por transporte del proveedor",
+        "delivery": "Pedido mínimo 50 USD; pago online con tarjeta/Bizum. Seleccionar Playa y confirmar cobertura y envío antes de comprar.",
+        "stock": "OFERTA PUBLICADA · catálogo indica existencias; confirmar destino y mínimo"
+      },
+      "pack_quantity": 5,
+      "offer_unit": "bolsa de 5 lb"
+    },
+    {
+      "category": "Complementarios",
+      "name": "Col",
+      "unit": "lb",
+      "quantity": null,
+      "currency": "CUP",
+      "note": "Oferta Yosvany recibida el 27/10/2026: Col 850 CUP por lb. Libra confirmada por el usuario. Confirmar disponibilidad, contacto, dirección y entrega a Playa.",
+      "price": 850,
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-13",
+      "observed_on": "2026-10-27",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REFERENCIA DEL HOGAR · Oferta Yosvany"
+      },
+      "pack_quantity": 0,
+      "offer_unit": "lb",
+      "previous_units": [
+        "lb"
+      ],
+      "quantity_migration": "review",
+      "price_unit_pending": false,
+      "offer_price": 850,
+      "offer_id": "oferta-20261027-13",
+      "source_type": "user_offer"
+    },
+    {
+      "category": "Complementarios",
+      "name": "Frutabomba",
+      "unit": "lb",
+      "quantity": 6,
+      "currency": "CUP",
+      "note": "Oferta Yosvany recibida el 27/10/2026: Frutabomba pintona 180 CUP por lb. Libra confirmada por el usuario. Confirmar disponibilidad, contacto, dirección y entrega a Playa.",
+      "price": 180,
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-12",
+      "observed_on": "2026-10-27",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REFERENCIA DEL HOGAR · Oferta Yosvany"
+      },
+      "pack_quantity": 0,
+      "offer_unit": "lb",
+      "price_unit_pending": false,
+      "offer_price": 180,
+      "offer_id": "oferta-20261027-12",
+      "source_type": "user_offer"
+    },
+    {
+      "category": "Complementarios",
+      "name": "Guayaba",
+      "unit": "lb",
+      "quantity": 4,
+      "currency": "USD",
+      "note": "Registro y planificación por libra. Referencia derivada de la oferta online de 4,83 USD por bolsa de 5 lb: 0,966 USD/lb (aprox. 0,97 USD/lb al registrar). La oferta de origen sigue siendo una bolsa; no se afirma venta suelta. Confirma el precio real por libra antes de comprar y las condiciones de entrega.",
+      "price": 0.966,
+      "url": "https://cubakilos.com/tienda/producto/guayaba-5-lb/",
+      "observed_on": "2026-10-26",
+      "vendor": {
+        "name": "Cubakilos · catálogo online",
+        "municipality": "La Habana · confirmar Playa al seleccionar destino",
+        "address": "Compra online; entrega por transporte del proveedor",
+        "delivery": "Pedido mínimo 50 USD; pago online con tarjeta/Bizum. Seleccionar Playa y confirmar cobertura y envío antes de comprar.",
+        "stock": "OFERTA PUBLICADA · catálogo indica existencias; confirmar destino y mínimo"
+      },
+      "pack_quantity": 0,
+      "offer_unit": "lb",
+      "source_pack_quantity": 5
+    },
+    {
+      "category": "Complementarios",
+      "name": "Plátano",
+      "unit": "lb",
+      "quantity": null,
+      "currency": "CUP",
+      "note": "Oferta Yosvany recibida el 27/10/2026: Plátano burro 300 CUP por lb. Libra confirmada por el usuario. Confirmar disponibilidad, contacto, dirección y entrega a Playa.",
+      "price": 300,
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-04",
+      "observed_on": "2026-10-27",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REFERENCIA DEL HOGAR · Oferta Yosvany"
+      },
+      "pack_quantity": 0,
+      "offer_unit": "lb",
+      "previous_units": [
+        "lb"
+      ],
+      "quantity_migration": "review",
+      "price_unit_pending": false,
+      "offer_price": 300,
+      "offer_id": "oferta-20261027-04",
+      "source_type": "user_offer"
+    },
+    {
+      "category": "Complementarios",
+      "name": "Yuca",
+      "unit": "lb",
+      "quantity": 4,
+      "currency": "CUP",
+      "note": "Oferta Yosvany recibida el 27/10/2026: Yuca 90 CUP por lb. Libra confirmada por el usuario. Confirmar disponibilidad, contacto, dirección y entrega a Playa.",
+      "price": 90,
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-03",
+      "observed_on": "2026-10-27",
+      "pack_quantity": 0,
+      "offer_unit": "lb",
+      "price_unit_pending": false,
+      "offer_price": 90,
+      "offer_id": "oferta-20261027-03",
+      "source_type": "user_offer",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REFERENCIA DEL HOGAR · Oferta Yosvany"
+      }
+    },
+    {
+      "category": "Complementarios",
+      "name": "Tomate",
+      "unit": "lb",
+      "quantity": 2,
+      "currency": "USD",
+      "note": "Cotización online verificada el 26/10/2026: Tomate · 3.0 USD por módulo de 3 lb. El subtotal redondea a envases completos. Confirmar cobertura, mensajería, mínimo de pedido y forma de pago antes de comprar. No es precio comprobado de un agromercado físico de Playa.",
+      "price": 1.0,
+      "url": "https://bodegonselecto.com/product/3-lb-tomate-mediano/",
+      "observed_on": "2026-10-26",
+      "vendor": {
+        "name": "Bodegón Selecto",
+        "municipality": "La Habana",
+        "address": "Compra online; consultar entrega a Playa",
+        "delivery": "Confirmar cobertura, mensajería, mínimo de pedido y forma de pago antes de comprar.",
+        "stock": "OFERTA PUBLICADA · catálogo indica existencias"
+      },
+      "pack_quantity": 3,
+      "offer_unit": "módulo de 3 lb"
+    },
+    {
+      "category": "Complementarios",
+      "name": "Cebolla",
+      "unit": "lb",
+      "quantity": 1,
+      "currency": "CUP",
+      "note": "Oferta Yosvany recibida el 27/10/2026: Cebolla blanca 1300 CUP por lb. Libra confirmada por el usuario. Confirmar disponibilidad, contacto, dirección y entrega a Playa.",
+      "price": 1300,
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-06",
+      "observed_on": "2026-10-27",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REFERENCIA DEL HOGAR · Oferta Yosvany"
+      },
+      "pack_quantity": 0,
+      "offer_unit": "lb",
+      "price_unit_pending": false,
+      "offer_price": 1300,
+      "offer_id": "oferta-20261027-06",
+      "source_type": "user_offer"
+    },
+    {
+      "category": "Complementarios",
+      "name": "Ajo",
+      "unit": "lb",
+      "quantity": 0.25,
+      "currency": "CUP",
+      "note": "Oferta Yosvany recibida el 27/10/2026: Ajo 80 CUP por lb. Libra confirmada por el usuario. Confirmar disponibilidad, contacto, dirección y entrega a Playa.",
+      "price": 80,
+      "pack_quantity": 0,
+      "offer_unit": "lb",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-21",
+      "observed_on": "2026-10-27",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REFERENCIA DEL HOGAR · Oferta Yosvany"
+      },
+      "price_unit_pending": false,
+      "offer_price": 80,
+      "offer_id": "oferta-20261027-21",
+      "source_type": "user_offer"
+    },
+    {
+      "category": "Ocio",
+      "name": "Comida a domicilio (para 2)",
+      "unit": "pedido",
+      "quantity": 1,
+      "currency": "USD",
+      "note": "Referencia concreta para 2 personas: 2 pizzas de queso de 33 cm a 4,60 USD cada una = 9,20 USD, sin mensajería. No es un combo anunciado: suma de 2 unidades del menú. Puede sustituirse por otra elección. Se usa USD publicado y no la conversión CUP a 120 del sitio.",
+      "price": 9.2,
+      "url": "https://www.alamesacuba.com/es/la-habana/a-domicilio/detalles/pizza-de-queso-o-33-cm-mercy/",
+      "observed_on": "2026-10-26",
+      "pack_quantity": 1,
+      "offer_unit": "pedido de 2 pizzas de queso de 33 cm",
+      "vendor": {
+        "name": "Mercy Bar Café · AlaMesa",
+        "municipality": "La Habana · oferta listada para Playa",
+        "address": "Pedido online por AlaMesa",
+        "delivery": "El precio de los dos platos no incluye mensajería. Confirmar cargo y pago.",
+        "stock": "OFERTA PUBLICADA · catálogo para Playa"
+      }
+    },
+    {
+      "category": "Ocio",
+      "name": "Paseo / salida",
+      "unit": "salida para 2",
+      "quantity": 1,
+      "currency": "CUP",
+      "note": "PENDIENTE: anotar transporte, entrada y consumo. Puede elegirse una salida sin coste, pero no se ha supuesto que lo sea."
+    },
+    {
+      "category": "Alimentación perros",
+      "name": "Arroz para los 3 perros",
+      "unit": "lb",
+      "quantity": null,
+      "price": 370,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-22",
+      "observed_on": "2026-10-27",
+      "note": "Oferta Yosvany recibida el 27/10/2026: Arroz a granel 370 CUP por lb. Libra confirmada por el usuario. Confirmar disponibilidad, contacto, dirección y entrega a Playa.",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REFERENCIA DEL HOGAR · Oferta Yosvany"
+      },
+      "pack_quantity": 0,
+      "offer_unit": "lb",
+      "price_unit_pending": false,
+      "offer_price": 370,
+      "offer_id": "oferta-20261027-22",
+      "source_type": "user_offer"
+    },
+    {
+      "category": "Alimentación perros",
+      "name": "Boniato para los 3 perros",
+      "unit": "lb",
+      "quantity": "=Ajustes!$B$22*DAY(EOMONTH(Ajustes!$B$6,0))/7",
+      "currency": "CUP",
+      "note": "Oferta Yosvany recibida el 27/10/2026: Boniato 150 CUP por lb. Libra confirmada por el usuario. Confirmar disponibilidad, contacto, dirección y entrega a Playa.",
+      "price": 150,
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-02",
+      "observed_on": "2026-10-27",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REFERENCIA DEL HOGAR · Oferta Yosvany"
+      },
+      "pack_quantity": 0,
+      "offer_unit": "lb",
+      "price_unit_pending": false,
+      "offer_price": 150,
+      "offer_id": "oferta-20261027-02",
+      "source_type": "user_offer"
+    },
+    {
+      "category": "Alimentación perros",
+      "name": "Pollo para los 3 perros",
+      "unit": "paquete de 11 lb",
+      "quantity": null,
+      "price": 9500,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-29",
+      "observed_on": "2026-10-27",
+      "note": "Oferta Yosvany recibida el 27/10/2026: Pollo muslo y contramuslo 9500 CUP por paquete de 11 lb. Confirmar disponibilidad, contacto, dirección y entrega a Playa.",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REFERENCIA DEL HOGAR · Oferta Yosvany"
+      },
+      "pack_quantity": 0,
+      "offer_unit": "paquete de 11 lb",
+      "price_unit_pending": false,
+      "offer_price": 9500,
+      "offer_id": "oferta-20261027-29",
+      "source_type": "user_offer"
+    },
+    {
+      "category": "Alimentación perros",
+      "name": "Bofe (alternativa al pollo)",
+      "unit": "lb",
+      "quantity": 0,
+      "currency": "CUP",
+      "note": "OPCIONAL: si se usa bofe, introduce cantidad/precio y reduce pollo según la compra real. No se han supuesto raciones ni precios."
+    },
+    {
+      "category": "Alimentación perros",
+      "name": "Pienso para los 3 perros",
+      "unit": "lb",
+      "quantity": 0,
+      "price": 1000,
+      "currency": "CUP",
+      "url": "https://www.revolico.com/item/pienso-para-perros-por-libras-de-la-mejor-calidad-58326627",
+      "observed_on": "2026-10-26",
+      "note": "OPCIÓN DE COMPARACIÓN; no es la dieta habitual. Oferta de Diez de Octubre. Cantidad PROVISIONAL: no es ración recomendada. Faltan pesos, dieta y consumo real de los 3 perros; confirmar composición y entrega a Playa.",
+      "vendor": {
+        "name": "Vendedor de Revolico · 58326627",
+        "municipality": "Diez de Octubre",
+        "address": "Consultar dirección en el anuncio",
+        "delivery": "Por confirmar"
+      }
+    },
+    {
+      "category": "Alimentación perros",
+      "name": "Alternativa: pienso en saco",
+      "unit": "saco de 20 kg",
+      "quantity": 0,
+      "price": 70,
+      "currency": "USD",
+      "url": "https://www.revolico.com/item/comida-para-perro-saco-de-20kg-57361630",
+      "observed_on": "2026-10-26",
+      "note": "OPCIÓN DE COMPARACIÓN; no es la dieta habitual. Oferta de Playa. Alternativa con cantidad 0 para no contar dos piensos a la vez. Se compra el saco completo; la ración depende de cada perro.",
+      "vendor": {
+        "name": "Vendedor de Revolico · 57361630",
+        "municipality": "Playa",
+        "address": "Consultar dirección en el anuncio",
+        "delivery": "Por confirmar"
+      }
+    },
+    {
+      "category": "Servicios y transporte",
+      "name": "Mensajería de compras",
+      "unit": "mes",
+      "quantity": 1,
+      "currency": "CUP",
+      "note": "IMPORTE SEGÚN CONSUMO: completar con factura, tarifa de tu trayecto o cargo real de entrega. Una tarifa pública no determina el gasto mensual de este hogar. No se inventa un precio fijo ni se supone gratuito."
+    },
+    {
+      "category": "Servicios y transporte",
+      "name": "Electricidad / agua",
+      "unit": "mes",
+      "quantity": 1,
+      "currency": "CUP",
+      "note": "IMPORTE SEGÚN CONSUMO: completar con factura, tarifa de tu trayecto o cargo real de entrega. Una tarifa pública no determina el gasto mensual de este hogar. No se inventa un precio fijo ni se supone gratuito."
+    },
+    {
+      "category": "Servicios y transporte",
+      "name": "Gas / combustible cocina",
+      "unit": "mes",
+      "quantity": 1,
+      "currency": "CUP",
+      "note": "IMPORTE SEGÚN CONSUMO: completar con factura, tarifa de tu trayecto o cargo real de entrega. Una tarifa pública no determina el gasto mensual de este hogar. No se inventa un precio fijo ni se supone gratuito."
+    },
+    {
+      "category": "Servicios y transporte",
+      "name": "Teléfono / datos",
+      "unit": "mes",
+      "quantity": 1,
+      "currency": "CUP",
+      "note": "IMPORTE SEGÚN CONSUMO: completar con factura, tarifa de tu trayecto o cargo real de entrega. Una tarifa pública no determina el gasto mensual de este hogar. No se inventa un precio fijo ni se supone gratuito."
+    },
+    {
+      "category": "Servicios y transporte",
+      "name": "Transporte cotidiano",
+      "unit": "mes",
+      "quantity": 1,
+      "currency": "CUP",
+      "note": "IMPORTE SEGÚN CONSUMO: completar con factura, tarifa de tu trayecto o cargo real de entrega. Una tarifa pública no determina el gasto mensual de este hogar. No se inventa un precio fijo ni se supone gratuito."
+    },
+    {
+      "category": "Higiene y limpieza",
+      "name": "Pasta dental",
+      "unit": "tubo de 150 ml",
+      "quantity": 1,
+      "price": 3400.0,
+      "currency": "CUP",
+      "url": "https://www.lacuevashop.com/product/pasta-dental-colgate-triple-accion-150ml/",
+      "observed_on": "2026-10-26",
+      "note": "Precio y presentación verificados en la tienda. Pasta Dental COLGATE Triple Accion 150ml. Confirmar disponibilidad y mensajería; el catálogo indica envío gratis en La Habana desde 25000 CUP.",
+      "vendor": {
+        "name": "La Cueva de Alibaba",
+        "municipality": "Cerro",
+        "address": "Calzada del Cerro #2203 e/ Prensa y Colón",
+        "delivery": "La Habana: envío gratis desde 25000 CUP; confirmar por debajo.",
+        "stock": "OFERTA PUBLICADA · tienda indica existencias"
+      }
+    },
+    {
+      "category": "Higiene y limpieza",
+      "name": "Champú",
+      "unit": "envase de 750 ml",
+      "quantity": 1,
+      "price": 1700,
+      "currency": "CUP",
+      "url": "https://www.revolico.com/item/champu-58154259",
+      "observed_on": "2026-10-26",
+      "note": "Champú Nuky 750 ml, según descripción. Centro Habana; confirmar entrega a Playa.",
+      "vendor": {
+        "name": "Vendedor de Revolico · 58154259",
+        "municipality": "Centro Habana",
+        "address": "Consultar dirección en el anuncio",
+        "delivery": "Por confirmar"
+      }
+    },
+    {
+      "category": "Higiene y limpieza",
+      "name": "Desodorante",
+      "unit": "barra de 63 g",
+      "quantity": 1,
+      "price": 3800.0,
+      "currency": "CUP",
+      "url": "https://www.lacuevashop.com/product/desodorante-old-spice-pure-sport-63-g/",
+      "observed_on": "2026-10-26",
+      "note": "Precio y presentación verificados en la tienda. Desodorante Old Spice Pure Sport de hombre 63 g. Confirmar disponibilidad y mensajería; el catálogo indica envío gratis en La Habana desde 25000 CUP.",
+      "vendor": {
+        "name": "La Cueva de Alibaba",
+        "municipality": "Cerro",
+        "address": "Calzada del Cerro #2203 e/ Prensa y Colón",
+        "delivery": "La Habana: envío gratis desde 25000 CUP; confirmar por debajo.",
+        "stock": "OFERTA PUBLICADA · tienda indica existencias"
+      }
+    },
+    {
+      "category": "Higiene y limpieza",
+      "name": "Papel higiénico",
+      "unit": "paquete de 4 unidades",
+      "quantity": 1,
+      "price": 1100,
+      "currency": "CUP",
+      "url": "https://www.revolico.com/item/papel-higienico-la-excelencia-4-unidades-58161740",
+      "observed_on": "2026-10-26",
+      "note": "La Excelencia, paquete de 4 unidades. Calzada del Cerro #2203 entre Prensa y Colón; confirmar entrega.",
+      "vendor": {
+        "name": "Punto de venta de Calzada del Cerro 2203",
+        "municipality": "Cerro",
+        "address": "Calzada del Cerro #2203 e/ Prensa y Colón",
+        "delivery": "Por confirmar"
+      }
+    },
+    {
+      "category": "Higiene y limpieza",
+      "name": "Detergente para ropa",
+      "unit": "paquete de 1 kg",
+      "quantity": 1,
+      "price": 2200,
+      "currency": "CUP",
+      "url": "https://www.revolico.com/item/detergente-en-polvo-gal-1-kg-rosas-flores-lavanda-o-limon-58202530",
+      "observed_on": "2026-10-26",
+      "note": "La Cueva de Alibaba, Calzada del Cerro #2203. Envío gratis en La Habana desde 25000 CUP; confirmar por debajo del umbral.",
+      "vendor": {
+        "name": "La Cueva de Alibaba",
+        "municipality": "Cerro",
+        "address": "Calzada del Cerro #2203 e/ Prensa y Colón",
+        "delivery": "Gratis en La Habana desde 25000 CUP; por debajo confirmar"
+      }
+    },
+    {
+      "category": "Higiene y limpieza",
+      "name": "Cloro / lejía",
+      "unit": "envase de 1 litro",
+      "quantity": 1,
+      "price": 600,
+      "currency": "CUP",
+      "url": "https://www.revolico.com/item/cloro-57308270",
+      "observed_on": "2026-10-26",
+      "note": "Alternativa a la lejía B.L sin existencias: cloro Botánica Pura, 600 CUP por pomo de 1 litro, según anuncio verificado el 26/10/2026. Guanabacoa; confirmar disponibilidad y entrega a Playa.",
+      "vendor": {
+        "name": "Botánica Pura · anuncio de Jennifer Gordillo",
+        "municipality": "Guanabacoa",
+        "address": "Consultar dirección en el anuncio",
+        "delivery": "Confirmar entrega y cargo a Playa antes de comprar.",
+        "stock": "OFERTA PUBLICADA · confirmar disponibilidad y entrega"
+      },
+      "pack_quantity": 1,
+      "offer_unit": "pomo de 1 litro"
+    },
+    {
+      "category": "Higiene y limpieza",
+      "name": "Limpiador de pisos",
+      "unit": "envase de 1,5 litros",
+      "quantity": 1,
+      "price": 3000,
+      "currency": "CUP",
+      "url": "https://www.revolico.com/item/limpiahogar-multiuso-de-pino-15-litros-58209911",
+      "observed_on": "2026-10-26",
+      "note": "Limpiador multiuso de pino. Calzada del Cerro #2203. Envío gratis desde 25000 CUP; confirmar disponibilidad.",
+      "vendor": {
+        "name": "Punto de venta de Calzada del Cerro 2203",
+        "municipality": "Cerro",
+        "address": "Calzada del Cerro #2203 e/ Prensa y Colón",
+        "delivery": "Gratis en La Habana desde 25000 CUP; por debajo confirmar"
+      }
+    },
+    {
+      "category": "Higiene y limpieza",
+      "name": "Bolsas de basura",
+      "unit": "rollo de 10 unidades",
+      "quantity": 1,
+      "price": 1600,
+      "currency": "CUP",
+      "url": "https://www.revolico.com/item/bolsas-de-basura-con-aroma-a-lavanda-rollo-de-10u-58300720",
+      "observed_on": "2026-10-26",
+      "note": "Rollo de 10 bolsas, según título. Cerro; confirmar tamaño y entrega.",
+      "vendor": {
+        "name": "Vendedor de Revolico · 58300720",
+        "municipality": "Cerro",
+        "address": "Consultar dirección en el anuncio",
+        "delivery": "Por confirmar"
+      }
+    },
+    {
+      "category": "Higiene y limpieza",
+      "name": "Almohadillas sanitarias",
+      "unit": "paquete de 10 unidades",
+      "quantity": 0,
+      "price": 1000.0,
+      "currency": "CUP",
+      "url": "https://www.lacuevashop.com/product/almohadillas-sanitarias-giggles-normal-10-unidades/",
+      "observed_on": "2026-10-26",
+      "note": "Cotización online verificada el 26/10/2026: Íntimas Giggles normal — almohadillas sanitarias, paquete de 10 · 1000.0 CUP por paquete de 10 íntimas Giggles normal. El subtotal redondea a envases completos. Gratis en La Habana desde 25000 CUP; por debajo confirmar cargo. No es precio comprobado de un agromercado físico de Playa.",
+      "vendor": {
+        "name": "La Cueva de Alibaba",
+        "municipality": "Cerro",
+        "address": "Calzada del Cerro #2203 e/ Prensa y Colón",
+        "delivery": "Gratis en La Habana desde 25000 CUP; por debajo confirmar cargo.",
+        "stock": "OFERTA PUBLICADA · catálogo indica existencias"
+      },
+      "pack_quantity": 1,
+      "offer_unit": "paquete de 10 íntimas Giggles normal",
+      "previous_units": [
+        "paquete (confirmar contenido)"
+      ],
+      "quantity_migration": "same_count"
+    },
+    {
+      "category": "Higiene y limpieza",
+      "name": "Jabón de baño",
+      "unit": "pastilla de 100 g",
+      "quantity": 2,
+      "currency": "CUP",
+      "note": "Precio y presentación verificados en la tienda. Jabón de tocador Doxa 100 g — Elegance, Warmness o Romance. Confirmar disponibilidad y mensajería; el catálogo indica envío gratis en La Habana desde 25000 CUP.",
+      "price": 550.0,
+      "url": "https://www.lacuevashop.com/product/jabon-doxa-100g/",
+      "observed_on": "2026-10-26",
+      "vendor": {
+        "name": "La Cueva de Alibaba",
+        "municipality": "Cerro",
+        "address": "Calzada del Cerro #2203 e/ Prensa y Colón",
+        "delivery": "La Habana: envío gratis desde 25000 CUP; confirmar por debajo.",
+        "stock": "OFERTA PUBLICADA · tienda indica existencias"
+      }
+    },
+    {
+      "category": "Higiene y limpieza",
+      "name": "Cepillos dentales",
+      "unit": "unidad",
+      "quantity": 0,
+      "currency": "CUP",
+      "note": "Precio y presentación verificados en la tienda. Cepillo de dientes Colgate. Confirmar disponibilidad y mensajería; el catálogo indica envío gratis en La Habana desde 25000 CUP.",
+      "price": 850.0,
+      "url": "https://www.lacuevashop.com/product/cepillo-dental-colgate-1-unidad/",
+      "observed_on": "2026-10-26",
+      "vendor": {
+        "name": "La Cueva de Alibaba",
+        "municipality": "Cerro",
+        "address": "Calzada del Cerro #2203 e/ Prensa y Colón",
+        "delivery": "La Habana: envío gratis desde 25000 CUP; confirmar por debajo.",
+        "stock": "OFERTA PUBLICADA · tienda indica existencias"
+      }
+    },
+    {
+      "category": "Higiene y limpieza",
+      "name": "Detergente para platos",
+      "unit": "envase de 1 litro",
+      "quantity": 1,
+      "currency": "CUP",
+      "note": "Precio y presentación verificados en la tienda. Lavaplatos líquido B.L de limón 1 litro — lavavajillas. Confirmar disponibilidad y mensajería; el catálogo indica envío gratis en La Habana desde 25000 CUP.",
+      "price": 800.0,
+      "url": "https://www.lacuevashop.com/product/lavavajillas-b-l-limon-1-lt/",
+      "observed_on": "2026-10-26",
+      "vendor": {
+        "name": "La Cueva de Alibaba",
+        "municipality": "Cerro",
+        "address": "Calzada del Cerro #2203 e/ Prensa y Colón",
+        "delivery": "La Habana: envío gratis desde 25000 CUP; confirmar por debajo.",
+        "stock": "OFERTA PUBLICADA · tienda indica existencias"
+      }
+    },
+    {
+      "category": "Higiene y limpieza",
+      "name": "Esponjas / estropajos",
+      "unit": "set",
+      "quantity": 1,
+      "currency": "CUP",
+      "note": "Set de limpieza: 1 esponja verde, 2 estropajos de acero y 1 esponja amarilla. 1000 CUP el set. Mensajería adicional; fuente verificada el 26/10/2026.",
+      "price": 1000,
+      "url": "https://www.revolico.com/item/set-de-esponjitas-y-estropajos-58158599",
+      "observed_on": "2026-10-26",
+      "pack_quantity": 1,
+      "offer_unit": "set de 2 esponjas y 2 estropajos",
+      "previous_units": [
+        "paquete"
+      ],
+      "quantity_migration": "same_count",
+      "vendor": {
+        "name": "Maria Perera",
+        "municipality": "Diez de Octubre",
+        "address": "Consultar dirección en el anuncio",
+        "delivery": "Mensajería con cargo adicional; confirmar a Playa.",
+        "stock": "OFERTA PUBLICADA · confirmar existencias"
+      }
+    },
+    {
+      "category": "Complementarios",
+      "name": "Malanga",
+      "quantity": 0,
+      "unit": "lb",
+      "price": 250,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-01",
+      "observed_on": "2026-10-27",
+      "pack_quantity": 0,
+      "offer_unit": "lb",
+      "price_unit_pending": false,
+      "offer_price": 250,
+      "offer_id": "oferta-20261027-01",
+      "source_type": "user_offer",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REFERENCIA DEL HOGAR · Oferta Yosvany"
+      },
+      "note": "Oferta Yosvany recibida el 27/10/2026: Malanga 250 CUP por lb. Libra confirmada por el usuario. Confirmar disponibilidad, contacto, dirección y entrega a Playa."
+    },
+    {
+      "category": "Complementarios",
+      "name": "Plátano macho maduro",
+      "quantity": 0,
+      "unit": "lb",
+      "price": 90,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-05",
+      "observed_on": "2026-10-27",
+      "pack_quantity": 0,
+      "offer_unit": "lb",
+      "price_unit_pending": false,
+      "offer_price": 90,
+      "offer_id": "oferta-20261027-05",
+      "source_type": "user_offer",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REFERENCIA DEL HOGAR · Oferta Yosvany"
+      },
+      "note": "Oferta Yosvany recibida el 27/10/2026: Plátano macho maduro 90 CUP por lb. Libra confirmada por el usuario. Confirmar disponibilidad, contacto, dirección y entrega a Playa."
+    },
+    {
+      "category": "Complementarios",
+      "name": "Cebolla morada con mata",
+      "quantity": 0,
+      "unit": "lb",
+      "price": 950,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-07",
+      "observed_on": "2026-10-27",
+      "pack_quantity": 0,
+      "offer_unit": "lb",
+      "price_unit_pending": false,
+      "offer_price": 950,
+      "offer_id": "oferta-20261027-07",
+      "source_type": "user_offer",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REFERENCIA DEL HOGAR · Oferta Yosvany"
+      },
+      "note": "Oferta Yosvany recibida el 27/10/2026: Cebolla morada con mata 950 CUP por lb. Libra confirmada por el usuario. Confirmar disponibilidad, contacto, dirección y entrega a Playa."
+    },
+    {
+      "category": "Complementarios",
+      "name": "Pimiento",
+      "quantity": 0,
+      "unit": "lb",
+      "price": 1000,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-08",
+      "observed_on": "2026-10-27",
+      "pack_quantity": 0,
+      "offer_unit": "lb",
+      "price_unit_pending": false,
+      "offer_price": 1000,
+      "offer_id": "oferta-20261027-08",
+      "source_type": "user_offer",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REFERENCIA DEL HOGAR · Oferta Yosvany"
+      },
+      "note": "Oferta Yosvany recibida el 27/10/2026: Pimiento 1000 CUP por lb. Libra confirmada por el usuario. Confirmar disponibilidad, contacto, dirección y entrega a Playa."
+    },
+    {
+      "category": "Complementarios",
+      "name": "Remolacha",
+      "quantity": 0,
+      "unit": "lb",
+      "price": 850,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-09",
+      "observed_on": "2026-10-27",
+      "pack_quantity": 0,
+      "offer_unit": "lb",
+      "price_unit_pending": false,
+      "offer_price": 850,
+      "offer_id": "oferta-20261027-09",
+      "source_type": "user_offer",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REFERENCIA DEL HOGAR · Oferta Yosvany"
+      },
+      "note": "Oferta Yosvany recibida el 27/10/2026: Remolacha 850 CUP por lb. Libra confirmada por el usuario. Confirmar disponibilidad, contacto, dirección y entrega a Playa."
+    },
+    {
+      "category": "Complementarios",
+      "name": "Limón",
+      "quantity": 0,
+      "unit": "lb",
+      "price": 900,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-10",
+      "observed_on": "2026-10-27",
+      "pack_quantity": 0,
+      "offer_unit": "lb",
+      "price_unit_pending": false,
+      "offer_price": 900,
+      "offer_id": "oferta-20261027-10",
+      "source_type": "user_offer",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REFERENCIA DEL HOGAR · Oferta Yosvany"
+      },
+      "note": "Oferta Yosvany recibida el 27/10/2026: Limón 900 CUP por lb. Libra confirmada por el usuario. Confirmar disponibilidad, contacto, dirección y entrega a Playa."
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Frijoles negros",
+      "quantity": 0,
+      "unit": "lb",
+      "price": 550,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-15",
+      "observed_on": "2026-10-27",
+      "pack_quantity": 0,
+      "offer_unit": "lb",
+      "price_unit_pending": false,
+      "offer_price": 550,
+      "offer_id": "oferta-20261027-15",
+      "source_type": "user_offer",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REFERENCIA DEL HOGAR · Oferta Yosvany"
+      },
+      "note": "Oferta Yosvany recibida el 27/10/2026: Frijoles negros 550 CUP por lb. Libra confirmada por el usuario. Confirmar disponibilidad, contacto, dirección y entrega a Playa."
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Frijoles colorados",
+      "quantity": 0,
+      "unit": "lb",
+      "price": 750,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-16",
+      "observed_on": "2026-10-27",
+      "pack_quantity": 0,
+      "offer_unit": "lb",
+      "price_unit_pending": false,
+      "offer_price": 750,
+      "offer_id": "oferta-20261027-16",
+      "source_type": "user_offer",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REFERENCIA DEL HOGAR · Oferta Yosvany"
+      },
+      "note": "Oferta Yosvany recibida el 27/10/2026: Frijoles colorados 750 CUP por lb. Libra confirmada por el usuario. Confirmar disponibilidad, contacto, dirección y entrega a Playa."
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Judía",
+      "quantity": 0,
+      "unit": "lb",
+      "price": 750,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-17",
+      "observed_on": "2026-10-27",
+      "pack_quantity": 0,
+      "offer_unit": "lb",
+      "price_unit_pending": false,
+      "offer_price": 750,
+      "offer_id": "oferta-20261027-17",
+      "source_type": "user_offer",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REFERENCIA DEL HOGAR · Oferta Yosvany"
+      },
+      "note": "Oferta Yosvany recibida el 27/10/2026: Judía 750 CUP por lb. Libra confirmada por el usuario. Confirmar disponibilidad, contacto, dirección y entrega a Playa."
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Chícharo verde partido",
+      "quantity": 0,
+      "unit": "lb",
+      "price": 1300,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-18",
+      "observed_on": "2026-10-27",
+      "pack_quantity": 0,
+      "offer_unit": "lb",
+      "price_unit_pending": false,
+      "offer_price": 1300,
+      "offer_id": "oferta-20261027-18",
+      "source_type": "user_offer",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REFERENCIA DEL HOGAR · Oferta Yosvany"
+      },
+      "note": "Oferta Yosvany recibida el 27/10/2026: Chícharo verde partido 1300 CUP por lb. Libra confirmada por el usuario. Confirmar disponibilidad, contacto, dirección y entrega a Playa."
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Ajonjolí",
+      "quantity": 0,
+      "unit": "lb",
+      "price": 1200,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-19",
+      "observed_on": "2026-10-27",
+      "pack_quantity": 0,
+      "offer_unit": "lb",
+      "price_unit_pending": false,
+      "offer_price": 1200,
+      "offer_id": "oferta-20261027-19",
+      "source_type": "user_offer",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REFERENCIA DEL HOGAR · Oferta Yosvany"
+      },
+      "note": "Oferta Yosvany recibida el 27/10/2026: Ajonjolí 1200 CUP por lb. Libra confirmada por el usuario. Confirmar disponibilidad, contacto, dirección y entrega a Playa."
+    },
+    {
+      "category": "Complementarios",
+      "name": "Cachucha",
+      "quantity": 0,
+      "unit": "lb",
+      "price": 350,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-20",
+      "observed_on": "2026-10-27",
+      "pack_quantity": 0,
+      "offer_unit": "lb",
+      "price_unit_pending": false,
+      "offer_price": 350,
+      "offer_id": "oferta-20261027-20",
+      "source_type": "user_offer",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REFERENCIA DEL HOGAR · Oferta Yosvany"
+      },
+      "note": "Oferta Yosvany recibida el 27/10/2026: Cachucha 350 CUP por lb. Libra confirmada por el usuario. Confirmar disponibilidad, contacto, dirección y entrega a Playa."
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Arroz importado · paquete",
+      "quantity": 0,
+      "unit": "paquete",
+      "price": 950,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-23",
+      "observed_on": "2026-10-27",
+      "pack_quantity": 0,
+      "offer_unit": "paquete",
+      "price_unit_pending": false,
+      "offer_price": 950,
+      "offer_id": "oferta-20261027-23",
+      "source_type": "user_offer",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REFERENCIA DEL HOGAR · Oferta Yosvany"
+      },
+      "note": "Oferta Yosvany recibida el 27/10/2026: Arroz importado 950 CUP por paquete. Confirmar disponibilidad, contacto, dirección y entrega a Playa. Peso del paquete no indicado; no equivale a un kilogramo."
+    },
+    {
+      "category": "Complementarios",
+      "name": "Vino seco",
+      "quantity": 0,
+      "unit": "presentación por confirmar",
+      "price": 250,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-24",
+      "observed_on": "2026-10-27",
+      "pack_quantity": 0,
+      "offer_unit": "presentación por confirmar",
+      "price_unit_pending": true,
+      "offer_price": 250,
+      "offer_id": "oferta-20261027-24",
+      "source_type": "user_offer",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REVISAR UNIDAD · precio recibido"
+      },
+      "note": "Oferta Yosvany recibida el 27/10/2026: Vino seco 250 CUP por presentación sin confirmar. Confirmar disponibilidad, contacto, dirección y entrega a Playa."
+    },
+    {
+      "category": "Complementarios",
+      "name": "Vinagre",
+      "quantity": 0,
+      "unit": "presentación por confirmar",
+      "price": 250,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-25",
+      "observed_on": "2026-10-27",
+      "pack_quantity": 0,
+      "offer_unit": "presentación por confirmar",
+      "price_unit_pending": true,
+      "offer_price": 250,
+      "offer_id": "oferta-20261027-25",
+      "source_type": "user_offer",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REVISAR UNIDAD · precio recibido"
+      },
+      "note": "Oferta Yosvany recibida el 27/10/2026: Vinagre 250 CUP por presentación sin confirmar. Confirmar disponibilidad, contacto, dirección y entrega a Playa."
+    },
+    {
+      "category": "Complementarios",
+      "name": "Zumo de naranja agria",
+      "quantity": 0,
+      "unit": "presentación por confirmar",
+      "price": 350,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-26",
+      "observed_on": "2026-10-27",
+      "pack_quantity": 0,
+      "offer_unit": "presentación por confirmar",
+      "price_unit_pending": true,
+      "offer_price": 350,
+      "offer_id": "oferta-20261027-26",
+      "source_type": "user_offer",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REVISAR UNIDAD · precio recibido"
+      },
+      "note": "Oferta Yosvany recibida el 27/10/2026: Zumo de naranja agria 350 CUP por presentación sin confirmar. Confirmar disponibilidad, contacto, dirección y entrega a Playa."
+    },
+    {
+      "category": "Complementarios",
+      "name": "Zumo de limón",
+      "quantity": 0,
+      "unit": "presentación por confirmar",
+      "price": 350,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-27",
+      "observed_on": "2026-10-27",
+      "pack_quantity": 0,
+      "offer_unit": "presentación por confirmar",
+      "price_unit_pending": true,
+      "offer_price": 350,
+      "offer_id": "oferta-20261027-27",
+      "source_type": "user_offer",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REVISAR UNIDAD · precio recibido"
+      },
+      "note": "Oferta Yosvany recibida el 27/10/2026: Zumo de limón 350 CUP por presentación sin confirmar. Confirmar disponibilidad, contacto, dirección y entrega a Playa."
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Lomo natural",
+      "quantity": 0,
+      "unit": "lb",
+      "price": 2500,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-28",
+      "observed_on": "2026-10-27",
+      "pack_quantity": 0,
+      "offer_unit": "lb",
+      "price_unit_pending": false,
+      "offer_price": 2500,
+      "offer_id": "oferta-20261027-28",
+      "source_type": "user_offer",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REFERENCIA DEL HOGAR · Oferta Yosvany"
+      },
+      "note": "Oferta Yosvany recibida el 27/10/2026: Lomo natural 2500 CUP por lb. Libra confirmada por el usuario. Confirmar disponibilidad, contacto, dirección y entrega a Playa."
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Pollo muslo y contramuslo · paquete de 3 lb",
+      "quantity": 0,
+      "unit": "paquete de 3 lb",
+      "price": 3200,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-30",
+      "observed_on": "2026-10-27",
+      "pack_quantity": 0,
+      "offer_unit": "paquete de 3 lb",
+      "price_unit_pending": false,
+      "offer_price": 3200,
+      "offer_id": "oferta-20261027-30",
+      "source_type": "user_offer",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REFERENCIA DEL HOGAR · Oferta Yosvany"
+      },
+      "note": "Oferta Yosvany recibida el 27/10/2026: Pollo muslo y contramuslo 3200 CUP por paquete de 3 lb. Confirmar disponibilidad, contacto, dirección y entrega a Playa."
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Pasta de bocaditos",
+      "quantity": 0,
+      "unit": "lb",
+      "price": 3000,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-31",
+      "observed_on": "2026-10-27",
+      "pack_quantity": 0,
+      "offer_unit": "lb",
+      "price_unit_pending": false,
+      "offer_price": 3000,
+      "offer_id": "oferta-20261027-31",
+      "source_type": "user_offer",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REFERENCIA DEL HOGAR · Oferta Yosvany"
+      },
+      "note": "Oferta Yosvany recibida el 27/10/2026: Pasta de bocaditos 3000 CUP por lb. Libra confirmada por el usuario. Confirmar disponibilidad, contacto, dirección y entrega a Playa."
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Salchichas de pollo",
+      "quantity": 0,
+      "unit": "presentación por confirmar",
+      "price": 1350,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-33",
+      "observed_on": "2026-10-27",
+      "pack_quantity": 0,
+      "offer_unit": "presentación por confirmar",
+      "price_unit_pending": true,
+      "offer_price": 1350,
+      "offer_id": "oferta-20261027-33",
+      "source_type": "user_offer",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REVISAR UNIDAD · precio recibido"
+      },
+      "note": "Oferta Yosvany recibida el 27/10/2026: Salchichas de pollo 1350 CUP por presentación sin confirmar. Confirmar disponibilidad, contacto, dirección y entrega a Playa."
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Hígado de pollo",
+      "quantity": 0,
+      "unit": "lb",
+      "price": 2000,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-34",
+      "observed_on": "2026-10-27",
+      "pack_quantity": 0,
+      "offer_unit": "lb",
+      "price_unit_pending": false,
+      "offer_price": 2000,
+      "offer_id": "oferta-20261027-34",
+      "source_type": "user_offer",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REFERENCIA DEL HOGAR · Oferta Yosvany"
+      },
+      "note": "Oferta Yosvany recibida el 27/10/2026: Hígado de pollo 2000 CUP por lb. Libra confirmada por el usuario. Confirmar disponibilidad, contacto, dirección y entrega a Playa."
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Hamburguesas",
+      "quantity": 0,
+      "unit": "unidad",
+      "price": 350,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-35",
+      "observed_on": "2026-10-27",
+      "pack_quantity": 0,
+      "offer_unit": "unidad",
+      "price_unit_pending": false,
+      "offer_price": 350,
+      "offer_id": "oferta-20261027-35",
+      "source_type": "user_offer",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REFERENCIA DEL HOGAR · Oferta Yosvany"
+      },
+      "note": "Oferta Yosvany recibida el 27/10/2026: Hamburguesas 350 CUP por unidad. Confirmar disponibilidad, contacto, dirección y entrega a Playa."
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Mayonesa Celorio",
+      "quantity": 0,
+      "unit": "presentación por confirmar",
+      "price": 2700,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-38",
+      "observed_on": "2026-10-27",
+      "pack_quantity": 0,
+      "offer_unit": "presentación por confirmar",
+      "price_unit_pending": true,
+      "offer_price": 2700,
+      "offer_id": "oferta-20261027-38",
+      "source_type": "user_offer",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REVISAR UNIDAD · precio recibido"
+      },
+      "note": "Oferta Yosvany recibida el 27/10/2026: Mayonesa Celorio 2700 CUP por presentación sin confirmar. Confirmar disponibilidad, contacto, dirección y entrega a Playa."
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Sazón mixto",
+      "quantity": 0,
+      "unit": "presentación por confirmar",
+      "price": 1800,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-39",
+      "observed_on": "2026-10-27",
+      "pack_quantity": 0,
+      "offer_unit": "presentación por confirmar",
+      "price_unit_pending": true,
+      "offer_price": 1800,
+      "offer_id": "oferta-20261027-39",
+      "source_type": "user_offer",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REVISAR UNIDAD · precio recibido"
+      },
+      "note": "Oferta Yosvany recibida el 27/10/2026: Sazón mixto 1800 CUP por presentación sin confirmar. Confirmar disponibilidad, contacto, dirección y entrega a Playa."
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Vainilla",
+      "quantity": 0,
+      "unit": "presentación por confirmar",
+      "price": 1200,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-40",
+      "observed_on": "2026-10-27",
+      "pack_quantity": 0,
+      "offer_unit": "presentación por confirmar",
+      "price_unit_pending": true,
+      "offer_price": 1200,
+      "offer_id": "oferta-20261027-40",
+      "source_type": "user_offer",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REVISAR UNIDAD · precio recibido"
+      },
+      "note": "Oferta Yosvany recibida el 27/10/2026: Vainilla 1200 CUP por presentación sin confirmar. Confirmar disponibilidad, contacto, dirección y entrega a Playa."
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Garbanzos en lata",
+      "quantity": 0,
+      "unit": "lata",
+      "price": 900,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-41",
+      "observed_on": "2026-10-27",
+      "pack_quantity": 0,
+      "offer_unit": "lata",
+      "price_unit_pending": false,
+      "offer_price": 900,
+      "offer_id": "oferta-20261027-41",
+      "source_type": "user_offer",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REFERENCIA DEL HOGAR · Oferta Yosvany"
+      },
+      "note": "Oferta Yosvany recibida el 27/10/2026: Garbanzos 900 CUP por lata. Confirmar disponibilidad, contacto, dirección y entrega a Playa."
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Café Morto",
+      "quantity": 0,
+      "unit": "presentación por confirmar",
+      "price": 3400,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-42",
+      "observed_on": "2026-10-27",
+      "pack_quantity": 0,
+      "offer_unit": "presentación por confirmar",
+      "price_unit_pending": true,
+      "offer_price": 3400,
+      "offer_id": "oferta-20261027-42",
+      "source_type": "user_offer",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REVISAR UNIDAD · precio recibido"
+      },
+      "note": "Oferta Yosvany recibida el 27/10/2026: Café Morto 3400 CUP por presentación sin confirmar. Confirmar disponibilidad, contacto, dirección y entrega a Playa."
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Pasta de tomate",
+      "quantity": 0,
+      "unit": "presentación por confirmar",
+      "price": 1100,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-44",
+      "observed_on": "2026-10-27",
+      "pack_quantity": 0,
+      "offer_unit": "presentación por confirmar",
+      "price_unit_pending": true,
+      "offer_price": 1100,
+      "offer_id": "oferta-20261027-44",
+      "source_type": "user_offer",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REVISAR UNIDAD · precio recibido"
+      },
+      "note": "Oferta Yosvany recibida el 27/10/2026: Pasta de tomate 1100 CUP por presentación sin confirmar. Confirmar disponibilidad, contacto, dirección y entrega a Playa."
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Barra de guayaba",
+      "quantity": 0,
+      "unit": "barra",
+      "price": 500,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-45",
+      "observed_on": "2026-10-27",
+      "pack_quantity": 0,
+      "offer_unit": "barra",
+      "price_unit_pending": false,
+      "offer_price": 500,
+      "offer_id": "oferta-20261027-45",
+      "source_type": "user_offer",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REFERENCIA DEL HOGAR · Oferta Yosvany"
+      },
+      "note": "Oferta Yosvany recibida el 27/10/2026: Barra de guayaba 500 CUP por barra. Confirmar disponibilidad, contacto, dirección y entrega a Playa."
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Leche condensada",
+      "quantity": 0,
+      "unit": "presentación por confirmar",
+      "price": 1200,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-46",
+      "observed_on": "2026-10-27",
+      "pack_quantity": 0,
+      "offer_unit": "presentación por confirmar",
+      "price_unit_pending": true,
+      "offer_price": 1200,
+      "offer_id": "oferta-20261027-46",
+      "source_type": "user_offer",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REVISAR UNIDAD · precio recibido"
+      },
+      "note": "Oferta Yosvany recibida el 27/10/2026: Leche condensada 1200 CUP por presentación sin confirmar. Confirmar disponibilidad, contacto, dirección y entrega a Playa."
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Sopa de pollo",
+      "quantity": 0,
+      "unit": "presentación por confirmar",
+      "price": 450,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-47",
+      "observed_on": "2026-10-27",
+      "pack_quantity": 0,
+      "offer_unit": "presentación por confirmar",
+      "price_unit_pending": true,
+      "offer_price": 450,
+      "offer_id": "oferta-20261027-47",
+      "source_type": "user_offer",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REVISAR UNIDAD · precio recibido"
+      },
+      "note": "Oferta Yosvany recibida el 27/10/2026: Sopa de pollo 450 CUP por presentación sin confirmar. Confirmar disponibilidad, contacto, dirección y entrega a Playa."
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Queso de crema",
+      "quantity": 0,
+      "unit": "presentación por confirmar",
+      "price": 2200,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-48",
+      "observed_on": "2026-10-27",
+      "pack_quantity": 0,
+      "offer_unit": "presentación por confirmar",
+      "price_unit_pending": true,
+      "offer_price": 2200,
+      "offer_id": "oferta-20261027-48",
+      "source_type": "user_offer",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REVISAR UNIDAD · precio recibido"
+      },
+      "note": "Oferta Yosvany recibida el 27/10/2026: Queso de crema 2200 CUP por presentación sin confirmar. Confirmar disponibilidad, contacto, dirección y entrega a Playa."
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Galletas Crokantinas",
+      "quantity": 0,
+      "unit": "presentación por confirmar",
+      "price": 2500,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-49",
+      "observed_on": "2026-10-27",
+      "pack_quantity": 0,
+      "offer_unit": "presentación por confirmar",
+      "price_unit_pending": true,
+      "offer_price": 2500,
+      "offer_id": "oferta-20261027-49",
+      "source_type": "user_offer",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REVISAR UNIDAD · precio recibido"
+      },
+      "note": "Oferta Yosvany recibida el 27/10/2026: Galletas Crokantinas 2500 CUP por presentación sin confirmar. Confirmar disponibilidad, contacto, dirección y entrega a Playa."
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Nescafé",
+      "quantity": 0,
+      "unit": "presentación por confirmar",
+      "price": 200,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-50",
+      "observed_on": "2026-10-27",
+      "pack_quantity": 0,
+      "offer_unit": "presentación por confirmar",
+      "price_unit_pending": true,
+      "offer_price": 200,
+      "offer_id": "oferta-20261027-50",
+      "source_type": "user_offer",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REVISAR UNIDAD · precio recibido"
+      },
+      "note": "Oferta Yosvany recibida el 27/10/2026: Nescafé 200 CUP por presentación sin confirmar. Confirmar disponibilidad, contacto, dirección y entrega a Playa."
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Nutella",
+      "quantity": 0,
+      "unit": "presentación por confirmar",
+      "price": 1500,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-51",
+      "observed_on": "2026-10-27",
+      "pack_quantity": 0,
+      "offer_unit": "presentación por confirmar",
+      "price_unit_pending": true,
+      "offer_price": 1500,
+      "offer_id": "oferta-20261027-51",
+      "source_type": "user_offer",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REVISAR UNIDAD · precio recibido"
+      },
+      "note": "Oferta Yosvany recibida el 27/10/2026: Nutella 1500 CUP por presentación sin confirmar. Confirmar disponibilidad, contacto, dirección y entrega a Playa."
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Galletas María",
+      "quantity": 0,
+      "unit": "presentación por confirmar",
+      "price": 1300,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-52",
+      "observed_on": "2026-10-27",
+      "pack_quantity": 0,
+      "offer_unit": "presentación por confirmar",
+      "price_unit_pending": true,
+      "offer_price": 1300,
+      "offer_id": "oferta-20261027-52",
+      "source_type": "user_offer",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REVISAR UNIDAD · precio recibido"
+      },
+      "note": "Oferta Yosvany recibida el 27/10/2026: Galletas María 1300 CUP por presentación sin confirmar. Confirmar disponibilidad, contacto, dirección y entrega a Playa."
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Mantequilla",
+      "quantity": 0,
+      "unit": "pote",
+      "price": 1200,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-53",
+      "observed_on": "2026-10-27",
+      "pack_quantity": 0,
+      "offer_unit": "pote",
+      "price_unit_pending": false,
+      "offer_price": 1200,
+      "offer_id": "oferta-20261027-53",
+      "source_type": "user_offer",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REFERENCIA DEL HOGAR · Oferta Yosvany"
+      },
+      "note": "Oferta Yosvany recibida el 27/10/2026: Mantequilla 1200 CUP por pote. Confirmar disponibilidad, contacto, dirección y entrega a Playa."
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Maíz dulce en grano",
+      "quantity": 0,
+      "unit": "presentación por confirmar",
+      "price": 1200,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-54",
+      "observed_on": "2026-10-27",
+      "pack_quantity": 0,
+      "offer_unit": "presentación por confirmar",
+      "price_unit_pending": true,
+      "offer_price": 1200,
+      "offer_id": "oferta-20261027-54",
+      "source_type": "user_offer",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REVISAR UNIDAD · precio recibido"
+      },
+      "note": "Oferta Yosvany recibida el 27/10/2026: Maíz dulce en grano 1200 CUP por presentación sin confirmar. Confirmar disponibilidad, contacto, dirección y entrega a Playa."
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Pan rallado",
+      "quantity": 0,
+      "unit": "presentación por confirmar",
+      "price": 1200,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-55",
+      "observed_on": "2026-10-27",
+      "pack_quantity": 0,
+      "offer_unit": "presentación por confirmar",
+      "price_unit_pending": true,
+      "offer_price": 1200,
+      "offer_id": "oferta-20261027-55",
+      "source_type": "user_offer",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REVISAR UNIDAD · precio recibido"
+      },
+      "note": "Oferta Yosvany recibida el 27/10/2026: Pan rallado 1200 CUP por presentación sin confirmar. Confirmar disponibilidad, contacto, dirección y entrega a Playa."
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Maíz dulce en lata",
+      "quantity": 0,
+      "unit": "lata",
+      "price": 1400,
+      "currency": "CUP",
+      "url": "hogar://ofertas/2026-10-27/oferta-20261027-56",
+      "observed_on": "2026-10-27",
+      "pack_quantity": 0,
+      "offer_unit": "lata",
+      "price_unit_pending": false,
+      "offer_price": 1400,
+      "offer_id": "oferta-20261027-56",
+      "source_type": "user_offer",
+      "vendor": {
+        "name": "Oferta Yosvany",
+        "municipality": "No indicado",
+        "address": "No indicada",
+        "contact": "Contacto pendiente",
+        "delivery": "Confirmar entrega y coste a Playa",
+        "url": "",
+        "stock": "REFERENCIA DEL HOGAR · Oferta Yosvany"
+      },
+      "note": "Oferta Yosvany recibida el 27/10/2026: Maíz dulce 1400 CUP por lata. Confirmar disponibilidad, contacto, dirección y entrega a Playa."
+    },
+    {
+      "name": "Jamón",
+      "category": "Canasta básica",
+      "unit": "lb",
+      "quantity": 0,
+      "price": null,
+      "currency": "CUP",
+      "pack_quantity": 0,
+      "source_type": "household_catalog",
+      "note": "Añadido a petición del hogar. Precio y proveedor pendientes: introduce el precio real por lb. Cantidad mensual inicial 0, editable.",
+      "vendor": {
+        "name": "Pendiente de proveedor",
+        "municipality": "Playa",
+        "address": "Por confirmar",
+        "contact": "Por confirmar",
+        "delivery": "Por confirmar",
+        "stock": "PROVEEDOR PENDIENTE"
+      }
+    },
+    {
+      "name": "Queso",
+      "category": "Canasta básica",
+      "unit": "lb",
+      "quantity": 0,
+      "price": null,
+      "currency": "CUP",
+      "pack_quantity": 0,
+      "source_type": "household_catalog",
+      "note": "Añadido a petición del hogar. Precio y proveedor pendientes: introduce el precio real por lb. Cantidad mensual inicial 0, editable.",
+      "vendor": {
+        "name": "Pendiente de proveedor",
+        "municipality": "Playa",
+        "address": "Por confirmar",
+        "contact": "Por confirmar",
+        "delivery": "Por confirmar",
+        "stock": "PROVEEDOR PENDIENTE"
+      }
+    },
+    {
+      "name": "Gasolina",
+      "category": "Fondo gasolina",
+      "unit": "litro",
+      "quantity": 0,
+      "price": null,
+      "currency": "CUP",
+      "pack_quantity": 0,
+      "source_type": "household_catalog",
+      "note": "Añadido a petición del hogar. Precio y proveedor pendientes: introduce el precio real por litro. Cantidad mensual inicial 0, editable.",
+      "vendor": {
+        "name": "Pendiente de proveedor",
+        "municipality": "Playa",
+        "address": "Por confirmar",
+        "contact": "Por confirmar",
+        "delivery": "Por confirmar",
+        "stock": "PROVEEDOR PENDIENTE"
+      }
+    }
+  ],
+  "oferta": {
+    "id": "oferta-hogar-2026-10-27",
+    "observed_on": "2026-10-27",
+    "source": "Lista de precios facilitada por el usuario",
+    "vendor": {
+      "name": "Oferta Yosvany",
+      "municipality": "No indicado",
+      "address": "No indicada",
+      "contact": "Contacto pendiente",
+      "delivery": "Confirmar entrega y coste a Playa",
+      "url": ""
+    },
+    "currency": "CUP",
+    "currency_inferred": false,
+    "rows": [
+      {
+        "id": "oferta-20261027-01",
+        "product": "Malanga",
+        "price": 250,
+        "currency": "CUP",
+        "unit": "lb",
+        "unit_confirmed": true,
+        "source_row": 6,
+        "price_unit_note": "CUP por libra, confirmado por el usuario",
+        "catalog_name": "Malanga"
+      },
+      {
+        "id": "oferta-20261027-02",
+        "product": "Boniato",
+        "price": 150,
+        "currency": "CUP",
+        "unit": "lb",
+        "unit_confirmed": true,
+        "source_row": 7,
+        "price_unit_note": "CUP por libra, confirmado por el usuario",
+        "catalog_name": "Boniato"
+      },
+      {
+        "id": "oferta-20261027-03",
+        "product": "Yuca",
+        "price": 90,
+        "currency": "CUP",
+        "unit": "lb",
+        "unit_confirmed": true,
+        "source_row": 8,
+        "price_unit_note": "CUP por libra, confirmado por el usuario",
+        "catalog_name": "Yuca"
+      },
+      {
+        "id": "oferta-20261027-04",
+        "product": "Plátano burro",
+        "price": 300,
+        "currency": "CUP",
+        "unit": "lb",
+        "unit_confirmed": true,
+        "source_row": 9,
+        "price_unit_note": "CUP por libra, confirmado por el usuario",
+        "catalog_name": "Plátano"
+      },
+      {
+        "id": "oferta-20261027-05",
+        "product": "Plátano macho maduro",
+        "price": 90,
+        "currency": "CUP",
+        "unit": "lb",
+        "unit_confirmed": true,
+        "source_row": 10,
+        "price_unit_note": "CUP por libra, confirmado por el usuario",
+        "catalog_name": "Plátano macho maduro"
+      },
+      {
+        "id": "oferta-20261027-06",
+        "product": "Cebolla blanca",
+        "price": 1300,
+        "currency": "CUP",
+        "unit": "lb",
+        "unit_confirmed": true,
+        "source_row": 11,
+        "price_unit_note": "CUP por libra, confirmado por el usuario",
+        "catalog_name": "Cebolla"
+      },
+      {
+        "id": "oferta-20261027-07",
+        "product": "Cebolla morada con mata",
+        "price": 950,
+        "currency": "CUP",
+        "unit": "lb",
+        "unit_confirmed": true,
+        "source_row": 12,
+        "price_unit_note": "CUP por libra, confirmado por el usuario",
+        "catalog_name": "Cebolla morada con mata"
+      },
+      {
+        "id": "oferta-20261027-08",
+        "product": "Pimiento",
+        "price": 1000,
+        "currency": "CUP",
+        "unit": "lb",
+        "unit_confirmed": true,
+        "source_row": 13,
+        "price_unit_note": "CUP por libra, confirmado por el usuario",
+        "catalog_name": "Pimiento"
+      },
+      {
+        "id": "oferta-20261027-09",
+        "product": "Remolacha",
+        "price": 850,
+        "currency": "CUP",
+        "unit": "lb",
+        "unit_confirmed": true,
+        "source_row": 14,
+        "price_unit_note": "CUP por libra, confirmado por el usuario",
+        "catalog_name": "Remolacha"
+      },
+      {
+        "id": "oferta-20261027-10",
+        "product": "Limón",
+        "price": 900,
+        "currency": "CUP",
+        "unit": "lb",
+        "unit_confirmed": true,
+        "source_row": 15,
+        "price_unit_note": "CUP por libra, confirmado por el usuario",
+        "catalog_name": "Limón"
+      },
+      {
+        "id": "oferta-20261027-11",
+        "product": "Calabaza",
+        "price": 400,
+        "currency": "CUP",
+        "unit": "lb",
+        "unit_confirmed": true,
+        "source_row": 16,
+        "price_unit_note": "CUP por libra, confirmado por el usuario",
+        "catalog_name": "Calabaza"
+      },
+      {
+        "id": "oferta-20261027-12",
+        "product": "Frutabomba pintona",
+        "price": 180,
+        "currency": "CUP",
+        "unit": "lb",
+        "unit_confirmed": true,
+        "source_row": 17,
+        "price_unit_note": "CUP por libra, confirmado por el usuario",
+        "catalog_name": "Frutabomba"
+      },
+      {
+        "id": "oferta-20261027-13",
+        "product": "Col",
+        "price": 850,
+        "currency": "CUP",
+        "unit": "lb",
+        "unit_confirmed": true,
+        "source_row": 18,
+        "price_unit_note": "CUP por libra, confirmado por el usuario",
+        "catalog_name": "Col"
+      },
+      {
+        "id": "oferta-20261027-14",
+        "product": "Azúcar blanca",
+        "price": 600,
+        "currency": "CUP",
+        "unit": "lb",
+        "unit_confirmed": true,
+        "source_row": 19,
+        "price_unit_note": "CUP por libra, confirmado por el usuario",
+        "catalog_name": "Azúcar"
+      },
+      {
+        "id": "oferta-20261027-15",
+        "product": "Frijoles negros",
+        "price": 550,
+        "currency": "CUP",
+        "unit": "lb",
+        "unit_confirmed": true,
+        "source_row": 20,
+        "price_unit_note": "CUP por libra, confirmado por el usuario",
+        "catalog_name": "Frijoles negros"
+      },
+      {
+        "id": "oferta-20261027-16",
+        "product": "Frijoles colorados",
+        "price": 750,
+        "currency": "CUP",
+        "unit": "lb",
+        "unit_confirmed": true,
+        "source_row": 21,
+        "price_unit_note": "CUP por libra, confirmado por el usuario",
+        "catalog_name": "Frijoles colorados"
+      },
+      {
+        "id": "oferta-20261027-17",
+        "product": "Judía",
+        "price": 750,
+        "currency": "CUP",
+        "unit": "lb",
+        "unit_confirmed": true,
+        "source_row": 22,
+        "price_unit_note": "CUP por libra, confirmado por el usuario",
+        "catalog_name": "Judía"
+      },
+      {
+        "id": "oferta-20261027-18",
+        "product": "Chícharo verde partido",
+        "price": 1300,
+        "currency": "CUP",
+        "unit": "lb",
+        "unit_confirmed": true,
+        "source_row": 23,
+        "price_unit_note": "CUP por libra, confirmado por el usuario",
+        "catalog_name": "Chícharo verde partido"
+      },
+      {
+        "id": "oferta-20261027-19",
+        "product": "Ajonjolí",
+        "price": 1200,
+        "currency": "CUP",
+        "unit": "lb",
+        "unit_confirmed": true,
+        "source_row": 24,
+        "price_unit_note": "CUP por libra, confirmado por el usuario",
+        "catalog_name": "Ajonjolí"
+      },
+      {
+        "id": "oferta-20261027-20",
+        "product": "Cachucha",
+        "price": 350,
+        "currency": "CUP",
+        "unit": "lb",
+        "unit_confirmed": true,
+        "source_row": 25,
+        "price_unit_note": "CUP por libra, confirmado por el usuario",
+        "catalog_name": "Cachucha"
+      },
+      {
+        "id": "oferta-20261027-21",
+        "product": "Ajo",
+        "price": 80,
+        "currency": "CUP",
+        "unit": "lb",
+        "unit_confirmed": true,
+        "source_row": 26,
+        "price_unit_note": "CUP por libra, confirmado por el usuario",
+        "catalog_name": "Ajo"
+      },
+      {
+        "id": "oferta-20261027-22",
+        "product": "Arroz a granel",
+        "price": 370,
+        "currency": "CUP",
+        "unit": "lb",
+        "unit_confirmed": true,
+        "source_row": 27,
+        "price_unit_note": "CUP por libra, confirmado por el usuario",
+        "catalog_name": "Arroz"
+      },
+      {
+        "id": "oferta-20261027-23",
+        "product": "Arroz importado",
+        "price": 950,
+        "currency": "CUP",
+        "unit": "paquete",
+        "unit_confirmed": true,
+        "source_row": 28,
+        "price_unit_note": "Precio de la presentación indicada",
+        "catalog_name": "Arroz importado · paquete"
+      },
+      {
+        "id": "oferta-20261027-24",
+        "product": "Vino seco",
+        "price": 250,
+        "currency": "CUP",
+        "unit": "",
+        "unit_confirmed": false,
+        "source_row": 29,
+        "price_unit_note": "Precio recibido; presentación por confirmar",
+        "catalog_name": "Vino seco"
+      },
+      {
+        "id": "oferta-20261027-25",
+        "product": "Vinagre",
+        "price": 250,
+        "currency": "CUP",
+        "unit": "",
+        "unit_confirmed": false,
+        "source_row": 30,
+        "price_unit_note": "Precio recibido; presentación por confirmar",
+        "catalog_name": "Vinagre"
+      },
+      {
+        "id": "oferta-20261027-26",
+        "product": "Zumo de naranja agria",
+        "price": 350,
+        "currency": "CUP",
+        "unit": "",
+        "unit_confirmed": false,
+        "source_row": 31,
+        "price_unit_note": "Precio recibido; presentación por confirmar",
+        "catalog_name": "Zumo de naranja agria"
+      },
+      {
+        "id": "oferta-20261027-27",
+        "product": "Zumo de limón",
+        "price": 350,
+        "currency": "CUP",
+        "unit": "",
+        "unit_confirmed": false,
+        "source_row": 32,
+        "price_unit_note": "Precio recibido; presentación por confirmar",
+        "catalog_name": "Zumo de limón"
+      },
+      {
+        "id": "oferta-20261027-28",
+        "product": "Lomo natural",
+        "price": 2500,
+        "currency": "CUP",
+        "unit": "lb",
+        "unit_confirmed": true,
+        "source_row": 33,
+        "price_unit_note": "CUP por libra, confirmado por el usuario",
+        "catalog_name": "Lomo natural"
+      },
+      {
+        "id": "oferta-20261027-29",
+        "product": "Pollo muslo y contramuslo",
+        "price": 9500,
+        "currency": "CUP",
+        "unit": "paquete de 11 lb",
+        "unit_confirmed": true,
+        "source_row": 34,
+        "price_unit_note": "Precio de la presentación indicada",
+        "catalog_name": "Pollo congelado"
+      },
+      {
+        "id": "oferta-20261027-30",
+        "product": "Pollo muslo y contramuslo",
+        "price": 3200,
+        "currency": "CUP",
+        "unit": "paquete de 3 lb",
+        "unit_confirmed": true,
+        "source_row": 35,
+        "price_unit_note": "Precio de la presentación indicada",
+        "catalog_name": "Pollo muslo y contramuslo · paquete de 3 lb"
+      },
+      {
+        "id": "oferta-20261027-31",
+        "product": "Pasta de bocaditos",
+        "price": 3000,
+        "currency": "CUP",
+        "unit": "lb",
+        "unit_confirmed": true,
+        "source_row": 36,
+        "price_unit_note": "CUP por libra, confirmado por el usuario",
+        "catalog_name": "Pasta de bocaditos"
+      },
+      {
+        "id": "oferta-20261027-32",
+        "product": "Picadillo de pollo",
+        "price": 1000,
+        "currency": "CUP",
+        "unit": "tubo",
+        "unit_confirmed": true,
+        "source_row": 37,
+        "price_unit_note": "Precio de la presentación indicada",
+        "catalog_name": "Picadillo de pollo"
+      },
+      {
+        "id": "oferta-20261027-33",
+        "product": "Salchichas de pollo",
+        "price": 1350,
+        "currency": "CUP",
+        "unit": "",
+        "unit_confirmed": false,
+        "source_row": 38,
+        "price_unit_note": "Precio recibido; presentación por confirmar",
+        "catalog_name": "Salchichas de pollo"
+      },
+      {
+        "id": "oferta-20261027-34",
+        "product": "Hígado de pollo",
+        "price": 2000,
+        "currency": "CUP",
+        "unit": "lb",
+        "unit_confirmed": true,
+        "source_row": 39,
+        "price_unit_note": "CUP por libra, confirmado por el usuario",
+        "catalog_name": "Hígado de pollo"
+      },
+      {
+        "id": "oferta-20261027-35",
+        "product": "Hamburguesas",
+        "price": 350,
+        "currency": "CUP",
+        "unit": "unidad",
+        "unit_confirmed": true,
+        "source_row": 40,
+        "price_unit_note": "Precio de la presentación indicada",
+        "catalog_name": "Hamburguesas"
+      },
+      {
+        "id": "oferta-20261027-36",
+        "product": "Huevo",
+        "price": 3800,
+        "currency": "CUP",
+        "unit": "cartón",
+        "unit_confirmed": true,
+        "source_row": 41,
+        "price_unit_note": "Precio de la presentación indicada",
+        "catalog_name": "Huevo"
+      },
+      {
+        "id": "oferta-20261027-37",
+        "product": "Aceite",
+        "price": 2800,
+        "currency": "CUP",
+        "unit": "envase de 900 ml",
+        "unit_confirmed": true,
+        "source_row": 42,
+        "price_unit_note": "Precio de la presentación indicada",
+        "catalog_name": "Aceite comestible"
+      },
+      {
+        "id": "oferta-20261027-38",
+        "product": "Mayonesa Celorio",
+        "price": 2700,
+        "currency": "CUP",
+        "unit": "",
+        "unit_confirmed": false,
+        "source_row": 43,
+        "price_unit_note": "Precio recibido; presentación por confirmar",
+        "catalog_name": "Mayonesa Celorio"
+      },
+      {
+        "id": "oferta-20261027-39",
+        "product": "Sazón mixto",
+        "price": 1800,
+        "currency": "CUP",
+        "unit": "",
+        "unit_confirmed": false,
+        "source_row": 44,
+        "price_unit_note": "Precio recibido; presentación por confirmar",
+        "catalog_name": "Sazón mixto"
+      },
+      {
+        "id": "oferta-20261027-40",
+        "product": "Vainilla",
+        "price": 1200,
+        "currency": "CUP",
+        "unit": "",
+        "unit_confirmed": false,
+        "source_row": 45,
+        "price_unit_note": "Precio recibido; presentación por confirmar",
+        "catalog_name": "Vainilla"
+      },
+      {
+        "id": "oferta-20261027-41",
+        "product": "Garbanzos",
+        "price": 900,
+        "currency": "CUP",
+        "unit": "lata",
+        "unit_confirmed": true,
+        "source_row": 46,
+        "price_unit_note": "Precio de la presentación indicada",
+        "catalog_name": "Garbanzos en lata"
+      },
+      {
+        "id": "oferta-20261027-42",
+        "product": "Café Morto",
+        "price": 3400,
+        "currency": "CUP",
+        "unit": "",
+        "unit_confirmed": false,
+        "source_row": 47,
+        "price_unit_note": "Precio recibido; presentación por confirmar",
+        "catalog_name": "Café Morto"
+      },
+      {
+        "id": "oferta-20261027-43",
+        "product": "Leche en polvo",
+        "price": 4200,
+        "currency": "CUP",
+        "unit": "paquete de 1 kg",
+        "unit_confirmed": true,
+        "source_row": 48,
+        "price_unit_note": "Precio de la presentación indicada",
+        "catalog_name": "Leche en polvo"
+      },
+      {
+        "id": "oferta-20261027-44",
+        "product": "Pasta de tomate",
+        "price": 1100,
+        "currency": "CUP",
+        "unit": "",
+        "unit_confirmed": false,
+        "source_row": 49,
+        "price_unit_note": "Precio recibido; presentación por confirmar",
+        "catalog_name": "Pasta de tomate"
+      },
+      {
+        "id": "oferta-20261027-45",
+        "product": "Barra de guayaba",
+        "price": 500,
+        "currency": "CUP",
+        "unit": "barra",
+        "unit_confirmed": true,
+        "source_row": 50,
+        "price_unit_note": "Precio de la presentación indicada",
+        "catalog_name": "Barra de guayaba"
+      },
+      {
+        "id": "oferta-20261027-46",
+        "product": "Leche condensada",
+        "price": 1200,
+        "currency": "CUP",
+        "unit": "",
+        "unit_confirmed": false,
+        "source_row": 51,
+        "price_unit_note": "Precio recibido; presentación por confirmar",
+        "catalog_name": "Leche condensada"
+      },
+      {
+        "id": "oferta-20261027-47",
+        "product": "Sopa de pollo",
+        "price": 450,
+        "currency": "CUP",
+        "unit": "",
+        "unit_confirmed": false,
+        "source_row": 52,
+        "price_unit_note": "Precio recibido; presentación por confirmar",
+        "catalog_name": "Sopa de pollo"
+      },
+      {
+        "id": "oferta-20261027-48",
+        "product": "Queso de crema",
+        "price": 2200,
+        "currency": "CUP",
+        "unit": "",
+        "unit_confirmed": false,
+        "source_row": 53,
+        "price_unit_note": "Precio recibido; presentación por confirmar",
+        "catalog_name": "Queso de crema"
+      },
+      {
+        "id": "oferta-20261027-49",
+        "product": "Galletas Crokantinas",
+        "price": 2500,
+        "currency": "CUP",
+        "unit": "",
+        "unit_confirmed": false,
+        "source_row": 54,
+        "price_unit_note": "Precio recibido; presentación por confirmar",
+        "catalog_name": "Galletas Crokantinas"
+      },
+      {
+        "id": "oferta-20261027-50",
+        "product": "Nescafé",
+        "price": 200,
+        "currency": "CUP",
+        "unit": "",
+        "unit_confirmed": false,
+        "source_row": 55,
+        "price_unit_note": "Precio recibido; presentación por confirmar",
+        "catalog_name": "Nescafé"
+      },
+      {
+        "id": "oferta-20261027-51",
+        "product": "Nutella",
+        "price": 1500,
+        "currency": "CUP",
+        "unit": "",
+        "unit_confirmed": false,
+        "source_row": 56,
+        "price_unit_note": "Precio recibido; presentación por confirmar",
+        "catalog_name": "Nutella"
+      },
+      {
+        "id": "oferta-20261027-52",
+        "product": "Galletas María",
+        "price": 1300,
+        "currency": "CUP",
+        "unit": "",
+        "unit_confirmed": false,
+        "source_row": 57,
+        "price_unit_note": "Precio recibido; presentación por confirmar",
+        "catalog_name": "Galletas María"
+      },
+      {
+        "id": "oferta-20261027-53",
+        "product": "Mantequilla",
+        "price": 1200,
+        "currency": "CUP",
+        "unit": "pote",
+        "unit_confirmed": true,
+        "source_row": 58,
+        "price_unit_note": "Precio de la presentación indicada",
+        "catalog_name": "Mantequilla"
+      },
+      {
+        "id": "oferta-20261027-54",
+        "product": "Maíz dulce en grano",
+        "price": 1200,
+        "currency": "CUP",
+        "unit": "",
+        "unit_confirmed": false,
+        "source_row": 59,
+        "price_unit_note": "Precio recibido; presentación por confirmar",
+        "catalog_name": "Maíz dulce en grano"
+      },
+      {
+        "id": "oferta-20261027-55",
+        "product": "Pan rallado",
+        "price": 1200,
+        "currency": "CUP",
+        "unit": "",
+        "unit_confirmed": false,
+        "source_row": 60,
+        "price_unit_note": "Precio recibido; presentación por confirmar",
+        "catalog_name": "Pan rallado"
+      },
+      {
+        "id": "oferta-20261027-56",
+        "product": "Maíz dulce",
+        "price": 1400,
+        "currency": "CUP",
+        "unit": "lata",
+        "unit_confirmed": true,
+        "source_row": 61,
+        "price_unit_note": "Precio de la presentación indicada",
+        "catalog_name": "Maíz dulce en lata"
+      }
+    ],
+    "revision": "fa56990ba06b038b"
+  },
+  "legacy": [
+    {
+      "category": "Canasta básica",
+      "name": "Leche en polvo",
+      "unit": "kg",
+      "quantity": 1,
+      "price": 4600,
+      "currency": "CUP",
+      "url": "https://www.revolico.com/item/leche-en-polvo-de-1-kg-58358425",
+      "observed_on": "2026-10-26",
+      "note": "Oferta de Cerro. Confirmar existencias, marca y entrega a Playa.",
+      "vendor": {
+        "name": "Vendedor de Revolico · 58358425",
+        "municipality": "Cerro",
+        "address": "Consultar dirección en el anuncio",
+        "delivery": "Por confirmar"
+      }
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Huevo",
+      "unit": "cartón",
+      "quantity": 1,
+      "price": 3500,
+      "currency": "CUP",
+      "url": "https://www.revolico.com/item/huevo-por-carton-58279590",
+      "observed_on": "2026-10-26",
+      "note": "Oferta de Diez de Octubre; confirmar cuántos huevos trae cada cartón y entrega a Playa. Oferta dice «solo por hoy».",
+      "vendor": {
+        "name": "Punto de venta en Luyanó",
+        "municipality": "Diez de Octubre",
+        "address": "Calzada de Luyanó #118",
+        "delivery": "Por confirmar a Playa"
+      }
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Pan",
+      "unit": "bolsa de 8 panes",
+      "quantity": 4,
+      "price": 550,
+      "currency": "CUP",
+      "url": "https://www.revolico.com/item/la-habana-53584876-o-76471065-bolsa-de-pan-hornos-de-la-torre-_bolsa-de-4-panes-de-hamburguesa650-cup-_bolsa-de-57604970",
+      "observed_on": "2026-10-26",
+      "note": "Oferta de Arroyo Naranjo. No usar el precio de un paquete como si fuera el de un pan; confirmar entrega a Playa.",
+      "vendor": {
+        "name": "Vendedor de Revolico · 57604970",
+        "municipality": "Arroyo Naranjo",
+        "address": "Consultar dirección en el anuncio",
+        "delivery": "Por confirmar"
+      }
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Carne de cerdo deshuesada",
+      "unit": "lb",
+      "quantity": 2,
+      "price": 2500,
+      "currency": "CUP",
+      "url": "https://www.revolico.com/item/carne-de-cerdo-deshuesada2500-la-libra-57775294",
+      "observed_on": "2026-10-26",
+      "note": "Oferta de Diez de Octubre. Corte deshuesado; no representa todos los cortes. Confirmar entrega.",
+      "vendor": {
+        "name": "Vendedor de Revolico · 57775294",
+        "municipality": "Diez de Octubre",
+        "address": "Consultar dirección en el anuncio",
+        "delivery": "Por confirmar"
+      }
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Pollo congelado",
+      "unit": "paquete de 11 lb",
+      "quantity": 1,
+      "price": 14000,
+      "currency": "CUP",
+      "url": "https://www.revolico.com/item/pollo-congelado-paquete-de-11-libras-58332918",
+      "observed_on": "2026-10-26",
+      "note": "Oferta de Cerro. Entrega gratis en La Habana desde 25000 CUP; por debajo, confirmar cargo. No dividir para suponer compra de una libra.",
+      "vendor": {
+        "name": "La Cueva de Alibaba",
+        "municipality": "Cerro",
+        "address": "Calzada del Cerro #2203 e/ Prensa y Colón",
+        "delivery": "Gratis en La Habana desde 25000 CUP; por debajo confirmar"
+      }
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Arroz",
+      "unit": "kg",
+      "quantity": 6,
+      "price": 800,
+      "currency": "CUP",
+      "url": "https://www.revolico.com/item/arroz-57700553",
+      "observed_on": "2026-10-26",
+      "note": "Oferta de Playa; confirmar entrega y calidad antes de comprar.",
+      "vendor": {
+        "name": "Venta de alimentos en Calle 21",
+        "municipality": "Playa",
+        "address": "Calle 21 e/42 y 36, Playa",
+        "delivery": "Por confirmar"
+      }
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Azúcar",
+      "unit": "kg",
+      "quantity": 1,
+      "price": 1.7,
+      "currency": "USD",
+      "url": "https://www.revolico.com/item/azucar-1kg-57245007",
+      "observed_on": "2026-10-26",
+      "note": "Oferta de Diez de Octubre. Sin mínimo publicado en la descripción consultada; confirmar venta al detalle y entrega.",
+      "vendor": {
+        "name": "Vendedor de Revolico · 57245007",
+        "municipality": "Diez de Octubre",
+        "address": "Consultar dirección en el anuncio",
+        "delivery": "Por confirmar"
+      }
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Sal fina",
+      "unit": "paquete de 2 lb",
+      "quantity": 1,
+      "price": 550,
+      "currency": "CUP",
+      "url": "https://www.revolico.com/item/sal-fina-paquete-2lb-57719044",
+      "observed_on": "2026-10-26",
+      "note": "Oferta de Playa; anuncia mensajería y transferencia, cargo sin especificar.",
+      "vendor": {
+        "name": "Vendedor de sal · Revolico",
+        "municipality": "Playa",
+        "address": "Playa; dirección exacta por el anuncio",
+        "delivery": "Anuncia mensajería; importe por confirmar"
+      }
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Aceite comestible",
+      "unit": "litro",
+      "quantity": 1,
+      "price": 4.3,
+      "currency": "USD",
+      "url": "https://www.revolico.com/item/aceite-1-litro-58121649",
+      "observed_on": "2026-10-26",
+      "note": "Oferta de Centro Habana; confirmar tipo de aceite y cargo de entrega. No se asume tasa MLC ni pago Clásica equivalente a USD.",
+      "vendor": {
+        "name": "Vendedor de Revolico · 58121649",
+        "municipality": "Centro Habana",
+        "address": "Consultar dirección en el anuncio",
+        "delivery": "Por confirmar"
+      }
+    },
+    {
+      "category": "Canasta básica",
+      "name": "Picadillo de pollo",
+      "unit": "bolsa de 2 lb",
+      "quantity": 1,
+      "price": 2.5,
+      "currency": "USD",
+      "url": "https://www.revolico.com/item/picadillo-de-pollo-a-granel-2-libras-58084560",
+      "observed_on": "2026-10-26",
+      "note": "Oferta de Playa; presupuestar mensajería aparte. No es picadillo de res.",
+      "vendor": {
+        "name": "Vendedor de picadillo · Revolico",
+        "municipality": "Playa",
+        "address": "Playa; dirección exacta por el anuncio",
+        "delivery": "1 USD en Playa; resto según distancia"
+      }
+    },
+    {
+      "category": "Complementarios",
+      "name": "Boniato",
+      "unit": "lb",
+      "quantity": 8,
+      "currency": "CUP",
+      "note": "PENDIENTE: cotizar en agromercado de Playa. No se encontró una oferta pública suficiente para verificar precio/unidad. Cantidad orientativa, no dieta."
+    },
+    {
+      "category": "Complementarios",
+      "name": "Calabaza",
+      "unit": "lb",
+      "quantity": 4,
+      "currency": "CUP",
+      "note": "PENDIENTE: cotizar en agromercado de Playa. No se encontró una oferta pública suficiente para verificar precio/unidad. Cantidad orientativa, no dieta."
+    },
+    {
+      "category": "Complementarios",
+      "name": "Pepino",
+      "unit": "lb",
+      "quantity": 4,
+      "currency": "CUP",
+      "note": "PENDIENTE: cotizar en agromercado de Playa. No se encontró una oferta pública suficiente para verificar precio/unidad. Cantidad orientativa, no dieta."
+    },
+    {
+      "category": "Complementarios",
+      "name": "Col",
+      "unit": "lb",
+      "quantity": 2,
+      "currency": "CUP",
+      "note": "PENDIENTE: cotizar en agromercado de Playa. No se encontró una oferta pública suficiente para verificar precio/unidad. Cantidad orientativa, no dieta."
+    },
+    {
+      "category": "Complementarios",
+      "name": "Frutabomba",
+      "unit": "lb",
+      "quantity": 6,
+      "currency": "CUP",
+      "note": "PENDIENTE: cotizar en agromercado de Playa. No se encontró una oferta pública suficiente para verificar precio/unidad. Cantidad orientativa, no dieta."
+    },
+    {
+      "category": "Complementarios",
+      "name": "Guayaba",
+      "unit": "lb",
+      "quantity": 4,
+      "currency": "CUP",
+      "note": "PENDIENTE: cotizar en agromercado de Playa. No se encontró una oferta pública suficiente para verificar precio/unidad. Cantidad orientativa, no dieta."
+    },
+    {
+      "category": "Complementarios",
+      "name": "Plátano",
+      "unit": "lb",
+      "quantity": 4,
+      "currency": "CUP",
+      "note": "PENDIENTE: cotizar en agromercado de Playa. No se encontró una oferta pública suficiente para verificar precio/unidad. Cantidad orientativa, no dieta."
+    },
+    {
+      "category": "Complementarios",
+      "name": "Yuca",
+      "unit": "lb",
+      "quantity": 4,
+      "currency": "CUP",
+      "note": "PENDIENTE: cotizar en agromercado de Playa. No se encontró una oferta pública suficiente para verificar precio/unidad. Cantidad orientativa, no dieta."
+    },
+    {
+      "category": "Complementarios",
+      "name": "Tomate",
+      "unit": "lb",
+      "quantity": 2,
+      "currency": "CUP",
+      "note": "PENDIENTE: cotizar en agromercado de Playa. No se encontró una oferta pública suficiente para verificar precio/unidad. Cantidad orientativa, no dieta."
+    },
+    {
+      "category": "Complementarios",
+      "name": "Cebolla",
+      "unit": "lb",
+      "quantity": 1,
+      "currency": "CUP",
+      "note": "PENDIENTE: cotizar en agromercado de Playa. No se encontró una oferta pública suficiente para verificar precio/unidad. Cantidad orientativa, no dieta."
+    },
+    {
+      "category": "Complementarios",
+      "name": "Ajo",
+      "unit": "lb",
+      "quantity": 0.25,
+      "currency": "CUP",
+      "note": "PENDIENTE: cotizar en agromercado de Playa. No se encontró una oferta pública suficiente para verificar precio/unidad. Cantidad orientativa, no dieta."
+    },
+    {
+      "category": "Ocio",
+      "name": "Comida a domicilio (para 2)",
+      "unit": "pedido",
+      "quantity": 1,
+      "currency": "CUP",
+      "note": "PENDIENTE: confirmar menú para 2, porciones y mensajería. Los anuncios con precio simbólico no permiten cotización válida."
+    },
+    {
+      "category": "Ocio",
+      "name": "Paseo / salida",
+      "unit": "salida para 2",
+      "quantity": 1,
+      "currency": "CUP",
+      "note": "PENDIENTE: anotar transporte, entrada y consumo. Puede elegirse una salida sin coste, pero no se ha supuesto que lo sea."
+    },
+    {
+      "category": "Alimentación perros",
+      "name": "Arroz para los 3 perros",
+      "unit": "kg",
+      "quantity": null,
+      "price": 800,
+      "currency": "CUP",
+      "url": "https://www.revolico.com/item/arroz-57700553",
+      "observed_on": "2026-10-26",
+      "note": "Para 2 mestizos pequeños y 1 pitbull grande. CANTIDAD POR CONFIRMAR: registrar consumo mensual habitual; la referencia es precio de oferta, no ración. Oferta de Playa; confirmar entrega y calidad antes de comprar.",
+      "vendor": {
+        "name": "Venta de alimentos en Calle 21",
+        "municipality": "Playa",
+        "address": "Calle 21 e/42 y 36, Playa",
+        "delivery": "Por confirmar"
+      }
+    },
+    {
+      "category": "Alimentación perros",
+      "name": "Boniato para los 3 perros",
+      "unit": "lb",
+      "quantity": "=Ajustes!$B$22*DAY(EOMONTH(Ajustes!$B$6,0))/7",
+      "currency": "CUP",
+      "note": "10 lb semanales según el usuario. Cantidad = lb/semana × días del mes / 7 (44,29 lb en octubre). Precio pendiente de cotización local en Playa."
+    },
+    {
+      "category": "Alimentación perros",
+      "name": "Pollo para los 3 perros",
+      "unit": "paquete de 11 lb",
+      "quantity": null,
+      "price": 14000,
+      "currency": "CUP",
+      "url": "https://www.revolico.com/item/pollo-congelado-paquete-de-11-libras-58332918",
+      "observed_on": "2026-10-26",
+      "note": "Para 2 mestizos pequeños y 1 pitbull grande. CANTIDAD POR CONFIRMAR: registrar consumo mensual habitual; la referencia es precio de oferta, no ración. Oferta de Cerro. Entrega gratis en La Habana desde 25000 CUP; por debajo, confirmar cargo. No dividir para suponer compra de una libra.",
+      "vendor": {
+        "name": "La Cueva de Alibaba",
+        "municipality": "Cerro",
+        "address": "Calzada del Cerro #2203 e/ Prensa y Colón",
+        "delivery": "Gratis en La Habana desde 25000 CUP; por debajo confirmar"
+      }
+    },
+    {
+      "category": "Alimentación perros",
+      "name": "Bofe (alternativa al pollo)",
+      "unit": "lb",
+      "quantity": 0,
+      "currency": "CUP",
+      "note": "OPCIONAL: si se usa bofe, introduce cantidad/precio y reduce pollo según la compra real. No se han supuesto raciones ni precios."
+    },
+    {
+      "category": "Alimentación perros",
+      "name": "Pienso para los 3 perros",
+      "unit": "lb",
+      "quantity": 0,
+      "price": 1000,
+      "currency": "CUP",
+      "url": "https://www.revolico.com/item/pienso-para-perros-por-libras-de-la-mejor-calidad-58326627",
+      "observed_on": "2026-10-26",
+      "note": "OPCIÓN DE COMPARACIÓN; no es la dieta habitual. Oferta de Diez de Octubre. Cantidad PROVISIONAL: no es ración recomendada. Faltan pesos, dieta y consumo real de los 3 perros; confirmar composición y entrega a Playa.",
+      "vendor": {
+        "name": "Vendedor de Revolico · 58326627",
+        "municipality": "Diez de Octubre",
+        "address": "Consultar dirección en el anuncio",
+        "delivery": "Por confirmar"
+      }
+    },
+    {
+      "category": "Alimentación perros",
+      "name": "Alternativa: pienso en saco",
+      "unit": "saco de 20 kg",
+      "quantity": 0,
+      "price": 70,
+      "currency": "USD",
+      "url": "https://www.revolico.com/item/comida-para-perro-saco-de-20kg-57361630",
+      "observed_on": "2026-10-26",
+      "note": "OPCIÓN DE COMPARACIÓN; no es la dieta habitual. Oferta de Playa. Alternativa con cantidad 0 para no contar dos piensos a la vez. Se compra el saco completo; la ración depende de cada perro.",
+      "vendor": {
+        "name": "Vendedor de Revolico · 57361630",
+        "municipality": "Playa",
+        "address": "Consultar dirección en el anuncio",
+        "delivery": "Por confirmar"
+      }
+    },
+    {
+      "category": "Servicios y transporte",
+      "name": "Mensajería de compras",
+      "unit": "mes",
+      "quantity": 1,
+      "currency": "CUP",
+      "note": "PENDIENTE: escribir el gasto real habitual y revisar si la asignación alcanza. No está cotizado."
+    },
+    {
+      "category": "Servicios y transporte",
+      "name": "Electricidad / agua",
+      "unit": "mes",
+      "quantity": 1,
+      "currency": "CUP",
+      "note": "PENDIENTE: escribir el gasto real habitual y revisar si la asignación alcanza. No está cotizado."
+    },
+    {
+      "category": "Servicios y transporte",
+      "name": "Gas / combustible cocina",
+      "unit": "mes",
+      "quantity": 1,
+      "currency": "CUP",
+      "note": "PENDIENTE: escribir el gasto real habitual y revisar si la asignación alcanza. No está cotizado."
+    },
+    {
+      "category": "Servicios y transporte",
+      "name": "Teléfono / datos",
+      "unit": "mes",
+      "quantity": 1,
+      "currency": "CUP",
+      "note": "PENDIENTE: escribir el gasto real habitual y revisar si la asignación alcanza. No está cotizado."
+    },
+    {
+      "category": "Servicios y transporte",
+      "name": "Transporte cotidiano",
+      "unit": "mes",
+      "quantity": 1,
+      "currency": "CUP",
+      "note": "PENDIENTE: escribir el gasto real habitual y revisar si la asignación alcanza. No está cotizado."
+    },
+    {
+      "category": "Higiene y limpieza",
+      "name": "Pasta dental",
+      "unit": "tubo de 150 ml",
+      "quantity": 1,
+      "price": 3400.0,
+      "currency": "CUP",
+      "url": "https://www.lacuevashop.com/product/pasta-dental-colgate-triple-accion-150ml/",
+      "observed_on": "2026-10-26",
+      "note": "Precio y presentación verificados en la tienda. Pasta Dental COLGATE Triple Accion 150ml. Confirmar disponibilidad y mensajería; el catálogo indica envío gratis en La Habana desde 25000 CUP.",
+      "vendor": {
+        "name": "La Cueva de Alibaba",
+        "municipality": "Cerro",
+        "address": "Calzada del Cerro #2203 e/ Prensa y Colón",
+        "delivery": "La Habana: envío gratis desde 25000 CUP; confirmar por debajo.",
+        "stock": "OFERTA PUBLICADA · tienda indica existencias"
+      }
+    },
+    {
+      "category": "Higiene y limpieza",
+      "name": "Champú",
+      "unit": "envase de 750 ml",
+      "quantity": 1,
+      "price": 1700,
+      "currency": "CUP",
+      "url": "https://www.revolico.com/item/champu-58154259",
+      "observed_on": "2026-10-26",
+      "note": "Champú Nuky 750 ml, según descripción. Centro Habana; confirmar entrega a Playa.",
+      "vendor": {
+        "name": "Vendedor de Revolico · 58154259",
+        "municipality": "Centro Habana",
+        "address": "Consultar dirección en el anuncio",
+        "delivery": "Por confirmar"
+      }
+    },
+    {
+      "category": "Higiene y limpieza",
+      "name": "Desodorante",
+      "unit": "barra de 63 g",
+      "quantity": 1,
+      "price": 3800.0,
+      "currency": "CUP",
+      "url": "https://www.lacuevashop.com/product/desodorante-old-spice-pure-sport-63-g/",
+      "observed_on": "2026-10-26",
+      "note": "Precio y presentación verificados en la tienda. Desodorante Old Spice Pure Sport de hombre 63 g. Confirmar disponibilidad y mensajería; el catálogo indica envío gratis en La Habana desde 25000 CUP.",
+      "vendor": {
+        "name": "La Cueva de Alibaba",
+        "municipality": "Cerro",
+        "address": "Calzada del Cerro #2203 e/ Prensa y Colón",
+        "delivery": "La Habana: envío gratis desde 25000 CUP; confirmar por debajo.",
+        "stock": "OFERTA PUBLICADA · tienda indica existencias"
+      }
+    },
+    {
+      "category": "Higiene y limpieza",
+      "name": "Papel higiénico",
+      "unit": "paquete de 4 unidades",
+      "quantity": 1,
+      "price": 1100,
+      "currency": "CUP",
+      "url": "https://www.revolico.com/item/papel-higienico-la-excelencia-4-unidades-58161740",
+      "observed_on": "2026-10-26",
+      "note": "La Excelencia, paquete de 4 unidades. Calzada del Cerro #2203 entre Prensa y Colón; confirmar entrega.",
+      "vendor": {
+        "name": "Punto de venta de Calzada del Cerro 2203",
+        "municipality": "Cerro",
+        "address": "Calzada del Cerro #2203 e/ Prensa y Colón",
+        "delivery": "Por confirmar"
+      }
+    },
+    {
+      "category": "Higiene y limpieza",
+      "name": "Detergente para ropa",
+      "unit": "paquete de 1 kg",
+      "quantity": 1,
+      "price": 2200,
+      "currency": "CUP",
+      "url": "https://www.revolico.com/item/detergente-en-polvo-gal-1-kg-rosas-flores-lavanda-o-limon-58202530",
+      "observed_on": "2026-10-26",
+      "note": "La Cueva de Alibaba, Calzada del Cerro #2203. Envío gratis en La Habana desde 25000 CUP; confirmar por debajo del umbral.",
+      "vendor": {
+        "name": "La Cueva de Alibaba",
+        "municipality": "Cerro",
+        "address": "Calzada del Cerro #2203 e/ Prensa y Colón",
+        "delivery": "Gratis en La Habana desde 25000 CUP; por debajo confirmar"
+      }
+    },
+    {
+      "category": "Higiene y limpieza",
+      "name": "Cloro / lejía",
+      "unit": "envase de 1 litro",
+      "quantity": 1,
+      "price": null,
+      "currency": "CUP",
+      "url": "https://www.lacuevashop.com/product/legia-de-cloro-b-l-1l/",
+      "observed_on": "2026-10-26",
+      "note": "SIN EXISTENCIAS en la consulta: el último precio publicado era 750 CUP; no se utiliza como coste disponible. Lejía de cloro B.L 1 litro — desinfecta y blanquea. Confirmar disponibilidad y mensajería; el catálogo indica envío gratis en La Habana desde 25000 CUP.",
+      "vendor": {
+        "name": "La Cueva de Alibaba",
+        "municipality": "Cerro",
+        "address": "Calzada del Cerro #2203 e/ Prensa y Colón",
+        "delivery": "La Habana: envío gratis desde 25000 CUP; confirmar por debajo.",
+        "stock": "SIN EXISTENCIAS · buscar alternativa"
+      }
+    },
+    {
+      "category": "Higiene y limpieza",
+      "name": "Limpiador de pisos",
+      "unit": "envase de 1,5 litros",
+      "quantity": 1,
+      "price": 3000,
+      "currency": "CUP",
+      "url": "https://www.revolico.com/item/limpiahogar-multiuso-de-pino-15-litros-58209911",
+      "observed_on": "2026-10-26",
+      "note": "Limpiador multiuso de pino. Calzada del Cerro #2203. Envío gratis desde 25000 CUP; confirmar disponibilidad.",
+      "vendor": {
+        "name": "Punto de venta de Calzada del Cerro 2203",
+        "municipality": "Cerro",
+        "address": "Calzada del Cerro #2203 e/ Prensa y Colón",
+        "delivery": "Gratis en La Habana desde 25000 CUP; por debajo confirmar"
+      }
+    },
+    {
+      "category": "Higiene y limpieza",
+      "name": "Bolsas de basura",
+      "unit": "rollo de 10 unidades",
+      "quantity": 1,
+      "price": 1600,
+      "currency": "CUP",
+      "url": "https://www.revolico.com/item/bolsas-de-basura-con-aroma-a-lavanda-rollo-de-10u-58300720",
+      "observed_on": "2026-10-26",
+      "note": "Rollo de 10 bolsas, según título. Cerro; confirmar tamaño y entrega.",
+      "vendor": {
+        "name": "Vendedor de Revolico · 58300720",
+        "municipality": "Cerro",
+        "address": "Consultar dirección en el anuncio",
+        "delivery": "Por confirmar"
+      }
+    },
+    {
+      "category": "Higiene y limpieza",
+      "name": "Almohadillas sanitarias",
+      "unit": "paquete (confirmar contenido)",
+      "quantity": 0,
+      "price": null,
+      "currency": "CUP",
+      "url": "https://www.revolico.com/item/almohadillas-sanitarias-57719118",
+      "observed_on": "2026-10-26",
+      "note": "OPCIONAL según necesidades. Anuncio de Playa a 580 CUP sin contenido verificable. Mensajería disponible; confirmar importe.",
+      "vendor": {
+        "name": "Vendedor de Revolico · 57719118",
+        "municipality": "Playa",
+        "address": "Consultar dirección en el anuncio",
+        "delivery": "Por confirmar"
+      }
+    },
+    {
+      "category": "Higiene y limpieza",
+      "name": "Jabón de baño",
+      "unit": "pastilla de 100 g",
+      "quantity": 2,
+      "currency": "CUP",
+      "note": "Precio y presentación verificados en la tienda. Jabón de tocador Doxa 100 g — Elegance, Warmness o Romance. Confirmar disponibilidad y mensajería; el catálogo indica envío gratis en La Habana desde 25000 CUP.",
+      "price": 550.0,
+      "url": "https://www.lacuevashop.com/product/jabon-doxa-100g/",
+      "observed_on": "2026-10-26",
+      "vendor": {
+        "name": "La Cueva de Alibaba",
+        "municipality": "Cerro",
+        "address": "Calzada del Cerro #2203 e/ Prensa y Colón",
+        "delivery": "La Habana: envío gratis desde 25000 CUP; confirmar por debajo.",
+        "stock": "OFERTA PUBLICADA · tienda indica existencias"
+      }
+    },
+    {
+      "category": "Higiene y limpieza",
+      "name": "Cepillos dentales",
+      "unit": "unidad",
+      "quantity": 0,
+      "currency": "CUP",
+      "note": "Precio y presentación verificados en la tienda. Cepillo de dientes Colgate. Confirmar disponibilidad y mensajería; el catálogo indica envío gratis en La Habana desde 25000 CUP.",
+      "price": 850.0,
+      "url": "https://www.lacuevashop.com/product/cepillo-dental-colgate-1-unidad/",
+      "observed_on": "2026-10-26",
+      "vendor": {
+        "name": "La Cueva de Alibaba",
+        "municipality": "Cerro",
+        "address": "Calzada del Cerro #2203 e/ Prensa y Colón",
+        "delivery": "La Habana: envío gratis desde 25000 CUP; confirmar por debajo.",
+        "stock": "OFERTA PUBLICADA · tienda indica existencias"
+      }
+    },
+    {
+      "category": "Higiene y limpieza",
+      "name": "Detergente para platos",
+      "unit": "envase de 1 litro",
+      "quantity": 1,
+      "currency": "CUP",
+      "note": "Precio y presentación verificados en la tienda. Lavaplatos líquido B.L de limón 1 litro — lavavajillas. Confirmar disponibilidad y mensajería; el catálogo indica envío gratis en La Habana desde 25000 CUP.",
+      "price": 800.0,
+      "url": "https://www.lacuevashop.com/product/lavavajillas-b-l-limon-1-lt/",
+      "observed_on": "2026-10-26",
+      "vendor": {
+        "name": "La Cueva de Alibaba",
+        "municipality": "Cerro",
+        "address": "Calzada del Cerro #2203 e/ Prensa y Colón",
+        "delivery": "La Habana: envío gratis desde 25000 CUP; confirmar por debajo.",
+        "stock": "OFERTA PUBLICADA · tienda indica existencias"
+      }
+    },
+    {
+      "category": "Higiene y limpieza",
+      "name": "Esponjas / estropajos",
+      "unit": "paquete",
+      "quantity": 1,
+      "currency": "CUP",
+      "note": "PENDIENTE: confirmar proveedor y precio al detalle en Playa. No se usan anuncios de mayorista ni precios de presentación desconocida."
+    }
+  ],
+  "sources": [
+    {
+      "id": "R1",
+      "source": "Revolico",
+      "url": "https://www.revolico.com/item/leche-en-polvo-de-1-kg-58358425",
+      "observed_on": "2026-10-26",
+      "title": "LECHE EN POLVO DE 1 KG.",
+      "quote": "4600 CUP por envase de 1 kg (título y precio del anuncio).",
+      "location": "Cerro, La Habana",
+      "note": "Oferta de Cerro. Confirmar existencias, marca y entrega a Playa.",
+      "listing_id": "58358425"
+    },
+    {
+      "id": "R2",
+      "source": "Revolico",
+      "url": "https://www.revolico.com/item/huevo-por-carton-58279590",
+      "observed_on": "2026-10-26",
+      "title": "Huevo por cartón",
+      "quote": "3500 CUP por cartón; dice que se puede comprar la cantidad que se desee.",
+      "location": "Diez de Octubre, La Habana",
+      "note": "Oferta de Diez de Octubre; confirmar cuántos huevos trae cada cartón y entrega a Playa. Oferta dice «solo por hoy».",
+      "listing_id": "58279590"
+    },
+    {
+      "id": "R3",
+      "source": "Revolico",
+      "url": "https://www.revolico.com/item/la-habana-53584876-o-76471065-bolsa-de-pan-hornos-de-la-torre-_bolsa-de-4-panes-de-hamburguesa650-cup-_bolsa-de-57604970",
+      "observed_on": "2026-10-26",
+      "title": "La Habana. 53584876 o 76471065 *Bolsa de Pan (HORNOS DE LA TORRE) _Bolsa de 4 Panes de Hamburguesa....650 CUP  _Bolsa de",
+      "quote": "Descripción: bolsa de 8 panes 550 CUP; alternativa de 4 hamburguesas 650 CUP.",
+      "location": "Arroyo Naranjo, La Habana",
+      "note": "Oferta de Arroyo Naranjo. No usar el precio de un paquete como si fuera el de un pan; confirmar entrega a Playa.",
+      "listing_id": "57604970"
+    },
+    {
+      "id": "R4",
+      "source": "Revolico",
+      "url": "https://www.revolico.com/item/carne-de-cerdo-deshuesada2500-la-libra-57775294",
+      "observed_on": "2026-10-26",
+      "title": "Carne de Cerdo deshuesada:$2500 la libra",
+      "quote": "Título: 2500 CUP la libra.",
+      "location": "Diez de Octubre, La Habana",
+      "note": "Oferta de Diez de Octubre. Corte deshuesado; no representa todos los cortes. Confirmar entrega.",
+      "listing_id": "57775294"
+    },
+    {
+      "id": "R5",
+      "source": "Revolico",
+      "url": "https://www.revolico.com/item/pollo-congelado-paquete-de-11-libras-58332918",
+      "observed_on": "2026-10-26",
+      "title": "Pollo congelado paquete de 11 libras",
+      "quote": "14000 CUP por paquete de 11 lb. Descripción confirma el peso.",
+      "location": "Cerro, La Habana",
+      "note": "Oferta de Cerro. Entrega gratis en La Habana desde 25000 CUP; por debajo, confirmar cargo. No dividir para suponer compra de una libra.",
+      "listing_id": "58332918"
+    },
+    {
+      "id": "R6",
+      "source": "Revolico",
+      "url": "https://www.revolico.com/item/arroz-57700553",
+      "observed_on": "2026-10-26",
+      "title": "Arroz",
+      "quote": "800 CUP; descripción: bolsas de arroz de 1 kg, Calle 21 e/42 y 36, Playa.",
+      "location": "Playa, La Habana",
+      "note": "Oferta de Playa; confirmar entrega y calidad antes de comprar.",
+      "listing_id": "57700553"
+    },
+    {
+      "id": "R7",
+      "source": "Revolico",
+      "url": "https://www.revolico.com/item/azucar-1kg-57245007",
+      "observed_on": "2026-10-26",
+      "title": "Azúcar 1kg",
+      "quote": "1.70 USD; título y descripción: azúcar de 1 kg.",
+      "location": "Diez de Octubre, La Habana",
+      "note": "Oferta de Diez de Octubre. Sin mínimo publicado en la descripción consultada; confirmar venta al detalle y entrega.",
+      "listing_id": "57245007"
+    },
+    {
+      "id": "R8",
+      "source": "Revolico",
+      "url": "https://www.revolico.com/item/sal-fina-paquete-2lb-57719044",
+      "observed_on": "2026-10-26",
+      "title": "Sal fina paquete 2lb",
+      "quote": "550 CUP por paquete de 2 lb (título).",
+      "location": "Playa, La Habana",
+      "note": "Oferta de Playa; anuncia mensajería y transferencia, cargo sin especificar.",
+      "listing_id": "57719044"
+    },
+    {
+      "id": "R9",
+      "source": "Revolico",
+      "url": "https://www.revolico.com/item/aceite-1-litro-58121649",
+      "observed_on": "2026-10-26",
+      "title": "Aceite 1 litro",
+      "quote": "4.30 USD por 1 litro, efectivo o Clásica según descripción.",
+      "location": "Centro Habana, La Habana",
+      "note": "Oferta de Centro Habana; confirmar tipo de aceite y cargo de entrega. No se asume tasa MLC ni pago Clásica equivalente a USD.",
+      "listing_id": "58121649"
+    },
+    {
+      "id": "R10",
+      "source": "Revolico",
+      "url": "https://www.revolico.com/item/picadillo-de-pollo-a-granel-2-libras-58084560",
+      "observed_on": "2026-10-26",
+      "title": "Picadillo de pollo a granel (2 libras)",
+      "quote": "2.50 USD por bolsa de 2 lb. Mensajería a Playa 1 USD o al cambio.",
+      "location": "Playa, La Habana",
+      "note": "Oferta de Playa; presupuestar mensajería aparte. No es picadillo de res.",
+      "listing_id": "58084560"
+    },
+    {
+      "id": "R11",
+      "source": "Revolico",
+      "url": "https://www.revolico.com/item/pienso-para-perros-por-libras-de-la-mejor-calidad-58326627",
+      "observed_on": "2026-10-26",
+      "title": "Pienso para perros por libras  de la mejor calidad",
+      "quote": "1000 CUP por libra; título y descripción especifican venta por libras.",
+      "location": "Diez de Octubre, La Habana",
+      "note": "Oferta de Diez de Octubre. Cantidad PROVISIONAL: no es ración recomendada. Faltan pesos, dieta y consumo real de los 3 perros; confirmar composición y entrega a Playa.",
+      "listing_id": "58326627"
+    },
+    {
+      "id": "R12",
+      "source": "Revolico",
+      "url": "https://www.revolico.com/item/comida-para-perro-saco-de-20kg-57361630",
+      "observed_on": "2026-10-26",
+      "title": "Comida para perro saco de 20kg",
+      "quote": "70 USD; descripción: saco de 20 kg.",
+      "location": "Playa, La Habana",
+      "note": "Oferta de Playa. Alternativa con cantidad 0 para no contar dos piensos a la vez. Se compra el saco completo; la ración depende de cada perro.",
+      "listing_id": "57361630"
+    },
+    {
+      "id": "D13",
+      "source": "Revolico · descartada",
+      "url": "https://www.revolico.com/item/azucar-de-1kg-58358193",
+      "observed_on": "2026-10-26",
+      "title": "Azúcar de 1kg",
+      "quote": "Azúcar: exige compra mínima 50 pacas de 10 unidades; descartado para compra doméstica.",
+      "location": "Playa, La Habana",
+      "note": "Se conserva como evidencia de la limitación; no entra en los costes de la lista."
+    },
+    {
+      "id": "D14",
+      "source": "Revolico · descartada",
+      "url": "https://www.revolico.com/item/huevo-58164107",
+      "observed_on": "2026-10-26",
+      "title": "Huevo",
+      "quote": "Huevos: oferta de contenedor; precio depende de fotos/cantidad. No se usa como precio de un cartón al detalle.",
+      "location": "Playa, La Habana",
+      "note": "Se conserva como evidencia de la limitación; no entra en los costes de la lista."
+    },
+    {
+      "id": "D15",
+      "source": "Revolico · descartada",
+      "url": "https://www.revolico.com/item/comida-a-domicilio-58267932",
+      "observed_on": "2026-10-26",
+      "title": "Comida a domicilio",
+      "quote": "Comida a domicilio: anuncio 2500 CUP sin especificar porción; no se usa como precio para 2 personas.",
+      "location": "Plaza, La Habana",
+      "note": "Se conserva como evidencia de la limitación; no entra en los costes de la lista."
+    },
+    {
+      "id": "H58185397",
+      "source": "Revolico",
+      "url": "https://www.revolico.com/item/pasta-dental-58185397",
+      "observed_on": "2026-10-26",
+      "title": "Pasta dental",
+      "quote": "Encabezado: 1 USD. No se utiliza precio: falta unidad verificable.",
+      "location": "Diez de Octubre, La Habana",
+      "note": "Anuncio 1 USD; no indica gramos ni tamaño del tubo. Precio pendiente hasta confirmar presentación. Santos Suárez."
+    },
+    {
+      "id": "H58154259",
+      "source": "Revolico",
+      "url": "https://www.revolico.com/item/champu-58154259",
+      "observed_on": "2026-10-26",
+      "title": "Champú",
+      "quote": "Encabezado: 1700 CUP. Unidad confirmada en título/descripcion: envase de 750 ml",
+      "location": "Centro Habana, La Habana",
+      "note": "Champú Nuky 750 ml, según descripción. Centro Habana; confirmar entrega a Playa."
+    },
+    {
+      "id": "H58336949",
+      "source": "Revolico",
+      "url": "https://www.revolico.com/item/desodorante-58336949",
+      "observed_on": "2026-10-26",
+      "title": "Desodorante",
+      "quote": "Encabezado: 2500 CUP. No se utiliza precio: falta unidad verificable.",
+      "location": "Diez de Octubre, La Habana",
+      "note": "Encabezado 2500 CUP sin presentación verificable. Consultar vendedor antes de cotizar."
+    },
+    {
+      "id": "H58161740",
+      "source": "Revolico",
+      "url": "https://www.revolico.com/item/papel-higienico-la-excelencia-4-unidades-58161740",
+      "observed_on": "2026-10-26",
+      "title": "Papel Higiénico La Excelencia 4 Unidades",
+      "quote": "Encabezado: 1100 CUP. Unidad confirmada en título/descripcion: paquete de 4 unidades",
+      "location": "Cerro, La Habana",
+      "note": "La Excelencia, paquete de 4 unidades. Calzada del Cerro #2203 entre Prensa y Colón; confirmar entrega."
+    },
+    {
+      "id": "H58202530",
+      "source": "Revolico",
+      "url": "https://www.revolico.com/item/detergente-en-polvo-gal-1-kg-rosas-flores-lavanda-o-limon-58202530",
+      "observed_on": "2026-10-26",
+      "title": "Detergente en polvo Gal 1 kg — rosas, flores, lavanda o limón",
+      "quote": "Encabezado: 2200 CUP. Unidad confirmada en título/descripcion: paquete de 1 kg",
+      "location": "Cerro, La Habana",
+      "note": "La Cueva de Alibaba, Calzada del Cerro #2203. Envío gratis en La Habana desde 25000 CUP; confirmar por debajo del umbral."
+    },
+    {
+      "id": "H57557650",
+      "source": "Revolico",
+      "url": "https://www.revolico.com/item/cloro-57557650",
+      "observed_on": "2026-10-26",
+      "title": "Cloro",
+      "quote": "Encabezado: 350 CUP. No se utiliza precio: falta unidad verificable.",
+      "location": "Playa, La Habana",
+      "note": "Oferta de Playa a 350 CUP sin volumen del envase. Precio pendiente por unidad; no se ha supuesto un litro."
+    },
+    {
+      "id": "H58209911",
+      "source": "Revolico",
+      "url": "https://www.revolico.com/item/limpiahogar-multiuso-de-pino-15-litros-58209911",
+      "observed_on": "2026-10-26",
+      "title": "Limpiahogar multiuso de pino 1,5 litros",
+      "quote": "Encabezado: 3000 CUP. Unidad confirmada en título/descripcion: envase de 1,5 litros",
+      "location": "Cerro, La Habana",
+      "note": "Limpiador multiuso de pino. Calzada del Cerro #2203. Envío gratis desde 25000 CUP; confirmar disponibilidad."
+    },
+    {
+      "id": "H58300720",
+      "source": "Revolico",
+      "url": "https://www.revolico.com/item/bolsas-de-basura-con-aroma-a-lavanda-rollo-de-10u-58300720",
+      "observed_on": "2026-10-26",
+      "title": "Bolsas de basura con aroma a lavanda rollo de 10u",
+      "quote": "Encabezado: 1600 CUP. Unidad confirmada en título/descripcion: rollo de 10 unidades",
+      "location": "Cerro, La Habana",
+      "note": "Rollo de 10 bolsas, según título. Cerro; confirmar tamaño y entrega."
+    },
+    {
+      "id": "H57719118",
+      "source": "Revolico",
+      "url": "https://www.revolico.com/item/almohadillas-sanitarias-57719118",
+      "observed_on": "2026-10-26",
+      "title": "Almohadillas sanitarias",
+      "quote": "Encabezado: 580 CUP. No se utiliza precio: falta unidad verificable.",
+      "location": "Playa, La Habana",
+      "note": "OPCIONAL según necesidades. Anuncio de Playa a 580 CUP sin contenido verificable. Mensajería disponible; confirmar importe."
+    },
+    {
+      "id": "T-jabon-doxa-100g",
+      "source": "La Cueva de Alibaba",
+      "url": "https://www.lacuevashop.com/product/jabon-doxa-100g/",
+      "observed_on": "2026-10-26",
+      "title": "Jabón de tocador Doxa 100 g — Elegance, Warmness o Romance",
+      "quote": "550 CUP / pastilla de 100 g; InStock",
+      "location": "Cerro, La Habana",
+      "note": "Precio y presentación verificados en la tienda. Jabón de tocador Doxa 100 g — Elegance, Warmness o Romance. Confirmar disponibilidad y mensajería; el catálogo indica envío gratis en La Habana desde 25000 CUP."
+    },
+    {
+      "id": "T-pasta-dental-colgate-triple-accion-150ml",
+      "source": "La Cueva de Alibaba",
+      "url": "https://www.lacuevashop.com/product/pasta-dental-colgate-triple-accion-150ml/",
+      "observed_on": "2026-10-26",
+      "title": "Pasta Dental COLGATE Triple Accion 150ml",
+      "quote": "3400 CUP / tubo de 150 ml; InStock",
+      "location": "Cerro, La Habana",
+      "note": "Precio y presentación verificados en la tienda. Pasta Dental COLGATE Triple Accion 150ml. Confirmar disponibilidad y mensajería; el catálogo indica envío gratis en La Habana desde 25000 CUP."
+    },
+    {
+      "id": "T-desodorante-old-spice-pure-sport-63-g",
+      "source": "La Cueva de Alibaba",
+      "url": "https://www.lacuevashop.com/product/desodorante-old-spice-pure-sport-63-g/",
+      "observed_on": "2026-10-26",
+      "title": "Desodorante Old Spice Pure Sport de hombre 63 g",
+      "quote": "3800 CUP / barra de 63 g; InStock",
+      "location": "Cerro, La Habana",
+      "note": "Precio y presentación verificados en la tienda. Desodorante Old Spice Pure Sport de hombre 63 g. Confirmar disponibilidad y mensajería; el catálogo indica envío gratis en La Habana desde 25000 CUP."
+    },
+    {
+      "id": "T-legia-de-cloro-b-l-1l",
+      "source": "La Cueva de Alibaba",
+      "url": "https://www.lacuevashop.com/product/legia-de-cloro-b-l-1l/",
+      "observed_on": "2026-10-26",
+      "title": "Lejía de cloro B.L 1 litro — desinfecta y blanquea",
+      "quote": "750 CUP / envase de 1 litro; OutOfStock (no usado como coste disponible)",
+      "location": "Cerro, La Habana",
+      "note": "SIN EXISTENCIAS en la consulta: el último precio publicado era 750 CUP; no se utiliza como coste disponible. Lejía de cloro B.L 1 litro — desinfecta y blanquea. Confirmar disponibilidad y mensajería; el catálogo indica envío gratis en La Habana desde 25000 CUP."
+    },
+    {
+      "id": "T-lavavajillas-b-l-limon-1-lt",
+      "source": "La Cueva de Alibaba",
+      "url": "https://www.lacuevashop.com/product/lavavajillas-b-l-limon-1-lt/",
+      "observed_on": "2026-10-26",
+      "title": "Lavaplatos líquido B.L de limón 1 litro — lavavajillas",
+      "quote": "800 CUP / envase de 1 litro; InStock",
+      "location": "Cerro, La Habana",
+      "note": "Precio y presentación verificados en la tienda. Lavaplatos líquido B.L de limón 1 litro — lavavajillas. Confirmar disponibilidad y mensajería; el catálogo indica envío gratis en La Habana desde 25000 CUP."
+    },
+    {
+      "id": "T-cepillo-dental-colgate-1-unidad",
+      "source": "La Cueva de Alibaba",
+      "url": "https://www.lacuevashop.com/product/cepillo-dental-colgate-1-unidad/",
+      "observed_on": "2026-10-26",
+      "title": "Cepillo de dientes Colgate",
+      "quote": "850 CUP / unidad; InStock",
+      "location": "Cerro, La Habana",
+      "note": "Precio y presentación verificados en la tienda. Cepillo de dientes Colgate. Confirmar disponibilidad y mensajería; el catálogo indica envío gratis en La Habana desde 25000 CUP."
+    },
+    {
+      "id": "WEB1",
+      "source": "Cubakilos · catálogo online",
+      "url": "https://cubakilos.com/tienda/producto/boniato-5-lb/",
+      "observed_on": "2026-10-26",
+      "title": "Boniato (5 Lb)",
+      "quote": "3.3 USD por bolsa de 5 lb. API pública confirma existencias.",
+      "location": "La Habana · confirmar Playa al seleccionar destino",
+      "note": "Pedido mínimo 50 USD; pago online con tarjeta/Bizum. Seleccionar Playa y confirmar cobertura y envío antes de comprar."
+    },
+    {
+      "id": "WEB2",
+      "source": "Cubakilos · catálogo online",
+      "url": "https://cubakilos.com/tienda/producto/calabaza-5-lb/",
+      "observed_on": "2026-10-26",
+      "title": "Calabaza (5 Lb)",
+      "quote": "2.87 USD por bolsa de 5 lb. API pública confirma existencias.",
+      "location": "La Habana · confirmar Playa al seleccionar destino",
+      "note": "Pedido mínimo 50 USD; pago online con tarjeta/Bizum. Seleccionar Playa y confirmar cobertura y envío antes de comprar."
+    },
+    {
+      "id": "WEB3",
+      "source": "Cubakilos · catálogo online",
+      "url": "https://cubakilos.com/tienda/producto/pepino-5-lb/",
+      "observed_on": "2026-10-26",
+      "title": "Pepino (5 Lb)",
+      "quote": "3.85 USD por bolsa de 5 lb. API pública confirma existencias.",
+      "location": "La Habana · confirmar Playa al seleccionar destino",
+      "note": "Pedido mínimo 50 USD; pago online con tarjeta/Bizum. Seleccionar Playa y confirmar cobertura y envío antes de comprar."
+    },
+    {
+      "id": "WEB4",
+      "source": "Cubakilos · catálogo online",
+      "url": "https://cubakilos.com/tienda/producto/fruta-bomba-5-lb/",
+      "observed_on": "2026-10-26",
+      "title": "Fruta Bomba (5 Lb)",
+      "quote": "2.87 USD por bolsa de 5 lb. API pública confirma existencias.",
+      "location": "La Habana · confirmar Playa al seleccionar destino",
+      "note": "Pedido mínimo 50 USD; pago online con tarjeta/Bizum. Seleccionar Playa y confirmar cobertura y envío antes de comprar."
+    },
+    {
+      "id": "WEB5",
+      "source": "Cubakilos · catálogo online",
+      "url": "https://cubakilos.com/tienda/producto/guayaba-5-lb/",
+      "observed_on": "2026-10-26",
+      "title": "Guayaba (5 Lb)",
+      "quote": "4.83 USD por bolsa de 5 lb. API pública confirma existencias.",
+      "location": "La Habana · confirmar Playa al seleccionar destino",
+      "note": "Pedido mínimo 50 USD; pago online con tarjeta/Bizum. Seleccionar Playa y confirmar cobertura y envío antes de comprar."
+    },
+    {
+      "id": "WEB6",
+      "source": "Cubakilos · catálogo online",
+      "url": "https://cubakilos.com/tienda/producto/platanos-burros-2-manos/",
+      "observed_on": "2026-10-26",
+      "title": "Plátanos Burros (2 Manos)",
+      "quote": "1.8 USD por paquete de 2 manos de plátanos burros. API pública confirma existencias.",
+      "location": "La Habana · confirmar Playa al seleccionar destino",
+      "note": "Pedido mínimo 50 USD; pago online con tarjeta/Bizum. Seleccionar Playa y confirmar cobertura y envío antes de comprar."
+    },
+    {
+      "id": "WEB7",
+      "source": "Bodegón Selecto",
+      "url": "https://bodegonselecto.com/product/2-lb-cebolla-blanca/",
+      "observed_on": "2026-10-26",
+      "title": "Cebolla Blanca 2 lb",
+      "quote": "6.0 USD por bolsa de 2 lb. API pública confirma existencias.",
+      "location": "La Habana",
+      "note": "Confirmar cobertura, mensajería, mínimo de pedido y forma de pago antes de comprar."
+    },
+    {
+      "id": "WEB8",
+      "source": "Bodegón Selecto",
+      "url": "https://bodegonselecto.com/product/3-lb-tomate-mediano/",
+      "observed_on": "2026-10-26",
+      "title": "Tomate",
+      "quote": "3.0 USD por módulo de 3 lb. API pública confirma existencias.",
+      "location": "La Habana",
+      "note": "Confirmar cobertura, mensajería, mínimo de pedido y forma de pago antes de comprar."
+    },
+    {
+      "id": "WEB9",
+      "source": "Bodegón Selecto",
+      "url": "https://bodegonselecto.com/product/1-unidad-col/",
+      "observed_on": "2026-10-26",
+      "title": "Col Entera",
+      "quote": "2.2 USD por col entera mediana a grande. API pública confirma existencias.",
+      "location": "La Habana",
+      "note": "Confirmar cobertura, mensajería, mínimo de pedido y forma de pago antes de comprar."
+    },
+    {
+      "id": "WEB10",
+      "source": "Pan&Más · AlaMesa",
+      "url": "https://www.alamesacuba.com/es/la-habana/a-domicilio/detalles/ajo-pelado-05-lb/",
+      "observed_on": "2026-10-26",
+      "title": "Ajo pelado (0.5 lb)",
+      "quote": "5 USD por paquete de 0,5 lb; listado en el catálogo para Playa.",
+      "location": "La Habana · entrega a Playa",
+      "note": "Pan&Más publica 5 USD por paquete de 0,5 lb de ajo pelado: 10 USD/lb; para 0,25 lb se compra un paquete completo (5 USD). El sitio muestra CUP con tasa interna 120; se conserva la oferta en USD y no se usa esa conversión como tasa actual. Oferta listada para Playa; entrega y pago a confirmar."
+    },
+    {
+      "id": "WEB11",
+      "source": "La Cueva de Alibaba",
+      "url": "https://www.lacuevashop.com/product/almohadillas-sanitarias-giggles-normal-10-unidades/",
+      "observed_on": "2026-10-26",
+      "title": "Íntimas Giggles normal — almohadillas sanitarias, paquete de 10",
+      "quote": "1000.0 CUP por paquete de 10 íntimas Giggles normal. API pública confirma existencias.",
+      "location": "Cerro",
+      "note": "Gratis en La Habana desde 25000 CUP; por debajo confirmar cargo."
+    },
+    {
+      "id": "WEB12",
+      "source": "Revolico · Botánica Pura",
+      "url": "https://www.revolico.com/item/cloro-57308270",
+      "observed_on": "2026-10-26",
+      "title": "Cloro",
+      "quote": "600 CUP por pomo de 1 litro.",
+      "location": "Guanabacoa, La Habana",
+      "note": "Alternativa a la lejía B.L sin existencias: cloro Botánica Pura, 600 CUP por pomo de 1 litro, según anuncio verificado el 26/10/2026. Guanabacoa; confirmar disponibilidad y entrega a Playa."
+    },
+    {
+      "id": "WEB13",
+      "source": "Revolico · Maria Perera",
+      "url": "https://www.revolico.com/item/set-de-esponjitas-y-estropajos-58158599",
+      "observed_on": "2026-10-26",
+      "title": "Set de Esponjitas y Estropajos",
+      "quote": "1000 CUP por set de 2 esponjas y 2 estropajos.",
+      "location": "Diez de Octubre, La Habana",
+      "note": "Set de limpieza: 1 esponja verde, 2 estropajos de acero y 1 esponja amarilla. 1000 CUP el set. Mensajería adicional; fuente verificada el 26/10/2026."
+    },
+    {
+      "id": "D_WEB",
+      "source": "Revolico · descartadas",
+      "url": "https://www.revolico.com/item/ajo-54572227",
+      "observed_on": "2026-10-26",
+      "title": "Ajo y cebolla por cajas / sacos",
+      "quote": "Ajo 3,70 USD por bolsa de 1 kg, pero venta por cajas de 10; cebolla 760 CUP/lb solo desde saco de 20 kg.",
+      "location": "La Habana",
+      "note": "No son precios de compra doméstica fraccionada. Se descartaron del plan."
+    },
+    {
+      "id": "WEB_COMIDA",
+      "source": "Mercy Bar Café · AlaMesa",
+      "url": "https://www.alamesacuba.com/es/la-habana/a-domicilio/detalles/pizza-de-queso-o-33-cm-mercy/",
+      "observed_on": "2026-10-26",
+      "title": "Pizza de queso (Ø33 cm)",
+      "quote": "4,60 USD por pizza; referencia de pedido para 2 = 9,20 USD por 2 pizzas, sin mensajería.",
+      "location": "La Habana · listado con entrega a Playa",
+      "note": "Referencia concreta para 2 personas: 2 pizzas de queso de 33 cm a 4,60 USD cada una = 9,20 USD, sin mensajería. No es un combo anunciado: suma de 2 unidades del menú. Puede sustituirse por otra elección. Se usa USD publicado y no la conversión CUP a 120 del sitio."
+    },
+    {
+      "id": "HOGAR_YOSVANY_20261027",
+      "source": "Oferta Yosvany · aportada por el usuario",
+      "url": "hogar://ofertas/2026-10-27",
+      "observed_on": "2026-10-27",
+      "title": "56 referencias de alimentos en CUP",
+      "quote": "CUP y libras confirmados por el usuario; prevalecen paquetes, cartones, tubos, latas y potes explícitos.",
+      "location": "Playa: entrega y ubicación por confirmar",
+      "note": "No se proporcionó enlace, dirección ni contacto. Los envasados sin presentación quedan pendientes; no se suponen pesos ni volúmenes."
+    }
+  ],
+  "subtotal": "=IF(OR(C{r}=\"presentación por confirmar\",G{r}=\"\",D{r}=\"\",NOT(ISNUMBER(D{r})),D{r}<0),\"\",IF(OR(M{r}=\"\",AND(ISNUMBER(M{r}),M{r}=0)),D{r}*G{r},IF(AND(ISNUMBER(M{r}),M{r}>0),CEILING(D{r}/M{r},1)*M{r}*G{r},\"\")))",
+  "priceStatus": "=IF(B{r}=\"\",\"\",IF(D{r}=\"\",\"FALTA CANTIDAD\",IF(D{r}=0,\"OPCIONAL\",IF(C{r}=\"presentación por confirmar\",\"CONFIRMAR PRESENTACIÓN\",IF(E{r}=\"\",IF(A{r}=\"Servicios y transporte\",\"SEGÚN CONSUMO\",IF(B{r}=\"Paseo / salida\",\"ELEGIR PASEO\",\"SIN COTIZAR\")),IF(G{r}=\"\",\"REVISAR MONEDA/TASA\",IF(AND(M{r}<>\"\",NOT(AND(ISNUMBER(M{r}),M{r}>=0))),\"REVISAR ENVASE\",IF(OR(LEFT(IFERROR(INDEX(Directorio!$M$6:$M$100,MATCH(B{r},Directorio!$B$6:$B$100,0)),\"\"),7)=\"REVISAR\",LEFT(IFERROR(INDEX(Directorio!$M$6:$M$100,MATCH(B{r},Directorio!$B$6:$B$100,0)),\"\"),15)=\"SIN EXISTENCIAS\"),\"REVISAR DISPONIBILIDAD\",IF(OR(I{r}=\"\",J{r}=\"\"),\"FALTA FUENTE/FECHA\",IF(TODAY()-J{r}>30,\"ACTUALIZAR PRECIO\",\"REFERENCIA\"))))))))))",
+  "pendingBudget": "=COUNTIFS('Lista compras'!A6:A100,A{r},'Lista compras'!D6:D100,\">0\",'Lista compras'!K6:K100,\"<>REFERENCIA\")+COUNTIFS('Lista compras'!A6:A100,A{r},'Lista compras'!B6:B100,\"?*\",'Lista compras'!D6:D100,\"\")",
+  "pendingFormula": "=COUNTIFS('Lista compras'!D6:D100,\">0\",'Lista compras'!K6:K100,\"<>REFERENCIA\")"
+}
