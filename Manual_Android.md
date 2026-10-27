@@ -1,4 +1,4 @@
-# Hogar Playa 1.2.1 · instalación y uso en Android
+# Hogar Playa 1.2.2 · instalación y uso en Android
 
 La APK funciona en **Android 8 o posterior**. Cada persona crea su nombre y PIN al abrir la app. Puedes usar dos perfiles en un teléfono o instalarla en dos teléfonos conectados a la misma hoja.
 
@@ -7,10 +7,10 @@ La APK funciona en **Android 8 o posterior**. Cada persona crea su nombre y PIN 
 1. Conserva la APK instalada. En tu Sheet, sustituye todo Código.gs por **Script_Completo_Hogar_Android.txt**, guarda y ejecuta **iniciarHogar**. No pegues fragmentos.
 2. Recarga la hoja. Revisa el desglose inicial: **Cuentas B7** es el CUP inicial total; **B24** indica qué parte de ese mismo total estaba en transferencia. No sumes B24 otra vez a B7.
 3. Actualiza la implementación existente: **Implementar → Gestionar implementaciones → lápiz → Nueva versión → Implementar**. Conserva tu URL /exec y sus permisos.
-4. Instala **Hogar_Playa.apk 1.2.0 encima de la anterior**, en todos los teléfonos que vayan a registrar transferencias. No desinstales ni borres datos. La actualización conserva perfiles, PIN, cestas, movimientos y credenciales.
+4. Instala **Hogar_Playa.apk 1.2.2 encima de la anterior**, en todos los teléfonos que vayan a registrar transferencias. No desinstales ni borres datos. La actualización conserva perfiles, PIN, cestas, movimientos y credenciales.
 5. Abre la APK y sincroniza. Si ya estaba vinculada y conservaste la URL, no necesitas generar otro código. La nueva APK exige el servidor actualizado para evitar que un servidor antiguo ignore el formato CUP.
 
-La actualización añade Registro U/V, Cambios R, Cuentas B24:B26, Lista compras N y dos indicadores al final del Tablero. Los registros antiguos sin formato se consideran **Efectivo**; puedes corregir su formato en Registro U o Cambios R sin cambiar el importe ni anotar otro ingreso.
+La versión 1.2.2 añade Planes app y Plan CUP L:Q para gestionar y auditar planes desde Android. Conserva Registro U/V, Cambios R, Cuentas B24:B26, Lista compras N y dos indicadores al final del Tablero. Los registros antiguos sin formato se consideran **Efectivo**; puedes corregir su formato en Registro U o Cambios R sin cambiar el importe ni anotar otro ingreso.
 
 ## 1. Preparar tu hoja una vez
 
@@ -18,7 +18,7 @@ La actualización añade Registro U/V, Cambios R, Cuentas B24:B26, Lista compras
 2. En la hoja, abre **Extensiones → Apps Script**.
 3. En `Código.gs`, sustituye todo el código por el contenido completo del archivo. No añadas fragmentos al final del script anterior. Si creaste otros archivos `.gs` con copias de las mismas funciones, conserva un solo script completo; no borres tus datos de la hoja.
 4. Guarda y elige **iniciarHogar** en el selector de funciones. Pulsa **Ejecutar** y autoriza con tu cuenta de Google. La primera ejecución puede tardar por las consultas de precios.
-5. Vuelve a la hoja y recarga la página. Aparecerá **Hogar → Conectar app Android**. Las instrucciones también quedan en **Guía**, pasos 15 a 37.
+5. Vuelve a la hoja y recarga la página. Aparecerá **Hogar → Conectar app Android**. Las instrucciones también quedan en **Guía**, pasos 15 a 39.
 
 La actualización conserva Registro, Cambios, presupuestos, ajustes y reservas. Añade Perfiles app, Dispositivos app y Auditoría app, además de columnas de trazabilidad. No introduce movimientos de ejemplo en tu hoja.
 
@@ -63,9 +63,9 @@ Puedes empezar a registrar antes de vincular el Sheet. Los movimientos quedarán
 
 **Una cuenta CUP con dos formatos.** Al registrar un ingreso CUP elige **Efectivo** o **Transferencia**. Al pagar CUP, elige el formato realmente utilizado. El cambio USD→CUP sugiere Efectivo, pero puedes escoger Transferencia si así lo recibiste. Inicio muestra USD, CUP efectivo, CUP transferencia y el total CUP. Un ingreso bancario suma solo a transferencia; un pago en efectivo descuenta solo efectivo. Se conserva una sola cuenta CUP y el total equivale a la suma de los dos formatos. Ahorro y fondos reservan dinero dentro de esos saldos.
 
-**Recibir otros ingresos en CUP.** En el Sheet usa **Hogar → Registrar ingreso en CUP**; en la APK, Inicio → Registrar otro ingreso en CUP. Escribe el concepto, importe recibido y tasa para el equivalente del presupuesto. Se suman solo los CUP a su cuenta, sin vender ni restar USD. Ese dinero reduce la necesidad de cambiar dólares. No aumenta por sí solo las asignaciones de consumo.
+**Recibir otros ingresos en CUP.** En el Sheet usa **Hogar → Registrar ingreso · USD o CUP** y selecciona CUP; en la APK, **Registrar → Ingreso → Moneda CUP**. Lo mismo funciona desde **Registrar movimiento → Ingreso**. Al seleccionar CUP aparece el formato obligatorio **Efectivo / Transferencia**; al seleccionar USD se oculta. Se ha eliminado el acceso separado a otro ingreso CUP. Escribe el concepto, importe recibido y tasa para el equivalente del presupuesto. Se suman solo los CUP a su cuenta, sin vender ni restar USD. Ese dinero reduce la necesidad de cambiar dólares. No aumenta por sí solo las asignaciones de consumo.
 
-**Planificar los pagos.** En el Sheet abre **Hogar → Planificar pagos en CUP**. Completa cada fila amarilla de **Plan CUP**: fecha, concepto, categoría, previsto CUP, imprescindible Sí/No y activo Sí/No. Los pagos son opcionales por defecto; marca **Imprescindible: Sí** para que justifiquen un cambio. No se suman gastos hasta registrar el pago real. La app muestra el plan, permite registrar su pago y recibe sus cambios al sincronizar. En esta versión, añadir o editar los pagos futuros se hace en el Sheet.
+**Planificar los pagos.** En el Sheet abre **Hogar → Planificar pagos en CUP**. Completa cada fila amarilla de **Plan CUP**: fecha, concepto, categoría, previsto CUP, imprescindible Sí/No y activo Sí/No. Los pagos son opcionales por defecto; marca **Imprescindible: Sí** para que justifiquen un cambio. No se suman gastos hasta registrar el pago real. También puedes añadir y gestionar estos pagos desde la APK: **Inicio o Perfil → Plan CUP y protección de USD**. Consulta el total previsto, pagado y pendiente; usa los filtros Pendientes, Pagados, Cancelados y Todos. **Añadir Plan CUP** y **Editar** permiten concepto, fecha, categoría, importe total, imprescindible, estado y notas. El importe es el total del compromiso, no solo el restante. Con pagos asociados se conserva la categoría y no se reduce el importe por debajo de lo pagado. **Cancelar plan** conserva los pagos y la trazabilidad, y deja de contar el pendiente como obligación futura; **Reactivar** vuelve a incluirlo. No se devuelve dinero al cancelar.
 
 **Proteger los USD.** **Protección USD** queda activa con estos valores editables:
 
@@ -100,6 +100,12 @@ Con el plan inicial: 350 USD − 175 de ahorro − 42 de fondos = **133 USD asig
 Los aportes a ahorro/fondos, cambios de moneda y pagos desde fondos no reducen esta partida. Los movimientos rechazados tampoco cuentan como gastos confirmados y se señalan para revisión. Las compras del otro teléfono se incorporan cuando ambos sincronizan. Edita **Presupuesto, columna C**, y sincroniza para recibir las nuevas asignaciones.
 
 El disponible del presupuesto es un margen de planificación. **Saldos por moneda** muestra el efectivo contabilizado en USD y CUP, incluido el dinero reservado; no todo ese efectivo está libre para gastar. El plan de compras puede seguir incompleto aunque una partida tenga disponible.
+
+## Gestionar planes sin internet y resolver cambios simultáneos
+
+Los planes se guardan en este teléfono antes de sincronizarse, separados de los movimientos de dinero. Puedes editar un borrador que todavía no se ha intentado enviar. Si aparece **En espera de confirmación**, sincroniza antes de volver a modificarlo: así un reintento conserva exactamente los mismos datos. Cerrar la app conserva el plan y sus identificadores.
+
+La sincronización envía primero el plan y, después de confirmarlo, los gastos vinculados. Si el Sheet u otro teléfono cambió el mismo plan, aparece **Revisar y corregir** con el motivo y la versión actual. Revisa los datos y guarda tu corrección. Los pagos vinculados esperan mientras haya un cambio de plan sin resolver. **Descartar este cambio y conservar el Sheet** abandona únicamente la modificación local; si el plan era nuevo y aún no existe en el Sheet, corrígelo para poder enviar sus pagos. La pestaña **Planes app** conserva quién modificó cada plan, desde qué dispositivo y cuándo; no registra ingresos ni gastos.
 
 ## Plan CUP, campo opcional y prueba del aviso
 
@@ -164,6 +170,7 @@ La vista móvil utiliza la última copia descargada del Sheet y los movimientos 
 
 ## 6. Trazabilidad, correcciones y mantenimiento
 
+- **Planes app:** auditoría de creación, edición, cancelación y reactivación; Plan CUP L:Q conserva los metadatos del último cambio para recuperar un envío interrumpido. No edites estas columnas.
 - **Registro:** A:K mantiene el formato original; L:S añade operación, perfil, nombre, dispositivo, creación local, sincronización, origen y huella. T vincula el gasto al pago de Plan CUP, U guarda el formato CUP y V conserva los datos de la jornada y su tope.
 - **Cambios:** A:I mantiene el formato original; J:Q añade los datos de trazabilidad y R guarda el formato recibido.
 - **Auditoría app:** conserva operación, estado, perfil, dispositivo, fechas, detalle y fila de destino. Los rechazos también dejan su motivo.

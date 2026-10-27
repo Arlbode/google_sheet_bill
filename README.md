@@ -1,27 +1,25 @@
-# Hogar Playa · Android 1.2.1
+# Hogar Playa · Android 1.2.2
 
-Android 8 o posterior. Actualización compatible con la firma anterior; instala encima sin borrar datos.
+Android 8 o posterior. Instala encima de la versión anterior para conservar perfiles, PIN, movimientos y conexión.
 
 - [Hogar_Playa.apk](Hogar_Playa.apk): APK firmada.
 - [Hogar_Playa_Instalacion.zip](Hogar_Playa_Instalacion.zip): APK, único script completo, manual, oferta CSV y verificaciones.
 - [Script_Completo_Hogar_Android.txt](Script_Completo_Hogar_Android.txt): sustituye todo Código.gs y ejecuta iniciarHogar.
-- [Manual_Android.md](Manual_Android.md): operación, actualización y prueba del aviso USD.
-- [Oferta_Yosvany_2026-10-27.csv](Oferta_Yosvany_2026-10-27.csv): los 56 importes recibidos, con unidad o presentación pendiente indicada.
+- [Manual_Android.md](Manual_Android.md): instalación, actualización y operación.
 
 ## Novedades
 
-- El PIN conserva el formulario y el foco ante una actualización en segundo plano.
-- Selección múltiple de productos, revisión conjunta y guardado atómico. Los borradores sin precio se completan antes de registrar gastos.
-- La tarjeta verde del Modo compra suma toda la lista y muestra: tope menos comprado menos lista pendiente. Señala estimaciones parciales y excesos; confirmar no descuenta dos veces.
-- Perfil → Probar aviso de protección USD envía PRUEBA y el diagnóstico actual sin alterar dinero ni planes.
-- Oferta Yosvany: 56 referencias en CUP, 41 productos nuevos, 88 en catálogo. Granel por libra confirmado por el usuario. Se respetan los envases explícitos y se marcan los que necesitan confirmar presentación. Directorio conserva el origen; no se inventa contacto, dirección o enlace externo.
+- Inicio o Perfil → Plan CUP y protección de USD: consultar, añadir, editar, cancelar y reactivar planes. Muestra previsto, pagado y pendiente, con filtros para pendientes, pagados y cancelados.
+- Cambios de planes offline, guardados separados de los movimientos de dinero. Se sincroniza primero el plan y después sus pagos. Las ediciones simultáneas se muestran para revisión. Cancelar conserva pagos y trazabilidad.
+- Registrar → Ingreso reúne USD y CUP. Al elegir CUP aparece Efectivo/Transferencia, también desde Registrar movimiento → Ingreso. Se elimina el acceso separado a otro ingreso CUP. El Sheet utiliza un único menú Registrar ingreso · USD o CUP.
+- Conserva selección múltiple, importe de la lista pendiente, tope diario, desglose de saldos, protección USD, perfiles/PIN, estadísticas, prueba de aviso y oferta Yosvany.
 
 ## Actualizar
 
-1. En tu Sheet → Extensiones → Apps Script, sustituye TODO Código.gs por el archivo completo; guarda y ejecuta iniciarHogar.
+1. En el Sheet → Extensiones → Apps Script, sustituye TODO Código.gs por el archivo completo. Guarda y ejecuta iniciarHogar.
 2. Implementar → Gestionar implementaciones → lápiz → Nueva versión → Implementar. Conserva URL /exec y permisos.
 3. Instala la APK encima de la anterior y sincroniza. Si conservaste la URL y el proyecto, no necesitas otro código de conexión.
 
-Plan CUP es una agenda de pagos futuros en pesos. No registra gastos por sí solo. El campo Pago planificado CUP (opcional) vincula el gasto real a esa agenda para reducir lo pendiente; si no tenías un plan, déjalo sin asociar. El manual explica cómo probar las notificaciones y la regla sin registrar dinero ficticio.
+La gestión móvil de planes necesita el script y la implementación actualizados. El menú Guía incluye los nuevos pasos de operación. Crear o editar un plan no descuenta dinero: cada gasto real se registra una vez y su vínculo reduce lo pendiente del plan.
 
 La autorización e implementación de Google las realiza el propietario. No se publican credenciales ni movimientos financieros reales.
