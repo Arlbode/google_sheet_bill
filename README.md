@@ -1,24 +1,27 @@
-# Hogar Playa · Android 1.2.0
+# Hogar Playa · Android 1.2.1
 
-Paquete para Android 8 o posterior. Instala sobre la versión anterior para conservar perfiles, PIN, cestas y registros.
+Android 8 o posterior. Actualización compatible con la firma anterior; instala encima sin borrar datos.
 
-- [Hogar_Playa.apk](Hogar_Playa.apk): aplicación firmada.
-- [Script_Completo_Hogar_Android.txt](Script_Completo_Hogar_Android.txt): único script completo para Código.gs.
-- [Hogar_Playa_Instalacion.zip](Hogar_Playa_Instalacion.zip): APK, script, manual y verificaciones.
-- [Manual_Android.md](Manual_Android.md): instalación, actualización y uso.
-- Hogar_Playa.apk.sha256: huella de la APK.
+- [Hogar_Playa.apk](Hogar_Playa.apk): APK firmada.
+- [Hogar_Playa_Instalacion.zip](Hogar_Playa_Instalacion.zip): APK, único script completo, manual, oferta CSV y verificaciones.
+- [Script_Completo_Hogar_Android.txt](Script_Completo_Hogar_Android.txt): sustituye todo Código.gs y ejecuta iniciarHogar.
+- [Manual_Android.md](Manual_Android.md): operación, actualización y prueba del aviso USD.
+- [Oferta_Yosvany_2026-10-27.csv](Oferta_Yosvany_2026-10-27.csv): los 56 importes recibidos, con unidad o presentación pendiente indicada.
 
-## Cambios
+## Novedades
 
-Cuenta CUP única con efectivo y transferencia, desglose en el Tablero y en el móvil, formato al ingresar/gastar CUP y efectivo predeterminado al cambiar USD. Modo compra con límite por jornada, lista con cantidad × precio y unidad, gasto automático al confirmar, lista tachada, sugerencias según historial y confirmación antes de repetir mensuales. Mejoras de teclado, barras de Android y logotipo para volver a Inicio.
+- El PIN conserva el formulario y el foco ante una actualización en segundo plano.
+- Selección múltiple de productos, revisión conjunta y guardado atómico. Los borradores sin precio se completan antes de registrar gastos.
+- La tarjeta verde del Modo compra suma toda la lista y muestra: tope menos comprado menos lista pendiente. Señala estimaciones parciales y excesos; confirmar no descuenta dos veces.
+- Perfil → Probar aviso de protección USD envía PRUEBA y el diagnóstico actual sin alterar dinero ni planes.
+- Oferta Yosvany: 56 referencias en CUP, 41 productos nuevos, 88 en catálogo. Granel por libra confirmado por el usuario. Se respetan los envases explícitos y se marcan los que necesitan confirmar presentación. Directorio conserva el origen; no se inventa contacto, dirección o enlace externo.
 
 ## Actualizar
 
-1. Sustituye TODO Código.gs por el script completo y ejecuta iniciarHogar.
-2. Recarga el Sheet. Cuentas B7 es el CUP inicial total; B24 indica qué parte estaba en transferencia. Los registros antiguos sin formato se consideran efectivo y pueden reclasificarse.
-3. Implementar → Gestionar implementaciones → lápiz → Nueva versión → Implementar. Conserva la URL /exec, Ejecutar como Yo y acceso Cualquier persona.
-4. Instala la APK encima de la anterior y sincroniza. Actualiza todos los teléfonos antes de registrar transferencias. Si ya estaba vinculada con la misma URL, no necesitas otro código.
+1. En tu Sheet → Extensiones → Apps Script, sustituye TODO Código.gs por el archivo completo; guarda y ejecuta iniciarHogar.
+2. Implementar → Gestionar implementaciones → lápiz → Nueva versión → Implementar. Conserva URL /exec y permisos.
+3. Instala la APK encima de la anterior y sincroniza. Si conservaste la URL y el proyecto, no necesitas otro código de conexión.
 
-El límite es por fecha y teléfono, compartido entre sus perfiles. Salir no reinicia el gasto. Las sugerencias requieren al menos tres fechas de compra identificadas. Lista compras N configura compra mensual (1) o repetición libre (0). El manual detalla uso sin internet, unidades y actualización.
+Plan CUP es una agenda de pagos futuros en pesos. No registra gastos por sí solo. El campo Pago planificado CUP (opcional) vincula el gasto real a esa agenda para reducir lo pendiente; si no tenías un plan, déjalo sin asociar. El manual explica cómo probar las notificaciones y la regla sin registrar dinero ficticio.
 
-No se incluyen credenciales de conexión ni movimientos financieros reales. La autorización e implementación final de Google se hacen desde la cuenta propietaria.
+La autorización e implementación de Google las realiza el propietario. No se publican credenciales ni movimientos financieros reales.

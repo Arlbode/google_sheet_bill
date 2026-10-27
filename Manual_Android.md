@@ -1,4 +1,4 @@
-# Hogar Playa 1.2.0 · instalación y uso en Android
+# Hogar Playa 1.2.1 · instalación y uso en Android
 
 La APK funciona en **Android 8 o posterior**. Cada persona crea su nombre y PIN al abrir la app. Puedes usar dos perfiles en un teléfono o instalarla en dos teléfonos conectados a la misma hoja.
 
@@ -18,7 +18,7 @@ La actualización añade Registro U/V, Cambios R, Cuentas B24:B26, Lista compras
 2. En la hoja, abre **Extensiones → Apps Script**.
 3. En `Código.gs`, sustituye todo el código por el contenido completo del archivo. No añadas fragmentos al final del script anterior. Si creaste otros archivos `.gs` con copias de las mismas funciones, conserva un solo script completo; no borres tus datos de la hoja.
 4. Guarda y elige **iniciarHogar** en el selector de funciones. Pulsa **Ejecutar** y autoriza con tu cuenta de Google. La primera ejecución puede tardar por las consultas de precios.
-5. Vuelve a la hoja y recarga la página. Aparecerá **Hogar → Conectar app Android**. Las instrucciones también quedan en **Guía**, pasos 15 a 32.
+5. Vuelve a la hoja y recarga la página. Aparecerá **Hogar → Conectar app Android**. Las instrucciones también quedan en **Guía**, pasos 15 a 37.
 
 La actualización conserva Registro, Cambios, presupuestos, ajustes y reservas. Añade Perfiles app, Dispositivos app y Auditoría app, además de columnas de trazabilidad. No introduce movimientos de ejemplo en tu hoja.
 
@@ -101,15 +101,45 @@ Los aportes a ahorro/fondos, cambios de moneda y pagos desde fondos no reducen e
 
 El disponible del presupuesto es un margen de planificación. **Saldos por moneda** muestra el efectivo contabilizado en USD y CUP, incluido el dinero reservado; no todo ese efectivo está libre para gastar. El plan de compras puede seguir incompleto aunque una partida tenga disponible.
 
+## Plan CUP, campo opcional y prueba del aviso
+
+**Plan CUP es tu agenda de pagos futuros en pesos.** Indica concepto, fecha, importe, categoría, imprescindible Sí/No y activo Sí/No. Crear un plan no descuenta dinero ni registra un gasto.
+
+**Pago planificado CUP (opcional)** enlaza un gasto real con esa agenda. Si planificaste 10.000 CUP para alimentos y pagas 3.000 CUP, selecciona el plan y quedarán 7.000 CUP pendientes. La app no registra otro gasto por vincularlo. Si no habías creado un plan, deja Sin asociar; tu gasto se guarda normalmente. Solo se vinculan gastos CUP de la misma categoría.
+
+El aviso usa pagos imprescindibles pendientes dentro de 15 días, los CUP utilizables (total efectivo + transferencia menos la reserva CUP) y una antelación de 3 días al primer pago sin cobertura. Protege inicialmente 175 USD y calcula el cambio máximo como el menor entre el déficit convertido a tu tasa y los USD que superan la reserva. Si no quedan USD libres, avisa que hay que revisar el plan u obtener CUP, sin vender la reserva. Una fecha más lejana puede tener déficit sin necesitar un cambio todavía.
+
+Ejemplo de cálculo, no de cotización del día: saldo real de 350 USD y 5.000 CUP, reserva de 175 USD y pago imprescindible de 30.000 CUP dentro de dos días. Faltan 25.000 CUP. A 870 CUP/USD, el máximo necesario es 28,74 USD, redondeado hacia arriba a centavos. A 840 serían 29,77 USD. El aviso real muestra su referencia, fuente y fecha; no etiqueta una tasa antigua como consultada hoy.
+
+Para comprobar las notificaciones sin alterar tus cuentas:
+
+1. APK → Perfil → Avisos de necesidad de CUP: permite las notificaciones de Android.
+2. Pulsa **Probar aviso de protección USD**. Aparecerá **PRUEBA · Protección USD** y el diagnóstico actual. Esta prueba no registra dinero, no cambia planes y no reinicia el aviso automático.
+3. Para probar también la regla, puedes crear una fila temporal en Plan CUP con fecha hoy, concepto PRUEBA, categoría válida, importe mayor que los CUP utilizables, Imprescindible Sí y Activo Sí. No cambies ingresos ni saldos iniciales para simular dinero.
+4. Sincroniza la APK y abre Plan CUP y protección USD. Si faltan CUP y hay USD por encima de la reserva, mostrará el máximo; si no hay USD libres, pedirá revisar sin tocar la reserva. Planes incompletos o protección desactivada impiden la recomendación normal.
+5. Al terminar, cambia Activo a No en esa fila y sincroniza para retirar la necesidad de prueba. No registres un cambio de moneda ficticio.
+
+El aviso se revisa al abrir/sincronizar y con un trabajo periódico de 6 horas. Android puede retrasarlo. No se repite continuamente si la necesidad y la referencia son iguales; el botón PRUEBA permite comprobar la entrega sin esperar ni modificar esa regla.
+
+## Oferta Yosvany recibida el 27/10/2026
+
+Se conservan los **56 importes** en Ofertas recibidas y se añaden **41 productos**, para un catálogo de **88**. Moneda CUP y precios por libra confirmados para venta a granel. Se respetan las presentaciones explícitas; no se supone el peso de un paquete ni de un tubo. 19 envasados sin presentación clara conservan su precio recibido y quedan señalados para confirmar unidad. En la APK puedes ver ese importe; debes elegir la unidad y el precio aplicable antes de registrar el gasto.
+
+Ejemplos: boniato 150 CUP/lb, arroz a granel 370 CUP/lb, pollo de 11 lb 9.500 CUP/paquete, leche en polvo de 1 kg 4.200 CUP y aceite de 900 ml 2.800 CUP/botella. El aceite conserva el cálculo por litro y compra botellas completas: si el plan requiere un litro, se necesitan dos botellas. Al cambiar arroz/azúcar de kg a lb se convierte la cantidad planificada. Las unidades sin equivalencia comprobada se revisan, guardando la cantidad anterior en observaciones. La fórmula de boniato de los perros se conserva.
+
+Directorio identifica Oferta Yosvany; el usuario no proporcionó contacto, dirección ni enlace externo. No se atribuye la oferta a un vendedor web anterior. La revisión diaria conserva estos precios manuales; el tipo de cambio y las demás fuentes mantienen sus revisiones normales. La oferta no modifica movimientos de dinero, cantidades elegidas para productos de la misma unidad ni asignaciones del presupuesto. Los productos nuevos tienen cantidad mensual 0, como opcionales; elige los que uses.
+
 ## Modo compra · lista, tope y reposición
 
 1. Abre **Comprar → Iniciar Modo compra**. Fija el máximo para ese día en CUP o USD y una tasa de comparación. Esa tasa queda fija para comparar pagos en distintas monedas; cada gasto conserva además su tasa histórica.
-2. Pulsa **Elegir productos para la lista**. Selecciona cantidad, **Paquete / Libra / Kilogramo / Unidad**, moneda, formato CUP y precio por esa unidad. La vista calcula cantidad × precio. Al cambiar la unidad se vacía el precio para que introduzcas el correcto; no se inventa el peso de un paquete.
-3. **Guardar en mi lista** prepara la compra. Todavía no registra un gasto.
+2. Pulsa **Elegir productos para la lista → Seleccionar varios productos**. Marca los que quieras, pulsa **Añadir seleccionados a mi lista** y revisa el grupo en una pantalla. También puedes añadirlos individualmente. Si ya tienes pagos previstos, puedes elegir un plan una vez por categoría en el formulario del grupo; se aplica solo a los artículos pagados en CUP de esa categoría. No añadas el tope diario como un pago adicional en Plan CUP: es un límite de la jornada, no otro compromiso. Selecciona cantidad, **Paquete / Libra / Kilogramo / Unidad**, moneda, formato CUP y precio por esa unidad. La vista calcula cantidad × precio. Al cambiar la unidad se vacía el precio para que introduzcas el correcto; no se inventa el peso de un paquete.
+3. **Guardar en mi lista / Añadir todos a mi lista** prepara la compra. Todavía no registra un gasto. Puedes dejar productos como borrador con precio o unidad pendientes; usa Completar antes de confirmar su compra. El grupo se guarda de forma atómica y reintentarlo no duplica filas.
 4. Cuando realmente compres el artículo, pulsa **✓ → Confirmar y tachar**. En una sola transacción se guarda su gasto con tu perfil y se marca comprado. Si supera el disponible del tope, se bloquea antes de guardar. La comprobación se realiza también sin internet.
 5. Los comprados desaparecen de pendientes. **Ver comprados hoy** muestra su lista tachada. En Movimientos puedes comprobar si están pendientes, sincronizados o requieren revisión.
 6. **Salir del modo** conserva la jornada. **Retomar la compra de hoy** recupera el tope, lista y gasto. Hay una jornada por fecha, compartida entre los perfiles del teléfono; cerrar, reiniciar o cambiar de perfil no reinicia el dinero gastado. El día siguiente permite una nueva jornada. El límite de la jornada no se puede aumentar después de iniciarla en esta versión.
 7. Si tenías una cesta antes de iniciar el modo, puedes usar **Pasar cesta al Modo compra de hoy**. Trasladar artículos no registra gastos; debes confirmar cada uno. Mientras existe la jornada, las nuevas selecciones de productos pasan a su lista y la cesta exige trasladarse antes de registrar sus compras.
+
+**Disponible con toda la lista.** La tarjeta verde muestra cuánto gastarías con todos los productos pendientes y lo que quedaría del tope: **tope − ya comprado − estimación de la lista**. Cada línea suma cantidad × precio y se convierte a la moneda del tope con la tasa fija de la jornada. Por ejemplo: tope 10 USD, comprado 2 USD y lista pendiente 6 USD → disponible estimado 2 USD. Confirmar un artículo lo traslada de lista a comprado, sin descontarlo dos veces. Si faltan precios o unidades, avisa que la estimación es parcial. Si la lista supera el tope, muestra la diferencia para que ajustes cantidades o quites productos. El saldo disponible antes de descontar la lista también se muestra como referencia.
 
 El tope se aplica a compras registradas en la jornada de **ese teléfono**. No puede impedir un pago físico ni conocer al instante las compras de otro teléfono sin conexión. Los gastos manuales de otros conceptos se siguen registrando fuera del asistente. Los importes del tope no se duplican por sincronizar. Una compra ya confirmada sigue consumiendo su tope aunque su asiento requiera una corrección; si hay que cambiar su importe o fecha, revísalo en el Sheet.
 
@@ -119,7 +149,7 @@ El tope se aplica a compras registradas en la jornada de **ese teléfono**. No p
 
 Se utiliza el detalle de artículos que confirma la API y los pendientes locales. Los gastos escritos solo como “comida” sin identificar productos no permiten calcular hábitos. Si corriges un total en el Sheet y ya no coincide con su detalle original, ese detalle se excluye de las estadísticas hasta revisarlo. Sin red se trabaja con el último historial recibido. En otro teléfono, las compras recientes aparecen después de que ambos sincronicen.
 
-**Formularios y navegación.** El teclado se cierra al enviar para que puedas leer la respuesta. Los errores se desplazan a la zona visible, el panel se adapta al espacio disponible y la barra inferior se sitúa dentro del área que dejan los controles de Android. Pulsa el logotipo **hogar playa** para volver a Inicio.
+**Formularios y navegación.** Las actualizaciones en segundo plano conservan el formulario y el PIN que estás escribiendo. Una sesión que se bloquee sigue cerrando los formularios financieros. El teclado se cierra al enviar para que puedas leer la respuesta. Los errores se desplazan a la zona visible, el panel se adapta al espacio disponible y la barra inferior se sitúa dentro del área que dejan los controles de Android. Pulsa el logotipo **hogar playa** para volver a Inicio.
 
 ## 5. Sin internet y estados de envío
 
