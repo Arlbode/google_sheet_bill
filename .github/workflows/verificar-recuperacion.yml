@@ -28,6 +28,10 @@ jobs:
           python -m pip install -r recovered-source/requirements.txt
       - name: Comprobar recuperación y cálculos
         run: bash recovered-source/scripts/verify_environment.sh
+      - name: Compilar extensión Android sin claves privadas y verificar el núcleo original
+        run: |
+          sdkmanager "platforms;android-35" "build-tools;35.0.0"
+          python recovered-source/scripts/build_native.py --sdk "$ANDROID_HOME" --output /tmp/hogar-native.dex
       - name: Comprobar que el respaldo incluye la revisión actual
         run: |
           python recovered-source/scripts/create_backup.py --output /tmp/Hogar_Playa_Recuperacion_Fuentes.zip

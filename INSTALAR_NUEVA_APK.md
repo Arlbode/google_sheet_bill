@@ -1,46 +1,48 @@
-# Hogar finanzas 1.4.1: instalación y actualización
+# Hogar finanzas 1.5.0: instalación y uso
 
-Esta versión cambia el nombre visible de **Hogar Playa Nueva 1.4.0** a **Hogar finanzas**. Mantiene el mismo identificador y firma.
+Esta APK actualiza 1.4.0/1.4.1 con el mismo identificador y firma. Conserva perfiles, gastos, listas, conexión y compras existentes. Se retiró la app original 1.3.0 por decisión del usuario; su firma era distinta.
 
-**Si ya tienes la 1.4.0:** descarga e instala la APK 1.4.1 encima. Conserva tus perfiles, movimientos y conexión al Sheet. No desinstales la 1.4.0 ni vuelvas a conectar la hoja para este cambio de nombre. Los pasos de preparación del Sheet que siguen son para una instalación inicial.
-
-La app original 1.3.0 usaba otra firma. La identidad nueva se autorizó durante la fase de pruebas y es la que continuará recibiendo actualizaciones.
-
-## 1. Instala la nueva APK
-
-Descarga [Hogar_finanzas_1.4.1.apk](Hogar_finanzas_1.4.1.apk) en el teléfono e instálala. Android la muestra como **Hogar finanzas**. Si Android lo solicita, permite instalar este archivo desde la aplicación que utilizaste para descargarlo.
-
-Actualiza la versión 1.4.0 existente. Si vienes directamente de la antigua 1.3.0, se instala aparte de aquella porque las firmas son distintas; configura el Sheet y la conexión siguiendo esta guía, y después retira la 1.3.0 conforme a lo acordado.
-
-## 2. Actualiza el único script completo del Sheet
+## 1. Actualiza el script completo del Sheet
 
 1. Descarga [Script_Completo_Hogar_Tasa_CUP.txt](Script_Completo_Hogar_Tasa_CUP.txt).
-2. En tu Sheet, abre **Extensiones → Apps Script**.
-3. Sustituye todo el contenido de **Código.gs** por ese archivo completo, guarda y ejecuta **iniciarHogar**.
-4. Abre **Implementar → Gestionar implementaciones → lápiz → Nueva versión → Implementar**. Conserva tu URL `/exec`, **Ejecutar como: Yo** y **Acceso: Cualquier persona**.
-5. En **Ajustes B26**, mantén **Sí** para habilitar la consulta de la tasa.
+2. Abre tu Sheet → Extensiones → Apps Script y sustituye todo Código.gs por ese archivo completo. Guarda y ejecuta iniciarHogar.
+3. Implementar → Gestionar implementaciones → lápiz → Nueva versión → Implementar. Mantén tu URL /exec, Ejecutar como: Yo y Acceso: Cualquier persona.
 
-El archivo termina en `FIN_DEL_CODIGO`. El anterior `Script_Completo_Hogar_Android.txt` se conserva como referencia de la publicación 1.3.0; usa el nuevo archivo de esta entrega.
+También es necesario este paso si ya tenías la 1.4.1. La nueva versión permite varias compras del mismo día y prepara en Registro: W Lugar, X Latitud, Y Longitud, Z Precisión, AA Fecha de captura, AB Estado y AC Mapa. AD contiene JSON interno y se oculta. Si esas columnas tenían datos propios, el script los conserva y pide reservar el espacio antes de continuar. No borra gastos ni modifica sus tasas históricas.
 
-## 3. Conecta la nueva app
+## 2. Instala la actualización
 
-1. Abre **Hogar finanzas** y crea tu perfil y PIN.
-2. En el Sheet: **Hogar → Conectar app Android** y genera un código de conexión nuevo.
-3. En la nueva app: **Perfil → Conectar Google Sheets**. Introduce tu URL `/exec` y el código. El código dura 10 minutos y se usa una sola vez.
-4. Sincroniza y comprueba los saldos recibidos de tu Sheet.
+Descarga [Hogar_finanzas_1.5.0.apk](Hogar_finanzas_1.5.0.apk) e instálala encima de Hogar finanzas 1.4.1 o Hogar Playa Nueva 1.4.0. No desinstales la actual para actualizar y no crees otros perfiles por este cambio. Conserva su conexión al Sheet.
 
-## 4. Comprueba las tarjetas
+Si es la primera instalación de esta identidad, crea un perfil y PIN; en el Sheet usa Hogar → Conectar app Android, genera un código nuevo y conecta la app desde Perfil con tu URL /exec. El código dura 10 minutos y se usa una vez.
 
-- Inicio muestra **≈ CUP** debajo del ahorro, su meta, ingresos, consumo, disponible para consumo y saldo USD.
-- Una tarjeta pequeña muestra **1 USD = X CUP**, la fuente y la fecha/hora de consulta. Todos los equivalentes usan esa misma referencia.
-- Pulsa **↻** para solicitar la referencia al Sheet y sincronizar. La fuente se consulta como máximo una vez por minuto para evitar peticiones repetidas de los teléfonos.
-- Con la app abierta se solicita una referencia cuando vence la consulta de 30 minutos y al volver a la app. Se comprueba el vencimiento cada minuto. Las sincronizaciones automáticas nativas también consultan la referencia; Android puede retrasarlas en segundo plano.
-- Sin conexión o si la fuente falla, se conserva la última referencia y su fecha. No se presenta como una tasa en vivo. La tasa publicada por una fuente tampoco garantiza el precio que te ofrecerá un vendedor.
-- El equivalente orientativo no cambia las tasas guardadas en salarios, cambios USD→CUP ni gastos históricos. Confirma siempre la tasa real de una nueva operación.
+## 3. Cerrar y volver a abrir el Modo compra
 
-Ejemplo: si la tarjeta indica 870 CUP/USD, 350 USD muestran aproximadamente 304.500 CUP. Si la referencia cambia a 900, el equivalente será 315.000 CUP; tus movimientos antiguos conservan su tasa original.
+1. Comprar → Iniciar Modo compra: fija el tope, moneda, tasa del tope y, si quieres, el mercado o tienda.
+2. Añade productos y confirma los que compras. Solo la confirmación crea el gasto.
+3. Usa **Cerrar Modo compra**. Se conserva el historial y todos los gastos. Puedes marcar llevar los pendientes a la siguiente compra.
+4. Inicia otro Modo compra el mismo día con un tope distinto. La nueva compra comienza con gasto cero; los gastos anteriores siguen contando en Consumo y en los Plan CUP vinculados.
+5. La opción recuperar pendientes copia solo lo que faltaba, con IDs nuevos. No copia productos comprados ni genera gastos por el traslado. Revisa precios, unidades, tasas y vínculos al plan antes de confirmar.
 
-## 5. Conserva la nueva firma
+Salir de la vista mantiene la compra abierta; Cerrar la archiva. El tope es por compra y por teléfono, compartido entre sus perfiles. No se crea otro pago de Plan CUP por abrir o cerrar un modo.
+
+**Historial de Modos compra** muestra las compras cerradas de este teléfono, importes, productos, pendientes al cerrar y ubicaciones. Persiste al reiniciar y al actualizar, y se incluye en Exportar respaldo local. Los gastos se sincronizan con el Sheet; el historial de sesiones es local, no un historial compartido entre teléfonos.
+
+## 4. Lugar y ubicación al comprar
+
+Activa Ubicación en las compras desde Perfil o desde la confirmación de un producto. Android pedirá permiso. Puedes permitir una ubicación aproximada si tu sistema lo ofrece. Es opcional: desactivarla o denegar permiso no impide registrar gastos.
+
+Al confirmar, se solicita una posición puntual; se puede usar una posición de hasta 30 segundos y se espera hasta seis segundos por una nueva. No se rastrea en segundo plano. Se guardan coordenadas, precisión disponible y hora de la posición; no se inventa un nombre de comercio desde el GPS.
+
+Escribe el mercado o tienda si quieres identificarlo por nombre. El lugar indicado al iniciar la compra aparece como sugerencia al confirmar cada producto y puedes cambiarlo. Con GPS apagado, sin permiso o si no se obtiene posición, se conserva el lugar escrito y el motivo de falta de coordenadas. El gasto se guarda normalmente. Puedes consultar el lugar en el detalle del movimiento, el historial local y las columnas del Sheet. El mapa requiere una conexión para cargarlo.
+
+## 5. Tasa y HTTP 403 de elTOQUE
+
+La tarjeta de referencia mantiene equivalentes CUP y el botón ↻. Ver motivo del fallo permite consultar la causa. El usuario confirmó HTTP 403: elTOQUE rechaza la consulta web desde Apps Script, por lo que no se obtuvo una tasa nueva.
+
+La versión 1.5.0 permite configurar la API oficial, que requiere un token propio. El usuario todavía no tiene acceso. [Pasos y enlace para solicitarlo](API_ELTOQUE.md). No envíes tokens por el chat ni los pegues en Código.gs. Hasta tener acceso, B7 admite una referencia manual, sin presentarla como una consulta verificada; B26 controla los intentos automáticos.
+
+## 6. Conserva la nueva firma
 
 Ya está preparado el **[Respaldo_Firma_Cifrado.zip](Respaldo_Firma_Cifrado.zip)** para el código público que entregaste. Guarda este ZIP y tu archivo **Clave_PRIVADA_Respaldo_Hogar.json**, con una segunda copia privada de ese archivo.
 
@@ -59,4 +61,8 @@ El identificador Android que permanece estable es `cu.hogarplaya.recuperada`. To
 
 ## Validación de esta entrega
 
-Se comprobaron la interfaz en Chromium con el puente nativo simulado, los cálculos, los estados sin conexión, la solicitud manual de sincronización y la conservación de tasas históricas en pruebas. El instalador se valida con AAPT2, zipalign y apksigner; conserva exactamente el DEX original. No se ha hecho una instalación física ni una sincronización contra tu Sheet real desde este entorno. La consulta en vivo de elTOQUE desde esta máquina fue bloqueada por su política de red; los fallos se muestran sin inventar una cotización.
+Se comprobaron los flujos de interfaz con el puente simulado y cinco escenarios en Android 10 real en emulador, con datos ficticios: actualización desde 1.4.1 conservando datos; cierre/reapertura/pendientes/idempotencia; GPS simulado; GPS desactivado; y reinicio con permiso denegado. Se mantuvieron los controles de PIN y de tope. No se usó un teléfono físico ni se accedió a tu Sheet privado.
+
+El código de referencia decompilado no se compila. La extensión nativa está escrita a mano y se verifica que los demás métodos originales no cambien, salvo la entrada de delegación del puente. Firma, identidad y IDs de recursos se conservan para actualizar la app instalada.
+
+La API de elTOQUE se probó con respuestas simuladas, sin un token del usuario ni consulta autenticada real. El 403 web no se evita ni se presenta como éxito.

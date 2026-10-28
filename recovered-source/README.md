@@ -1,32 +1,42 @@
-# Desarrollo de Hogar finanzas 1.4.1
+# Desarrollo de Hogar finanzas 1.5.0
 
-La base nativa procede de la APK 1.3.0 verificada. No se compila el Java de `android/reference-java/`: es una referencia decompilada con errores de reconstrucción. El DEX original se conserva exactamente en la nueva APK.
+La base es la APK 1.3.0 verificada. Conserva Hogar_Playa.apk como entrada del constructor. No compiles el Java de android/reference-java/: es decompilado y tiene errores de reconstrucción.
 
-Conserva `Hogar_Playa.apk` como base de compilación aunque la app antigua se retire del teléfono. El constructor comprueba su hash antes de reutilizar el DEX.
+## Extensión nativa
 
-## Código actual y procedencia
+android/native-src/ contiene ShoppingLifecycle, PurchaseLocation y ShoppingExtension, escritos a mano. android/compile-stubs/ contiene solo firmas para compilar; no se empaqueta en la APK.
 
-Se modificaron `android/assets/app.js`, `app.css`, `index.html` y `backend/Code.gs` para añadir equivalentes CUP y la tarjeta de tasa. Los hashes `exact-sha256.json` describen los originales recuperados, no la interfaz modificada; las pruebas contrastan los originales con la APK base y el script 1.3.0 preservado, y mantienen la integridad de los demás assets. El backend completo actual se publica como `Script_Completo_Hogar_Tasa_CUP.txt`.
+build_native.py desensambla el DEX base con una herramienta oficial fijada por SHA-256, compila únicamente la extensión, añade una delegación en MainActivity$Bridge.call y ensambla. Después vuelve a desensamblar y verifica que todos los demás métodos originales sean idénticos. La representación del campo booleano TESTING=false puede omitir el valor falso, que es su valor inicial por defecto. Se comprobó en Android que TESTING sigue falso.
 
-## Validar
+El cierre cambia la clave única de día de la sesión a fecha#closed#UUID y añade quién/cuándo cerró. No elimina sesiones, líneas ni operaciones. La fecha del payload y los UUID financieros permanecen. Abrir crea una sesión nueva; opcionalmente copia solo pendientes. Las modificaciones son transaccionales y los reintentos no duplican operaciones.
+
+La ubicación se captura únicamente al confirmar, con permiso y opción activada. Se almacena con la operación y el artículo antes de iniciar su sincronización. Sin permiso o posición se registra igualmente. La corrección de un gasto rechazado conserva su ubicación; las demás correcciones siguen por el puente original.
+
+## Comprobar
 
 ```sh
 HOGAR_PYTHON=/workspace/google_sheet_bill/.venv/bin/python bash recovered-source/scripts/verify_environment.sh
+python3 recovered-source/tests/browser_smoke.py
+python3 recovered-source/tests/browser_shopping_smoke.py
 ```
 
-Requiere Python con openpyxl 3.1.5, Node y LibreOffice. Las pruebas financieras no usan el Sheet real. El ZIP de fuentes se reconstruye con `python3 recovered-source/scripts/create_backup.py`; `--check` verifica su manifiesto sin extraerlo.
+Las pruebas usan datos ficticios y no el Sheet privado. Para la prueba nativa opcional se necesita un emulador Android 10 local en puerto 5555 y adb-shell==0.4.4:
 
-## Compilar y firmar futuras actualizaciones
+```sh
+PYTHONPATH=/workspace/.tools/hogar-adb-python python3 recovered-source/tests/run_android_smoke.py --reset
+```
+
+--reset borra solo las apps de prueba en ese emulador. El programa rechaza dispositivos que no se identifiquen como emulador. La instrumentación se firma con la misma clave para probar la actualización, pero no se empaqueta ni publica como app de usuario. Cinco escenarios comprueban persistencia, cierre, nuevos topes, ubicación y permisos.
+
+## Compilar actualizaciones
 
 ```sh
 source /workspace/.tools/hogar-environment/env.sh
 python3 recovered-source/scripts/build_release.py
 ```
 
-Requiere Android build-tools 35.0.0 y plataforma android-35. Restaura los archivos del respaldo privado en `/workspace/.android-signing/hogar-playa-v2/`. El certificado debe coincidir con `signing/new-certificate.sha256`. No subas la clave, contraseña ni ZIP privado a GitHub. No generes otra clave para una actualización de la nueva app.
+Requiere JDK, Android build-tools 35.0.0 y plataforma android-35. El paquete cu.hogarplaya.recuperada y la firma fijada no se cambian. Lee RESPALDO_Y_RECUPERACION_FIRMA.md para restaurar claves, nunca para regenerarlas. El constructor descarga su herramienta de ensamblado si falta y verifica dos SHA-256 del release oficial de JADX 1.5.1.
 
-`release.json` fija la identidad `cu.hogarplaya.recuperada`. Incrementa su versión para futuras entregas, manteniendo la identidad y la firma. `--init-signing` solo se utilizó en la creación autorizada de esta nueva app; una vez fijado el certificado, el constructor no permite regenerar la clave si falta.
+El script completo del backend es Script_Completo_Hogar_Tasa_CUP.txt. Ejecuta iniciarHogar y publica una nueva versión de la implementación para preparar las columnas W:AD y el control por UUID de Modo compra. Lee API_ELTOQUE.md para el 403 y la integración API opcional; ninguna credencial se incluye en la APK.
 
-`build_unsigned.py` sigue disponible para comprobar la recuperación de assets conservando el manifiesto original. Sus paquetes sin firma no son instaladores. `sign_original.py` solo sirve para la identidad antigua si se recuperase su firma; no es el constructor de la app nueva.
-
-[Instalación de usuario](../INSTALAR_NUEVA_APK.md).
+El respaldo público se crea con scripts/create_backup.py y contiene solo fuentes, certificados públicos y la copia cifrada de la firma. Los paquetes sin firma de build_unsigned.py siguen siendo comprobaciones de recuperación, no instaladores de usuario.

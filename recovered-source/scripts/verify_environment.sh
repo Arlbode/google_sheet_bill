@@ -21,4 +21,4 @@ else
   "$python_bin" recovered-source/scripts/create_backup.py --output "$backup_dir/respaldo.zip"
   "$python_bin" recovered-source/scripts/create_backup.py --check "$backup_dir/respaldo.zip"
 fi
-echo 'Comprobaciones completadas. La APK original se conserva. Hogar Playa Nueva usa su propia firma fijada.'
+echo 'Comprobaciones completadas. La APK original se conserva. Hogar finanzas mantiene su firma fijada.'

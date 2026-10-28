@@ -6,9 +6,9 @@
   "product_images": 91,
   "products": 91,
   "offer_rows": 56,
-  "tests_passed": 22,
+  "tests_passed": 27,
   "java_source_provenance": "JADX 1.5.1 decompilation; NOT approved for production; NOT used by build",
-  "native_code_strategy": "preserve original classes.dex byte-for-byte",
+  "native_code_strategy": "handwritten extension; original methods unchanged except MainActivity$Bridge.call",
   "original_signing_private_key_recovered": false,
   "new_signed_apk_generated": true,
   "existing_published_apk_modified": false,
@@ -18,13 +18,15 @@
   "publication_verified": false,
   "user_authorized_new_app": true,
   "new_application_id": "cu.hogarplaya.recuperada",
-  "new_version": "1.4.1",
-  "original_dex_preserved": true,
+  "new_version": "1.5.0",
+  "original_dex_preserved": false,
   "implementation_changes": [
     "android/assets/app.js",
     "android/assets/app.css",
     "backend/Code.gs",
-    "android/assets/index.html"
+    "android/assets/index.html",
+    "android/native-src",
+    "scripts/build_native.py"
   ],
   "physical_android_install_tested": false,
   "live_sheet_sync_tested": false,
@@ -40,5 +42,25 @@
   "encrypted_backup_user_decryption_confirmed": false,
   "app_label": "Hogar finanzas",
   "application_id_unchanged": true,
-  "signing_certificate_unchanged": true
+  "signing_certificate_unchanged": true,
+  "native_extension": true,
+  "native_methods_preserved_except": [
+    "MainActivity$Bridge.call"
+  ],
+  "android_emulator_install_tested": true,
+  "android_emulator_api": 29,
+  "android_scenarios_passed": [
+    "seed",
+    "verify",
+    "gps",
+    "nogps",
+    "persisted"
+  ],
+  "browser_shopping_smoke_passed": true,
+  "location_capture": "foreground-per-purchase-opt-in",
+  "location_background_permission": false,
+  "shopping_history_scope": "local device; included in local export",
+  "eltoque_web_http403_confirmed": true,
+  "eltoque_api_token_available": false,
+  "eltoque_live_authenticated_api_tested": false
 }

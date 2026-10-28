@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""Nueva identidad autorizada por el usuario. Conserva el DEX original.
+"""Compila la identidad autorizada con su firma estable.
+
+La extensión nativa 1.5 conserva los métodos originales salvo Bridge.call.
 
 La clave se crea SOLO con --init-signing antes de fijar el certificado público.
 Una vez fijado, si falta la clave se exige restaurarla; no se sustituye.
@@ -107,6 +109,10 @@ def build(output=None, init=False, private=PRIVATE, backup=None):
         manifest.set(ANDROID + 'versionCode', str(config['version_code']))
         manifest.set(ANDROID + 'versionName', config['version_name'])
         manifest.find('application').set(ANDROID + 'label', config['label'])
+        if config.get('native_extension'):
+            for permission in ['android.permission.ACCESS_COARSE_LOCATION','android.permission.ACCESS_FINE_LOCATION']:
+                element=ET.Element('uses-permission');element.set(ANDROID+'name',permission)
+                manifest.insert(list(manifest).index(manifest.find('application')),element)
         tree.write(stage / 'AndroidManifest.xml', encoding='utf-8', xml_declaration=True)
         ids = ET.parse(ROOT / 'android/resources/res/values/public.xml').getroot()
         stable = ''.join(f"{config['application_id']}:{r.attrib['type']}/{r.attrib['name']} = {r.attrib['id']}\n" for r in ids)
@@ -117,10 +123,15 @@ def build(output=None, init=False, private=PRIVATE, backup=None):
                         '--manifest', str(stage / 'AndroidManifest.xml'), '--stable-ids', str(stage / 'stable-ids.txt'),
                         '-o', str(stage / 'resources.apk'), str(stage / 'resources.zip')], check=True)
         unsigned = stage / 'unsigned.apk'
+        native_report=None
+        if config.get('native_extension'):
+            from build_native import build as build_native
+            with zipfile.ZipFile(base) as original:
+                native_report=build_native(original.read('classes.dex'),stage/'classes.dex',SDK)
         with zipfile.ZipFile(unsigned, 'w') as target, zipfile.ZipFile(stage / 'resources.apk') as resources, zipfile.ZipFile(base) as original:
             for name in resources.namelist():
                 target.writestr(name, resources.read(name), compress_type=zipfile.ZIP_STORED if name == 'resources.arsc' else zipfile.ZIP_DEFLATED)
-            target.writestr('classes.dex', original.read('classes.dex'), compress_type=zipfile.ZIP_DEFLATED)
+            target.writestr('classes.dex', (stage/'classes.dex').read_bytes() if native_report else original.read('classes.dex'), compress_type=zipfile.ZIP_DEFLATED)
             for asset in sorted((ROOT / 'android/assets').iterdir()):
                 if asset.is_file():
                     target.writestr('assets/' + asset.name, asset.read_bytes(), compress_type=zipfile.ZIP_DEFLATED)
@@ -135,11 +146,13 @@ def build(output=None, init=False, private=PRIVATE, backup=None):
             raise RuntimeError('No coincide el certificado del instalador firmado.')
         subprocess.run([str(tools / 'zipalign'), '-c', '-p', '4', str(output)], check=True)
     with zipfile.ZipFile(output) as package, zipfile.ZipFile(base) as original:
-        assert package.read('classes.dex') == original.read('classes.dex')
+        if not native_report:assert package.read('classes.dex') == original.read('classes.dex')
+        else:assert digest(package.read('classes.dex'))==native_report['native_sha256']
         assert package.read('assets/app.js') == (ROOT / 'android/assets/app.js').read_bytes()
         assert package.testzip() is None
     report = {**config, 'apk_sha256': digest(output.read_bytes()), 'certificate_sha256': certificate,
-              'original_dex_unchanged': True, 'new_identity': True, 'signed': True}
+              'original_dex_unchanged': not bool(native_report), 'native_extension_report':native_report,
+              'new_identity': False, 'signed': True}
     output.with_suffix('.json').write_text(json.dumps(report, indent=2) + '\n')
     output.with_suffix('.apk.sha256').write_text(report['apk_sha256'] + '  ' + output.name + '\n')
     if backup:

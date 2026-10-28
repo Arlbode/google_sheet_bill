@@ -97,6 +97,7 @@ function iniciarHogar() {
   if(!PLANTILLA.sheets.every(def=>ss.getSheetByName(def.name)))prepararHogarSeguro_(false,true);
   actualizarPreciosHogar();
   if(typeof prepararAppMovil_==='function')conBloqueo_(()=>prepararAppMovil_(ss));
+  conBloqueo_(()=>{prepararUbicacionesCompra_(ss);ampliarGuiaComprasUbicaciones_(ss);});
   const dashboard=ss.getSheetByName('Tablero');
   ss.setActiveSheet(dashboard);dashboard.getRange('A4').activate();
   console.log('Hogar preparado: '+ss.getUrl());
@@ -889,13 +890,33 @@ function textoPlano_(html) {
 }
 
 function extraerTasa_(html) {
-  const rows = html.match(/<tr\b[\s\S]*?<\/tr>/gi) || [];
-  for (const row of rows) {
-    const text = textoPlano_(row);
-    const match = text.match(/\b1\s+USD\b[\s\S]*?([0-9]+(?:\.[0-9]{1,2})?)\s*CUP\b/);
-    if (match && Number(match[1]) > 0) return Number(match[1]);
+  const candidates=new Set();
+  const add=value=>{
+    if(typeof value!=='number'&&typeof value!=='string')return;let text=String(value).trim();
+    if(/^\d{1,3}(?:,\d{3})+(?:\.\d{1,2})?$/.test(text))text=text.replace(/,/g,'');
+    else if(/^\d{1,3}(?:\.\d{3})+(?:,\d{1,2})?$/.test(text))text=text.replace(/\./g,'').replace(',','.');
+    else if(/^\d+(?:[.,]\d{1,2})?$/.test(text))text=text.replace(',','.');else return;
+    const number=Number(text);if(number>0&&number<=1000000)candidates.add(number);
+  };
+  const rows=html.match(/<tr\b[\s\S]*?<\/tr>/gi)||[];
+  for(const row of rows) {
+    const text=textoPlano_(row);
+    if((text.match(/\d+(?:[.,]\d+)*\s*CUP\b/g)||[]).length!==1)continue;
+    const units=text.match(/\b([0-9]+)\s+USD\b/);if(units&&Number(units[1])!==1)continue;
+    const match=text.match(/\b(?:1\s+)?USD\b[^0-9-]*([0-9]+(?:[.,][0-9]+)*)\s*CUP\b/);
+    if(match)add(match[1]);
   }
-  throw new Error('No se encontró una fila verificable 1 USD → CUP. Se conserva la tasa anterior.');
+  // Datos estructurados de la referencia TRMI; nunca confundir USD con USDT o EUR.
+  function walk(value) {
+    if(!value||typeof value!=='object')return;
+    if(value.tasas&&typeof value.tasas==='object'&&Object.prototype.hasOwnProperty.call(value.tasas,'USD'))add(value.tasas.USD);
+    Object.values(value).forEach(v=>{if(v&&typeof v==='object')walk(v);});
+  }
+  try{walk(JSON.parse(html));}catch(_){}
+  const scripts=html.match(/<script\b[^>]*>[\s\S]*?<\/script>/gi)||[];
+  scripts.forEach(script=>{const body=script.replace(/^<script\b[^>]*>/i,'').replace(/<\/script>$/i,'');try{walk(JSON.parse(body));}catch(_){}});
+  if(candidates.size===1)return [...candidates][0];
+  throw new Error(candidates.size?'La página devuelve varias referencias USD distintas; requiere revisión. Se conserva la tasa anterior.':'No se encontró una referencia USD/CUP verificable en tabla o datos TRMI. La página puede haber cambiado o estar solicitando acceso. Se conserva la tasa anterior.');
 }
 
 function extraerOferta_(html, rule) {
@@ -1051,7 +1072,6 @@ function actualizarAutomaticamente() {
     }).filter(Boolean);
     // Solicitudes pequeñas y en paralelo. Un producto repetido comparte respuesta.
     const urls=[...new Set(plans.flatMap(p=>p.candidates||[]).flatMap(r=>[urlPeticion_(r),...(r.verifyUrl?[r.verifyUrl]:[])]))];
-    if(config.getRange('B26').getValue()==='Sí')urls.unshift('https://eltoque.com/');
     const cache={};
     for(let offset=0;offset<urls.length;offset+=8) {
       const batch=urls.slice(offset,offset+8);
@@ -1062,14 +1082,13 @@ function actualizarAutomaticamente() {
     }
     if(config.getRange('B26').getValue()==='Sí') {
       try {
-        const fetched=cache['https://eltoque.com/'];
-        if(fetched.error)throw new Error(fetched.error);
-        const rate=extraerTasa_(fetched.text),previous=Number(config.getRange('B7').getValue());
+        const fetched=consultarTasaElToque_(props);
+        const rate=fetched.rate,previous=Number(config.getRange('B7').getValue());
         if(previous>0 && (rate/previous>2 || rate/previous<.5))throw new Error('Variación extrema: confirmar manualmente.');
         config.getRange('B7').setValue(rate);config.getRange('B11').setValue(now);
-        if(typeof guardarTasaVerificada_==='function')guardarTasaVerificada_(rate,now);
-        record(rate===previous?'VERIFICADO CAMBIO':'CAMBIO','CUP por USD',previous,rate,'elTOQUE · referencia informal'+(rate===previous?' · SIN CAMBIOS':''));
-      } catch(error) {record('ERROR CAMBIO','CUP por USD','','',String(error.message));counts.errors++;}
+        if(typeof guardarTasaVerificada_==='function')guardarTasaVerificada_(rate,now,fetched);
+        record(rate===previous?'VERIFICADO CAMBIO':'CAMBIO','CUP por USD',previous,rate,fetched.source+' · referencia informal'+(rate===previous?' · SIN CAMBIOS':''));
+      } catch(error) {props.setProperty('HOGAR_TASA_ERROR',JSON.stringify({at:now.getTime(),message:String(error.message)}));record('ERROR CAMBIO','CUP por USD','','',String(error.message));counts.errors++;}
     } else record('OMITIDO CAMBIO','CUP por USD','','','Actualización de tasa desactivada en Ajustes B26.');
     plans.forEach(plan=>{
       const {entry,index,row}=plan;
@@ -1318,8 +1337,9 @@ function movilValidar_(ss,device,profiles,op) {
   movilAssert_(JSON.stringify(items).length<=20000,'DETALLE_INVALIDO','El detalle del carrito es demasiado largo.');
   movilAssert_(op.paymentFormat===undefined || op.paymentFormat==='' && op.currency==='USD' && op.type!=='Cambio' || ['Efectivo','Transferencia'].includes(op.paymentFormat),'FORMATO_INVALIDO','Selecciona Efectivo o Transferencia para los CUP.');
   const paymentFormat=(op.currency==='CUP' || op.type==='Cambio')?formatoCUP_(op.paymentFormat):'';
-  const shopping=validarCompraModo_(ss,op);
-  return {paymentFormat,shopping,id:op.id,date,type:op.type,category:op.category,currency:op.currency,amount:centavos_(amount),rate,referenceRate,concept:op.concept.trim(),actorId:actor.id,actorName:actor.name,clientCreatedAt:op.clientCreatedAt,deviceId:device.id,items,batchId:String(op.batchId||'').slice(0,60),planId};
+  const shopping=validarCompraModo_(ss,op),location=ubicacionCompra_(op.location||(items[0]&&items[0].location));
+  if(location)movilAssert_(ubicacionesCompraPreparadas_(ss.getSheetByName('Registro')),'PREPARAR_HOJA','Ejecuta iniciarHogar con el script 1.5.0 para preparar las columnas de ubicación.',true);
+  return {paymentFormat,shopping,location,id:op.id,date,type:op.type,category:op.category,currency:op.currency,amount:centavos_(amount),rate,referenceRate,concept:op.concept.trim(),actorId:actor.id,actorName:actor.name,clientCreatedAt:op.clientCreatedAt,deviceId:device.id,items,batchId:String(op.batchId||'').slice(0,60),planId};
 }
 
 function movilAplicar_(ss,device,profiles,raw,index) {
@@ -1346,7 +1366,9 @@ function movilAplicar_(ss,device,profiles,raw,index) {
     const i=rows.findIndex(r=>r.slice(0,7).every(v=>v==='') && r[9]==='' && r[11]==='' && r[19]==='' && r[20]==='' && r[21]==='');
     movilAssert_(i>=0,'REGISTRO_LLENO','Se alcanzaron los 1000 movimientos. Conserva el pendiente y archiva el periodo.');
     const r=i+6,f=c=>PLANTILLA.registerTemplates[c].replace(/\{r\}/g,String(r));
-    sheet.getRange(r,1,1,22).setValues([[op.date,op.type,op.category,movilTexto_(op.concept),op.currency,op.amount,op.rate,f('H'),f('I'),op.batchId?'Compra móvil '+op.batchId:'Registro móvil',f('K'),op.id,op.actorId,movilTexto_(op.actorName),op.deviceId,op.clientCreatedAt,now,'Android',hash,op.planId,op.paymentFormat,op.shopping?JSON.stringify(op.shopping):'']]);
+    const cells=[op.date,op.type,op.category,movilTexto_(op.concept),op.currency,op.amount,op.rate,f('H'),f('I'),op.batchId?'Compra móvil '+op.batchId:'Registro móvil',f('K'),op.id,op.actorId,movilTexto_(op.actorName),op.deviceId,op.clientCreatedAt,now,'Android',hash,op.planId,op.paymentFormat,op.shopping?JSON.stringify(op.shopping):''];
+    if(ubicacionesCompraPreparadas_(sheet))cells.push(...celdasUbicacionCompra_(op.location));
+    sheet.getRange(r,1,1,cells.length).setValues([cells]);
     destination={sheet:'Registro',row:r,hash};
   }
   // El identificador y la huella se escriben en la misma fila financiera antes del recibo.
@@ -1370,7 +1392,9 @@ function movilAuditarRechazo_(ss,device,op,code,message) {
 function movilSnapshot_(ss) {
   SpreadsheetApp.flush();
   const settings=ss.getSheetByName('Ajustes'),today=movilFecha_(new Date()),month=today.slice(0,7),start=movilFecha_(settings.getRange('B12').getValue());
-  const records=ss.getSheetByName('Registro').getRange('A6:V1005').getValues(),changes=ss.getSheetByName('Cambios').getRange('A6:R505').getValues();
+  const register=ss.getSheetByName('Registro'),shoppingFeaturesReady=ubicacionesCompraPreparadas_(register);
+  const records=register.getRange('A6:V1005').getValues(),changes=ss.getSheetByName('Cambios').getRange('A6:R505').getValues();
+  const locations=shoppingFeaturesReady?register.getRange('W6:AD1005').getValues():[];
   let income=0,spent=0,savings=0,fundContributions=0;const known=[],history=[],categorySpent={};
   const budgetRows=ss.getSheetByName('Presupuesto').getRange('A6:C17').getValues(),fundNames=budgetRows.filter(r=>r[1]==='Fondo').map(r=>r[0]);
   const consumptionRows=budgetRows.filter(r=>r[1]==='Consumo'),consumptionNames=consumptionRows.map(r=>r[0]);
@@ -1387,7 +1411,7 @@ function movilSnapshot_(ss) {
       if(r[1]==='Aporte ahorro')savings+=usd;if(r[1]==='Retiro ahorro')savings-=usd;
       if(r[1]==='Aporte fondo')fundContributions+=usd;
     }
-    history.push({id:r[11]||'sheet-registro-'+(i+6),date:day,type:r[1],category:r[2],concept:r[3],currency:r[4],amount:String(r[5]),rate:r[6]===''?'':String(r[6]),actorName:r[13]||'Desde Sheet',deviceId:r[14]||'',clientCreatedAt:r[15]||'',serverAt:r[16] instanceof Date?r[16].toISOString():'',sheet:'Registro',row:i+6,status:'SYNCED',planId:r[19]||'',paymentFormat:r[4]==='CUP'?formatoCUP_(r[20]):''});
+    history.push({location:ubicacionFilaCompra_(locations[i]),id:r[11]||'sheet-registro-'+(i+6),date:day,type:r[1],category:r[2],concept:r[3],currency:r[4],amount:String(r[5]),rate:r[6]===''?'':String(r[6]),actorName:r[13]||'Desde Sheet',deviceId:r[14]||'',clientCreatedAt:r[15]||'',serverAt:r[16] instanceof Date?r[16].toISOString():'',sheet:'Registro',row:i+6,status:'SYNCED',planId:r[19]||'',paymentFormat:r[4]==='CUP'?formatoCUP_(r[20]):''});
   });
   changes.forEach((r,i)=>{
     if(r[9])known.push(r[9]);if(r[6]!=='OK' || !(r[0] instanceof Date))return;
@@ -1404,7 +1428,7 @@ function movilSnapshot_(ss) {
   let balances={usd:null,cup:null};try{balances=saldosMoneda_(ss,new Date());}catch(_){}
   const profiles=ss.getSheetByName('Perfiles app').getDataRange().getValues().slice(1).filter(r=>r[0] && r[2]==='ACTIVO').map(r=>({id:r[0],name:r[1]}));
   const planning=planificarCambioCUP_(ss,new Date(),balances,records);
-  return {featureVersion:3,purchaseSummary:resumenCompras_(ss,records,today),apiVersion:1,householdId:PropertiesService.getScriptProperties().getProperty('MOVIL_HOGAR_ID'),sheetName:ss.getName(),today,month,startDate:start,rate:Number(settings.getRange('B7').getValue()),expectedIncome:expected,savingRate:Math.max(.5,Math.min(1,Number(settings.getRange('B5').getValue())||.5)),target:centavos_(target),income:centavos_(income),spent:centavos_(spent),planning,consumptionBudget,consumptionPlanValid,consumptionAvailable:consumptionPlanValid?centavos_(consumptionBudget-spent):null,categoryBudgets,savings:centavos_(savings),fundContributions:centavos_(fundContributions),balances,profiles,products,categories:PLANTILLA.categories,expenseCategories:budgetRows.map(r=>r[0]).filter(c=>PLANTILLA.categories.includes(c)),fundCategories:fundNames,history:history.sort((a,b)=>b.date.localeCompare(a.date)||String(b.clientCreatedAt).localeCompare(String(a.clientCreatedAt))).slice(0,250),knownOperationIds:[...new Set(known)],serverAt:new Date().toISOString(),referenceRate:referenciaCobro_(ss,new Date()).salaryRate};
+  return {featureVersion:shoppingFeaturesReady?4:3,shoppingFeaturesReady,purchaseSummary:resumenCompras_(ss,records,today),apiVersion:1,householdId:PropertiesService.getScriptProperties().getProperty('MOVIL_HOGAR_ID'),sheetName:ss.getName(),today,month,startDate:start,rate:Number(settings.getRange('B7').getValue()),expectedIncome:expected,savingRate:Math.max(.5,Math.min(1,Number(settings.getRange('B5').getValue())||.5)),target:centavos_(target),income:centavos_(income),spent:centavos_(spent),planning,consumptionBudget,consumptionPlanValid,consumptionAvailable:consumptionPlanValid?centavos_(consumptionBudget-spent):null,categoryBudgets,savings:centavos_(savings),fundContributions:centavos_(fundContributions),balances,profiles,products,categories:PLANTILLA.categories,expenseCategories:budgetRows.map(r=>r[0]).filter(c=>PLANTILLA.categories.includes(c)),fundCategories:fundNames,history:history.sort((a,b)=>b.date.localeCompare(a.date)||String(b.clientCreatedAt).localeCompare(String(a.clientCreatedAt))).slice(0,250),knownOperationIds:[...new Set(known)],serverAt:new Date().toISOString(),referenceRate:referenciaCobro_(ss,new Date()).salaryRate};
 }
 
 /** Plan de caja CUP: no cambia divisas; recomienda y limita el registro de nuevos cambios. */
@@ -1466,9 +1490,9 @@ function prepararProteccionUSD_(ss) {
 
 function verPlanCUP() {const ss=hoja_();conBloqueo_(()=>prepararProteccionUSD_(ss));ss.setActiveSheet(ss.getSheetByName('Plan CUP'));}
 function verProteccionUSD() {const ss=hoja_();conBloqueo_(()=>prepararProteccionUSD_(ss));ss.setActiveSheet(ss.getSheetByName('Protección USD'));}
-function guardarTasaVerificada_(rate,now) {
+function guardarTasaVerificada_(rate,now,origin) {
   const props=PropertiesService.getScriptProperties();
-  props.setProperty('HOGAR_TASA_VERIFICADA',JSON.stringify({rate,consultedAt:now.toISOString(),day:movilFecha_(now),source:'elTOQUE',url:'https://eltoque.com/'}));
+  props.setProperty('HOGAR_TASA_VERIFICADA',JSON.stringify({rate,consultedAt:now.toISOString(),day:movilFecha_(now),source:origin&&origin.source||'elTOQUE',url:origin&&origin.url||'https://eltoque.com/'}));
   props.setProperty('HOGAR_TASA_INTENTO',String(now.getTime()));
   props.deleteProperty('HOGAR_TASA_ERROR');
 }
@@ -1492,13 +1516,11 @@ function revisarTasaParaApp_(ss) {
   if(now.getTime()-Number(props.getProperty('HOGAR_TASA_INTENTO')||0)<60*1000)return;
   props.setProperty('HOGAR_TASA_INTENTO',String(now.getTime()));const log=historialPrecios_(ss);
   try {
-    const response=UrlFetchApp.fetch('https://eltoque.com/',{muteHttpExceptions:true,validateHttpsCertificates:true,followRedirects:true});
-    if(response.getResponseCode()!==200)throw new Error('HTTP '+response.getResponseCode());
-    const value=extraerTasa_(response.getContentText()),previous=quote.rate;
+    const fetched=consultarTasaElToque_(props),value=fetched.rate,previous=quote.rate;
     if(!Number.isFinite(value)||value<=0)throw new Error('Tasa no válida.');
     if(previous>0 && (value/previous>2 || value/previous<.5))throw new Error('Variación extrema; confirmar antes de usar.');
-    ss.getSheetByName('Ajustes').getRange('B7').setValue(value);ss.getSheetByName('Ajustes').getRange('B11').setValue(now);guardarTasaVerificada_(value,now);
-    registrarRevision_(log,now,'VERIFICADO CAMBIO','CUP por USD',previous,value,'elTOQUE · consulta desde APK'+(value===previous?' · SIN CAMBIOS':''));
+    ss.getSheetByName('Ajustes').getRange('B7').setValue(value);ss.getSheetByName('Ajustes').getRange('B11').setValue(now);guardarTasaVerificada_(value,now,fetched);
+    registrarRevision_(log,now,'VERIFICADO CAMBIO','CUP por USD',previous,value,fetched.source+' · consulta desde APK'+(value===previous?' · SIN CAMBIOS':''));
   } catch(error) {
     props.setProperty('HOGAR_TASA_ERROR',JSON.stringify({at:now.getTime(),message:String(error.message)}));
     registrarRevision_(log,now,'ERROR CAMBIO','CUP por USD',quote.rate,quote.rate,'APK: '+String(error.message)+'. Se conserva la última referencia y su fecha.');
@@ -1608,8 +1630,8 @@ function validarCompraModo_(ss,op) {
   ss.getSheetByName('Registro').getRange('A6:V1005').getValues().forEach(r=>{
     if(r[14]!==op.deviceId || !r[21])return;
     let old;try{old=JSON.parse(r[21]);}catch(_){throw movilError_('JORNADA_INVALIDA','Hay una jornada con datos dañados en Registro V.');}
-    if(old.date!==s.date)return;
-    movilAssert_(old.id===s.id && old.currency===s.currency && Number(old.limit)===limit && Number(old.rate)===rate,'JORNADA_MODIFICADA','Ya existe una jornada con otro tope para este teléfono y fecha.');
+    if(old.id!==s.id)return;
+    movilAssert_(old.date===s.date && old.currency===s.currency && Number(old.limit)===limit && Number(old.rate)===rate,'JORNADA_MODIFICADA','Esta compra ya tiene otra fecha, moneda, tope o tasa. Cierra el Modo compra y crea otro para cambiar el tope.');
     // El gasto confirmado de la jornada permanece consumido aunque después se revise su asiento.
     used+=Number(old.charged)||0;
   });
@@ -1781,6 +1803,83 @@ function prepararCatalogo130_(ss) {
     const j=entries.findIndex(e=>e[1]==='Guayaba');if(j>=0){dir.getRange(j+6,9).setValue('lb');dir.getRange(j+6,14).setValue('lb · referencia derivada; oferta de origen bolsa de 5 lb');}
   }
   props.setProperty(key,'1');registrarRevision_(log,now,'CATÁLOGO AMPLIADO','Jamón, queso, gasolina y guayaba','','','Fondo gasolina disponible para aportes y gastos. Asignación inicial 0, editable. Guayaba en libras; no se alteran movimientos, ahorros, saldos ni asignaciones anteriores.');
+}
+
+/** API oficial opcional. La credencial solo vive en Propiedades del script. */
+function consultarTasaElToque_(props) {
+  const token=String(props.getProperty('ELTOQUE_API_TOKEN')||'').trim().replace(/^Bearer\s+/i,'');
+  if(token&&(!/^[A-Za-z0-9._~+\/-]+=*$/.test(token)||token.length>8192))throw new Error('ELTOQUE_API_TOKEN no tiene un formato válido. Guarda solo el token del proveedor en Propiedades del script.');
+  const url=token?'https://tasas.eltoque.com/v1/trmi':'https://eltoque.com/';
+  const headers={Accept:token?'application/json':'text/html','Cache-Control':'no-cache'};
+  if(token)headers.Authorization='Bearer '+token;
+  let response;
+  try{response=UrlFetchApp.fetch(url,{muteHttpExceptions:true,validateHttpsCertificates:true,followRedirects:!token,headers});}
+  catch(error){if(token)throw new Error('No se pudo consultar la API oficial de elTOQUE. Revisa la conexión y el acceso del proyecto; se conserva la referencia anterior.');throw error;}
+  const status=response.getResponseCode();
+  if(status!==200) {
+    if(status===403&&!token)throw new Error('elTOQUE web: HTTP 403. El sitio rechaza la consulta automática. Solicita tu acceso oficial en https://tasas-token.eltoque.com/ y configura ELTOQUE_API_TOKEN en Propiedades del script. No se cambia la referencia.');
+    throw new Error((token?'API oficial de elTOQUE':'elTOQUE web')+': HTTP '+status+(token?' · revisa la vigencia y permisos de tu acceso API.':' · se conserva la referencia anterior.'));
+  }
+  return {rate:extraerTasa_(response.getContentText()),source:token?'elTOQUE · API oficial':'elTOQUE',url};
+}
+
+/** Ubicación opcional de cada compra: captura puntual; nunca cambia los importes. */
+function ubicacionCompra_(raw) {
+  if(!raw||typeof raw!=='object'||Array.isArray(raw))return null;
+  const place=typeof raw.place==='string'?raw.place.trim().slice(0,120):'';
+  const valid=typeof raw.latitude==='number'&&typeof raw.longitude==='number'&&Number.isFinite(raw.latitude)&&Number.isFinite(raw.longitude)&&Math.abs(raw.latitude)<=90&&Math.abs(raw.longitude)<=180;
+  const statuses=['captured','disabled','permission_denied','unavailable','timeout','manual'];
+  const status=valid?'captured':statuses.includes(raw.status)&&raw.status!=='captured'?raw.status:'unavailable';
+  const captured=typeof raw.capturedAt==='string'&&Number.isFinite(Date.parse(raw.capturedAt))?raw.capturedAt:'';
+  return {place,status,latitude:valid?raw.latitude:null,longitude:valid?raw.longitude:null,
+    accuracy:valid&&typeof raw.accuracy==='number'&&Number.isFinite(raw.accuracy)&&raw.accuracy>=0?raw.accuracy:null,
+    capturedAt:valid?captured:'',provider:typeof raw.provider==='string'?raw.provider.slice(0,30):'',mock:!!raw.mock};
+}
+function ubicacionesCompraPreparadas_(sheet) {
+  return sheet.getMaxColumns()>=30&&sheet.getRange('AD5').getValue()==='Ubicación JSON';
+}
+function celdasUbicacionCompra_(location) {
+  if(!location)return ['','','','','','','',''];
+  const l=ubicacionCompra_(location),has=l.latitude!==null;
+  const states={captured:'Capturada',disabled:'Desactivada',permission_denied:'Sin permiso',unavailable:'No disponible',timeout:'Sin posición a tiempo',manual:'Lugar manual'};
+  const map=has?'https://www.openstreetmap.org/?mlat='+l.latitude+'&mlon='+l.longitude+'#map=18/'+l.latitude+'/'+l.longitude:'';
+  return [movilTexto_(l.place),has?l.latitude:'',has?l.longitude:'',has&&l.accuracy!==null?l.accuracy:'',l.capturedAt?new Date(l.capturedAt):'',states[l.status],map,JSON.stringify(l)];
+}
+function ubicacionFilaCompra_(row) {
+  if(!row)return null;
+  let result=null;try{result=ubicacionCompra_(JSON.parse(row[7]||'null'));}catch(_){}
+  if(result)return {...result,place:String(row[0]||result.place).slice(0,120)};
+  if(!row[0]&&row[1]===''&&row[2]==='')return null;
+  return ubicacionCompra_({place:String(row[0]||''),latitude:row[1],longitude:row[2],accuracy:row[3],capturedAt:row[4] instanceof Date?row[4].toISOString():'',status:'manual'});
+}
+function prepararUbicacionesCompra_(ss) {
+  const sheet=ss.getSheetByName('Registro'),headers=['Lugar de compra','Latitud','Longitud','Precisión (m)','Ubicación capturada','Estado ubicación','Mapa','Ubicación JSON'];
+  const count=Math.max(0,Math.min(8,sheet.getMaxColumns()-22)),previous=count?sheet.getRange(5,23,1,count).getValues()[0]:[];
+  previous.forEach((value,i)=>{if(value&&value!==headers[i])throw new Error('Registro: las columnas W:AD contienen encabezados propios. Consérvalos antes de reservar esas columnas para ubicación.');});
+  if(!ubicacionesCompraPreparadas_(sheet)&&count&&sheet.getRange(6,23,1000,count).getValues().some(r=>r.some(v=>v!=='')))throw new Error('Registro: hay datos propios en W:AD. Se conservan; mueve esos datos antes de instalar las columnas de ubicación.');
+  if(sheet.getMaxColumns()<30)sheet.insertColumnsAfter(sheet.getMaxColumns(),30-sheet.getMaxColumns());
+  sheet.getRange('W5:AD5').setValues([headers]);sheet.getRange('AA6:AA1005').setNumberFormat('yyyy-mm-dd hh:mm');sheet.getRange('Z6:Z1005').setNumberFormat('0.0');
+  sheet.getRange('W5').setNote('Nombre opcional del mercado o tienda. La ubicación es puntual al confirmar, con permiso de Android; sin permiso el gasto se registra igualmente.');
+  sheet.setColumnWidth(23,190);sheet.setColumnWidth(29,200);sheet.hideColumns(30);
+  // Recuperar la ubicación de artículos aceptados por un script anterior.
+  const audit=ss.getSheetByName('Auditoría app');if(!audit)return;
+  const byId={};audit.getDataRange().getValues().slice(1).forEach(r=>{
+    if(r[1]!=='ACEPTADO'||!r[13]||byId[r[0]])return;
+    try{const items=JSON.parse(r[13]);if(items[0]&&items[0].location)byId[r[0]]=ubicacionCompra_(items[0].location);}catch(_){}
+  });
+  const records=sheet.getRange('A6:AD1005').getValues();
+  records.forEach((r,i)=>{if(r[11]&&byId[r[11]]&&r.slice(22,30).every(v=>v===''))sheet.getRange(i+6,23,1,8).setValues([celdasUbicacionCompra_(byId[r[11]])]);});
+}
+
+function ampliarGuiaComprasUbicaciones_(ss) {
+  const guide=ss.getSheetByName('Guía');if(!guide)return;
+  const existing=guide.getDataRange().getValues().map(r=>String(r[0]));
+  const rows=[
+    ['HF 1.5 · Cerrar Modo compra','Comprar → Cerrar Modo compra conserva gastos e historial local del teléfono y permite otro tope el mismo día. Puedes llevar solo los pendientes a la siguiente compra; no se registran gastos al trasladarlos. Los gastos de todos los modos siguen contando en Consumo y en los planes vinculados.'],
+    ['HF 1.5 · Lugar de compra','Activa la ubicación desde Perfil o al confirmar un producto. Se solicita permiso de Android y se captura una posición puntual; no hay seguimiento en segundo plano. Puedes escribir el mercado o tienda. Sin permiso o sin GPS, el gasto se guarda igualmente. Registro W:AC muestra lugar, coordenadas, precisión, fecha, estado y mapa.'],
+    ['HF 1.5 · elTOQUE y HTTP 403','HTTP 403 significa que elTOQUE rechaza el acceso web automatizado. Solicita tu acceso oficial en https://tasas-token.eltoque.com/ y guarda el token como ELTOQUE_API_TOKEN en Propiedades del script, nunca en el chat ni en Código.gs. Mantén Ajustes B26 = Sí. Hasta entonces puedes usar una referencia manual en B7; no se presenta como consulta verificada.']
+  ];
+  rows.forEach(row=>{if(!existing.includes(row[0]))guide.appendRow(row);});
 }
 
 // FIN_DEL_CODIGO

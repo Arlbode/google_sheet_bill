@@ -1,25 +1,33 @@
-# Hogar finanzas · Android 1.4.1
+# Hogar finanzas · Android 1.5.0
 
-La versión 1.4.1 cambia el nombre visible a **Hogar finanzas**. Se instala encima de **Hogar Playa Nueva 1.4.0**, manteniendo perfiles, movimientos y conexión porque conserva el identificador y la firma.
+Actualización compatible con 1.4.0 y 1.4.1: mismo paquete y firma, con perfiles, movimientos y conexión conservados.
 
-- [Descargar APK firmada](Hogar_finanzas_1.4.1.apk).
-- [Script completo del Sheet](Script_Completo_Hogar_Tasa_CUP.txt): un único archivo para Código.gs.
-- [Instalación y conexión paso a paso](INSTALAR_NUEVA_APK.md).
-- [Respaldo público de fuentes](Hogar_Playa_Recuperacion_Fuentes.zip), sin claves privadas ni datos reales.
-- [Respaldo cifrado de la firma](Respaldo_Firma_Cifrado.zip), con herramienta e instrucciones. Se abre con el archivo privado que ya generaste y conservas en tu computadora.
+- [Descargar APK firmada](Hogar_finanzas_1.5.0.apk).
+- [Script completo del Sheet](Script_Completo_Hogar_Tasa_CUP.txt): sustituye Código.gs completo, ejecuta iniciarHogar y publica una nueva versión de la implementación.
+- [Instalación y uso](INSTALAR_NUEVA_APK.md).
+- [elTOQUE: HTTP 403 y acceso API](API_ELTOQUE.md).
+- [Respaldo cifrado de la firma](Respaldo_Firma_Cifrado.zip).
+- [Fuentes y recuperación](Hogar_Playa_Recuperacion_Fuentes.zip).
 
-## Novedades
+## Novedades 1.5.0
 
-- Equivalentes CUP pequeños bajo las cantidades USD de Inicio, incluida la partida disponible para consumo.
-- Tarjeta de referencia USD/CUP con fuente, fecha/hora, consulta automática y botón ↻.
-- Una sola tasa para todos los equivalentes; los movimientos conservan su tasa histórica.
-- Sin conexión o si falla la fuente, conserva y etiqueta la última referencia.
-- Mantiene perfiles, PIN, cola sin conexión, Plan CUP, efectivo/transferencia, Modo compra, unidades, imágenes y fondos, usando el DEX original sin cambios.
+- Cerrar un Modo compra y abrir otro el mismo día con un nuevo tope, moneda y tasa.
+- Historial local de compras cerradas, productos, importes y lugares. Los gastos se conservan y no se duplican al cerrar o repetir una confirmación.
+- Trasladar solo los productos pendientes a la siguiente compra, con IDs nuevos y sin registrar gastos por trasladarlos.
+- Lugar opcional por compra y producto. Captura puntual de coordenadas al confirmar, con permiso de Android; sin seguimiento en segundo plano. Si falta permiso o posición, se guarda el gasto igualmente.
+- Lugar, coordenadas, precisión, fecha, estado y mapa en Registro W:AC del Sheet; JSON interno en AD. La ubicación se conserva al corregir un gasto rechazado.
+- Soporte del acceso API oficial de elTOQUE mediante ELTOQUE_API_TOKEN privado en Apps Script. El usuario confirmó HTTP 403 en la consulta web y todavía no tiene acceso API: no se promete una tasa nueva sin ese requisito. La app muestra el motivo del fallo y conserva la referencia anterior.
 
-## Instalación inicial y próximas actualizaciones
+Se mantienen equivalentes CUP, moneda USD/CUP y formatos, Plan CUP, perfiles/PIN, cola sin conexión, selección múltiple, unidades, estadísticas, imágenes y fondos. Cada tope pertenece a una compra; todos los gastos siguen contando en el presupuesto mensual.
 
-Esta app se muestra como **Hogar finanzas**, paquete `cu.hogarplaya.recuperada`. Continúa la firma de la versión 1.4.0; la app original 1.3.0 utilizaba otra firma y fue retirada por decisión del usuario. Para las siguientes actualizaciones se conserva la nueva firma, cuyo certificado público está fijado en el proyecto. La copia cifrada ya está preparada para el código público entregado por el usuario; se necesita su archivo privado local para recuperarla. La clave sin cifrar no está en GitHub.
+## Actualizar
 
-Lee [INSTALAR_NUEVA_APK.md](INSTALAR_NUEVA_APK.md) antes de conectar la app. El servicio de publicación del entorno de ChatGPT no interviene en la instalación de esta APK. Esta entrega no afirma haber reparado el conflicto del panel de configuración.
+Esta versión requiere actualizar también el script del Sheet para permitir varios modos del mismo día y preparar las columnas de ubicación. Conserva la URL /exec. Instala la APK encima de Hogar finanzas 1.4.1 o Hogar Playa Nueva 1.4.0, sin desinstalar ni volver a crear perfiles. El respaldo de firma ya entregado sigue siendo válido.
 
-Los antiguos instaladores y script 1.3.0 permanecen en el historial y en sus archivos originales. [RECUPERACION.md](RECUPERACION.md) explica la procedencia y límites del código recuperado.
+La identidad estable es cu.hogarplaya.recuperada. La clave secreta no está en GitHub; solo está su respaldo cifrado. [Procedimiento de recuperación para futuras sesiones](RESPALDO_Y_RECUPERACION_FIRMA.md).
+
+## Validación
+
+Pruebas de código y navegador más cinco escenarios sobre Android 10 en emulador: actualización con datos previos, cierre/reapertura/pendientes/idempotencia, GPS simulado, GPS desactivado y reinicio con permiso denegado. Se verifican todos los métodos nativos originales salvo la entrada del puente que delega en la extensión. No se compila el Java decompilado. No se realizó una consulta API real de elTOQUE ni una sincronización contra el Sheet privado del usuario.
+
+El panel de configuración de ChatGPT tuvo un conflicto independiente. Esta entrega no afirma haberlo resuelto ni requiere publicar ese panel para instalar la APK.
