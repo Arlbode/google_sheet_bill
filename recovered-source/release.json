@@ -1,7 +1,8 @@
 {
   "application_id": "cu.hogarplaya.recuperada",
-  "version_name": "1.4.0",
-  "version_code": 8,
-  "label": "Hogar Playa Nueva",
+  "version_name": "1.4.1",
+  "version_code": 9,
+  "label": "Hogar finanzas",
+  "apk_basename": "Hogar_finanzas",
   "key_alias": "hogar-v2"
 }

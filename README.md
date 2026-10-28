@@ -1,8 +1,8 @@
-# Hogar Playa Nueva · Android 1.4.0
+# Hogar finanzas · Android 1.4.1
 
-La nueva app sustituye la anterior en fase de pruebas. Usa una identidad y una firma estables para sus futuras actualizaciones.
+La versión 1.4.1 cambia el nombre visible a **Hogar finanzas**. Se instala encima de **Hogar Playa Nueva 1.4.0**, manteniendo perfiles, movimientos y conexión porque conserva el identificador y la firma.
 
-- [Descargar APK firmada](Hogar_Playa_Nueva_1.4.0.apk).
+- [Descargar APK firmada](Hogar_finanzas_1.4.1.apk).
 - [Script completo del Sheet](Script_Completo_Hogar_Tasa_CUP.txt): un único archivo para Código.gs.
 - [Instalación y conexión paso a paso](INSTALAR_NUEVA_APK.md).
 - [Respaldo público de fuentes](Hogar_Playa_Recuperacion_Fuentes.zip), sin claves privadas ni datos reales.
@@ -18,7 +18,7 @@ La nueva app sustituye la anterior en fase de pruebas. Usa una identidad y una f
 
 ## Instalación inicial y próximas actualizaciones
 
-Esta app se instala como **Hogar Playa Nueva**, paquete `cu.hogarplaya.recuperada`. No usa la firma perdida de la app anterior. Comprueba la conexión al Sheet y después retira la antigua, conforme a la decisión del usuario. Para las siguientes actualizaciones se conserva la nueva firma, cuyo certificado público está fijado en el proyecto. La copia cifrada ya está preparada para el código público entregado por el usuario; se necesita su archivo privado local para recuperarla. La clave sin cifrar no está en GitHub.
+Esta app se muestra como **Hogar finanzas**, paquete `cu.hogarplaya.recuperada`. Continúa la firma de la versión 1.4.0; la app original 1.3.0 utilizaba otra firma y fue retirada por decisión del usuario. Para las siguientes actualizaciones se conserva la nueva firma, cuyo certificado público está fijado en el proyecto. La copia cifrada ya está preparada para el código público entregado por el usuario; se necesita su archivo privado local para recuperarla. La clave sin cifrar no está en GitHub.
 
 Lee [INSTALAR_NUEVA_APK.md](INSTALAR_NUEVA_APK.md) antes de conectar la app. El servicio de publicación del entorno de ChatGPT no interviene en la instalación de esta APK. Esta entrega no afirma haber reparado el conflicto del panel de configuración.
 

@@ -1,4 +1,4 @@
-# Desarrollo de Hogar Playa Nueva 1.4.0
+# Desarrollo de Hogar finanzas 1.4.1
 
 La base nativa procede de la APK 1.3.0 verificada. No se compila el Java de `android/reference-java/`: es una referencia decompilada con errores de reconstrucción. El DEX original se conserva exactamente en la nueva APK.
 
@@ -6,7 +6,7 @@ Conserva `Hogar_Playa.apk` como base de compilación aunque la app antigua se re
 
 ## Código actual y procedencia
 
-Se modificaron `android/assets/app.js`, `app.css` y `backend/Code.gs` para añadir equivalentes CUP y la tarjeta de tasa. Los hashes `exact-sha256.json` describen los originales recuperados, no la interfaz modificada; las pruebas contrastan los originales con la APK base y el script 1.3.0 preservado, y mantienen la integridad de los demás assets. El backend completo actual se publica como `Script_Completo_Hogar_Tasa_CUP.txt`.
+Se modificaron `android/assets/app.js`, `app.css`, `index.html` y `backend/Code.gs` para añadir equivalentes CUP y la tarjeta de tasa. Los hashes `exact-sha256.json` describen los originales recuperados, no la interfaz modificada; las pruebas contrastan los originales con la APK base y el script 1.3.0 preservado, y mantienen la integridad de los demás assets. El backend completo actual se publica como `Script_Completo_Hogar_Tasa_CUP.txt`.
 
 ## Validar
 

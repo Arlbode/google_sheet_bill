@@ -10,6 +10,8 @@ El constructor `build_release.py` mantiene exactamente `classes.dex` de la APK o
 
 La clave y contraseña están fuera del checkout, en una carpeta privada del entorno. El respaldo privado sin cifrar se excluye de Git y del ZIP público de fuentes. Como la descarga directa falló, el usuario generó localmente un acceso privado y entregó su código público. Con ese código se creó `Firma_Hogar_Playa_Cifrada.json`, distribuido en `Respaldo_Firma_Cifrado.zip`. Solo se puede abrir con el archivo privado correspondiente, que conserva el usuario. Es necesario conservar ese acceso para recuperar la firma en futuras actualizaciones.
 
+La versión 1.4.1 cambia únicamente la marca visible a **Hogar finanzas** y mantiene el paquete y la firma de la 1.4.0. La aplicación se actualiza encima y conserva sus datos.
+
 ## Mejora implementada
 
 Los equivalentes CUP y la tarjeta de referencia con fuente, fecha, solicitud automática y botón manual están implementados en la APK 1.4.0. El backend actualizado está en `Script_Completo_Hogar_Tasa_CUP.txt`. La tasa es una referencia orientativa con caducidad visible; no se garantiza una cotización en vivo sin red o ante un fallo de la fuente. No se modifican operaciones históricas.

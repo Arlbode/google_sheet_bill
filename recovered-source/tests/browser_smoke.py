@@ -69,7 +69,7 @@ def main():
             expect(page.locator('#quoteCard')).to_contain_text('870,00 CUP')
             assert not page.evaluate('document.documentElement.scrollWidth > innerWidth')
             assert page.locator('.wallet .cup-equivalent').bounding_box()['height']<25
-            page.screenshot(path=str(output/'Inicio_CUP_1.4.0.png'),full_page=True)
+            page.screenshot(path=str(output/('Inicio_CUP_'+json.loads((ROOT/'release.json').read_text())['version_name']+'.png')),full_page=True)
             page.locator('#refreshQuote').click()
             expect(page.locator('#quoteCard')).to_contain_text('900,00 CUP')
             expect(page.locator('.kpi .cup-equivalent').first).to_contain_text('315.000,00 CUP')

@@ -1,6 +1,6 @@
 # Firma privada: para qué sirve y cómo la recuperará el agente
 
-La firma identifica las APK de Hogar Playa Nueva. Android permite actualizar la app instalada cuando la nueva APK mantiene su identificador y está firmada con la misma clave. La clave no cifra los gastos ni reemplaza el PIN del usuario. Si se pierde, no puede reconstruirse desde la APK o su certificado público.
+La firma identifica las APK de **Hogar finanzas**, antes llamada Hogar Playa Nueva. El cambio de nombre 1.4.1 conserva esta misma firma. Android permite actualizar la app instalada cuando la nueva APK mantiene su identificador y está firmada con la misma clave. La clave no cifra los gastos ni reemplaza el PIN del usuario. Si se pierde, no puede reconstruirse desde la APK o su certificado público.
 
 El usuario pidió que el agente se encargue de la recuperación en futuras sesiones. Este procedimiento queda en GitHub para que no dependa de recordar el chat. La clave secreta no se publica ni se memoriza en el modelo.
 

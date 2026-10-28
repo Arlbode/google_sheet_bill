@@ -39,6 +39,9 @@ def safe_name(name):
 def collect(root):
     root = Path(root).resolve()
     paths = [root / name for name in ROOT_FILES]
+    release = json.loads((root / 'recovered-source/release.json').read_text())
+    apk = release.get('apk_basename', 'Hogar_Playa_Nueva') + '_' + release['version_name'] + '.apk'
+    paths += [root / apk, root / (apk + '.sha256')]
     paths += sorted((root / 'recovered-source').rglob('*'))
     workflow = root / '.github/workflows/verificar-recuperacion.yml'
     if workflow.is_file():

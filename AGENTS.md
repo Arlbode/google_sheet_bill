@@ -1,4 +1,6 @@
-# Hogar Playa: continuidad y firma
+# Hogar finanzas: continuidad y firma
+
+El nombre visible actual es **Hogar finanzas**, antes Hogar Playa Nueva. El cambio de nombre no cambia la identidad Android ni su firma.
 
 - Mantén la identidad actual `cu.hogarplaya.recuperada` y el certificado fijado en `recovered-source/signing/new-certificate.sha256`. El usuario autorizó esta nueva app y retirará la antigua; las actualizaciones futuras son sobre la nueva.
 - Lee `RESPALDO_Y_RECUPERACION_FIRMA.md` antes de compilar o recuperar una firma. El usuario pidió que el agente se encargue del procedimiento en sesiones futuras.

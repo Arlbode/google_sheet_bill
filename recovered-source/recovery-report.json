@@ -18,12 +18,13 @@
   "publication_verified": false,
   "user_authorized_new_app": true,
   "new_application_id": "cu.hogarplaya.recuperada",
-  "new_version": "1.4.0",
+  "new_version": "1.4.1",
   "original_dex_preserved": true,
   "implementation_changes": [
     "android/assets/app.js",
     "android/assets/app.css",
-    "backend/Code.gs"
+    "backend/Code.gs",
+    "android/assets/index.html"
   ],
   "physical_android_install_tested": false,
   "live_sheet_sync_tested": false,
@@ -36,5 +37,8 @@
   "encrypted_backup_pending_public_code": false,
   "encrypted_backup_created": true,
   "encrypted_backup_recipient_sha256": "90aaebb67c2838416ae2aade736d44367258afd6e9ca0c4d478535df23dd4f34",
-  "encrypted_backup_user_decryption_confirmed": false
+  "encrypted_backup_user_decryption_confirmed": false,
+  "app_label": "Hogar finanzas",
+  "application_id_unchanged": true,
+  "signing_certificate_unchanged": true
 }

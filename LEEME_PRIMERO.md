@@ -1,9 +1,11 @@
 # Qué hacer ahora
 
-1. Descarga e instala **Hogar_Playa_Nueva_1.4.0.apk**.
+Si ya tienes **Hogar Playa Nueva 1.4.0**, instala **Hogar_finanzas_1.4.1.apk** encima. Cambiará el nombre a **Hogar finanzas** y conservará sus datos y conexión. No repitas la instalación del script ni crees perfiles nuevos solo por este cambio de nombre. Los pasos completos siguientes son para una instalación inicial.
+
+1. Descarga e instala **Hogar_finanzas_1.4.1.apk**.
 2. Actualiza el Sheet con **Script_Completo_Hogar_Tasa_CUP.txt**, archivo completo para Código.gs, y publica una nueva versión de su implementación conservando la URL /exec.
 3. Crea tu perfil en la nueva app y conéctala al Sheet con un código nuevo. Comprueba los saldos y la tarjeta de tasa.
-4. Una vez comprobada, puedes desinstalar la app antigua. Las próximas actualizaciones se harán sobre **Hogar Playa Nueva**.
+4. Una vez comprobada, puedes desinstalar la app antigua. Las próximas actualizaciones se harán sobre **Hogar finanzas**.
 5. Descarga **Respaldo_Firma_Cifrado.zip** y consérvalo junto con tu archivo privado **Clave_PRIVADA_Respaldo_Hogar.json**, que ya generaste. Son las dos piezas necesarias para recuperar la firma. No crees otro acceso para abrir esta copia y no subas el archivo privado a GitHub. El respaldo cifrado sí puede descargarse del repositorio.
 
 [Instrucciones completas](INSTALAR_NUEVA_APK.md).

@@ -90,7 +90,7 @@ def build(output=None, init=False, private=PRIVATE, backup=None):
     base = ROOT.parent / 'Hogar_Playa.apk'
     if digest(base.read_bytes()) != BASE_SHA256:
         raise RuntimeError('La APK original no coincide con la base verificada.')
-    output = Path(output) if output else ROOT / 'build/Hogar_Playa_Nueva_1.4.0.apk'
+    output = Path(output) if output else ROOT / 'build' / (config.get('apk_basename', 'Hogar_Playa_Nueva') + '_' + config['version_name'] + '.apk')
     if output.resolve() == base.resolve():
         raise RuntimeError('No se sustituye el instalador original.')
     tools = SDK / 'build-tools/35.0.0'

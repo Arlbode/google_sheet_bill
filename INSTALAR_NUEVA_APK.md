@@ -1,12 +1,16 @@
-# Instalar Hogar Playa Nueva 1.4.0
+# Hogar finanzas 1.4.1: instalación y actualización
 
-Esta APK usa una identidad y una firma nuevas, autorizadas porque la app anterior está en pruebas y no contiene datos de producción. **Las próximas actualizaciones se harán sobre esta nueva app.** No es una actualización compatible con la firma antigua.
+Esta versión cambia el nombre visible de **Hogar Playa Nueva 1.4.0** a **Hogar finanzas**. Mantiene el mismo identificador y firma.
+
+**Si ya tienes la 1.4.0:** descarga e instala la APK 1.4.1 encima. Conserva tus perfiles, movimientos y conexión al Sheet. No desinstales la 1.4.0 ni vuelvas a conectar la hoja para este cambio de nombre. Los pasos de preparación del Sheet que siguen son para una instalación inicial.
+
+La app original 1.3.0 usaba otra firma. La identidad nueva se autorizó durante la fase de pruebas y es la que continuará recibiendo actualizaciones.
 
 ## 1. Instala la nueva APK
 
-Descarga [Hogar_Playa_Nueva_1.4.0.apk](Hogar_Playa_Nueva_1.4.0.apk) en el teléfono e instálala. Android la muestra como **Hogar Playa Nueva**. Si Android lo solicita, permite instalar este archivo desde la aplicación que utilizaste para descargarlo.
+Descarga [Hogar_finanzas_1.4.1.apk](Hogar_finanzas_1.4.1.apk) en el teléfono e instálala. Android la muestra como **Hogar finanzas**. Si Android lo solicita, permite instalar este archivo desde la aplicación que utilizaste para descargarlo.
 
-Se instala aparte de la anterior. Cuando hayas comprobado que abre y se conecta al Sheet, puedes desinstalar la antigua y continuar solo con Hogar Playa Nueva, como solicitaste. La nueva app comienza sin los datos locales de la anterior; al conectarse recibe el estado e historial disponibles en tu Sheet.
+Actualiza la versión 1.4.0 existente. Si vienes directamente de la antigua 1.3.0, se instala aparte de aquella porque las firmas son distintas; configura el Sheet y la conexión siguiendo esta guía, y después retira la 1.3.0 conforme a lo acordado.
 
 ## 2. Actualiza el único script completo del Sheet
 
@@ -20,7 +24,7 @@ El archivo termina en `FIN_DEL_CODIGO`. El anterior `Script_Completo_Hogar_Andro
 
 ## 3. Conecta la nueva app
 
-1. Abre **Hogar Playa Nueva** y crea tu perfil y PIN.
+1. Abre **Hogar finanzas** y crea tu perfil y PIN.
 2. En el Sheet: **Hogar → Conectar app Android** y genera un código de conexión nuevo.
 3. En la nueva app: **Perfil → Conectar Google Sheets**. Introduce tu URL `/exec` y el código. El código dura 10 minutos y se usa una sola vez.
 4. Sincroniza y comprueba los saldos recibidos de tu Sheet.
@@ -51,7 +55,7 @@ El ZIP privado contiene la clave de firma y su contraseña. No publiques ese ZIP
 
 La firma pública queda fijada en `recovered-source/signing/new-certificate.sha256`. El constructor rechazará otra clave y no generará automáticamente una sustituta si la firma se pierde. El ZIP público de fuentes no incluye la firma privada.
 
-El nuevo identificador Android es `cu.hogarplaya.recuperada`. Todas sus futuras actualizaciones deben mantener ese identificador y esa firma.
+El identificador Android que permanece estable es `cu.hogarplaya.recuperada`. Todas sus futuras actualizaciones deben mantener ese identificador y esa firma.
 
 ## Validación de esta entrega
 

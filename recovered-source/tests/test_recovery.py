@@ -6,7 +6,7 @@ from sign_original import sign
 class Recovery(unittest.TestCase):
  def test_exact_assets_and_backend(self):
   values=json.loads((ROOT/'exact-sha256.json').read_text())
-  changed={'assets/app.js','assets/app.css'}
+  changed={'assets/app.js','assets/app.css','assets/index.html'}
   with zipfile.ZipFile(ROOT.parent/'Hogar_Playa.apk') as original:
    for name,digest in values.items():
     if name.startswith('assets/'):
@@ -32,7 +32,7 @@ class Recovery(unittest.TestCase):
       self.assertEqual((item.header_offset+30+name_len+extra_len)%4,0,item.filename)
    self.assertFalse(json.loads(output.with_suffix('.json').read_text())['signed'])
    with zipfile.ZipFile(output) as z:
-    for name in ['app.js','app.css']:
+    for name in ['app.js','app.css','index.html']:
      self.assertEqual(z.read('assets/'+name),(ROOT/'android/assets'/name).read_bytes())
  def test_original_apk_unchanged(self):self.assertEqual(hashlib.sha256((ROOT.parent/'Hogar_Playa.apk').read_bytes()).hexdigest(),BASE_SHA256)
  def test_no_replacement_key_generated(self):
