@@ -3,6 +3,9 @@
 *.p12
 *.jks
 *.keystore
+*.pfx
+Firma_PRIVADA*.zip
+Clave_PRIVADA*.json
 **/password
 **/password.txt
 **/*password-file*

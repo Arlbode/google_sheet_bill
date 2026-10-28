@@ -1,47 +1,32 @@
-# Recuperación verificable de Hogar Playa 1.3.0
+# Desarrollo de Hogar Playa Nueva 1.4.0
 
-Esta carpeta conserva lo que se pudo recuperar de la APK publicada y del script consolidado. No es una nueva versión instalable de la app.
+La base nativa procede de la APK 1.3.0 verificada. No se compila el Java de `android/reference-java/`: es una referencia decompilada con errores de reconstrucción. El DEX original se conserva exactamente en la nueva APK.
 
-## Recuperado exactamente
+Conserva `Hogar_Playa.apk` como base de compilación aunque la app antigua se retire del teléfono. El constructor comprueba su hash antes de reutilizar el DEX.
 
-- Las 96 entradas de assets de la APK: interfaz JavaScript/HTML/CSS, catálogo y las 91 imágenes SVG.
-- El Apps Script completo, con 103 funciones y el cierre FIN_DEL_CODIGO.
-- Los datos de la plantilla, cuentas y precios descomprimidos desde ese mismo script: 91 productos y las 56 ofertas Yosvany.
-- El código nativo original dentro de classes.dex, manifiesto binario y recursos, conservados en la APK base que acompaña al proyecto.
-- El certificado PÚBLICO original, para identificar qué firma debe tener una actualización compatible.
+## Código actual y procedencia
 
-`exact-sha256.json` permite comprobar los assets y el backend recuperados. La APK base se comprueba siempre contra el SHA-256 de la versión 1.3.0 publicada.
+Se modificaron `android/assets/app.js`, `app.css` y `backend/Code.gs` para añadir equivalentes CUP y la tarjeta de tasa. Los hashes `exact-sha256.json` describen los originales recuperados, no la interfaz modificada; las pruebas contrastan los originales con la APK base y el script 1.3.0 preservado, y mantienen la integridad de los demás assets. El backend completo actual se publica como `Script_Completo_Hogar_Tasa_CUP.txt`.
 
-## Java de referencia: no usar como código de producción
-
-`android/reference-java/` contiene una decompilación con JADX 1.5.1, no los archivos Java originales. El decompilador advierte de reconstrucciones incorrectas en sincronización, recibos de planes y parte del puente nativo. Hay expresiones y flujos que requieren revisión. Que la herramienta termine sin error no significa que ese Java sea compilable o fiel al comportamiento original.
-
-Por eso el constructor de comprobación **no compila ni ejecuta esos archivos**. Conserva byte por byte el classes.dex original, de modo que esta recuperación no introduce cambios en la lógica nativa financiera, PIN, perfiles, SQLite o sincronización.
-
-## Comprobar la recuperación
-
-Desde la raíz del repositorio, con las dependencias instaladas:
+## Validar
 
 ```sh
-bash recovered-source/scripts/verify_environment.sh
+HOGAR_PYTHON=/workspace/google_sheet_bill/.venv/bin/python bash recovered-source/scripts/verify_environment.sh
 ```
 
-La prueba financiera requiere openpyxl 3.1.5 y LibreOffice/soffice. No usa la hoja real del usuario: genera datos ficticios en un directorio temporal.
+Requiere Python con openpyxl 3.1.5, Node y LibreOffice. Las pruebas financieras no usan el Sheet real. El ZIP de fuentes se reconstruye con `python3 recovered-source/scripts/create_backup.py`; `--check` verifica su manifiesto sin extraerlo.
 
-El respaldo se comprueba con `python3 recovered-source/scripts/create_backup.py --check Hogar_Playa_Recuperacion_Fuentes.zip`. Para reconstruirlo después de un cambio de fuentes, ejecuta `python3 recovered-source/scripts/create_backup.py`; incluye las fuentes actuales y un manifiesto de integridad, sin cachés ni claves privadas. El ZIP no contiene los datos reales de los teléfonos ni permite recuperar la firma perdida. Consulta [Qué hacer ahora](../LEEME_PRIMERO.md).
+## Compilar y firmar futuras actualizaciones
 
-El constructor produce `recovered-source/build/Hogar_Playa_UNFIRMADA.apk`. Ese archivo **no está firmado y no es una nueva APK instalable**. Se usa para comprobar que los recursos y el código original pueden reempaquetarse sin alterarlos.
+```sh
+source /workspace/.tools/hogar-environment/env.sh
+python3 recovered-source/scripts/build_release.py
+```
 
-## Firma: bloqueo pendiente
+Requiere Android build-tools 35.0.0 y plataforma android-35. Restaura los archivos del respaldo privado en `/workspace/.android-signing/hogar-playa-v2/`. El certificado debe coincidir con `signing/new-certificate.sha256`. No subas la clave, contraseña ni ZIP privado a GitHub. No generes otra clave para una actualización de la nueva app.
 
-La clave privada original y su contraseña no estaban en GitHub y no se han recuperado del entorno anterior. El certificado público no permite reconstruirla. El usuario eligió conservar solo la app actual: no se ha generado otra firma, creado una app paralela ni sustituido la APK que funciona.
+`release.json` fija la identidad `cu.hogarplaya.recuperada`. Incrementa su versión para futuras entregas, manteniendo la identidad y la firma. `--init-signing` solo se utilizó en la creación autorizada de esta nueva app; una vez fijado el certificado, el constructor no permite regenerar la clave si falta.
 
-El ayudante `scripts/sign_original.py` solo podrá usarse si se recupera la firma privada original por un medio privado. Recibe rutas de archivos, nunca la contraseña en un argumento. Comprueba que el certificado coincide con el original antes de firmar; una clave diferente se rechaza. Las claves y contraseñas no deben subirse a este repositorio público.
+`build_unsigned.py` sigue disponible para comprobar la recuperación de assets conservando el manifiesto original. Sus paquetes sin firma no son instaladores. `sign_original.py` solo sirve para la identidad antigua si se recuperase su firma; no es el constructor de la app nueva.
 
-La firma original esperada es SHA-256:
-
-`911fdea8894025eb62ca8e775aa23ded1725830526f46d7c3d2194c6f634a569`
-
-## Pendiente funcional
-
-Los equivalentes CUP bajo los montos USD y la tarjeta de tasa con actualización automática/manual aún no están implementados en la APK 1.3.0. Esta reparación conserva y respalda la base anterior; no se presenta como esa actualización.
+[Instalación de usuario](../INSTALAR_NUEVA_APK.md).

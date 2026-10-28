@@ -1,34 +1,25 @@
-# Hogar Playa · recuperación del entorno
+# Hogar Playa Nueva · Android 1.4.0
 
-**Conserva la app que ya tienes instalada.** En esta rama no hay una nueva APK: `Hogar_Playa.apk` sigue siendo la versión 1.3.0 publicada. La firma privada original no está disponible y el usuario ha elegido conservar únicamente su app actual.
+La nueva app sustituye la anterior en fase de pruebas. Usa una identidad y una firma estables para sus futuras actualizaciones.
 
-- [Qué hacer ahora](LEEME_PRIMERO.md): instrucciones para el respaldo, la app y la publicación del entorno.
-- [Hogar_Playa_Recuperacion_Fuentes.zip](Hogar_Playa_Recuperacion_Fuentes.zip): respaldo del código y los recursos recuperados; no se instala en Android.
-- [Estado y límites de la recuperación](RECUPERACION.md).
-
-La rama `descargas-android-1.1.0` y sus instaladores originales permanecen intactos. Las instrucciones siguientes documentan aquella publicación; esta reparación del entorno no requiere reinstalar la app ni sustituir el script de tu Sheet.
-
-# Publicación original · Android 1.3.0
-
-Android 8 o posterior. Instala encima de la versión anterior para conservar perfiles, PIN, movimientos y conexión.
-
-- [Hogar_Playa.apk](Hogar_Playa.apk): APK firmada.
-- [Hogar_Playa_Instalacion.zip](Hogar_Playa_Instalacion.zip): APK, único script completo, manual, oferta CSV y verificaciones.
-- [Script_Completo_Hogar_Android.txt](Script_Completo_Hogar_Android.txt): sustituye todo Código.gs y ejecuta iniciarHogar.
-- [Manual_Android.md](Manual_Android.md): instalación, actualización y operación.
+- [Descargar APK firmada](Hogar_Playa_Nueva_1.4.0.apk).
+- [Script completo del Sheet](Script_Completo_Hogar_Tasa_CUP.txt): un único archivo para Código.gs.
+- [Instalación y conexión paso a paso](INSTALAR_NUEVA_APK.md).
+- [Respaldo público de fuentes](Hogar_Playa_Recuperacion_Fuentes.zip), sin claves privadas ni datos reales.
+- [Herramienta local para conservar la nueva firma](Herramienta_Respaldo_Firma.zip). Comparte solo el código público que genera; el archivo privado se queda en tu computadora.
 
 ## Novedades
 
-- 91 ilustraciones originales específicas, incluidas en la APK: funcionan sin internet. Guayaba, frutabomba, plátanos, cebollas, frijoles, productos de limpieza, carnes, servicios y demás artículos se identifican con su propia imagen.
-- Guayaba por libra, sin redondear el plan a bolsas de cinco. La referencia anterior se convierte por libra, conservando que su oferta de origen era por bolsa y sin afirmar venta suelta.
-- Jamón y queso por libra, con precio real editable y proveedor pendiente.
-- Gasolina por litro y Fondo gasolina disponible para aportes y gastos. Asignación inicial 0 para que el hogar decida cuánto reservar. Los gastos desde el fondo no se vuelven a descontar de la partida de consumo.
-- Conserva gestión de Plan CUP, cola offline, PIN, ingresos USD/CUP unificados, efectivo/transferencia, selección múltiple, tope diario y estadísticas.
+- Equivalentes CUP pequeños bajo las cantidades USD de Inicio, incluida la partida disponible para consumo.
+- Tarjeta de referencia USD/CUP con fuente, fecha/hora, consulta automática y botón ↻.
+- Una sola tasa para todos los equivalentes; los movimientos conservan su tasa histórica.
+- Sin conexión o si falla la fuente, conserva y etiqueta la última referencia.
+- Mantiene perfiles, PIN, cola sin conexión, Plan CUP, efectivo/transferencia, Modo compra, unidades, imágenes y fondos, usando el DEX original sin cambios.
 
-## Actualizar
+## Instalación inicial y próximas actualizaciones
 
-1. Sheet → Extensiones → Apps Script: sustituye TODO Código.gs por el archivo completo. Guarda y ejecuta iniciarHogar.
-2. Implementar → Gestionar implementaciones → lápiz → Nueva versión → Implementar. Conserva URL /exec y permisos.
-3. Instala la APK encima de la anterior y sincroniza. Si conservaste la URL y el proyecto, no necesitas otro código de conexión.
+Esta app se instala como **Hogar Playa Nueva**, paquete `cu.hogarplaya.recuperada`. No usa la firma perdida de la app anterior. Comprueba la conexión al Sheet y después retira la antigua, conforme a la decisión del usuario. Para las siguientes actualizaciones se conserva la nueva firma, cuyo certificado público está fijado en el proyecto. La descarga directa del respaldo privado falló; la herramienta local permite preparar una entrega cifrada. La clave sin cifrar no está en GitHub.
 
-Guía incluye los pasos 40 y 41. Se conservan los registros y asignaciones anteriores. La autorización e implementación de Google las realiza el propietario. No se publican credenciales ni movimientos financieros reales.
+Lee [INSTALAR_NUEVA_APK.md](INSTALAR_NUEVA_APK.md) antes de conectar la app. El servicio de publicación del entorno de ChatGPT no interviene en la instalación de esta APK. Esta entrega no afirma haber reparado el conflicto del panel de configuración.
+
+Los antiguos instaladores y script 1.3.0 permanecen en el historial y en sus archivos originales. [RECUPERACION.md](RECUPERACION.md) explica la procedencia y límites del código recuperado.

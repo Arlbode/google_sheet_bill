@@ -6,9 +6,14 @@ from sign_original import sign
 class Recovery(unittest.TestCase):
  def test_exact_assets_and_backend(self):
   values=json.loads((ROOT/'exact-sha256.json').read_text())
-  for name,digest in values.items():
-   path=ROOT/'android'/name if name.startswith('assets/') else ROOT/name
-   self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(),digest,name)
+  changed={'assets/app.js','assets/app.css'}
+  with zipfile.ZipFile(ROOT.parent/'Hogar_Playa.apk') as original:
+   for name,digest in values.items():
+    if name.startswith('assets/'):
+     self.assertEqual(hashlib.sha256(original.read(name)).hexdigest(),digest,'base '+name)
+     if name not in changed:self.assertEqual(hashlib.sha256((ROOT/'android'/name).read_bytes()).hexdigest(),digest,name)
+    else:
+     self.assertEqual(hashlib.sha256((ROOT.parent/'Script_Completo_Hogar_Android.txt').read_bytes()).hexdigest(),digest,'backend original')
   self.assertEqual(len(json.loads((ROOT/'android/assets/catalog.json').read_text())['products']),91)
   self.assertTrue((ROOT/'backend/Code.gs').read_text().rstrip().endswith('// FIN_DEL_CODIGO'))
  def test_data_recovery(self):
@@ -26,6 +31,9 @@ class Recovery(unittest.TestCase):
       with output.open('rb') as f:f.seek(item.header_offset+26);name_len=int.from_bytes(f.read(2),'little');extra_len=int.from_bytes(f.read(2),'little')
       self.assertEqual((item.header_offset+30+name_len+extra_len)%4,0,item.filename)
    self.assertFalse(json.loads(output.with_suffix('.json').read_text())['signed'])
+   with zipfile.ZipFile(output) as z:
+    for name in ['app.js','app.css']:
+     self.assertEqual(z.read('assets/'+name),(ROOT/'android/assets'/name).read_bytes())
  def test_original_apk_unchanged(self):self.assertEqual(hashlib.sha256((ROOT.parent/'Hogar_Playa.apk').read_bytes()).hexdigest(),BASE_SHA256)
  def test_no_replacement_key_generated(self):
   with tempfile.TemporaryDirectory() as tmp:

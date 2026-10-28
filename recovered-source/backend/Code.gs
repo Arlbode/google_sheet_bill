@@ -1466,25 +1466,43 @@ function prepararProteccionUSD_(ss) {
 
 function verPlanCUP() {const ss=hoja_();conBloqueo_(()=>prepararProteccionUSD_(ss));ss.setActiveSheet(ss.getSheetByName('Plan CUP'));}
 function verProteccionUSD() {const ss=hoja_();conBloqueo_(()=>prepararProteccionUSD_(ss));ss.setActiveSheet(ss.getSheetByName('Protección USD'));}
-function guardarTasaVerificada_(rate,now) {PropertiesService.getScriptProperties().setProperty('HOGAR_TASA_VERIFICADA',JSON.stringify({rate,consultedAt:now.toISOString(),day:movilFecha_(now),source:'elTOQUE',url:'https://eltoque.com/'}));}
+function guardarTasaVerificada_(rate,now) {
+  const props=PropertiesService.getScriptProperties();
+  props.setProperty('HOGAR_TASA_VERIFICADA',JSON.stringify({rate,consultedAt:now.toISOString(),day:movilFecha_(now),source:'elTOQUE',url:'https://eltoque.com/'}));
+  props.setProperty('HOGAR_TASA_INTENTO',String(now.getTime()));
+  props.deleteProperty('HOGAR_TASA_ERROR');
+}
 function tasaParaPlan_(ss) {
-  const props=PropertiesService.getScriptProperties(),raw=props.getProperty('HOGAR_TASA_VERIFICADA'),q=raw?JSON.parse(raw):null,rate=Number(ss.getSheetByName('Ajustes').getRange('B7').getValue());
-  if(q && q.rate===rate)return {...q,fresh:q.day===movilFecha_(new Date())};
-  return {rate,day:'',consultedAt:'',source:'Ajustes · referencia manual sin fecha verificada',url:'',fresh:false};
+  const props=PropertiesService.getScriptProperties(),settings=ss.getSheetByName('Ajustes'),rate=Number(settings.getRange('B7').getValue()),now=new Date();
+  let q=null,failure=null;
+  try{q=JSON.parse(props.getProperty('HOGAR_TASA_VERIFICADA')||'null');}catch(_){}
+  try{failure=JSON.parse(props.getProperty('HOGAR_TASA_ERROR')||'null');}catch(_){}
+  const result=q&&Number(q.rate)===rate?{...q,rate}:{rate,day:'',consultedAt:'',source:'Ajustes · referencia manual sin fecha verificada',url:''};
+  const consulted=Date.parse(result.consultedAt||''),age=now.getTime()-consulted;
+  result.error=failure&&(!Number.isFinite(consulted)||Number(failure.at)>consulted)?String(failure.message||'Consulta pendiente'):'';
+  result.autoEnabled=settings.getRange('B26').getValue()==='Sí';
+  result.fresh=Number.isFinite(rate)&&rate>0&&Number.isFinite(age)&&age>=0&&age<30*60*1000&&result.day===movilFecha_(now)&&!result.error;
+  return result;
 }
 function revisarTasaParaApp_(ss) {
   const props=PropertiesService.getScriptProperties(),quote=tasaParaPlan_(ss),now=new Date();
-  if(quote.fresh || typeof UrlFetchApp==='undefined' || ss.getSheetByName('Ajustes').getRange('B26').getValue()!=='Sí')return;
-  if(Date.now()-Number(props.getProperty('HOGAR_TASA_INTENTO')||0)<6*60*60*1000)return;
-  props.setProperty('HOGAR_TASA_INTENTO',String(Date.now()));const log=historialPrecios_(ss);
+  if(typeof UrlFetchApp==='undefined'||!quote.autoEnabled)return;
+  // Cada sincronización solicita referencia. Caché breve compartida entre teléfonos.
+  // Permite el botón manual sin esperar seis horas; evita consultas repetidas por lotes.
+  if(now.getTime()-Number(props.getProperty('HOGAR_TASA_INTENTO')||0)<60*1000)return;
+  props.setProperty('HOGAR_TASA_INTENTO',String(now.getTime()));const log=historialPrecios_(ss);
   try {
     const response=UrlFetchApp.fetch('https://eltoque.com/',{muteHttpExceptions:true,validateHttpsCertificates:true,followRedirects:true});
     if(response.getResponseCode()!==200)throw new Error('HTTP '+response.getResponseCode());
     const value=extraerTasa_(response.getContentText()),previous=quote.rate;
+    if(!Number.isFinite(value)||value<=0)throw new Error('Tasa no válida.');
     if(previous>0 && (value/previous>2 || value/previous<.5))throw new Error('Variación extrema; confirmar antes de usar.');
     ss.getSheetByName('Ajustes').getRange('B7').setValue(value);ss.getSheetByName('Ajustes').getRange('B11').setValue(now);guardarTasaVerificada_(value,now);
     registrarRevision_(log,now,'VERIFICADO CAMBIO','CUP por USD',previous,value,'elTOQUE · consulta desde APK'+(value===previous?' · SIN CAMBIOS':''));
-  } catch(error) {registrarRevision_(log,now,'ERROR CAMBIO','CUP por USD',quote.rate,quote.rate,'APK: '+String(error.message)+'. Se conserva la última referencia; no se presenta como tasa de hoy.');}
+  } catch(error) {
+    props.setProperty('HOGAR_TASA_ERROR',JSON.stringify({at:now.getTime(),message:String(error.message)}));
+    registrarRevision_(log,now,'ERROR CAMBIO','CUP por USD',quote.rate,quote.rate,'APK: '+String(error.message)+'. Se conserva la última referencia y su fecha.');
+  }
 }
 
 function planesCUP_(ss,records) {

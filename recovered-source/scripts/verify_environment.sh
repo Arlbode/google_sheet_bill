@@ -11,6 +11,7 @@ command -v soffice >/dev/null
 "$python_bin" -m unittest discover -s recovered-source/tests -v
 node --check recovered-source/android/assets/app.js
 node --check < recovered-source/backend/Code.gs
+node --test recovered-source/tests/dashboard.test.cjs
 if [[ -f Hogar_Playa_Recuperacion_Fuentes.zip ]]; then
   "$python_bin" recovered-source/scripts/create_backup.py --check Hogar_Playa_Recuperacion_Fuentes.zip
 else
@@ -20,4 +21,4 @@ else
   "$python_bin" recovered-source/scripts/create_backup.py --output "$backup_dir/respaldo.zip"
   "$python_bin" recovered-source/scripts/create_backup.py --check "$backup_dir/respaldo.zip"
 fi
-echo 'Comprobaciones completadas. La APK original se conserva. No se ha generado una actualización firmada.'
+echo 'Comprobaciones completadas. La APK original se conserva. Hogar Playa Nueva usa su propia firma fijada.'

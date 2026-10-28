@@ -14,9 +14,12 @@ ROOT = Path(__file__).resolve().parents[2]
 BACKUP_NAME = 'Hogar_Playa_Recuperacion_Fuentes.zip'
 MANIFEST = 'MANIFIESTO_RESPALDO.json'
 ROOT_FILES = (
-    '.gitignore', 'README.md', 'RECUPERACION.md', 'LEEME_PRIMERO.md',
+    '.gitignore', 'AGENTS.md', 'README.md', 'RECUPERACION.md', 'LEEME_PRIMERO.md',
+    'RESPALDO_Y_RECUPERACION_FIRMA.md', 'Herramienta_Respaldo_Firma.zip',
     'Hogar_Playa.apk', 'Hogar_Playa.apk.sha256', 'Script_Completo_Hogar_Android.txt',
     'Manual_Android.md', 'Oferta_Yosvany_2026-10-27.csv',
+    'Script_Completo_Hogar_Tasa_CUP.txt', 'INSTALAR_NUEVA_APK.md',
+    'Hogar_Playa_Nueva_1.4.0.apk', 'Hogar_Playa_Nueva_1.4.0.apk.sha256',
 )
 EXCLUDED_PARTS = {'build', '__pycache__', '.venv', '.git', 'node_modules', '.android-signing'}
 FORBIDDEN_SUFFIXES = {'.p12', '.pfx', '.jks', '.keystore', '.key', '.pem', '.pyc'}
@@ -40,6 +43,9 @@ def collect(root):
     workflow = root / '.github/workflows/verificar-recuperacion.yml'
     if workflow.is_file():
         paths.append(workflow)
+    encrypted = root / 'Firma_Hogar_Playa_Cifrada.json'
+    if encrypted.is_file():
+        paths.append(encrypted)
     files = {}
     for path in paths:
         rel = path.relative_to(root)
@@ -48,7 +54,7 @@ def collect(root):
         if path.is_symlink() or not path.resolve().is_relative_to(root):
             raise ValueError('El respaldo no admite enlaces: ' + str(rel))
         if (path.suffix.lower() in FORBIDDEN_SUFFIXES or path.name.startswith('.env')
-                or 'password' in path.name.lower()):
+                or 'password' in path.name.lower() or path.name.startswith(('Firma_PRIVADA','Clave_PRIVADA'))):
             raise ValueError('No se respaldan archivos de credenciales: ' + str(rel))
         data = path.read_bytes()
         # Construir los patrones evita que este propio código coincida con ellos.
@@ -68,7 +74,7 @@ def create(output=None, root=ROOT):
         'base_apk_sha256': sha256(files['Hogar_Playa.apk']),
         'private_signing_key_included': False,
         'user_financial_data_included': False,
-        'new_signed_apk_generated': False,
+        'new_signed_apk_generated': True,
         'java_source': 'JADX reference only; original DEX retained in base APK',
         'files': {name: sha256(data) for name, data in sorted(files.items())},
     }

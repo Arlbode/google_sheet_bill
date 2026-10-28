@@ -11,6 +11,7 @@ def build(output=None):
  if hashlib.sha256(base.read_bytes()).hexdigest()!=BASE_SHA256:
   raise RuntimeError('La APK base no coincide con la versión 1.3.0 verificada. Se detiene la recuperación.')
  output=Path(output) if output else ROOT/'build/Hogar_Playa_UNFIRMADA.apk';output.parent.mkdir(parents=True,exist_ok=True)
+ if output.resolve()==base.resolve():raise RuntimeError('No se sustituye el instalador original.')
  with zipfile.ZipFile(base) as original,zipfile.ZipFile(output,'w') as target:
   for item in original.infolist():
    if item.filename.upper().startswith('META-INF/'):continue
