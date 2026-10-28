@@ -3,7 +3,7 @@
 Dependencia opcional: adb-shell==0.4.4. La instrumentación no se publica en la APK.
 """
 from pathlib import Path
-import argparse,os,subprocess,tempfile,zipfile
+import argparse,json,os,subprocess,tempfile,zipfile
 from adb_shell.adb_device import AdbDeviceTcp
 import sys
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'scripts'))
@@ -26,7 +26,7 @@ def build_test(output):
 
 
 def main():
-    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--reset',action='store_true');parser.add_argument('--phase',choices=['all','seed','verify','gps','nogps','persisted'],default='all');args=parser.parse_args()
+    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--reset',action='store_true');parser.add_argument('--phase',choices=['all','seed','verify','gps','nogps','persisted','purchase','keyboard'],default='all');args=parser.parse_args()
     device=AdbDeviceTcp('127.0.0.1',5555,default_transport_timeout_s=30);device.connect(auth_timeout_s=5)
     assert device.shell('getprop ro.kernel.qemu').strip()=='1','Solo se permite el emulador de pruebas.'
     def shell(command,timeout=120):return device.shell(command,read_timeout_s=timeout,transport_timeout_s=timeout)
@@ -47,8 +47,9 @@ def main():
                 install(ROOT.parent/'Hogar_finanzas_1.4.1.apk');install(test);phase('seed')
             else:install(test)
             if args.phase in ['all','verify']:
-                install(ROOT/'build/Hogar_finanzas_1.5.0.apk');phase('verify')
+                config=json.loads((ROOT/'release.json').read_text());install(ROOT/('build/'+config['apk_basename']+'_'+config['version_name']+'.apk'));phase('verify')
             if args.phase in ['all','gps']:
+                shell('settings put secure location_mode 3')
                 shell('pm grant cu.hogarplaya.recuperada android.permission.ACCESS_COARSE_LOCATION')
                 shell('pm grant cu.hogarplaya.recuperada android.permission.ACCESS_FINE_LOCATION')
                 shell('appops set cu.hogarplaya.recuperada android:mock_location allow')
@@ -59,6 +60,16 @@ def main():
                 shell('pm revoke cu.hogarplaya.recuperada android.permission.ACCESS_FINE_LOCATION')
                 shell('pm revoke cu.hogarplaya.recuperada android.permission.ACCESS_COARSE_LOCATION')
                 phase('persisted')
+            if args.phase in ['all','purchase']:
+                shell('pm grant cu.hogarplaya.recuperada android.permission.ACCESS_COARSE_LOCATION')
+                shell('pm grant cu.hogarplaya.recuperada android.permission.ACCESS_FINE_LOCATION')
+                shell('appops set cu.hogarplaya.recuperada android:mock_location allow')
+                shell('settings put secure location_mode 3')
+                shell('settings put secure show_ime_with_hard_keyboard 1')
+                phase('purchase')
+            if args.phase in ['all','keyboard']:
+                shell('settings put secure show_ime_with_hard_keyboard 1')
+                phase('keyboard')
     finally:device.close()
 
 

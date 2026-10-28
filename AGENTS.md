@@ -14,3 +14,7 @@ El nombre visible actual es **Hogar finanzas**, antes Hogar Playa Nueva. El camb
 - El 403 de elTOQUE fue confirmado en los registros del usuario. No confundirlo con un fallo de formato ni intentar evadirlo. La API oficial requiere acceso propio; el usuario aún no tiene token. Se configura como `ELTOQUE_API_TOKEN` en Propiedades del script, nunca en el chat, APK o repositorio. Lee `API_ELTOQUE.md`.
 - Para validar usa `HOGAR_PYTHON=/workspace/google_sheet_bill/.venv/bin/python bash recovered-source/scripts/verify_environment.sh`. La prueba de navegador adicional es `python3 recovered-source/tests/browser_smoke.py`.
 - El panel de configuración de ChatGPT tuvo un conflicto de estado. No confundas trabajar en la sesión activa con haber resuelto la publicación ni cambies el borrador para intentar desbloquearlo sin un diagnóstico nuevo.
+
+- Desde 1.5.1 la cesta usa cartCheckoutLocated: conserva la validación financiera original y anota ubicación dentro de una transacción con recibo de confirmación idempotente. No sustituyas una confirmación de cesta por save ni registres un gasto al añadir un artículo libre.
+- La navegación interna del WebView permanece cerrada: mapas se abren mediante purchaseMap, con geo y alternativa HTTPS fija. Nunca abras esquemas o URL arbitrarias recibidas del frontend.
+- Prueba de compra y teclado: `python3 recovered-source/tests/browser_purchase_ux.py`. El escenario Android purchase prueba cesta, lugar, GPS, reintentos, tope e intent de mapa; keyboard prueba resultados visibles con teclado real.

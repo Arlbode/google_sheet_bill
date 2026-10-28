@@ -1,8 +1,10 @@
-# Hogar finanzas 1.5.0: instalación y uso
+# Hogar finanzas 1.5.1: instalación y uso
 
-Esta APK actualiza 1.4.0/1.4.1 con el mismo identificador y firma. Conserva perfiles, gastos, listas, conexión y compras existentes. Se retiró la app original 1.3.0 por decisión del usuario; su firma era distinta.
+Esta APK actualiza 1.4.0/1.4.1/1.5.0 con el mismo identificador y firma. Conserva perfiles, gastos, listas, conexión y compras existentes. Se retiró la app original 1.3.0 por decisión del usuario; su firma era distinta.
 
-## 1. Actualiza el script completo del Sheet
+## 1. Comprueba el script del Sheet
+
+Si ya actualizaste a la versión del script 1.5.0 y ejecutaste iniciarHogar, no necesitas repetir este paso.
 
 1. Descarga [Script_Completo_Hogar_Tasa_CUP.txt](Script_Completo_Hogar_Tasa_CUP.txt).
 2. Abre tu Sheet → Extensiones → Apps Script y sustituye todo Código.gs por ese archivo completo. Guarda y ejecuta iniciarHogar.
@@ -12,7 +14,9 @@ También es necesario este paso si ya tenías la 1.4.1. La nueva versión permit
 
 ## 2. Instala la actualización
 
-Descarga [Hogar_finanzas_1.5.0.apk](Hogar_finanzas_1.5.0.apk) e instálala encima de Hogar finanzas 1.4.1 o Hogar Playa Nueva 1.4.0. No desinstales la actual para actualizar y no crees otros perfiles por este cambio. Conserva su conexión al Sheet.
+Si ya actualizaste el script a 1.5.0, puedes pasar directamente a instalar la APK; el script no cambia en 1.5.1.
+
+Descarga [Hogar_finanzas_1.5.1.apk](Hogar_finanzas_1.5.1.apk) e instálala encima de Hogar finanzas 1.5.0, 1.4.1 o Hogar Playa Nueva 1.4.0. No desinstales la actual para actualizar y no crees otros perfiles por este cambio. Conserva su conexión al Sheet.
 
 Si es la primera instalación de esta identidad, crea un perfil y PIN; en el Sheet usa Hogar → Conectar app Android, genera un código nuevo y conecta la app desde Perfil con tu URL /exec. El código dura 10 minutos y se usa una vez.
 
@@ -61,8 +65,16 @@ El identificador Android que permanece estable es `cu.hogarplaya.recuperada`. To
 
 ## Validación de esta entrega
 
-Se comprobaron los flujos de interfaz con el puente simulado y cinco escenarios en Android 10 real en emulador, con datos ficticios: actualización desde 1.4.1 conservando datos; cierre/reapertura/pendientes/idempotencia; GPS simulado; GPS desactivado; y reinicio con permiso denegado. Se mantuvieron los controles de PIN y de tope. No se usó un teléfono físico ni se accedió a tu Sheet privado.
+Se comprobaron los flujos de interfaz con el puente simulado y siete escenarios en Android 10 en emulador, con datos ficticios: actualización desde 1.4.1 conservando datos; cierre/reapertura/pendientes/idempotencia; GPS simulado; GPS desactivado; reinicio con permiso denegado; y cesta con gastos libres, GPS, reintentos, tope, intent de mapa y alternativa al navegador; y teclado real con resultado visible y foco conservado. Se mantuvieron los controles de PIN y de tope. No se usó un teléfono físico ni se accedió a tu Sheet privado.
 
 El código de referencia decompilado no se compila. La extensión nativa está escrita a mano y se verifica que los demás métodos originales no cambien, salvo la entrada de delegación del puente. Firma, identidad y IDs de recursos se conservan para actualizar la app instalada.
 
 La API de elTOQUE se probó con respuestas simuladas, sin un token del usuario ni consulta autenticada real. El 403 web no se evita ni se presenta como éxito.
+
+## Compra y navegación en 1.5.1
+
+- Buscar: se ocultan los paneles grandes y aparecen resultados compactos sobre el teclado. Puedes cambiar categoría, borrar el texto o tocar un resultado sin perder el foco por una reconstrucción de pantalla. «Ver resultados» cierra el teclado.
+- Gasto libre: indica concepto, categoría, cantidad, unidad, moneda, precio, formato CUP y plan opcional. Al añadirlo no se registra el gasto: suma con los productos en la cesta o lista pendiente. En Mi cesta puedes editarlo o quitarlo.
+- Confirmar cesta: indica el comercio y activa ubicación si quieres coordenadas. Los gastos de la misma confirmación comparten ese lugar; para otro comercio confirma otra cesta. Se conserva la advertencia de compra mensual y el bloqueo de la cesta si hay un Modo compra abierto: importa la cesta a su lista para respetar el tope.
+- Mapas: Movimientos → Detalle → Ver mapa abre una aplicación de mapas o, en su ausencia, el navegador. Un comercio sin coordenadas se puede buscar por nombre. Sin ubicación previa no se puede reconstruir el sitio de una compra antigua.
+- Dirección: Android intenta reconocer una dirección aproximada si tiene el servicio disponible y conexión, con espera limitada. No garantiza el nombre del mercado o tienda; para identificarlo con precisión escribe su nombre. Sin permiso o sin GPS se guarda el gasto con el lugar manual.

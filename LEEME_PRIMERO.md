@@ -1,15 +1,14 @@
-# Qué hacer ahora · Hogar finanzas 1.5.0
+# Qué hacer ahora · Hogar finanzas 1.5.1
 
-1. Actualiza tu Sheet con Script_Completo_Hogar_Tasa_CUP.txt completo en Código.gs. Guarda y ejecuta iniciarHogar.
-2. En Apps Script → Implementar → Gestionar implementaciones → lápiz → Nueva versión, publica conservando tu URL /exec y sus permisos.
-3. Instala Hogar_finanzas_1.5.0.apk encima de la 1.4.1 o 1.4.0. Se conservan perfiles, movimientos y conexión; no desinstales la app actual.
-4. En Modo compra, Cerrar guarda el historial del teléfono. Después puedes iniciar otra compra con un nuevo tope y recuperar solo los pendientes.
-5. Activa la ubicación desde Perfil o al confirmar. Puedes escribir el nombre del comercio. El gasto se guarda aunque no haya permiso o posición.
+1. Instala Hogar_finanzas_1.5.1.apk encima de 1.4.0, 1.4.1 o 1.5.0. Conserva perfiles, movimientos, cesta y conexión; no desinstales la app actual.
+2. Si ya actualizaste el script del Sheet a 1.5.0, no necesitas cambiarlo otra vez. Si no, sustituye Código.gs por Script_Completo_Hogar_Tasa_CUP.txt completo, guarda y ejecuta iniciarHogar. Implementar → Gestionar implementaciones → lápiz → Nueva versión, conservando URL /exec y permisos.
+3. Comprar → Buscar: los resultados se muestran en una lista compacta mientras escribes. «Ver resultados» cierra el teclado sin borrar el texto.
+4. Gasto libre permite indicar producto o concepto, categoría, cantidad, unidad y precio. Suma junto a los productos a la cesta o lista; se registra al confirmar la compra.
+5. Mi cesta permite editar artículos y guardar el comercio y ubicación, igual que Modo compra. Activa la ubicación si deseas coordenadas; el gasto se guarda aunque falten permisos o GPS.
+6. En Movimientos → Detalle, «Ver mapa» abre mapas o un navegador. Si solo hay un nombre, busca ese lugar. Una dirección automática es aproximada y depende del servicio de Android; puedes escribir el comercio exacto.
 
-Los pasos del Sheet son necesarios también si ya usabas 1.4.1: la 1.5.0 permite varias compras por día y añade las columnas de ubicación. La instalación no borra registros existentes.
+La firma y el respaldo cifrado existentes siguen siendo válidos. Conserva Respaldo_Firma_Cifrado.zip y tu Clave_PRIVADA_Respaldo_Hogar.json.
 
-El 403 de elTOQUE está confirmado. Para la consulta automática oficial hace falta obtener acceso y guardar ELTOQUE_API_TOKEN en Propiedades del script. El usuario aún no tiene ese acceso. Consulta API_ELTOQUE.md; hasta entonces B7 admite una referencia manual.
+El 403 de elTOQUE es independiente de esta actualización. Sigue siendo necesario obtener acceso oficial para usar ELTOQUE_API_TOKEN privado en Apps Script; mientras tanto Ajustes B7 admite una referencia manual. Consulta API_ELTOQUE.md.
 
-Conserva Respaldo_Firma_Cifrado.zip y tu archivo privado Clave_PRIVADA_Respaldo_Hogar.json. La firma es la misma que en 1.4.0/1.4.1; no hace falta crear otro acceso.
-
-Guía completa: INSTALAR_NUEVA_APK.md. El ZIP de fuentes es una copia de desarrollo, no un instalador. El conflicto del panel de ChatGPT no se ha confirmado resuelto; esta entrega se generó desde la sesión activa.
+El conflicto del panel de ChatGPT no se ha confirmado resuelto; esta entrega se genera desde la sesión activa.

@@ -7,16 +7,26 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.location.Address;
+import android.location.Geocoder;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.SystemClock;
 import java.time.Instant;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+import java.util.Locale;
+import java.util.List;
 import org.json.JSONObject;
 
 /** Solo solicita una posición al confirmar una compra; no rastrea en segundo plano. */
 public final class PurchaseLocation {
+    private static final ExecutorService GEOCODER=Executors.newSingleThreadExecutor(r->{Thread t=new Thread(r,"purchase-address");t.setDaemon(true);return t;});
     public interface Done {void accept(JSONObject location);}
     public static boolean permitted(Context context) {
         return context.checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION)==PackageManager.PERMISSION_GRANTED
@@ -46,6 +56,23 @@ public final class PurchaseLocation {
             .put("capturedAt",Instant.ofEpochMilli(location.getTime()).toString())
             .put("provider",location.getProvider()).put("mock",location.isFromMockProvider());
         }catch(Exception e){return empty(place,"unavailable");}
+    }
+    /** Dirección aproximada opcional. Nunca inventa un comercio ni bloquea guardar sin servicio. */
+    public static void describe(Context context,JSONObject location) {
+        if(!"captured".equals(location.optString("status"))||!location.optString("place").isEmpty()||!Geocoder.isPresent())return;
+        Future<String> pending=null;
+        try {
+            ConnectivityManager cm=(ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+            if(cm==null||cm.getActiveNetworkInfo()==null||!cm.getActiveNetworkInfo().isConnected())return;
+            double lat=location.getDouble("latitude"),lon=location.getDouble("longitude");
+            pending=GEOCODER.submit(()->{
+                List<Address> addresses=new Geocoder(context,new Locale("es","CU")).getFromLocation(lat,lon,1);
+                if(addresses==null||addresses.isEmpty())return "";
+                String address=addresses.get(0).getAddressLine(0);return address==null?"":address.trim();
+            });
+            String address=pending.get(2,TimeUnit.SECONDS);
+            if(!address.isEmpty())location.put("place",address.substring(0,Math.min(120,address.length()))).put("placeSource","address");
+        }catch(Exception ignored){}finally{if(pending!=null)pending.cancel(true);}
     }
     public static void capture(Activity activity,AppStore store,String rawPlace,Done done) {
         String place=rawPlace.trim();if(place.length()>120)place=place.substring(0,120);

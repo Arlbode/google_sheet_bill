@@ -62,7 +62,7 @@ def build(original,output,sdk):
   classes=stage/'classes';classes.mkdir()
   sources=list((ROOT/'android/compile-stubs').rglob('*.java'))+list((ROOT/'android/native-src').rglob('*.java'))
   subprocess.run(['java','-m','jdk.compiler/com.sun.tools.javac.Main','-source','8','-target','8','-Xlint:-options','-classpath',str(sdk/'platforms/android-35/android.jar'),'-d',str(classes)]+[str(p) for p in sources],check=True)
-  own=('ShoppingExtension','ShoppingLifecycle','PurchaseLocation')
+  own=('ShoppingExtension','ShoppingLifecycle','PurchaseLocation','PurchaseActions')
   real=[p for p in classes.rglob('*.class') if p.stem.split('$')[0] in own]
   with zipfile.ZipFile(stage/'stubs.jar','w') as stubs:
    for p in classes.rglob('*.class'):

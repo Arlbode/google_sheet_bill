@@ -22,6 +22,7 @@ ROOT_FILES = (
     'Script_Completo_Hogar_Tasa_CUP.txt', 'INSTALAR_NUEVA_APK.md',
     'Hogar_Playa_Nueva_1.4.0.apk', 'Hogar_Playa_Nueva_1.4.0.apk.sha256',
     'Hogar_finanzas_1.4.1.apk', 'Hogar_finanzas_1.4.1.apk.sha256',
+    'Hogar_finanzas_1.5.0.apk', 'Hogar_finanzas_1.5.0.apk.sha256',
 )
 EXCLUDED_PARTS = {'build', '__pycache__', '.venv', '.git', 'node_modules', '.android-signing'}
 FORBIDDEN_SUFFIXES = {'.p12', '.pfx', '.jks', '.keystore', '.key', '.pem', '.pyc'}

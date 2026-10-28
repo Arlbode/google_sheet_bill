@@ -25,3 +25,7 @@ El entorno activo puede trabajar con el repositorio. El conflicto de guardado/pu
 Añade cierre y nuevas sesiones del mismo día, historial local persistente, traslado de pendientes y ubicación opcional por producto. Se comprobó la actualización desde 1.4.1 en Android 10 emulado, con conservación de gastos y perfil. Los cinco escenarios incluyen GPS simulado y falta de GPS/permiso. La ubicación añade columnas W:AD sin cambiar las columnas financieras.
 
 El 403 de elTOQUE está confirmado en los registros del usuario. La API oficial requiere acceso propio que el usuario aún no tiene; el código queda preparado para un token privado y muestra los errores sin inventar tasas.
+
+## Versión 1.5.1
+
+Mejora la búsqueda al escribir con teclado abierto y añade artículos libres a la cesta/lista, sin gasto hasta confirmar. La cesta conserva comercio, coordenadas y lugar en artículos y operaciones; la confirmación es transaccional e idempotente y reutiliza los controles originales. Los mapas se abren por intent nativo geo con alternativa HTTPS de OpenStreetMap, manteniendo cerrada la navegación interna arbitraria del WebView. El servicio de Android puede reconocer una dirección aproximada; el nombre exacto del comercio es manual cuando el servicio no lo identifica. Se conserva la misma firma y el script 1.5.0; no exige modificar de nuevo una hoja ya actualizada.

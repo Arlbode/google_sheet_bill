@@ -5,6 +5,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.webkit.WebView;
+import android.net.Uri;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -70,7 +71,7 @@ public final class ShoppingExtension {
             if(action.equals("correct")&&(request.optJSONObject("data")==null||!"Gasto".equals(request.getJSONObject("data").optString("type"))))return false;
             if(!action.equals("state")&&!action.equals("shoppingClose")&&!action.equals("shoppingStartFresh")
                 &&!action.equals("shoppingHistory")&&!action.equals("shoppingBuyLocated")&&!action.equals("shoppingLocationEnable")
-                &&!action.equals("correct"))return false;
+                &&!action.equals("correct")&&!action.equals("cartCheckoutLocated")&&!action.equals("purchaseMap"))return false;
         }catch(Exception e){return false;}
         SyncEngine.WORK.execute(()->{
             try {
@@ -78,6 +79,27 @@ public final class ShoppingExtension {
                 AppStore store=AppStore.get(activity);
                 if(action.equals("state")){reply(activity,id,state(activity),null);return;}
                 String actor=actor(activity);
+                if(action.equals("purchaseMap")) {
+                    Uri[] uris=PurchaseActions.mapUris(data);
+                    activity.runOnUiThread(()->{
+                        try{PurchaseActions.openMap(activity,uris);reply(activity,id,new JSONObject().put("opened",true),null);}
+                        catch(Exception e){reply(activity,id,null,e);}
+                    });return;
+                }
+                if(action.equals("cartCheckoutLocated")) {
+                    int prior=PurchaseActions.saved(store,actor,data.getString("requestId"));
+                    if(prior>=0){reply(activity,id,state(activity).put("savedCount",prior),null);return;}
+                    String expected=PurchaseActions.cartSnapshot(store,actor,data);final JSONObject payload=data;
+                    PurchaseLocation.capture(activity,store,data.optString("place"),location->SyncEngine.WORK.execute(()->{
+                        try {
+                            String currentActor=actor(activity);
+                            if(!actor.equals(currentActor))throw new IllegalArgumentException("Cambió el perfil. Revisa la cesta y confirma con tu perfil.");
+                            PurchaseLocation.describe(activity,location);
+                            int count=PurchaseActions.checkout(store,currentActor,payload,expected,location);
+                            reply(activity,id,state(activity).put("savedCount",count),null);SyncEngine.kick(activity);
+                        }catch(Exception e){reply(activity,id,null,e);}
+                    }));return;
+                }
                 if(action.equals("shoppingHistory")){reply(activity,id,new JSONObject().put("sessions",ShoppingLifecycle.history(store)),null);return;}
                 if(action.equals("shoppingClose"))ShoppingLifecycle.close(store,actor,data);
                 else if(action.equals("shoppingStartFresh"))ShoppingLifecycle.start(store,actor,data);
@@ -99,7 +121,7 @@ public final class ShoppingExtension {
                 } else if(action.equals("shoppingBuyLocated")) {
                     final JSONObject payload=data;
                     PurchaseLocation.capture(activity,store,data.optString("place"),location->SyncEngine.WORK.execute(()->{
-                        try{buy(store,actor(activity),payload,location);reply(activity,id,state(activity),null);SyncEngine.kick(activity);}
+                        try{String current=actor(activity);if(!actor.equals(current))throw new IllegalArgumentException("Cambió el perfil. Confirma la compra con tu perfil.");PurchaseLocation.describe(activity,location);buy(store,current,payload,location);reply(activity,id,state(activity),null);SyncEngine.kick(activity);}
                         catch(Exception e){reply(activity,id,null,e);}
                     }));return;
                 }

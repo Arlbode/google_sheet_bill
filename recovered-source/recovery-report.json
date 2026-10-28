@@ -18,7 +18,7 @@
   "publication_verified": false,
   "user_authorized_new_app": true,
   "new_application_id": "cu.hogarplaya.recuperada",
-  "new_version": "1.5.0",
+  "new_version": "1.5.1",
   "original_dex_preserved": false,
   "implementation_changes": [
     "android/assets/app.js",
@@ -26,7 +26,8 @@
     "backend/Code.gs",
     "android/assets/index.html",
     "android/native-src",
-    "scripts/build_native.py"
+    "scripts/build_native.py",
+    "android/native-src/cu/hogarplaya/PurchaseActions.java"
   ],
   "physical_android_install_tested": false,
   "live_sheet_sync_tested": false,
@@ -54,7 +55,9 @@
     "verify",
     "gps",
     "nogps",
-    "persisted"
+    "persisted",
+    "purchase",
+    "keyboard"
   ],
   "browser_shopping_smoke_passed": true,
   "location_capture": "foreground-per-purchase-opt-in",
@@ -62,5 +65,14 @@
   "shopping_history_scope": "local device; included in local export",
   "eltoque_web_http403_confirmed": true,
   "eltoque_api_token_available": false,
-  "eltoque_live_authenticated_api_tested": false
+  "eltoque_live_authenticated_api_tested": false,
+  "browser_purchase_ux_smoke_passed": true,
+  "android_keyboard_smoke_passed": true,
+  "cart_location_capture": true,
+  "cart_checkout_idempotent": true,
+  "free_items_saved_before_checkout": false,
+  "external_map_intent_tested": true,
+  "map_browser_fallback_tested": true,
+  "android_geocoder_live_tested": false,
+  "backend_unchanged_from_1_5_0": true
 }
