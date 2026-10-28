@@ -1,3 +1,11 @@
+## Modalidad actual desde 1.5.2
+
+Por indicación del usuario, la APK consulta la API pública de TASALO y guarda la referencia local. La sincronización la envía al Sheet. No requiere un token de elTOQUE del usuario. Se valida USD de elTOQUE con fecha propia reciente y se conserva el valor anterior si la consulta falla. El servicio público se usa condicionalmente; su disponibilidad vigente no se pudo confirmar desde este entorno.
+
+Esta modalidad requiere el script completo 1.5.2 y una nueva versión de la implementación. iniciarHogar establece HOGAR_TASA_DESDE_APK=1 para que el servidor no vuelva a consultar el sitio de elTOQUE por su cuenta. B26 controla la recepción. [Implementación, fuente y límites](INVESTIGACION_TASA.md).
+
+El resto de este documento describe la modalidad anterior de API oficial desde el servidor. Un propietario que quiera retomarla debe disponer de su token y poner HOGAR_TASA_DESDE_APK=0 en Propiedades del script.
+
 # Por qué no se actualizaba la tasa
 
 Los registros del usuario muestran **HTTP 403** al consultar elTOQUE desde Apps Script. El sitio rechazó esas peticiones. El valor anterior de 840 se conservó; no era una consulta nueva. Cambiar únicamente el lector HTML no resuelve una denegación HTTP.

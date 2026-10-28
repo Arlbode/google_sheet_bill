@@ -29,3 +29,9 @@ El 403 de elTOQUE está confirmado en los registros del usuario. La API oficial 
 ## Versión 1.5.1
 
 Mejora la búsqueda al escribir con teclado abierto y añade artículos libres a la cesta/lista, sin gasto hasta confirmar. La cesta conserva comercio, coordenadas y lugar en artículos y operaciones; la confirmación es transaccional e idempotente y reutiliza los controles originales. Los mapas se abren por intent nativo geo con alternativa HTTPS de OpenStreetMap, manteniendo cerrada la navegación interna arbitraria del WebView. El servicio de Android puede reconocer una dirección aproximada; el nombre exacto del comercio es manual cuando el servicio no lo identifica. Se conserva la misma firma y el script 1.5.0; no exige modificar de nuevo una hoja ya actualizada.
+
+## Versión 1.5.2
+
+Añade persistencia de autenticación por día de La Habana y ojo para ver/ocultar el PIN. Se mantienen paquete y firma. La sesión se invalida al cerrar sesión explícitamente, cambiar de día, eliminar perfil o restablecer PIN. Se conserva al terminar el proceso o volver de otra aplicación. El PIN y los controles de recuperación continúan en el núcleo original; no se copia el PIN a preferencias. Se mantiene la verificación de todos los métodos originales salvo la entrada Bridge.call.
+
+La investigación de acceso alternativo a elTOQUE está en INVESTIGACION_TASA.md. Se encontró documentación de una API pública de terceros, sin una respuesta vigente comprobada desde este entorno. La instrucción posterior del usuario establece la consulta en Android y entrega por sincronización: se implementó el cliente condicional y referenceSync en el backend. No se obtuvo una cotización real vigente durante estas comprobaciones.

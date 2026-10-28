@@ -18,7 +18,7 @@ function dashboard(state){
  context.HogarNative={call(payload){pendingCalls.push(JSON.parse(payload));}};
  vm.createContext(context);
  const source=fs.readFileSync(path.join(root,'android/assets/app.js'),'utf8');
- vm.runInContext(source.replace(/\}\)\(\);\s*$/,`window.testApp={home,quoteReference,cupEquivalent,quoteCard,projection,refreshQuote,maybeRefreshQuote,setState(v){state=v;},finishQuoteRequest};})();`),context);
+ vm.runInContext(source.replace(/\}\)\(\);\s*$/,`render=function(){};window.testApp={home,quoteReference,cupEquivalent,quoteCard,projection,refreshQuote,maybeRefreshQuote,setState(v){state=v;},finishQuoteRequest};})();`),context);
  context.testApp.setState(state);
  return {api:context.testApp,calls:pendingCalls,context};
 }
@@ -46,10 +46,10 @@ test('offline y tasa sin verificar se etiquetan sin inventar fecha actual',()=>{
  assert.doesNotMatch(api.quoteCard(),/NaN|Infinity/);
 });
 
-test('actualización manual pide sincronización; no registra movimientos nuevos',()=>{
+test('actualización manual consulta TASALO en la APK; no registra movimientos nuevos',()=>{
  const state=sample(),{api,calls,context}=dashboard(state);
  api.refreshQuote(true);
- assert.equal(calls.length,1);assert.equal(calls[0].action,'sync');
+ assert.equal(calls.length,1);assert.equal(calls[0].action,'tasaloFetch');
  assert.match(api.quoteCard(),/Consultando/);
  api.refreshQuote(true);assert.equal(calls.length,1,'una sola consulta simultánea');
  context.hogarReply(calls[0].id,{ok:true,data:{}});
@@ -59,7 +59,7 @@ test('actualización automática solo con sesión, conexión y referencia vencid
  const state=sample(),{api,calls}=dashboard(state);
  api.maybeRefreshQuote();assert.equal(calls.length,0,'una referencia reciente se conserva');
  state.planning.quote.consultedAt='2026-10-28T01:00:00Z';
- api.maybeRefreshQuote();assert.equal(calls[0].action,'sync');
+ api.maybeRefreshQuote();assert.equal(calls[0].action,'tasaloFetch');
  const offline=sample();offline.online=false;offline.planning.quote.consultedAt='';
  const second=dashboard(offline);second.api.maybeRefreshQuote();assert.equal(second.calls.length,0);
 });
@@ -158,4 +158,15 @@ test('HTTP 403 se explica sin inventar una tasa ni revelar la credencial',()=>{
  api.api.revisarTasaParaApp_(api.ss);assert.equal(api.settings.B7,870);assert.ok(!JSON.stringify(api.api.tasaParaPlan_(api.ss)).includes(credential));
  api.properties.delete('HOGAR_TASA_INTENTO');api.api.UrlFetchApp.fetch=()=>{throw new Error('detalle interno '+credential);};
  api.api.revisarTasaParaApp_(api.ss);assert.ok(!JSON.stringify(api.api.tasaParaPlan_(api.ss)).includes(credential));
+});
+
+
+test('TASALO local actualiza equivalentes antes de sincronizar y muestra la cola pendiente',()=>{
+ const state=sample();state.tasalo={pending:true,latest:{id:'quote',rate:900,sourceAt:'2026-10-28T02:58:00Z',fetchedAt:'2026-10-28T02:59:00Z',day:'2026-10-27',active:true}};
+ const {api}=dashboard(state);assert.equal(api.quoteReference().rate,900);assert.match(api.cupEquivalent(350),/315.000/);assert.match(api.quoteCard(),/pendiente de sincronizar/);assert.equal(state.snapshot.rate,870);
+ state.tasalo.pending=false;state.tasalo.status='accepted';assert.match(api.quoteCard(),/sincronizada con el Sheet/);state.tasalo.error='TASALO no disponible';assert.equal(api.quoteReference().rate,900);assert.equal(api.quoteReference().fresh,false);
+});
+test('una referencia local descartada no sustituye la del Sheet ni inventa una fecha nueva',()=>{
+ const state=sample();state.tasalo={pending:false,status:'superseded',latest:{rate:900,sourceAt:'2026-10-28T02:40:00Z',day:'2026-10-27',active:false}};
+ const {api}=dashboard(state);assert.equal(api.quoteReference().rate,870);assert.equal(api.quoteReference().checked,Date.parse(state.planning.quote.consultedAt));
 });

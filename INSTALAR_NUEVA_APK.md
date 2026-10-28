@@ -1,10 +1,10 @@
-# Hogar finanzas 1.5.1: instalación y uso
+# Hogar finanzas 1.5.2: instalación y uso
 
-Esta APK actualiza 1.4.0/1.4.1/1.5.0 con el mismo identificador y firma. Conserva perfiles, gastos, listas, conexión y compras existentes. Se retiró la app original 1.3.0 por decisión del usuario; su firma era distinta.
+Esta APK actualiza 1.4.0/1.4.1/1.5.0/1.5.1 con el mismo identificador y firma. Conserva perfiles, gastos, listas, conexión y compras existentes. Se retiró la app original 1.3.0 por decisión del usuario; su firma era distinta.
 
 ## 1. Comprueba el script del Sheet
 
-Si ya actualizaste a la versión del script 1.5.0 y ejecutaste iniciarHogar, no necesitas repetir este paso.
+Es necesario sustituir el script completo incluso si ya usabas 1.5.0: 1.5.2 añade referenceSync para recibir las referencias que consulta la APK.
 
 1. Descarga [Script_Completo_Hogar_Tasa_CUP.txt](Script_Completo_Hogar_Tasa_CUP.txt).
 2. Abre tu Sheet → Extensiones → Apps Script y sustituye todo Código.gs por ese archivo completo. Guarda y ejecuta iniciarHogar.
@@ -14,9 +14,9 @@ También es necesario este paso si ya tenías la 1.4.1. La nueva versión permit
 
 ## 2. Instala la actualización
 
-Si ya actualizaste el script a 1.5.0, puedes pasar directamente a instalar la APK; el script no cambia en 1.5.1.
+Actualiza y publica primero el script completo 1.5.2, conservando la URL /exec.
 
-Descarga [Hogar_finanzas_1.5.1.apk](Hogar_finanzas_1.5.1.apk) e instálala encima de Hogar finanzas 1.5.0, 1.4.1 o Hogar Playa Nueva 1.4.0. No desinstales la actual para actualizar y no crees otros perfiles por este cambio. Conserva su conexión al Sheet.
+Descarga [Hogar_finanzas_1.5.2.apk](Hogar_finanzas_1.5.2.apk) e instálala encima de Hogar finanzas 1.5.1, 1.5.0, 1.4.1 o Hogar Playa Nueva 1.4.0. No desinstales la actual para actualizar y no crees otros perfiles por este cambio. Conserva su conexión al Sheet.
 
 Si es la primera instalación de esta identidad, crea un perfil y PIN; en el Sheet usa Hogar → Conectar app Android, genera un código nuevo y conecta la app desde Perfil con tu URL /exec. El código dura 10 minutos y se usa una vez.
 
@@ -65,11 +65,11 @@ El identificador Android que permanece estable es `cu.hogarplaya.recuperada`. To
 
 ## Validación de esta entrega
 
-Se comprobaron los flujos de interfaz con el puente simulado y siete escenarios en Android 10 en emulador, con datos ficticios: actualización desde 1.4.1 conservando datos; cierre/reapertura/pendientes/idempotencia; GPS simulado; GPS desactivado; reinicio con permiso denegado; y cesta con gastos libres, GPS, reintentos, tope, intent de mapa y alternativa al navegador; y teclado real con resultado visible y foco conservado. Se mantuvieron los controles de PIN y de tope. No se usó un teléfono físico ni se accedió a tu Sheet privado.
+Se comprobaron 36 pruebas de código y cuatro flujos de navegador. En Android 10 emulado se verificaron sesión diaria, segundo plano, reapertura del proceso, cierre explícito, cambio de día y restablecimiento de PIN. También se comprobaron cesta con gasto libre/GPS/mapa y resultados de búsqueda con teclado real. Se usaron datos ficticios; no se probó un teléfono físico ni se accedió al Sheet privado del usuario.
 
-El código de referencia decompilado no se compila. La extensión nativa está escrita a mano y se verifica que los demás métodos originales no cambien, salvo la entrada de delegación del puente. Firma, identidad y IDs de recursos se conservan para actualizar la app instalada.
+El código de referencia decompilado no se compila. La extensión se escribe a mano y se verifica que los métodos originales permanezcan intactos salvo la delegación en Bridge.call. Las comprobaciones originales del PIN, intentos fallidos, recuperación y controles financieros se conservan. El backend incorpora referenceSync para recibir la referencia consultada por la APK.
 
-La API de elTOQUE se probó con respuestas simuladas, sin un token del usuario ni consulta autenticada real. El 403 web no se evita ni se presenta como éxito.
+TASALO se consulta condicionalmente en la APK. Se probaron respuestas controladas; no se confirmó una respuesta vigente real desde este entorno.
 
 ## Compra y navegación en 1.5.1
 
@@ -78,3 +78,23 @@ La API de elTOQUE se probó con respuestas simuladas, sin un token del usuario n
 - Confirmar cesta: indica el comercio y activa ubicación si quieres coordenadas. Los gastos de la misma confirmación comparten ese lugar; para otro comercio confirma otra cesta. Se conserva la advertencia de compra mensual y el bloqueo de la cesta si hay un Modo compra abierto: importa la cesta a su lista para respetar el tope.
 - Mapas: Movimientos → Detalle → Ver mapa abre una aplicación de mapas o, en su ausencia, el navegador. Un comercio sin coordenadas se puede buscar por nombre. Sin ubicación previa no se puede reconstruir el sitio de una compra antigua.
 - Dirección: Android intenta reconocer una dirección aproximada si tiene el servicio disponible y conexión, con espera limitada. No garantiza el nombre del mercado o tienda; para identificarlo con precisión escribe su nombre. Sin permiso o sin GPS se guarda el gasto con el lugar manual.
+
+## Sesión diaria y PIN en 1.5.2
+
+Introduce el PIN una vez por día de La Habana. Volver de mapas, apagar la pantalla, pasar a segundo plano, cerrar la app o reiniciar su proceso no cierra la sesión del mismo día. Atrás desde Inicio cierra la app conservando la autenticación.
+
+Para cerrar la sesión o cambiar de persona, usa Perfil → Cerrar sesión. Después se pide el PIN incluso si ya lo introdujiste ese día. Al cambiar de día se vuelve a pedir. Restablecer el PIN invalida la sesión anterior. Se conservan perfiles, movimientos, cesta y listas; no se guarda el PIN para restaurar la sesión.
+
+El botón con un ojo a la derecha permite mostrar u ocultar el PIN. Los campos comienzan ocultos y no pierden su valor al pulsarlo.
+
+La integración condicional y sus límites están en INVESTIGACION_TASA.md; no se afirma haber obtenido una cotización vigente real durante las pruebas.
+
+## Referencia TASALO → teléfono → Sheet
+
+La APK consulta la URL pública documentada por TASALO, sin enviar información del hogar. Lee data.eltoque.USD.rate y la fecha propia sources_updated_at.eltoque. Solo guarda respuestas numéricas válidas del día de La Habana con antigüedad máxima de 30 minutos. No usa la hora de la respuesta HTTP para presentar como nuevo un dato antiguo.
+
+El valor se usa en los equivalentes del teléfono y queda Pendiente de sincronizar hasta que el Sheet confirma su recepción. Si no hay conexión con el Sheet, se conserva en la cola local. Android reintenta el envío mediante un trabajo con requisito de red; el sistema puede retrasarlo por batería. Actualizar manualmente no crea movimientos.
+
+El script recibe el dato con el dispositivo/hogar autorizado, perfil que lo consultó e identificador duradero. Actualiza Ajustes B7 y la fecha de origen B11, y registra la recepción en Actualizaciones. No cambia ingresos, gastos ni tasas históricas. Referencias vencidas, desactivadas o anteriores a la de la hoja se descartan sin sustituirla. Una versión antigua del script deja el dato en espera y muestra el motivo para actualizar.
+
+Mantén B26 = Sí. Si prefieres conservar un valor manual, pon B26 = No. No se garantiza el acceso a TASALO desde todas las redes: el endpoint publicado utiliza HTTP en el dominio tasalo.duckdns.org, habilitado específicamente para ese dominio. Las credenciales de la hoja siguen viajando solo por HTTPS a Google. Ver motivo del fallo conserva la causa de una consulta o sincronización fallida.

@@ -95,6 +95,7 @@ function iniciarHogar() {
   ss.setSpreadsheetLocale('en_US');
   ss.setSpreadsheetTimeZone('America/Havana');
   if(!PLANTILLA.sheets.every(def=>ss.getSheetByName(def.name)))prepararHogarSeguro_(false,true);
+  PropertiesService.getScriptProperties().setProperty('HOGAR_TASA_DESDE_APK','1');
   actualizarPreciosHogar();
   if(typeof prepararAppMovil_==='function')conBloqueo_(()=>prepararAppMovil_(ss));
   conBloqueo_(()=>{prepararUbicacionesCompra_(ss);ampliarGuiaComprasUbicaciones_(ss);});
@@ -1080,7 +1081,8 @@ function actualizarAutomaticamente() {
         batch.forEach((url,i)=>{const response=responses[i];cache[url]=response.getResponseCode()===200?{text:response.getContentText()}:{error:'HTTP '+response.getResponseCode()};});
       } catch(error) { batch.forEach(url=>{cache[url]={error:String(error.message)};}); }
     }
-    if(config.getRange('B26').getValue()==='Sí') {
+    if(config.getRange('B26').getValue()==='Sí' && props.getProperty('HOGAR_TASA_DESDE_APK')==='1')record('OMITIDO CAMBIO','CUP por USD','','','La APK consulta TASALO y entrega la referencia al sincronizar. Se conserva su fecha de origen.');
+    else if(config.getRange('B26').getValue()==='Sí') {
       try {
         const fetched=consultarTasaElToque_(props);
         const rate=fetched.rate,previous=Number(config.getRange('B7').getValue());
@@ -1219,8 +1221,9 @@ function doPost(e) {
     if(request.apiVersion===3)movilAssert_(ss.getSheetByName('Planes app')&&ss.getSheetByName('Plan CUP').getRange('L5').getValue()==='Último cambio app ID','PREPARAR_HOJA','Ejecuta iniciarHogar con el script completo actualizado para gestionar Plan CUP desde Android. Después publica una nueva versión de la implementación.');
     if(request.action==='pair')return movilJson_({ok:true,apiVersion:1,...movilEmparejar_(ss,request)});
     const device=movilAutorizar_(ss,request);
-    movilAssert_(request.action==='sync','ACCIÓN_INVALIDA','Acción no admitida.');
+    movilAssert_(['sync','referenceSync'].includes(request.action),'ACCIÓN_INVALIDA','Acción no admitida. Actualiza el script completo para recibir la tasa consultada por la APK.');
     const profiles=movilPerfiles_(ss,device,request.profiles||[]);
+    if(request.action==='referenceSync')return movilJson_({ok:true,apiVersion:1,householdId:request.householdId,referenceAck:recibirTasaDesdeApk_(ss,device,profiles,request.reference),quote:tasaParaPlan_(ss)});
     const operations=request.operations||[];
     movilAssert_(Array.isArray(operations) && operations.length<=20,'LOTE_INVALIDO','Envía como máximo 20 movimientos por lote.');
     const ids=new Set();operations.forEach(op=>{movilAssert_(op && movilUuid_(op.id) && !ids.has(op.id),'ID_INVALIDO','El lote contiene identificadores no válidos o repetidos.');ids.add(op.id);});
@@ -1510,6 +1513,7 @@ function tasaParaPlan_(ss) {
 }
 function revisarTasaParaApp_(ss) {
   const props=PropertiesService.getScriptProperties(),quote=tasaParaPlan_(ss),now=new Date();
+  if(props.getProperty('HOGAR_TASA_DESDE_APK')==='1')return;
   if(typeof UrlFetchApp==='undefined'||!quote.autoEnabled)return;
   // Cada sincronización solicita referencia. Caché breve compartida entre teléfonos.
   // Permite el botón manual sin esperar seis horas; evita consultas repetidas por lotes.
@@ -1875,11 +1879,45 @@ function ampliarGuiaComprasUbicaciones_(ss) {
   const guide=ss.getSheetByName('Guía');if(!guide)return;
   const existing=guide.getDataRange().getValues().map(r=>String(r[0]));
   const rows=[
+    ['HF 1.5.2 · Tasa desde APK','La APK consulta TASALO, identifica la referencia USD de elTOQUE y su fecha propia, la guarda localmente y la sincronización la entrega al Sheet. El teléfono no envía credenciales al proveedor público. En Ajustes B7 se recibe el valor; B11 conserva la fecha de origen. Una respuesta antigua, desactivada o anterior a la referencia de la hoja no sustituye la vigente. Se registra la recepción en Actualizaciones sin modificar gastos, ingresos ni tasas históricas. Mantén B26 = Sí para recibir referencias.'],
     ['HF 1.5 · Cerrar Modo compra','Comprar → Cerrar Modo compra conserva gastos e historial local del teléfono y permite otro tope el mismo día. Puedes llevar solo los pendientes a la siguiente compra; no se registran gastos al trasladarlos. Los gastos de todos los modos siguen contando en Consumo y en los planes vinculados.'],
     ['HF 1.5 · Lugar de compra','Activa la ubicación desde Perfil o al confirmar un producto. Se solicita permiso de Android y se captura una posición puntual; no hay seguimiento en segundo plano. Puedes escribir el mercado o tienda. Sin permiso o sin GPS, el gasto se guarda igualmente. Registro W:AC muestra lugar, coordenadas, precisión, fecha, estado y mapa.'],
     ['HF 1.5 · elTOQUE y HTTP 403','HTTP 403 significa que elTOQUE rechaza el acceso web automatizado. Solicita tu acceso oficial en https://tasas-token.eltoque.com/ y guarda el token como ELTOQUE_API_TOKEN en Propiedades del script, nunca en el chat ni en Código.gs. Mantén Ajustes B26 = Sí. Hasta entonces puedes usar una referencia manual en B7; no se presenta como consulta verificada.']
   ];
   rows.forEach(row=>{if(!existing.includes(row[0]))guide.appendRow(row);});
+}
+
+/** La referencia se consulta en Android; la sincronización solo actualiza Ajustes, nunca movimientos. */
+function recibirTasaDesdeApk_(ss,device,profiles,raw) {
+  const now=new Date(),props=PropertiesService.getScriptProperties();
+  movilAssert_(raw&&movilUuid_(raw.id),'TASA_INVALIDA','La referencia no tiene un identificador válido.');
+  movilAssert_(raw.provider==='TASALO'&&raw.source==='eltoque'&&raw.url==='http://tasalo.duckdns.org:8040/api/v1/tasas/latest?max_age_minutes=30','FUENTE_INVALIDA','La referencia no procede del proveedor y fuente admitidos.');
+  const actor=profiles[raw.actorId];movilAssert_(actor&&actor.active,'PERFIL_INACTIVO','El perfil que consultó la tasa no está activo.');
+  const rate=raw.rate,stamp=Date.parse(raw.sourceAt),fetched=Date.parse(raw.fetchedAt);
+  movilAssert_(typeof rate==='number'&&Number.isFinite(rate)&&rate>0&&rate<=1000000,'TASA_INVALIDA','La referencia USD/CUP no es válida.');
+  movilAssert_(typeof raw.sourceAt==='string'&&typeof raw.fetchedAt==='string'&&Number.isFinite(stamp)&&Number.isFinite(fetched)&&stamp<=fetched+120000&&fetched-stamp<=1800000&&fetched<=now.getTime()+120000&&movilFecha_(new Date(stamp))===movilFecha_(new Date(fetched)),'FECHA_TASA_INVALIDA','La fecha propia de la fuente no es coherente con la consulta de la APK.');
+  const data={id:raw.id,rate,sourceAt:raw.sourceAt,fetchedAt:raw.fetchedAt,actorId:raw.actorId,provider:raw.provider,source:raw.source,url:raw.url};
+  const hash=movilHash_(movilEstable_(data)),key='HOGAR_TASA_ACKS_'+device.id;let acks=[];
+  try{acks=JSON.parse(props.getProperty(key)||'[]');}catch(_){}
+  if(!Array.isArray(acks))acks=[];
+  const seen=acks.find(q=>q.id===raw.id);
+  if(seen){movilAssert_(seen.hash===hash,'ID_CONFLICTO','Esta referencia ya se recibió con otros datos.');return {id:raw.id,status:'duplicate',originalStatus:seen.status};}
+  const settings=ss.getSheetByName('Ajustes'),current=tasaParaPlan_(ss),previous=current.rate;
+  const last=Math.max(Date.parse(current.consultedAt||'')||0,Number(props.getProperty('HOGAR_TASA_DESDE_APK_AT')||0));
+  let status='accepted';
+  if(settings.getRange('B26').getValue()!=='Sí')status='disabled';
+  else if(now.getTime()-stamp>1800000||movilFecha_(new Date(stamp))!==movilFecha_(now))status='expired';
+  else if(stamp<last||stamp===last&&rate!==previous)status='superseded';
+  else if(stamp===last)status='unchanged';
+  if(status==='accepted') {
+    movilAssert_(!(previous>0)||rate/previous<=2&&rate/previous>=.5,'TASA_EXTREMA','La tasa varía más del doble o de la mitad: confirma el valor antes de aplicarlo.');
+    settings.getRange('B7').setValue(rate);settings.getRange('B11').setValue(new Date(stamp));
+    props.setProperty('HOGAR_TASA_VERIFICADA',JSON.stringify({rate,consultedAt:new Date(stamp).toISOString(),day:movilFecha_(new Date(stamp)),source:'TASALO · elTOQUE · recibida de APK',url:raw.url,fetchedAt:new Date(fetched).toISOString(),receivedAt:now.toISOString(),deviceId:device.id,actorId:actor.id,referenceId:raw.id,transport:'HTTP público; proveedor tercero'}));
+    props.setProperty('HOGAR_TASA_DESDE_APK','1');props.setProperty('HOGAR_TASA_DESDE_APK_AT',String(stamp));props.deleteProperty('HOGAR_TASA_ERROR');
+  }
+  registrarRevision_(historialPrecios_(ss),now,status==='accepted'?'TASA APK':'TASA APK '+status.toUpperCase(),'CUP por USD',previous,status==='accepted'?rate:previous,'TASALO · elTOQUE · origen '+new Date(stamp).toISOString()+' · consultó '+actor.name+' · dispositivo '+device.name+' · referencia '+raw.id+' · recibida por sincronización; no cambia ingresos, gastos ni tasas históricas.');
+  acks.push({id:raw.id,hash,status});props.setProperty(key,JSON.stringify(acks.slice(-16)));
+  return {id:raw.id,status,sourceAt:new Date(stamp).toISOString()};
 }
 
 // FIN_DEL_CODIGO

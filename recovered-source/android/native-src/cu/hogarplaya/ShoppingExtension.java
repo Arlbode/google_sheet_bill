@@ -18,10 +18,14 @@ public final class ShoppingExtension {
         try{return method.invoke(activity);}catch(InvocationTargetException e){Throwable cause=e.getCause();if(cause instanceof Exception)throw (Exception)cause;throw e;}
     }
     private static String actor(Activity activity) throws Exception {
+        DailySession.prepare(activity);
         invoke(activity,"requireProfile");Field field=activity.getClass().getDeclaredField("active");field.setAccessible(true);return (String)field.get(activity);
     }
     private static JSONObject state(Activity activity) throws Exception {
-        JSONObject result=(JSONObject)invoke(activity,"state");
+        DailySession.prepare(activity);
+        JSONObject result=((JSONObject)invoke(activity,"state")).put("authentication",DailySession.metadata(activity));
+        if(!result.optString("activeProfileId").isEmpty())result.put("tasalo",TasaloReference.state(activity));
+        TasaloReference.kick(activity);
         if(!result.optString("activeProfileId").isEmpty())result.put("shoppingLocation",PurchaseLocation.settings(activity,AppStore.get(activity)));
         return result;
     }
@@ -68,17 +72,22 @@ public final class ShoppingExtension {
         try {
             if(text.length()>220000)return false;
             request=new JSONObject(text);action=request.getString("action");id=request.getString("id");
-            if(action.equals("correct")&&(request.optJSONObject("data")==null||!"Gasto".equals(request.getJSONObject("data").optString("type"))))return false;
-            if(!action.equals("state")&&!action.equals("shoppingClose")&&!action.equals("shoppingStartFresh")
-                &&!action.equals("shoppingHistory")&&!action.equals("shoppingBuyLocated")&&!action.equals("shoppingLocationEnable")
-                &&!action.equals("correct")&&!action.equals("cartCheckoutLocated")&&!action.equals("purchaseMap"))return false;
         }catch(Exception e){return false;}
         SyncEngine.WORK.execute(()->{
             try {
                 JSONObject data=request.optJSONObject("data");if(data==null)data=new JSONObject();
                 AppStore store=AppStore.get(activity);
+                DailySession.prepare(activity);
+                boolean extension=action.equals("state")||action.equals("shoppingClose")||action.equals("shoppingStartFresh")
+                    ||action.equals("shoppingHistory")||action.equals("shoppingBuyLocated")||action.equals("shoppingLocationEnable")
+                    ||action.equals("cartCheckoutLocated")||action.equals("purchaseMap")||action.equals("tasaloFetch")
+                    ||action.equals("correct")&&"Gasto".equals(data.optString("type"));
+                if(!extension){DailySession.legacy(activity,action,data,text);return;}
                 if(action.equals("state")){reply(activity,id,state(activity),null);return;}
                 String actor=actor(activity);
+                if(action.equals("tasaloFetch")) {
+                    TasaloReference.fetch(activity.getApplicationContext(),actor,()->SyncEngine.WORK.execute(()->{try{reply(activity,id,state(activity),null);}catch(Exception e){reply(activity,id,null,e);}}));return;
+                }
                 if(action.equals("purchaseMap")) {
                     Uri[] uris=PurchaseActions.mapUris(data);
                     activity.runOnUiThread(()->{

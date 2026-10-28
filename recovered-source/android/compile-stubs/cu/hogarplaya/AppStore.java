@@ -8,6 +8,8 @@ import org.json.JSONArray;
 /** Solo firmas de compilación. No se empaqueta esta clase. */
 public class AppStore extends SQLiteOpenHelper {
  public SharedPreferences prefs;
+ public String deviceId;
+ public JSONArray profiles()throws Exception{return null;}
  public AppStore(Context c){super(c,"stub",null,3);}
  public static AppStore get(Context c){return null;}
  public JSONObject profile(String id)throws Exception{return null;}

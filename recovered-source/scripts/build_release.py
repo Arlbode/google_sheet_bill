@@ -109,6 +109,9 @@ def build(output=None, init=False, private=PRIVATE, backup=None):
         manifest.set(ANDROID + 'versionCode', str(config['version_code']))
         manifest.set(ANDROID + 'versionName', config['version_name'])
         manifest.find('application').set(ANDROID + 'label', config['label'])
+        manifest.find('application').set(ANDROID+'networkSecurityConfig','@xml/network_security_config')
+        rate_service=ET.SubElement(manifest.find('application'),'service')
+        rate_service.set(ANDROID+'name','cu.hogarplaya.TasaloSyncService');rate_service.set(ANDROID+'permission','android.permission.BIND_JOB_SERVICE');rate_service.set(ANDROID+'exported','true')
         if config.get('native_extension'):
             for permission in ['android.permission.ACCESS_COARSE_LOCATION','android.permission.ACCESS_FINE_LOCATION']:
                 element=ET.Element('uses-permission');element.set(ANDROID+'name',permission)

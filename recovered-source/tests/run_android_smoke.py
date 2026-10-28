@@ -26,7 +26,7 @@ def build_test(output):
 
 
 def main():
-    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--reset',action='store_true');parser.add_argument('--phase',choices=['all','seed','verify','gps','nogps','persisted','purchase','keyboard'],default='all');args=parser.parse_args()
+    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--reset',action='store_true');parser.add_argument('--phase',choices=['all','seed','verify','gps','nogps','persisted','purchase','keyboard','daily','dailyReopen','dailyLoggedOut','tasalo','tasaloReopen'],default='all');args=parser.parse_args()
     device=AdbDeviceTcp('127.0.0.1',5555,default_transport_timeout_s=30);device.connect(auth_timeout_s=5)
     assert device.shell('getprop ro.kernel.qemu').strip()=='1','Solo se permite el emulador de pruebas.'
     def shell(command,timeout=120):return device.shell(command,read_timeout_s=timeout,transport_timeout_s=timeout)
@@ -70,6 +70,8 @@ def main():
             if args.phase in ['all','keyboard']:
                 shell('settings put secure show_ime_with_hard_keyboard 1')
                 phase('keyboard')
+            for scenario in ['daily','dailyReopen','dailyLoggedOut','tasalo','tasaloReopen']:
+                if args.phase in ['all',scenario]:phase(scenario)
     finally:device.close()
 
 

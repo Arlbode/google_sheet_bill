@@ -40,13 +40,12 @@ def page_for(browser,url,value):
       const request=JSON.parse(payload); fixture.calls.push(request.action);
       let data={};
       if(request.action==='state') data=fixture.state;
-      else if(request.action==='sync'){
-        fixture.state.snapshot.rate=900;
-        fixture.state.snapshot.serverAt=new Date().toISOString();
-        fixture.state.planning.quote={rate:900,consultedAt:new Date().toISOString(),day:fixture.state.today,source:'elTOQUE'};
+      else if(request.action==='tasaloFetch'){
+        fixture.state.tasalo={latest:{id:'quote-900',rate:900,sourceAt:new Date().toISOString(),fetchedAt:new Date().toISOString(),day:fixture.state.today,provider:'TASALO',source:'eltoque',active:true},pending:true};
+        data=fixture.state;
         setTimeout(()=>window.hogarChanged(),30);
       }
-      setTimeout(()=>window.hogarReply(request.id,{ok:true,data}),0);
+      setTimeout(()=>window.hogarReply(request.id,{ok:true,data:JSON.parse(JSON.stringify(data))}),request.action==='tasaloFetch'?350:0);
     }};
     '''.replace('STATE',json.dumps(value))
     context.add_init_script(fixture)
@@ -73,8 +72,9 @@ def main():
             page.locator('#refreshQuote').click()
             expect(page.locator('#quoteCard')).to_contain_text('900,00 CUP')
             expect(page.locator('.kpi .cup-equivalent').first).to_contain_text('315.000,00 CUP')
-            assert page.evaluate("fixture.calls.filter(x=>x==='sync').length") == 1
+            assert page.evaluate("fixture.calls.filter(x=>x==='tasaloFetch').length") == 1
             # La llegada de un estado nuevo no debe reconstruir un formulario con foco.
+            page.locator('#refreshQuote').click()
             page.locator('[data-tab="profile"]').click()
             page.locator('[data-action="newProfile"]').click()
             page.locator('#personPin').fill('1234')
@@ -88,12 +88,12 @@ def main():
             context,page=page_for(browser,url,offline)
             expect(page.locator('#quoteCard')).to_contain_text('Sin conexión')
             expect(page.locator('#refreshQuote')).to_be_disabled()
-            assert page.evaluate("fixture.calls.filter(x=>x==='sync').length") == 0
+            assert page.evaluate("fixture.calls.filter(x=>x==='tasaloFetch').length") == 0
             context.close()
             stale=state();stale['planning']['quote']['consultedAt']=(NOW-timedelta(hours=2)).isoformat()
             context,page=page_for(browser,url,stale)
             expect(page.locator('#quoteCard')).to_contain_text('900,00 CUP')
-            assert page.evaluate("fixture.calls.filter(x=>x==='sync').length") == 1
+            assert page.evaluate("fixture.calls.filter(x=>x==='tasaloFetch').length") == 1
             context.close();browser.close()
         print('Navegador: tarjetas, consulta manual, consulta automática, modo sin conexión, ancho móvil y PIN correctos.')
     finally:

@@ -212,5 +212,91 @@ public final class ShoppingSmoke extends Instrumentation {
         check(resized,"El emulador no abrió el teclado real para la prueba");Thread.sleep(500);
         check("true".equals(eval("document.activeElement.id==='search'&&document.querySelector('.product .add').getBoundingClientRect().bottom<=visualViewport.height&&document.querySelector('.product').getBoundingClientRect().top>=0")),"El teclado tapa los resultados");
     }
-    public void onStart(){Bundle result=new Bundle();try{launch();String phase=args.getString("phase","verify");if(phase.equals("seed"))seed();else if(phase.equals("gps"))gps();else if(phase.equals("nogps"))noGps();else if(phase.equals("persisted"))persisted();else if(phase.equals("purchase"))purchase();else if(phase.equals("keyboard"))keyboard();else verify();result.putString("stream","ANDROID SMOKE OK: "+phase+"\n");finish(Activity.RESULT_OK,result);}catch(Throwable e){result.putString("stream","ANDROID SMOKE FAILED: "+android.util.Log.getStackTraceString(e));finish(Activity.RESULT_CANCELED,result);}}
+    private void daily()throws Exception {
+        JSONObject s=ok("state",new JSONObject());String profile=s.getJSONArray("profiles").getJSONObject(0).getString("id");int count=0;
+        ok("lock",new JSONObject());
+        check(!call("unlock",new JSONObject().put("profileId",profile).put("pin","9999")).optBoolean("ok"),"Se autenticó con un PIN incorrecto");
+        s=unlock();count=s.getJSONArray("operations").length();
+        check(s.getString("activeProfileId").equals(profile),"No se abrió el perfil");
+        s=ok("state",new JSONObject());check(s.getJSONObject("authentication").getString("timeZone").equals("America/Havana"),"El día no usa La Habana");
+        android.content.SharedPreferences prefs=getTargetContext().getSharedPreferences("hogar",0);
+        // Obtener las preferencias reales de AppStore, no depender del nombre de archivo.
+        Class<?> storeType=getTargetContext().getClassLoader().loadClass("cu.hogarplaya.AppStore");Object store=storeType.getMethod("get",Context.class).invoke(null,getTargetContext());
+        prefs=(android.content.SharedPreferences)storeType.getField("prefs").get(store);
+        JSONObject saved=new JSONObject(prefs.getString("authenticatedDay","{}"));check(!saved.has("pin")&&saved.getString("pinVersion").length()==64,"La sesión guarda un PIN o carece de versión");
+        Field touched=activity.getClass().getDeclaredField("touched");touched.setAccessible(true);touched.setLong(activity,SystemClock.elapsedRealtime()-600001);
+        s=ok("state",new JSONObject());check(s.getString("activeProfileId").equals(profile),"Se bloqueó a los cinco minutos");
+        runOnMainSync(()->callActivityOnStop(activity));
+        s=ok("state",new JSONObject());check(s.getString("activeProfileId").equals(profile),"Se perdió sesión al pasar a segundo plano");
+        check(!call("cart",new JSONObject().put("items",s.getJSONArray("cart"))).optBoolean("ok"),"Se admitieron operaciones fuera de primer plano");
+        runOnMainSync(()->callActivityOnStart(activity));s=ok("state",new JSONObject());
+        ok("cart",new JSONObject().put("items",s.getJSONArray("cart")));
+        String yesterday=java.time.LocalDate.now(java.time.ZoneId.of("America/Havana")).minusDays(1).toString();saved.put("day",yesterday);prefs.edit().putString("authenticatedDay",saved.toString()).commit();
+        s=ok("state",new JSONObject());check(s.getString("activeProfileId").isEmpty(),"Una sesión de ayer siguió autenticada");
+        check(!call("shoppingHistory",new JSONObject()).optBoolean("ok"),"Una sesión vencida accedió al historial");
+        s=unlock();
+        check(!call("resetPin",new JSONObject().put("profileId",profile).put("pin","1234")).optBoolean("ok"),"Restablecimiento sin autorización");
+        Field recovery=activity.getClass().getDeclaredField("recoveryUntil");recovery.setAccessible(true);recovery.setLong(activity,SystemClock.elapsedRealtime()+300000);
+        ok("resetPin",new JSONObject().put("profileId",profile).put("pin","1234"));
+        s=ok("state",new JSONObject());check(s.getString("activeProfileId").isEmpty(),"Restablecer el PIN dejó válida la sesión anterior");
+        s=unlock();check(s.getJSONArray("operations").length()==count,"La autenticación alteró gastos");
+        getTargetContext().getSharedPreferences("smoke-fixture",0).edit().putString("dailyProfile",profile).putInt("dailyOperations",count).commit();
+    }
+    private void dailyReopen()throws Exception {
+        JSONObject s=ok("state",new JSONObject());String profile=getTargetContext().getSharedPreferences("smoke-fixture",0).getString("dailyProfile","");
+        check(s.getString("activeProfileId").equals(profile),"Reabrir el proceso volvió a pedir PIN");
+        check(s.getJSONArray("operations").length()==getTargetContext().getSharedPreferences("smoke-fixture",0).getInt("dailyOperations",-1),"Reabrir perdió movimientos");
+        ok("cart",new JSONObject().put("items",s.getJSONArray("cart")));ok("shoppingHistory",new JSONObject());
+        ok("lock",new JSONObject());s=ok("state",new JSONObject());check(s.getString("activeProfileId").isEmpty(),"Cerrar sesión no bloqueó el acceso");
+    }
+    private void dailyLoggedOut()throws Exception {
+        JSONObject s=ok("state",new JSONObject());check(s.getString("activeProfileId").isEmpty(),"Se restauró una sesión cerrada explícitamente");
+        check(!call("cart",new JSONObject().put("items",new JSONArray())).optBoolean("ok"),"Operación autorizada después de cerrar sesión");
+        s=unlock();check(!s.getString("activeProfileId").isEmpty(),"No permitió autenticar tras un cierre explícito");
+    }
+    private Object[] rateCore()throws Exception {
+        ClassLoader loader=getTargetContext().getClassLoader();Class<?> type=loader.loadClass("cu.hogarplaya.TasaloReference"),storeType=loader.loadClass("cu.hogarplaya.AppStore");Object store=storeType.getMethod("get",Context.class).invoke(null,getTargetContext());return new Object[]{type,storeType,store};
+    }
+    private void tasalo()throws Exception {
+        JSONObject s=unlock();int count=s.getJSONArray("operations").length();String actor=s.getString("activeProfileId");
+        check(android.security.NetworkSecurityPolicy.getInstance().isCleartextTrafficPermitted("tasalo.duckdns.org"),"El dominio publicado de TASALO no permite su HTTP público");
+        check(!android.security.NetworkSecurityPolicy.getInstance().isCleartextTrafficPermitted("script.google.com")&&!android.security.NetworkSecurityPolicy.getInstance().isCleartextTrafficPermitted("example.com"),"Se habilitó HTTP para las credenciales u otros dominios");
+        Object[] core=rateCore();Class<?> type=(Class<?>)core[0],storeType=(Class<?>)core[1];Object store=core[2];
+        java.lang.reflect.Method parse=type.getDeclaredMethod("parse",JSONObject.class,long.class);parse.setAccessible(true);
+        java.lang.reflect.Method save=type.getDeclaredMethod("save",storeType,JSONObject.class,String.class);save.setAccessible(true);
+        long now=System.currentTimeMillis();String date=java.time.Instant.ofEpochMilli(now-30000).toString();
+        JSONObject body=new JSONObject().put("ok",true).put("data",new JSONObject().put("eltoque",new JSONObject().put("USD",new JSONObject().put("rate",900)).put("EUR",new JSONObject().put("rate",999))).put("bcc",new JSONObject().put("USD",new JSONObject().put("rate",120)))).put("sources_updated_at",new JSONObject().put("eltoque",date));
+        JSONObject quote=(JSONObject)parse.invoke(null,body,now);check(quote.getDouble("rate")==900&&quote.getString("source").equals("eltoque"),"Se confundió USD elTOQUE con otra fuente");
+        for(int i=0;i<3;i++) {
+            JSONObject bad=new JSONObject(body.toString());
+            if(i==0){bad.remove("sources_updated_at");bad.put("updated_at",java.time.Instant.now().toString());}
+            if(i==1)bad.getJSONObject("sources_updated_at").put("eltoque",java.time.Instant.ofEpochMilli(now-3600000).toString());
+            if(i==2)bad.getJSONObject("data").getJSONObject("eltoque").getJSONObject("USD").put("rate","900");
+            boolean failed=false;try{parse.invoke(null,bad,now);}catch(java.lang.reflect.InvocationTargetException expected){failed=true;}check(failed,"Se aceptó referencia antigua, sin fecha propia o no numérica");
+        }
+        save.invoke(null,store,quote,actor);String first=quote.getString("id");
+        JSONObject same=(JSONObject)parse.invoke(null,body,now);save.invoke(null,store,same,actor);s=ok("state",new JSONObject());
+        check(s.getJSONObject("tasalo").getJSONObject("latest").getString("id").equals(first),"Una consulta idéntica duplicó la cola");
+        body.getJSONObject("sources_updated_at").put("eltoque",java.time.Instant.ofEpochMilli(now-10000).toString());body.getJSONObject("data").getJSONObject("eltoque").getJSONObject("USD").put("rate",901);
+        JSONObject next=(JSONObject)parse.invoke(null,body,now);save.invoke(null,store,next,actor);s=ok("state",new JSONObject());
+        check(s.getJSONObject("tasalo").getBoolean("pending")&&s.getJSONObject("tasalo").getJSONObject("latest").getDouble("rate")==901,"No se guardó la referencia para sincronizar");
+        check(s.getJSONArray("operations").length()==count,"Consultar la referencia creó gastos o ingresos");
+        getTargetContext().getSharedPreferences("smoke-fixture",0).edit().putString("rateOld",quote.toString()).putString("rateNext",next.toString()).putInt("rateOperations",count).commit();
+    }
+    private void tasaloReopen()throws Exception {
+        JSONObject s=ok("state",new JSONObject());check(s.getJSONObject("tasalo").getBoolean("pending"),"La cola de tasa no sobrevivió al reinicio");
+        check(s.getJSONObject("tasalo").getJSONObject("latest").getDouble("rate")==901,"La tasa local no sobrevivió al reinicio");
+        Object[] core=rateCore();Class<?> type=(Class<?>)core[0],storeType=(Class<?>)core[1];Object store=core[2];
+        java.lang.reflect.Method ack=type.getDeclaredMethod("acknowledge",storeType,JSONObject.class,JSONObject.class);ack.setAccessible(true);
+        JSONObject old=new JSONObject(getTargetContext().getSharedPreferences("smoke-fixture",0).getString("rateOld","{}")),next=new JSONObject(getTargetContext().getSharedPreferences("smoke-fixture",0).getString("rateNext","{}"));
+        android.content.SharedPreferences prefs=(android.content.SharedPreferences)storeType.getField("prefs").get(store);String household=prefs.getString("householdId","");
+        JSONObject response=new JSONObject().put("ok",true).put("householdId",household).put("referenceAck",new JSONObject().put("id",old.getString("id")).put("status","accepted"));
+        ack.invoke(null,store,old,response);check(ok("state",new JSONObject()).getJSONObject("tasalo").getBoolean("pending"),"El recibo de una referencia anterior borró la nueva");
+        response.getJSONObject("referenceAck").put("id",next.getString("id"));response.put("householdId","otra-hoja");boolean failed=false;
+        try{ack.invoke(null,store,next,response);}catch(java.lang.reflect.InvocationTargetException expected){failed=true;}check(failed,"Se aceptó un recibo de otra hoja");
+        response.put("householdId",household);ack.invoke(null,store,next,response);s=ok("state",new JSONObject());
+        check(!s.getJSONObject("tasalo").getBoolean("pending")&&s.getJSONObject("tasalo").getString("status").equals("accepted"),"No se confirmó la sincronización de la tasa");
+        check(s.getJSONArray("operations").length()==getTargetContext().getSharedPreferences("smoke-fixture",0).getInt("rateOperations",-1),"Sincronizar tasa alteró movimientos");
+    }
+    public void onStart(){Bundle result=new Bundle();try{launch();String phase=args.getString("phase","verify");if(phase.equals("seed"))seed();else if(phase.equals("gps"))gps();else if(phase.equals("nogps"))noGps();else if(phase.equals("persisted"))persisted();else if(phase.equals("purchase"))purchase();else if(phase.equals("keyboard"))keyboard();else if(phase.equals("daily"))daily();else if(phase.equals("dailyReopen"))dailyReopen();else if(phase.equals("dailyLoggedOut"))dailyLoggedOut();else if(phase.equals("tasalo"))tasalo();else if(phase.equals("tasaloReopen"))tasaloReopen();else verify();result.putString("stream","ANDROID SMOKE OK: "+phase+"\n");finish(Activity.RESULT_OK,result);}catch(Throwable e){result.putString("stream","ANDROID SMOKE FAILED: "+android.util.Log.getStackTraceString(e));finish(Activity.RESULT_CANCELED,result);}}
 }

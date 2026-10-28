@@ -1,14 +1,13 @@
-# Qué hacer ahora · Hogar finanzas 1.5.1
+# Qué hacer ahora · Hogar finanzas 1.5.2
 
-1. Instala Hogar_finanzas_1.5.1.apk encima de 1.4.0, 1.4.1 o 1.5.0. Conserva perfiles, movimientos, cesta y conexión; no desinstales la app actual.
-2. Si ya actualizaste el script del Sheet a 1.5.0, no necesitas cambiarlo otra vez. Si no, sustituye Código.gs por Script_Completo_Hogar_Tasa_CUP.txt completo, guarda y ejecuta iniciarHogar. Implementar → Gestionar implementaciones → lápiz → Nueva versión, conservando URL /exec y permisos.
-3. Comprar → Buscar: los resultados se muestran en una lista compacta mientras escribes. «Ver resultados» cierra el teclado sin borrar el texto.
-4. Gasto libre permite indicar producto o concepto, categoría, cantidad, unidad y precio. Suma junto a los productos a la cesta o lista; se registra al confirmar la compra.
-5. Mi cesta permite editar artículos y guardar el comercio y ubicación, igual que Modo compra. Activa la ubicación si deseas coordenadas; el gasto se guarda aunque falten permisos o GPS.
-6. En Movimientos → Detalle, «Ver mapa» abre mapas o un navegador. Si solo hay un nombre, busca ese lugar. Una dirección automática es aproximada y depende del servicio de Android; puedes escribir el comercio exacto.
+1. Sustituye Código.gs completo por Script_Completo_Hogar_Tasa_CUP.txt. Guarda y ejecuta iniciarHogar. Este paso sí es necesario aunque ya tuvieras el script 1.5.0: añade la recepción de tasas desde la APK.
+2. Implementar → Gestionar implementaciones → lápiz → Nueva versión → Implementar. Conserva la URL /exec, Ejecutar como Yo y acceso Cualquier persona.
+3. Instala Hogar_finanzas_1.5.2.apk encima de la app actual, sin desinstalar. Mantiene paquete y firma, perfiles, movimientos, cesta y conexión.
+4. Introduce tu PIN una vez por día de La Habana. Cerrar/reabrir la app, apagar pantalla, ir a mapas o reiniciar el proceso conserva la sesión del día. Perfil → Cerrar sesión la elimina; volver a entrar requiere PIN. Al cambiar el día o restablecer PIN también se autentica de nuevo. El ojito muestra u oculta el PIN sin borrarlo.
+5. La APK consulta TASALO al abrir o vencer la referencia; ↻ permite consultar manualmente. Guarda el dato de elTOQUE en el teléfono y muestra si está pendiente de sincronización. La sincronización entrega el dato al Sheet, incluso mediante una cola con reintentos de red; Ajustes B7 recibe el valor y B11 su fecha de origen. Mantén B26 = Sí. No modifica tasas históricas ni crea movimientos.
+6. Si TASALO no está accesible o su dato no es reciente, se conserva la referencia anterior con su fecha. La disponibilidad real desde tu red no se pudo verificar aquí; se probaron respuestas controladas y conservación de la cola. Ver motivo del fallo explica errores de consulta o de envío.
+7. Si el script aún es antiguo, el dato permanece en el teléfono y se avisa de actualizar la implementación. No se descarta por un fallo de sincronización. B26 = No permite conservar una referencia manual.
 
-La firma y el respaldo cifrado existentes siguen siendo válidos. Conserva Respaldo_Firma_Cifrado.zip y tu Clave_PRIVADA_Respaldo_Hogar.json.
+Se mantienen cierre/historial de Modo compra, gasto libre en cesta/lista, ubicación opcional, mapa externo, perfiles, planes y fondos. Guarda Respaldo_Firma_Cifrado.zip y tu archivo privado Clave_PRIVADA_Respaldo_Hogar.json; la firma no cambia.
 
-El 403 de elTOQUE es independiente de esta actualización. Sigue siendo necesario obtener acceso oficial para usar ELTOQUE_API_TOKEN privado en Apps Script; mientras tanto Ajustes B7 admite una referencia manual. Consulta API_ELTOQUE.md.
-
-El conflicto del panel de ChatGPT no se ha confirmado resuelto; esta entrega se genera desde la sesión activa.
+Guía completa: INSTALAR_NUEVA_APK.md. Fuente y funcionamiento de TASALO: INVESTIGACION_TASA.md. El conflicto del panel de ChatGPT no se ha confirmado resuelto; la entrega se genera desde esta sesión activa.

@@ -16,13 +16,14 @@ MANIFEST = 'MANIFIESTO_RESPALDO.json'
 ROOT_FILES = (
     '.gitignore', 'AGENTS.md', 'README.md', 'RECUPERACION.md', 'LEEME_PRIMERO.md',
     'RESPALDO_Y_RECUPERACION_FIRMA.md', 'Herramienta_Respaldo_Firma.zip',
-    'API_ELTOQUE.md',
+    'API_ELTOQUE.md', 'INVESTIGACION_TASA.md',
     'Hogar_Playa.apk', 'Hogar_Playa.apk.sha256', 'Script_Completo_Hogar_Android.txt',
     'Manual_Android.md', 'Oferta_Yosvany_2026-10-27.csv',
     'Script_Completo_Hogar_Tasa_CUP.txt', 'INSTALAR_NUEVA_APK.md',
     'Hogar_Playa_Nueva_1.4.0.apk', 'Hogar_Playa_Nueva_1.4.0.apk.sha256',
     'Hogar_finanzas_1.4.1.apk', 'Hogar_finanzas_1.4.1.apk.sha256',
     'Hogar_finanzas_1.5.0.apk', 'Hogar_finanzas_1.5.0.apk.sha256',
+    'Hogar_finanzas_1.5.1.apk', 'Hogar_finanzas_1.5.1.apk.sha256',
 )
 EXCLUDED_PARTS = {'build', '__pycache__', '.venv', '.git', 'node_modules', '.android-signing'}
 FORBIDDEN_SUFFIXES = {'.p12', '.pfx', '.jks', '.keystore', '.key', '.pem', '.pyc'}
