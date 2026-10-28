@@ -38,15 +38,16 @@ Ejemplo: si la tarjeta indica 870 CUP/USD, 350 USD muestran aproximadamente 304.
 
 ## 5. Conserva la nueva firma
 
-La descarga directa del ZIP privado falló en el chat. Se preparó esta alternativa:
+Ya está preparado el **[Respaldo_Firma_Cifrado.zip](Respaldo_Firma_Cifrado.zip)** para el código público que entregaste. Guarda este ZIP y tu archivo **Clave_PRIVADA_Respaldo_Hogar.json**, con una segunda copia privada de ese archivo.
 
-1. Descarga [Herramienta_Respaldo_Firma.zip](Herramienta_Respaldo_Firma.zip), extráelo y abre **Respaldo_Firma_Hogar.html** con Chrome.
-2. Pulsa **Crear acceso** y luego **Guardar clave PRIVADA**. Conserva el archivo descargado y otra copia privada.
-3. Copia únicamente el **código PÚBLICO** que empieza por `HOGAR-PUBLICA-1:` y compártelo en el chat. No compartas el archivo privado ni su contenido.
-4. Con ese código se podrá entregar un respaldo cifrado por GitHub. Solo se podrá abrir con tu archivo privado local.
-5. Cuando lo recibas, usa la sección **Abrir el respaldo cifrado recibido** de la misma herramienta para obtener **Firma_PRIVADA_Hogar_Playa_Nueva.zip**. Guarda el ZIP y otra copia privada.
+Para extraer el ZIP privado de firma:
 
-El ZIP privado contiene la clave y su contraseña: **no lo subas al repositorio público ni lo compartas públicamente**. La herramienta funciona sin internet. La entrega cifrada queda pendiente hasta recibir el código público generado en tu computadora.
+1. Extrae **Respaldo_Firma_Cifrado.zip** y abre **Respaldo_Firma_Hogar.html** con Chrome.
+2. Ve a **2. Abrir el respaldo cifrado recibido**. No pulses Crear acceso para abrir esta copia: utiliza tu acceso existente.
+3. Selecciona tu **Clave_PRIVADA_Respaldo_Hogar.json** y el archivo **Firma_Hogar_Playa_Cifrada.json** extraído del ZIP.
+4. Pulsa **Abrir y guardar ZIP privado**. Guarda **Firma_PRIVADA_Hogar_Playa_Nueva.zip** en un lugar privado.
+
+El ZIP privado contiene la clave de firma y su contraseña. No publiques ese ZIP ni el archivo de acceso privado. La herramienta funciona sin internet y no envía archivos. El respaldo cifrado de GitHub puede conservarse públicamente; no basta para abrirlo sin tu archivo privado.
 
 La firma pública queda fijada en `recovered-source/signing/new-certificate.sha256`. El constructor rechazará otra clave y no generará automáticamente una sustituta si la firma se pierde. El ZIP público de fuentes no incluye la firma privada.
 

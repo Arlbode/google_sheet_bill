@@ -6,7 +6,7 @@ La nueva app sustituye la anterior en fase de pruebas. Usa una identidad y una f
 - [Script completo del Sheet](Script_Completo_Hogar_Tasa_CUP.txt): un único archivo para Código.gs.
 - [Instalación y conexión paso a paso](INSTALAR_NUEVA_APK.md).
 - [Respaldo público de fuentes](Hogar_Playa_Recuperacion_Fuentes.zip), sin claves privadas ni datos reales.
-- [Herramienta local para conservar la nueva firma](Herramienta_Respaldo_Firma.zip). Comparte solo el código público que genera; el archivo privado se queda en tu computadora.
+- [Respaldo cifrado de la firma](Respaldo_Firma_Cifrado.zip), con herramienta e instrucciones. Se abre con el archivo privado que ya generaste y conservas en tu computadora.
 
 ## Novedades
 
@@ -18,7 +18,7 @@ La nueva app sustituye la anterior en fase de pruebas. Usa una identidad y una f
 
 ## Instalación inicial y próximas actualizaciones
 
-Esta app se instala como **Hogar Playa Nueva**, paquete `cu.hogarplaya.recuperada`. No usa la firma perdida de la app anterior. Comprueba la conexión al Sheet y después retira la antigua, conforme a la decisión del usuario. Para las siguientes actualizaciones se conserva la nueva firma, cuyo certificado público está fijado en el proyecto. La descarga directa del respaldo privado falló; la herramienta local permite preparar una entrega cifrada. La clave sin cifrar no está en GitHub.
+Esta app se instala como **Hogar Playa Nueva**, paquete `cu.hogarplaya.recuperada`. No usa la firma perdida de la app anterior. Comprueba la conexión al Sheet y después retira la antigua, conforme a la decisión del usuario. Para las siguientes actualizaciones se conserva la nueva firma, cuyo certificado público está fijado en el proyecto. La copia cifrada ya está preparada para el código público entregado por el usuario; se necesita su archivo privado local para recuperarla. La clave sin cifrar no está en GitHub.
 
 Lee [INSTALAR_NUEVA_APK.md](INSTALAR_NUEVA_APK.md) antes de conectar la app. El servicio de publicación del entorno de ChatGPT no interviene en la instalación de esta APK. Esta entrega no afirma haber reparado el conflicto del panel de configuración.
 

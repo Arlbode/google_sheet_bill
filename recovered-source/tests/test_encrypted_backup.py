@@ -33,5 +33,16 @@ class EncryptedBackup(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'PÚBLICO'):
             encrypt(Path('/missing'),'hogar-acceso-privado-1',Path('/not-written'))
 
+    def test_published_backup_is_bound_to_the_provided_public_key(self):
+        public_der=(ROOT/'signing/recovery-recipient-public.der').read_bytes()
+        public=serialization.load_der_public_key(public_der)
+        data=json.loads((ROOT.parent/'Firma_Hogar_Playa_Cifrada.json').read_text())
+        self.assertEqual(public.key_size,3072)
+        self.assertEqual(data['recipient'],hashlib.sha256(public_der).hexdigest())
+        self.assertEqual(len(base64.b64decode(data['wrappedKey'])),public.key_size//8)
+        self.assertEqual(len(base64.b64decode(data['nonce'])),12)
+        self.assertGreater(len(base64.b64decode(data['ciphertext'])),16)
+        self.assertNotIn('privateKey',data)
+
 
 if __name__=='__main__':unittest.main()

@@ -46,6 +46,9 @@ def collect(root):
     encrypted = root / 'Firma_Hogar_Playa_Cifrada.json'
     if encrypted.is_file():
         paths.append(encrypted)
+    encrypted_bundle = root / 'Respaldo_Firma_Cifrado.zip'
+    if encrypted_bundle.is_file():
+        paths.append(encrypted_bundle)
     files = {}
     for path in paths:
         rel = path.relative_to(root)
@@ -73,6 +76,7 @@ def create(output=None, root=ROOT):
         'format': 'hogar-playa-recovery-2',
         'base_apk_sha256': sha256(files['Hogar_Playa.apk']),
         'private_signing_key_included': False,
+        'encrypted_signing_backup_included': (root / 'Firma_Hogar_Playa_Cifrada.json').is_file(),
         'user_financial_data_included': False,
         'new_signed_apk_generated': True,
         'java_source': 'JADX reference only; original DEX retained in base APK',

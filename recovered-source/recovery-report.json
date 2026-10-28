@@ -6,7 +6,7 @@
   "product_images": 91,
   "products": 91,
   "offer_rows": 56,
-  "tests_passed": 21,
+  "tests_passed": 22,
   "java_source_provenance": "JADX 1.5.1 decompilation; NOT approved for production; NOT used by build",
   "native_code_strategy": "preserve original classes.dex byte-for-byte",
   "original_signing_private_key_recovered": false,
@@ -33,5 +33,8 @@
   "signing_backup_browser_tested": true,
   "signing_restore_tested": true,
   "private_backup_download_confirmed": false,
-  "encrypted_backup_pending_public_code": true
+  "encrypted_backup_pending_public_code": false,
+  "encrypted_backup_created": true,
+  "encrypted_backup_recipient_sha256": "90aaebb67c2838416ae2aade736d44367258afd6e9ca0c4d478535df23dd4f34",
+  "encrypted_backup_user_decryption_confirmed": false
 }

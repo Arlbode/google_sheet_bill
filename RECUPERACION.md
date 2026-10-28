@@ -8,7 +8,7 @@ El usuario autorizó una nueva APK porque está en pruebas y no tiene datos de p
 
 El constructor `build_release.py` mantiene exactamente `classes.dex` de la APK original y recompila los recursos manteniendo sus IDs. Cambia la identidad y versión del manifiesto, y empaqueta la nueva interfaz. Verifica la firma del resultado contra `signing/new-certificate.sha256`. Si falta la clave privada una vez fijado el certificado, exige restaurarla y rechaza crear otra identidad.
 
-La clave y contraseña están fuera del checkout, en una carpeta privada del entorno. El respaldo privado se excluye de Git y del ZIP público de fuentes. La descarga directa al usuario falló. Se preparó una herramienta que genera localmente una clave de recuperación y un código público; al recibir ese código se podrá publicar el respaldo cifrado para que solo el usuario lo abra. Esa entrega queda pendiente del código público. Es necesario conservar la firma para futuras actualizaciones.
+La clave y contraseña están fuera del checkout, en una carpeta privada del entorno. El respaldo privado sin cifrar se excluye de Git y del ZIP público de fuentes. Como la descarga directa falló, el usuario generó localmente un acceso privado y entregó su código público. Con ese código se creó `Firma_Hogar_Playa_Cifrada.json`, distribuido en `Respaldo_Firma_Cifrado.zip`. Solo se puede abrir con el archivo privado correspondiente, que conserva el usuario. Es necesario conservar ese acceso para recuperar la firma en futuras actualizaciones.
 
 ## Mejora implementada
 

@@ -4,7 +4,7 @@
 2. Actualiza el Sheet con **Script_Completo_Hogar_Tasa_CUP.txt**, archivo completo para Código.gs, y publica una nueva versión de su implementación conservando la URL /exec.
 3. Crea tu perfil en la nueva app y conéctala al Sheet con un código nuevo. Comprueba los saldos y la tarjeta de tasa.
 4. Una vez comprobada, puedes desinstalar la app antigua. Las próximas actualizaciones se harán sobre **Hogar Playa Nueva**.
-5. Conserva la firma nueva mediante **Herramienta_Respaldo_Firma.zip**: genera y guarda tu acceso privado local, y comparte solo el código público para recibir el respaldo cifrado. La descarga directa del ZIP privado en el chat falló. Los pasos están en la guía de instalación. No subas claves privadas a GitHub.
+5. Descarga **Respaldo_Firma_Cifrado.zip** y consérvalo junto con tu archivo privado **Clave_PRIVADA_Respaldo_Hogar.json**, que ya generaste. Son las dos piezas necesarias para recuperar la firma. No crees otro acceso para abrir esta copia y no subas el archivo privado a GitHub. El respaldo cifrado sí puede descargarse del repositorio.
 
 [Instrucciones completas](INSTALAR_NUEVA_APK.md).
 

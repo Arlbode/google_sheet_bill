@@ -30,7 +30,9 @@ Al recibir el código público, el agente ejecuta:
   --output Firma_Hogar_Playa_Cifrada.json
 ```
 
-El resultado usa RSA-OAEP SHA-256 y AES-256-GCM. **Solo ese archivo cifrado** puede publicarse en GitHub. La clave privada de recuperación permanece fuera del repositorio. La entrega cifrada está pendiente hasta recibir el código público del usuario; no se debe afirmar que ya existe.
+El usuario ya entregó su código público y se creó **[Firma_Hogar_Playa_Cifrada.json](Firma_Hogar_Playa_Cifrada.json)**. La copia descargable **[Respaldo_Firma_Cifrado.zip](Respaldo_Firma_Cifrado.zip)** incluye ese archivo, la herramienta local y las instrucciones. Usa RSA-OAEP SHA-256 y AES-256-GCM. La clave privada de recuperación permanece fuera del repositorio y la conserva el usuario.
+
+No se necesita crear otro acceso ni pedir otro código público para abrir esta copia. Se requiere el archivo `Clave_PRIVADA_Respaldo_Hogar.json` que corresponde al código ya entregado. El código público y el repositorio por sí solos no permiten descifrar el respaldo.
 
 ## Recuperación en otro entorno
 
