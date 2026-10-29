@@ -1,0 +1,11 @@
+{
+  "applicationId": "cu.hogarplaya.recuperada",
+  "versionCode": 14,
+  "versionName": "1.5.4",
+  "minSdk": 26,
+  "bytes": 180219,
+  "sha256": "31f1f93f22c2c6d582914ee15011d7ac9d832e9a162fb4d6250da01844677d0a",
+  "certificateSha256": "7374684814395e3df3e4a41b6d0d20a739dddba331a828d0f72d5d37ea78e6c1",
+  "url": "https://raw.githubusercontent.com/Arlbode/google_sheet_bill/actualizaciones-android/Hogar_finanzas_1.5.4.apk",
+  "notes": "Avisos de nuevas versiones, descarga verificada e instalación desde Hogar finanzas.\nAndroid solicita confirmar la actualización y conserva la identidad y firma existentes.\n"
+}
