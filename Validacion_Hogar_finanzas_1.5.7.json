@@ -1,0 +1,20 @@
+{
+  "version": "1.5.7",
+  "versionCode": 17,
+  "baseVersion": "1.5.6",
+  "applicationId": "cu.hogarplaya.recuperada",
+  "sha256": "9c03f4a3f64940eaf15fb0e6e9f17d24dd941f41dd6b27cfa0ac1cfe741877d3",
+  "certificateSha256": "7374684814395e3df3e4a41b6d0d20a739dddba331a828d0f72d5d37ea78e6c1",
+  "signatureSchemes": [
+    "v2",
+    "v3"
+  ],
+  "zipAlignmentVerified": true,
+  "nativeDexIdenticalTo156": true,
+  "compiledResourcesIdenticalTo156": true,
+  "existingProductsUnchanged": true,
+  "browser": "PASS: Zanahoria, Pimiento, alias Ají pimiento, imágenes y ancho móvil con puente simulado",
+  "androidDeviceTest": "No ejecutada: no hay emulador ni teléfono",
+  "privateSheetSync": "No ejecutada",
+  "method": "Reempaquetado de APK 1.5.6 verificada; cambio de versionCode/versionName en manifiesto binario, catálogo e imágenes; alineado y firmado con clave original."
+}

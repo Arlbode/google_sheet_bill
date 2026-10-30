@@ -1,3 +1,9 @@
+## Actualización 1.5.7
+
+[Descargar APK firmada 1.5.7](Hogar_finanzas_1.5.7.apk) · [Detalles y validación](VERSION_1.5.7.md)
+
+Zanahoria con imagen y compatibilidad de imagen para Ají pimiento. Instala encima de la versión existente, sin desinstalar. El manifiesto del canal apunta a esta versión.
+
 # Hogar finanzas · actualizaciones Android
 
 Versión actual: **1.5.6** (versionCode 16).

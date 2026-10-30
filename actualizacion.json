@@ -1,11 +1,11 @@
 {
   "applicationId": "cu.hogarplaya.recuperada",
-  "versionCode": 16,
-  "versionName": "1.5.6",
+  "versionCode": 17,
+  "versionName": "1.5.7",
   "minSdk": 26,
-  "bytes": 209014,
-  "sha256": "442d0461d133983ea4ada0b51f9c1fdf80b6576b1c59d2073e7059fb89ad9d29",
+  "bytes": 209088,
+  "sha256": "9c03f4a3f64940eaf15fb0e6e9f17d24dd941f41dd6b27cfa0ac1cfe741877d3",
   "certificateSha256": "7374684814395e3df3e4a41b6d0d20a739dddba331a828d0f72d5d37ea78e6c1",
-  "url": "https://raw.githubusercontent.com/Arlbode/google_sheet_bill/actualizaciones-android/Hogar_finanzas_1.5.6.apk",
-  "notes": "Consulta directa a la API oficial de elTOQUE por HTTPS.\nRequiere instalar el script completo 1.5.6 y actualizar la misma implementación /exec.\nConfigura tu clave una vez en Perfil → API oficial de elTOQUE; queda cifrada en ese teléfono.\nGuía con 13 temas y 68 pasos: sugerencias de compra, demostración animada dentro del tutorial y planificación a partir del historial. La sugerencia real aparece como tarjeta en Modo compra.\nSe conservan datos, firma y conexión.\n"
+  "url": "https://raw.githubusercontent.com/Arlbode/google_sheet_bill/actualizaciones-android/Hogar_finanzas_1.5.7.apk",
+  "notes": "Zanahoria con imagen y precio pendiente por lb.\nImagen de Pimiento compatible también con el nombre Ají pimiento, sin duplicar el producto ni cambiar su cotización.\nConserva identidad, firma y código nativo de la 1.5.6. Instala encima de la app existente sin desinstalar.\nEl script corregido 1.5.7 ya está publicado; sincroniza para recibir las hortalizas del Sheet."
 }
