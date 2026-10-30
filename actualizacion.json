@@ -1,11 +1,11 @@
 {
   "applicationId": "cu.hogarplaya.recuperada",
-  "versionCode": 15,
-  "versionName": "1.5.5",
+  "versionCode": 16,
+  "versionName": "1.5.6",
   "minSdk": 26,
-  "bytes": 200822,
-  "sha256": "bc83f4bd550d5ce7cc92321e20356b5449ff6a84bbc3891eb055a4df17ae910c",
+  "bytes": 209014,
+  "sha256": "442d0461d133983ea4ada0b51f9c1fdf80b6576b1c59d2073e7059fb89ad9d29",
   "certificateSha256": "7374684814395e3df3e4a41b6d0d20a739dddba331a828d0f72d5d37ea78e6c1",
-  "url": "https://raw.githubusercontent.com/Arlbode/google_sheet_bill/actualizaciones-android/Hogar_finanzas_1.5.5.apk",
-  "notes": "Guía visual de Hogar finanzas: 12 temas y 61 pasos, buscador y progreso guardado.\nEjemplos interactivos de Comprar, Modo compra, Fondos y Plan CUP, sin registrar operaciones.\nFunciona sin internet. No requiere cambiar el script ni volver a vincular el teléfono.\n"
+  "url": "https://raw.githubusercontent.com/Arlbode/google_sheet_bill/actualizaciones-android/Hogar_finanzas_1.5.6.apk",
+  "notes": "Consulta directa a la API oficial de elTOQUE por HTTPS.\nRequiere instalar el script completo 1.5.6 y actualizar la misma implementación /exec.\nConfigura tu clave una vez en Perfil → API oficial de elTOQUE; queda cifrada en ese teléfono.\nGuía con 13 temas y 68 pasos: sugerencias de compra, demostración animada dentro del tutorial y planificación a partir del historial. La sugerencia real aparece como tarjeta en Modo compra.\nSe conservan datos, firma y conexión.\n"
 }

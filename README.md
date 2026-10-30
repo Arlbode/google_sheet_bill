@@ -1,21 +1,24 @@
 # Hogar finanzas · actualizaciones Android
 
-Versión actual: **1.5.5** (versionCode 15).
+Versión actual: **1.5.6** (versionCode 16).
 
-[Descargar APK 1.5.5](Hogar_finanzas_1.5.5.apk) · [ZIP con APK, instrucciones y vistas previas](Hogar_finanzas_1.5.5_Instalacion.zip)
+[Descargar APK 1.5.6](Hogar_finanzas_1.5.6.apk) · [ZIP de instalación con script e instrucciones](Hogar_finanzas_1.5.6_Instalacion.zip)
 
-## Actualizar
+## Activar la API oficial de elTOQUE
 
-En la 1.5.4 o posterior, abre **Perfil → Actualizaciones → Buscar actualizaciones**. Descarga y pulsa Instalar actualización; Android te pedirá confirmar. Si solicita permitir instalaciones desde Hogar finanzas, concede ese permiso, vuelve y pulsa Instalar otra vez.
+1. Sustituye Código.gs por [el script completo 1.5.6](Script_Completo_Hogar_1.5.6.txt), guarda y ejecuta **activarApiOficialDesdeAndroid**.
+2. Actualiza **la misma implementación /exec** eligiendo Nueva versión. Conserva la URL y el acceso. Mantén B26 = Sí para recibir referencias.
+3. En la app abre **Perfil → Actualizaciones → Buscar actualizaciones**, descarga e instala. También puedes descargar la APK de esta rama e instalarla encima de la actual, sin desinstalar.
+4. En **Perfil → API oficial de elTOQUE**, pega tu clave aprobada y guarda. Se configura una vez en cada teléfono. Después pulsa ↻ en Inicio y sincroniza.
 
-También puedes descargar la APK de esta rama e instalarla **encima de la actual, sin desinstalar**. Se mantienen el paquete, la firma, los datos y la vinculación con el Sheet. Esta versión no requiere cambiar el script ni volver a vincular el teléfono.
+La clave se guarda cifrada en el teléfono. No está incrustada en la APK y no se entrega al Sheet. Se mantienen identidad, firma, datos y vinculación. Android solicita confirmar la instalación; si pide permitir instalaciones desde Hogar finanzas, concede el permiso, vuelve y pulsa Instalar otra vez.
 
-## Novedades
+[Instrucciones de la API oficial](API_ELTOQUE.md) · [ZIP solo del script e instrucciones](Hogar_finanzas_1.5.6_Script_Completo.zip)
 
-La guía de uso se convierte en un manual visual con **12 temas y 61 pasos**, buscador, progreso privado y reproducción opcional. Incluye ejemplos interactivos de Comprar, Modo compra, Fondos y Plan CUP con datos ficticios y sin registrar operaciones. Funciona sin internet y tiene accesos desde las pantallas correspondientes.
+## Guía visual ampliada
 
-[Detalles y cobertura de la guía](VERSION_1.5.5.md) · [Cómo funciona el canal de actualizaciones](ACTUALIZACIONES_ANDROID.md)
+13 temas y 68 pasos, con un capítulo de siete pasos sobre las sugerencias de reposición. Enseña la base estadística, cómo aparece la tarjeta y cómo añadir una sugerencia ajusta el total previsto y el tope. La animación es una demostración dentro del tutorial; la sugerencia real aparece como tarjeta dentro de Modo compra. Los ejemplos usan datos ficticios y no registran gastos.
 
-El archivo `actualizacion.json` es el manifiesto que consulta la APK. La app verifica versión, tamaño, SHA-256, identidad y firma antes de abrir el instalador de Android. Las descargas se inician al pulsar el botón y la instalación necesita confirmación.
+[Detalles y validación](VERSION_1.5.6.md) · [Funcionamiento del canal](ACTUALIZACIONES_ANDROID.md)
 
-La 1.5.4 permanece disponible en esta rama. Las claves privadas de firma y los datos del hogar no se distribuyen en este canal.
+La app verifica versión, tamaño, SHA-256, identidad y firma antes de abrir el instalador. Las versiones anteriores permanecen disponibles en esta rama. Las claves privadas y los datos del hogar no se distribuyen en el canal.
