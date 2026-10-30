@@ -1,11 +1,11 @@
 {
   "applicationId": "cu.hogarplaya.recuperada",
-  "versionCode": 18,
-  "versionName": "1.6.0",
+  "versionCode": 19,
+  "versionName": "1.6.1",
   "minSdk": 26,
-  "bytes": 229636,
-  "sha256": "0cf5a50c6c6aec01394ec94a5b1db7d58b1cef83862fa3d2e9ef31316c7f4f68",
+  "bytes": 237828,
+  "sha256": "6aa21374f7e7a5413261589d71d5da0c7e3418c43356b65adf2ae66423a4bd58",
   "certificateSha256": "7374684814395e3df3e4a41b6d0d20a739dddba331a828d0f72d5d37ea78e6c1",
-  "url": "https://raw.githubusercontent.com/Arlbode/google_sheet_bill/actualizaciones-android/Hogar_finanzas_1.6.0.apk",
-  "notes": "Ocho mejoras en Perfil → Mejoras del hogar: respaldo cifrado y recuperación, estado de sincronización, historial de precios, comparador por unidad, catálogo y fotos editables, lista compartida, previsión del presupuesto y ofertas.\nPara la lista compartida y el historial remoto: instala Script_Completo_Hogar_1.6.0.txt y publica una nueva versión de la misma implementación /exec. Desde 1.5.7 no es necesario ejecutar iniciarHogar otra vez.\nActualización compatible: conserva identidad, firma y datos. Instala encima de la versión existente sin desinstalar."
+  "url": "https://raw.githubusercontent.com/Arlbode/google_sheet_bill/actualizaciones-android/Hogar_finanzas_1.6.1.apk",
+  "notes": "Guía didáctica ampliada: 21 temas y 102 pasos, con ocho recorridos nuevos y ocho demostraciones sobre las mejoras de 1.6.0.\nAccede desde Perfil → Cómo usar Hogar finanzas o Mejoras del hogar → Aprender estas mejoras paso a paso.\nEjemplos ficticios, búsqueda, progreso conservado y reproducción automática.\nMantiene identidad, firma y código nativo de 1.6.0. Instala encima sin desinstalar. Si ya publicaste el script 1.6.0, esta actualización de la guía no requiere cambios en Apps Script."
 }

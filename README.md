@@ -1,3 +1,7 @@
+## Hogar finanzas 1.6.1 · Guía didáctica
+
+Disponible desde Perfil → Actualizaciones → Buscar actualizaciones. [APK firmada](Hogar_finanzas_1.6.1.apk) · [Guía y validación](VERSION_1.6.1.md). La guía incluye las ocho mejoras: 21 temas, 102 pasos y ocho demostraciones nuevas. Si ya desplegaste el script 1.6.0, no requiere cambios adicionales en Apps Script.
+
 ## Hogar finanzas 1.6.0
 
 Disponible desde Perfil → Actualizaciones → Buscar actualizaciones. [APK firmada](Hogar_finanzas_1.6.0.apk) · [Script completo](Script_Completo_Hogar_1.6.0.txt) · [Instrucciones y validación](VERSION_1.6.0.md).
