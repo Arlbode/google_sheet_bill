@@ -1,0 +1,26 @@
+{
+  "versionName": "1.6.1",
+  "versionCode": 19,
+  "baseSha256": "0cf5a50c6c6aec01394ec94a5b1db7d58b1cef83862fa3d2e9ef31316c7f4f68",
+  "sha256": "6aa21374f7e7a5413261589d71d5da0c7e3418c43356b65adf2ae66423a4bd58",
+  "bytes": 237828,
+  "certificateSha256": "7374684814395e3df3e4a41b6d0d20a739dddba331a828d0f72d5d37ea78e6c1",
+  "nativeDexIdenticalTo160": true,
+  "compiledResourcesIdenticalTo160": true,
+  "modifiedAssets": [
+    "assets/guide.js",
+    "assets/guide.css",
+    "assets/app.js"
+  ],
+  "signatureVerified": true,
+  "alignmentVerified": true,
+  "guideTopics": 21,
+  "guideSteps": 102,
+  "newTopics": 8,
+  "newSteps": 34,
+  "demos": 8,
+  "guideBrowserTests": "PASS: capítulos completos, demostraciones, reproducción/pausa, búsqueda, progreso y ancho móvil; cero llamadas nativas en guía aislada",
+  "appBrowserTests": "PASS: acceso desde Mejoras del hogar, solo guideRead/guideWrite y datos de movimientos/cesta/mejoras idénticos",
+  "nativeRuntimeTests": "No se repitió emulador: DEX y recursos compilados idénticos a 1.6.0 verificada",
+  "scriptChangesRequired": false
+}

@@ -194,3 +194,4 @@ to{opacity:1;transform:translateY(0)}
 50%{transform:translate(-3px,-4px) rotate(-15deg)}
 }
 }
+.g-new-tools{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:18px}.g-new-tools .g-secondary{min-width:0;white-space:normal;text-align:left;font-size:.85rem;padding:12px}
