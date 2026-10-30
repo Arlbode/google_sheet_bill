@@ -39,3 +39,11 @@
 
 /* Contenido introducido por el hogar: envolver enlaces largos. */
 .offer-url{overflow-wrap:anywhere}.product>.link{width:100%;font-size:.8rem}.details dd{overflow-wrap:anywhere}
+/* Movimientos: el concepto ocupa una línea completa, sin competir con la confirmación. */
+.row{display:grid;grid-template-columns:36px minmax(0,1fr);gap:8px 10px;align-items:start}
+.row-icon{grid-column:1;grid-row:1 / span 2;width:36px;height:36px;font-size:19px}
+.row-body{grid-column:2;min-width:0;width:100%}
+.row-body h3{white-space:normal;word-break:normal;overflow-wrap:break-word;line-height:1.45}
+.row-body small{line-height:1.4}
+.row-right{grid-column:2;display:flex;align-items:center;justify-content:space-between;gap:8px;min-width:0;text-align:left;flex-wrap:wrap}
+.row-right .badge{width:auto;max-width:100%;margin-top:0;padding:2px 5px;font-size:9px;line-height:1.2;white-space:nowrap;flex:0 0 auto}

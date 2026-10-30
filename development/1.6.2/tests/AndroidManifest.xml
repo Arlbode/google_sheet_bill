@@ -1,0 +1,1 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="cu.hogarplaya.tests.capture162"><uses-sdk android:minSdkVersion="26" android:targetSdkVersion="28"/><application android:label="Prueba capturas 1.6.2"/><instrumentation android:name="cu.hogarplaya.tests.CaptureSmoke" android:targetPackage="cu.hogarplaya.recuperada"/></manifest>

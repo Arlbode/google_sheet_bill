@@ -20,7 +20,7 @@ public final class HouseholdDocuments extends Activity {
     private static final String[] TABLES={"profiles","operations","carts","cache","plan_changes","shopping_sessions","shopping_lines"};
     private static final String[] PREFS={"deviceId","deviceName","householdId","endpoint"};
     private byte[] pending;private char[] password;private String mode;
-    @Override public void onCreate(Bundle b){super.onCreate(b);getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);mode=getIntent().getStringExtra("mode");if(b!=null){finish();return;}
+    @Override public void onCreate(Bundle b){super.onCreate(b);getWindow().clearFlags(WindowManager.LayoutParams.FLAG_SECURE);mode=getIntent().getStringExtra("mode");if(b!=null){finish();return;}
         if("featuresImage".equals(mode)){Intent i=new Intent(Intent.ACTION_OPEN_DOCUMENT).setType("image/*").addCategory(Intent.CATEGORY_OPENABLE);startActivityForResult(i,3);return;}
         if("featuresBackup".equals(mode))passwordDialog(true,null);else{Intent i=new Intent(Intent.ACTION_OPEN_DOCUMENT).setType("*/*").addCategory(Intent.CATEGORY_OPENABLE);startActivityForResult(i,2);}
     }
