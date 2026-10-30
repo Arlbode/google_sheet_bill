@@ -2076,7 +2076,7 @@ function prepararHortalizas157_(ss) {
   const freeList=[],freeDirectory=[],template=PLANTILLA.sheets.find(s=>s.name==='Lista compras'),legacy={};
   (template?template.cells:[]).filter(c=>[7,8,11].includes(c.c)&&typeof c.v==='string'&&c.v.startsWith('=')).forEach(c=>{legacy[c.r+':'+(c.c-1)]=c.v;});
   rows.forEach((r,i)=>{
-    const row=i+6,expected={6:'=IF(E'+row+'="","",IF(F'+row+'="USD",E'+row+',IF(Ajustes!$B$7>0,E'+row+'/Ajustes!$B$7,"")))',7:HOGAR_PRECIOS_V5.subtotal.replace(/\{r\}/g,String(row)),10:HOGAR_PRECIOS_V5.priceStatus.replace(/\{r\}/g,String(row))};
+    const row=i+6,expected={6:'=IF(E'+row+'="","",IF(F'+row+'="USD",E'+row+',IF(Ajustes!$B$7>0,E'+row+'/Ajustes!$B$7,"")))',7:HOGAR_PRECIOS_V5.subtotal.replace(/\{r\}/g,String(row)),10:HOGAR_PRECIOS_V5.priceStatus.replace(/\{r\}/g,String(row)),13:'=IF(D'+row+'=1,1,0)'};
     if(r.every((v,c)=>Object.prototype.hasOwnProperty.call(expected,c)?formulas[i][c]!==''?(formulas[i][c]===expected[c]||formulas[i][c]===legacy[row+':'+c]):v==='':v===''&&formulas[i][c]==='')&&notes[i].every(v=>v===''))freeList.push(i);
   });
   entries.forEach((r,i)=>{if(r.every(v=>v==='')&&entryFormulas[i].every(v=>v==='')&&entryNotes[i].every(v=>v===''))freeDirectory.push(i);});
@@ -2094,6 +2094,9 @@ function prepararHortalizas157_(ss) {
     if(addList){
       const name=target.name,note='Añadido a petición del hogar. Precio y proveedor pendientes: introduce el precio real por lb. Cantidad mensual inicial 0, editable.';
       const values=['Complementarios',name,'lb',0,'','CUP','=IF(E'+row+'="","",IF(F'+row+'="USD",E'+row+',IF(Ajustes!$B$7>0,E'+row+'/Ajustes!$B$7,"")))',HOGAR_PRECIOS_V5.subtotal.replace(/\{r\}/g,String(row)),'','',HOGAR_PRECIOS_V5.priceStatus.replace(/\{r\}/g,String(row)),note,0,0];
+      // Las filas vacías preparadas por iniciarHogar tienen fórmulas, incluida N=IF(D=1,1,0).
+      // Se reconocen como disponibles y se conservan exactamente esas fórmulas automáticas.
+      [6,7,10,13].forEach(c=>{if(formulas[i][c])values[c]=formulas[i][c];});
       list.getRange(row,1,1,14).setValues([values]);rows[i]=values;added.push(name);
     }
     if(addDirectory){
