@@ -1,3 +1,9 @@
+## Hogar finanzas 1.6.0
+
+Disponible desde Perfil → Actualizaciones → Buscar actualizaciones. [APK firmada](Hogar_finanzas_1.6.0.apk) · [Script completo](Script_Completo_Hogar_1.6.0.txt) · [Instrucciones y validación](VERSION_1.6.0.md).
+
+Para activar lista compartida e historial remoto, publica el script 1.6.0 en la misma implementación /exec. Desde una hoja 1.5.7 funcional no hace falta volver a ejecutar iniciarHogar. Instala encima de la app actual sin desinstalar.
+
 ## Actualización 1.5.7
 
 [Descargar APK firmada 1.5.7](Hogar_finanzas_1.5.7.apk) · [Detalles y validación](VERSION_1.5.7.md)
