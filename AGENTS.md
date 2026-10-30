@@ -1,0 +1,14 @@
+# Hogar finanzas — continuidad de desarrollo
+
+- Usa el checkout existente y conserva cambios locales. No crees worktrees salvo petición explícita.
+- La APK estable de partida es 1.5.7, paquete `cu.hogarplaya.recuperada`, certificado SHA-256 `7374684814395e3df3e4a41b6d0d20a739dddba331a828d0f72d5d37ea78e6c1`.
+- La propuesta 1.6.0 y sus pruebas están en `development/1.6.0/`. Lee su README y la validación de la entrega antes de continuar. No confundas una candidata firmada con una versión activa en `actualizacion.json` ni con un despliegue del Sheet.
+- Comprueba primero `/workspace/.android-signing/hogar-playa-v2/hogar.p12` y `password`. Nunca regeneres una firma que falta ni publiques claves, contraseñas, ZIP privados o accesos de recuperación. La restauración debe verificar el certificado real del PKCS12 antes de usarlo; lee el procedimiento original de recuperación conservado en el historial de fuentes.
+- La construcción 1.6.0 utiliza la APK 1.5.7 verificada como base. Compila únicamente `development/1.6.0/native/`, escrito a mano. Los stubs no se empaquetan. No compiles Java decompilado.
+- Conserva todos los métodos originales salvo `MainActivity$Bridge.call`. `build.py` compara las clases anteriores tras ensamblar y rechaza cualquier otra modificación. No retires esa comprobación ni rebajes los hashes de las herramientas.
+- Conserva UUID, estados financieros, fondos, sesiones de compra, recibos idempotentes, permisos puntuales de ubicación y autenticación diaria de La Habana. Nunca conviertas un cambio de lista compartida en un gasto ni reinicies topes borrando operaciones.
+- La lista compartida usa su propia cola y las pestañas `Lista compartida app` / `Recibos lista app`, con autenticación de hogar/dispositivo/perfil y control de versiones. Los conflictos no se resuelven sobrescribiendo automáticamente.
+- Los respaldos `.hgf` completos están cifrados y contienen conexión y verificadores PIN; nunca los publiques. La recuperación solo acepta una instalación vacía y conserva la identidad del teléfono de origen. Tras migrar debe utilizarse solo el nuevo. La clave local de elTOQUE se configura de nuevo.
+- No añadas navegación WebView arbitraria. Los enlaces de ofertas se muestran como texto; el puente de mapas anterior conserva sus rutas cerradas. No inventes una API pública de Revolico ni precios, unidades, proveedores o disponibilidad.
+- Usa datos ficticios para pruebas. La instrumentación Android exige un emulador identificado; `--reset` solo borra la app ficticia de ese emulador. Nunca ejecutes esos borrados sobre un teléfono físico o datos del hogar.
+- El script completo 1.6.0 debe desplegarse en la misma implementación Apps Script /exec para activar colaboración e historial remoto. La publicación del archivo en GitHub no despliega Apps Script ni demuestra sincronización con el Sheet privado.

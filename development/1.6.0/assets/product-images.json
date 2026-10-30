@@ -1,0 +1,418 @@
+{
+  "leche en polvo": {
+    "src": "product-leche-en-polvo.svg",
+    "alt": "Leche en polvo"
+  },
+  "huevo": {
+    "src": "product-huevo.svg",
+    "alt": "Huevo"
+  },
+  "pan": {
+    "src": "product-pan.svg",
+    "alt": "Pan"
+  },
+  "carne de cerdo deshuesada": {
+    "src": "product-carne-de-cerdo-deshuesada.svg",
+    "alt": "Carne de cerdo deshuesada"
+  },
+  "pollo congelado": {
+    "src": "product-pollo-congelado.svg",
+    "alt": "Pollo congelado"
+  },
+  "arroz": {
+    "src": "product-arroz.svg",
+    "alt": "Arroz"
+  },
+  "azucar": {
+    "src": "product-azucar.svg",
+    "alt": "Azúcar"
+  },
+  "sal fina": {
+    "src": "product-sal-fina.svg",
+    "alt": "Sal fina"
+  },
+  "aceite comestible": {
+    "src": "product-aceite-comestible.svg",
+    "alt": "Aceite comestible"
+  },
+  "picadillo de pollo": {
+    "src": "product-picadillo-de-pollo.svg",
+    "alt": "Picadillo de pollo"
+  },
+  "boniato": {
+    "src": "product-boniato.svg",
+    "alt": "Boniato"
+  },
+  "calabaza": {
+    "src": "product-calabaza.svg",
+    "alt": "Calabaza"
+  },
+  "pepino": {
+    "src": "product-pepino.svg",
+    "alt": "Pepino"
+  },
+  "col": {
+    "src": "product-col.svg",
+    "alt": "Col"
+  },
+  "frutabomba": {
+    "src": "product-frutabomba.svg",
+    "alt": "Frutabomba"
+  },
+  "guayaba": {
+    "src": "product-guayaba.svg",
+    "alt": "Guayaba"
+  },
+  "platano": {
+    "src": "product-platano.svg",
+    "alt": "Plátano"
+  },
+  "yuca": {
+    "src": "product-yuca.svg",
+    "alt": "Yuca"
+  },
+  "tomate": {
+    "src": "product-tomate.svg",
+    "alt": "Tomate"
+  },
+  "cebolla": {
+    "src": "product-cebolla.svg",
+    "alt": "Cebolla"
+  },
+  "ajo": {
+    "src": "product-ajo.svg",
+    "alt": "Ajo"
+  },
+  "comida a domicilio (para 2)": {
+    "src": "product-comida-a-domicilio-para-2.svg",
+    "alt": "Comida a domicilio (para 2)"
+  },
+  "paseo / salida": {
+    "src": "product-paseo-salida.svg",
+    "alt": "Paseo / salida"
+  },
+  "arroz para los 3 perros": {
+    "src": "product-arroz-para-los-3-perros.svg",
+    "alt": "Arroz para los 3 perros"
+  },
+  "boniato para los 3 perros": {
+    "src": "product-boniato-para-los-3-perros.svg",
+    "alt": "Boniato para los 3 perros"
+  },
+  "pollo para los 3 perros": {
+    "src": "product-pollo-para-los-3-perros.svg",
+    "alt": "Pollo para los 3 perros"
+  },
+  "bofe (alternativa al pollo)": {
+    "src": "product-bofe-alternativa-al-pollo.svg",
+    "alt": "Bofe (alternativa al pollo)"
+  },
+  "pienso para los 3 perros": {
+    "src": "product-pienso-para-los-3-perros.svg",
+    "alt": "Pienso para los 3 perros"
+  },
+  "alternativa: pienso en saco": {
+    "src": "product-alternativa-pienso-en-saco.svg",
+    "alt": "Alternativa: pienso en saco"
+  },
+  "mensajeria de compras": {
+    "src": "product-mensajeria-de-compras.svg",
+    "alt": "Mensajería de compras"
+  },
+  "electricidad / agua": {
+    "src": "product-electricidad-agua.svg",
+    "alt": "Electricidad / agua"
+  },
+  "gas / combustible cocina": {
+    "src": "product-gas-combustible-cocina.svg",
+    "alt": "Gas / combustible cocina"
+  },
+  "telefono / datos": {
+    "src": "product-telefono-datos.svg",
+    "alt": "Teléfono / datos"
+  },
+  "transporte cotidiano": {
+    "src": "product-transporte-cotidiano.svg",
+    "alt": "Transporte cotidiano"
+  },
+  "pasta dental": {
+    "src": "product-pasta-dental.svg",
+    "alt": "Pasta dental"
+  },
+  "champu": {
+    "src": "product-champu.svg",
+    "alt": "Champú"
+  },
+  "desodorante": {
+    "src": "product-desodorante.svg",
+    "alt": "Desodorante"
+  },
+  "papel higienico": {
+    "src": "product-papel-higienico.svg",
+    "alt": "Papel higiénico"
+  },
+  "detergente para ropa": {
+    "src": "product-detergente-para-ropa.svg",
+    "alt": "Detergente para ropa"
+  },
+  "cloro / lejia": {
+    "src": "product-cloro-lejia.svg",
+    "alt": "Cloro / lejía"
+  },
+  "limpiador de pisos": {
+    "src": "product-limpiador-de-pisos.svg",
+    "alt": "Limpiador de pisos"
+  },
+  "bolsas de basura": {
+    "src": "product-bolsas-de-basura.svg",
+    "alt": "Bolsas de basura"
+  },
+  "almohadillas sanitarias": {
+    "src": "product-almohadillas-sanitarias.svg",
+    "alt": "Almohadillas sanitarias"
+  },
+  "jabon de bano": {
+    "src": "product-jabon-de-bano.svg",
+    "alt": "Jabón de baño"
+  },
+  "cepillos dentales": {
+    "src": "product-cepillos-dentales.svg",
+    "alt": "Cepillos dentales"
+  },
+  "detergente para platos": {
+    "src": "product-detergente-para-platos.svg",
+    "alt": "Detergente para platos"
+  },
+  "esponjas / estropajos": {
+    "src": "product-esponjas-estropajos.svg",
+    "alt": "Esponjas / estropajos"
+  },
+  "malanga": {
+    "src": "product-malanga.svg",
+    "alt": "Malanga"
+  },
+  "platano macho maduro": {
+    "src": "product-platano-macho-maduro.svg",
+    "alt": "Plátano macho maduro"
+  },
+  "cebolla morada con mata": {
+    "src": "product-cebolla-morada-con-mata.svg",
+    "alt": "Cebolla morada con mata"
+  },
+  "pimiento": {
+    "src": "product-pimiento.svg",
+    "alt": "Pimiento"
+  },
+  "remolacha": {
+    "src": "product-remolacha.svg",
+    "alt": "Remolacha"
+  },
+  "limon": {
+    "src": "product-limon.svg",
+    "alt": "Limón"
+  },
+  "frijoles negros": {
+    "src": "product-frijoles-negros.svg",
+    "alt": "Frijoles negros"
+  },
+  "frijoles colorados": {
+    "src": "product-frijoles-colorados.svg",
+    "alt": "Frijoles colorados"
+  },
+  "judia": {
+    "src": "product-judia.svg",
+    "alt": "Judía"
+  },
+  "chicharo verde partido": {
+    "src": "product-chicharo-verde-partido.svg",
+    "alt": "Chícharo verde partido"
+  },
+  "ajonjoli": {
+    "src": "product-ajonjoli.svg",
+    "alt": "Ajonjolí"
+  },
+  "cachucha": {
+    "src": "product-cachucha.svg",
+    "alt": "Cachucha"
+  },
+  "arroz importado · paquete": {
+    "src": "product-arroz-importado-paquete.svg",
+    "alt": "Arroz importado · paquete"
+  },
+  "vino seco": {
+    "src": "product-vino-seco.svg",
+    "alt": "Vino seco"
+  },
+  "vinagre": {
+    "src": "product-vinagre.svg",
+    "alt": "Vinagre"
+  },
+  "zumo de naranja agria": {
+    "src": "product-zumo-de-naranja-agria.svg",
+    "alt": "Zumo de naranja agria"
+  },
+  "zumo de limon": {
+    "src": "product-zumo-de-limon.svg",
+    "alt": "Zumo de limón"
+  },
+  "lomo natural": {
+    "src": "product-lomo-natural.svg",
+    "alt": "Lomo natural"
+  },
+  "pollo muslo y contramuslo · paquete de 3 lb": {
+    "src": "product-pollo-muslo-y-contramuslo-paquete-de-3-lb.svg",
+    "alt": "Pollo muslo y contramuslo · paquete de 3 lb"
+  },
+  "pasta de bocaditos": {
+    "src": "product-pasta-de-bocaditos.svg",
+    "alt": "Pasta de bocaditos"
+  },
+  "salchichas de pollo": {
+    "src": "product-salchichas-de-pollo.svg",
+    "alt": "Salchichas de pollo"
+  },
+  "higado de pollo": {
+    "src": "product-higado-de-pollo.svg",
+    "alt": "Hígado de pollo"
+  },
+  "hamburguesas": {
+    "src": "product-hamburguesas.svg",
+    "alt": "Hamburguesas"
+  },
+  "mayonesa celorio": {
+    "src": "product-mayonesa-celorio.svg",
+    "alt": "Mayonesa Celorio"
+  },
+  "sazon mixto": {
+    "src": "product-sazon-mixto.svg",
+    "alt": "Sazón mixto"
+  },
+  "vainilla": {
+    "src": "product-vainilla.svg",
+    "alt": "Vainilla"
+  },
+  "garbanzos en lata": {
+    "src": "product-garbanzos-en-lata.svg",
+    "alt": "Garbanzos en lata"
+  },
+  "cafe morto": {
+    "src": "product-cafe-morto.svg",
+    "alt": "Café Morto"
+  },
+  "pasta de tomate": {
+    "src": "product-pasta-de-tomate.svg",
+    "alt": "Pasta de tomate"
+  },
+  "barra de guayaba": {
+    "src": "product-barra-de-guayaba.svg",
+    "alt": "Barra de guayaba"
+  },
+  "leche condensada": {
+    "src": "product-leche-condensada.svg",
+    "alt": "Leche condensada"
+  },
+  "sopa de pollo": {
+    "src": "product-sopa-de-pollo.svg",
+    "alt": "Sopa de pollo"
+  },
+  "queso de crema": {
+    "src": "product-queso-de-crema.svg",
+    "alt": "Queso de crema"
+  },
+  "galletas crokantinas": {
+    "src": "product-galletas-crokantinas.svg",
+    "alt": "Galletas Crokantinas"
+  },
+  "nescafe": {
+    "src": "product-nescafe.svg",
+    "alt": "Nescafé"
+  },
+  "nutella": {
+    "src": "product-nutella.svg",
+    "alt": "Nutella"
+  },
+  "galletas maria": {
+    "src": "product-galletas-maria.svg",
+    "alt": "Galletas María"
+  },
+  "mantequilla": {
+    "src": "product-mantequilla.svg",
+    "alt": "Mantequilla"
+  },
+  "maiz dulce en grano": {
+    "src": "product-maiz-dulce-en-grano.svg",
+    "alt": "Maíz dulce en grano"
+  },
+  "pan rallado": {
+    "src": "product-pan-rallado.svg",
+    "alt": "Pan rallado"
+  },
+  "maiz dulce en lata": {
+    "src": "product-maiz-dulce-en-lata.svg",
+    "alt": "Maíz dulce en lata"
+  },
+  "jamon": {
+    "src": "product-jamon.svg",
+    "alt": "Jamón"
+  },
+  "queso": {
+    "src": "product-queso.svg",
+    "alt": "Queso"
+  },
+  "gasolina": {
+    "src": "product-gasolina.svg",
+    "alt": "Gasolina"
+  },
+  "pollo": {
+    "src": "product-pollo-congelado.svg",
+    "alt": "Pollo congelado"
+  },
+  "fruta bomba": {
+    "src": "product-frutabomba.svg",
+    "alt": "Frutabomba"
+  },
+  "frutabomba pintona": {
+    "src": "product-frutabomba.svg",
+    "alt": "Frutabomba"
+  },
+  "platano burro": {
+    "src": "product-platano.svg",
+    "alt": "Plátano"
+  },
+  "cebolla blanca": {
+    "src": "product-cebolla.svg",
+    "alt": "Cebolla"
+  },
+  "cebolla morada": {
+    "src": "product-cebolla-morada-con-mata.svg",
+    "alt": "Cebolla morada con mata"
+  },
+  "aji cachucha": {
+    "src": "product-cachucha.svg",
+    "alt": "Cachucha"
+  },
+  "cafe": {
+    "src": "product-cafe-morto.svg",
+    "alt": "Café Morto"
+  },
+  "lomo natural (carne de cerdo deshuesada)": {
+    "src": "product-lomo-natural.svg",
+    "alt": "Lomo natural"
+  },
+  "leche condesada": {
+    "src": "product-leche-condensada.svg",
+    "alt": "Leche condensada"
+  },
+  "zanahoria": {
+    "src": "product-zanahoria.svg",
+    "alt": "Zanahoria"
+  },
+  "zanahorias": {
+    "src": "product-zanahoria.svg",
+    "alt": "Zanahoria"
+  },
+  "aji pimiento": {
+    "src": "product-pimiento.svg",
+    "alt": "Ají pimiento"
+  }
+}

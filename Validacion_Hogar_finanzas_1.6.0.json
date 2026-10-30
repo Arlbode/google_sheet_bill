@@ -1,0 +1,26 @@
+{
+  "baseSha256": "9c03f4a3f64940eaf15fb0e6e9f17d24dd941f41dd6b27cfa0ac1cfe741877d3",
+  "sha256": "0cf5a50c6c6aec01394ec94a5b1db7d58b1cef83862fa3d2e9ef31316c7f4f68",
+  "originalClassesVerified": 89,
+  "onlyOriginalMethodChanged": "MainActivity$Bridge.call",
+  "newNativeClasses": 25,
+  "status": "signed-review-candidate",
+  "nativeDeviceTests": {
+    "passed": 23,
+    "android": 10,
+    "log": "PASS: 23 comprobaciones nativas; autenticación, SQLite, cola sin gastos, cifrado, rechazo de sobrescritura, recuperación de perfiles/UUID/cola y envío interrumpido.",
+    "testedApkSha256": "4f137cbf8813ce0b10b985ce9d46973370791d11be106d2fac1be94361748bf8",
+    "finalNativeDexIdenticalToTested": true
+  },
+  "nativeDexSha256": "588eae65fa8324e5f362eda72df1ea86fcb3ebe0be051d0541101181a8a1c2d0",
+  "upgradePreservationTest": "PASS: actualización 1.5.7 a 1.6.0 con perfil, UUID e importe conservados",
+  "modelTestsPassed": 7,
+  "browserTest": "PASS: ocho herramientas, compra desde catálogo, prevención de duplicados, ofertas escapadas y ancho móvil, con puente simulado",
+  "backendTest": "PASS: doPost real, autenticación, hogar, revocación, conflictos, reintentos, recibos y separación de tablas financieras",
+  "cipherJvmTest": "PASS: recuperación, sal/nonce aleatorios, contraseña incorrecta, manipulación y formato",
+  "privateSheetDeployment": "not-performed",
+  "privateSheetEndToEndSync": "not-run",
+  "stableChannelModified": false,
+  "certificateSha256": "7374684814395e3df3e4a41b6d0d20a739dddba331a828d0f72d5d37ea78e6c1",
+  "bytes": 229636
+}
