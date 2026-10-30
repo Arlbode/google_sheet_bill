@@ -1,3 +1,7 @@
+## Hogar finanzas 1.6.2 · Perfil y movimientos
+
+[APK firmada](Hogar_finanzas_1.6.2.apk) · [Cambios y validación](VERSION_1.6.2.md). Actualiza desde Perfil → Actualizaciones → Buscar actualizaciones. Mejoras primero, permisos agrupados, nombres con más espacio y capturas permitidas. Instala encima sin desinstalar; no requiere cambios adicionales de script sobre 1.6.0/1.6.1.
+
 ## Hogar finanzas 1.6.1 · Guía didáctica
 
 Disponible desde Perfil → Actualizaciones → Buscar actualizaciones. [APK firmada](Hogar_finanzas_1.6.1.apk) · [Guía y validación](VERSION_1.6.1.md). La guía incluye las ocho mejoras: 21 temas, 102 pasos y ocho demostraciones nuevas. Si ya desplegaste el script 1.6.0, no requiere cambios adicionales en Apps Script.

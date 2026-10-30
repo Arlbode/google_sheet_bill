@@ -1,0 +1,26 @@
+{
+  "versionName": "1.6.2",
+  "versionCode": 20,
+  "baseSha256": "6aa21374f7e7a5413261589d71d5da0c7e3418c43356b65adf2ae66423a4bd58",
+  "sha256": "2bd39ab59b722ed4fdfe65cb53793c2135dd57ecadfffa4556206886e1bca857",
+  "bytes": 237828,
+  "certificateSha256": "7374684814395e3df3e4a41b6d0d20a739dddba331a828d0f72d5d37ea78e6c1",
+  "nativeFinancialCodePreserved": true,
+  "nativeModifiedClasses": [
+    "HouseholdFeatures",
+    "HouseholdDocuments"
+  ],
+  "compiledResourcesIdenticalTo161": true,
+  "modifiedAssets": [
+    "assets/guide.js",
+    "assets/app.css",
+    "assets/app.js"
+  ],
+  "signatureVerified": true,
+  "alignmentVerified": true,
+  "browserTests": "PASS: Perfil con Mejoras primero, sin Plan de pagos ni prueba de aviso, Permisos con avisos/ubicación; funciones y datos conservados",
+  "movementLayout": "PASS: 320/360/390 px; nombre visible sin recortes, ancho disponible >60% de pantalla, etiqueta Confirmado <85px con texto completo accesible",
+  "guideTests": "PASS: 21 temas, 102 pasos, ocho demostraciones, búsqueda, progreso y reproducción",
+  "androidCaptureTest": "PASS: capturas permitidas en MainActivity y HouseholdDocuments; captura real no negra guardada.",
+  "scriptChangesRequired": false
+}

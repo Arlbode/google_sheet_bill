@@ -1,11 +1,11 @@
 {
   "applicationId": "cu.hogarplaya.recuperada",
-  "versionCode": 19,
-  "versionName": "1.6.1",
+  "versionCode": 20,
+  "versionName": "1.6.2",
   "minSdk": 26,
   "bytes": 237828,
-  "sha256": "6aa21374f7e7a5413261589d71d5da0c7e3418c43356b65adf2ae66423a4bd58",
+  "sha256": "2bd39ab59b722ed4fdfe65cb53793c2135dd57ecadfffa4556206886e1bca857",
   "certificateSha256": "7374684814395e3df3e4a41b6d0d20a739dddba331a828d0f72d5d37ea78e6c1",
-  "url": "https://raw.githubusercontent.com/Arlbode/google_sheet_bill/actualizaciones-android/Hogar_finanzas_1.6.1.apk",
-  "notes": "Guía didáctica ampliada: 21 temas y 102 pasos, con ocho recorridos nuevos y ocho demostraciones sobre las mejoras de 1.6.0.\nAccede desde Perfil → Cómo usar Hogar finanzas o Mejoras del hogar → Aprender estas mejoras paso a paso.\nEjemplos ficticios, búsqueda, progreso conservado y reproducción automática.\nMantiene identidad, firma y código nativo de 1.6.0. Instala encima sin desinstalar. Si ya publicaste el script 1.6.0, esta actualización de la guía no requiere cambios en Apps Script."
+  "url": "https://raw.githubusercontent.com/Arlbode/google_sheet_bill/actualizaciones-android/Hogar_finanzas_1.6.2.apk",
+  "notes": "Perfil reorganizado: Mejoras del hogar aparece primero; Permisos reúne Avisos de necesidad de CUP y Ubicación en las compras. Se retiran de Perfil Plan de pagos y Probar aviso de protección USD.\nMovimientos muestra el nombre con más espacio y una etiqueta Confirmado más compacta.\nCapturas de pantalla permitidas en la aplicación. Guía actualizada con las nuevas rutas.\nMisma identidad y firma; instala encima sin desinstalar. No requiere cambios en Apps Script si ya utilizas 1.6.0/1.6.1."
 }
