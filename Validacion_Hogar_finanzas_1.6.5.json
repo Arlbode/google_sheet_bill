@@ -1,0 +1,31 @@
+{
+  "versionName": "1.6.5",
+  "versionCode": 23,
+  "baseSha256": "44c8657d225744067c8cae49c956ceb9b27ef19854c686a6d8cbad0c1079b20f",
+  "sha256": "ec57a5f86aa6a0adc3f260a45997daf4113e0351280af94d69fb6e026af97ea3",
+  "bytes": 893257,
+  "certificateSha256": "7374684814395e3df3e4a41b6d0d20a739dddba331a828d0f72d5d37ea78e6c1",
+  "originalNativeClassesPreserved": true,
+  "compiledResourcesIdenticalTo164": true,
+  "modifiedAssets": [
+    "assets/app.js"
+  ],
+  "signatureVerified": true,
+  "alignmentVerified": true,
+  "nativeModifiedClasses": [
+    "HouseholdFeatures"
+  ],
+  "nativeAddedClasses": [
+    "CompatibleUpdate",
+    "UpdateTransfer"
+  ],
+  "originalUpdaterVerifierAndInstallerUnchanged": true,
+  "householdDocumentsUnchanged": true,
+  "jvmTests": "PASS: 28 comprobaciones de TLS1.2/AEAD, BAD_DECRYPT, reintentos limitados, archivos nuevos y limpieza, URL, redirecciones, certificado, tamaños y EOF",
+  "browserTests": "PASS: comandos featuresUpdateDownload y featuresUpdateBrowser; flujos previos y anchos 320/360/390px conservados",
+  "androidTests": "INSTRUMENTATION_RESULT: stream=PASS: Android TLS1.2, política original, APK alterada rechazada, APK firmada verificada reconocida por instalador y manipulación posterior rechazada.\n\nINSTRUMENTATION_CODE: -1",
+  "serverTLS12": "PASS: descarga pública con TLS1.2 y SHA-256 verificado",
+  "privateSheetTested": false,
+  "userPhoneTested": false,
+  "scriptChangesRequired": false
+}

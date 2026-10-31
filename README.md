@@ -1,3 +1,7 @@
+## Hogar finanzas 1.6.5 · Descarga TLS compatible
+
+[APK firmada](Hogar_finanzas_1.6.5.apk) · [Instrucciones y validación](VERSION_1.6.5.md). Descarga con TLS 1.2, reintentos ante errores SSL de lectura y alternativa de navegador. Si tu descargador actual falla, abre el enlace de esta APK en Chrome e instala encima sin desinstalar: la corrección solo entra en funcionamiento después de instalarla. Misma identidad y firma; no cambia datos ni Apps Script.
+
 ## Hogar finanzas 1.6.4 · Inicio y Compras
 
 [APK firmada](Hogar_finanzas_1.6.4.apk) · [Cambios y validación](VERSION_1.6.4.md). Registrar más arriba, Previsión al final, dinero libre en un asistente dentro de Saldos por moneda, cesta compartida al final de Compras e imagen para Papa (patata). Se retira el panel de registros de sincronización. Actualiza desde Perfil → Actualizaciones, sin desinstalar ni cambiar Apps Script.

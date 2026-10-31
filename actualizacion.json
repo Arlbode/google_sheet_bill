@@ -1,11 +1,11 @@
 {
   "applicationId": "cu.hogarplaya.recuperada",
-  "versionCode": 22,
-  "versionName": "1.6.4",
+  "versionCode": 23,
+  "versionName": "1.6.5",
   "minSdk": 26,
-  "bytes": 889161,
-  "sha256": "44c8657d225744067c8cae49c956ceb9b27ef19854c686a6d8cbad0c1079b20f",
+  "bytes": 893257,
+  "sha256": "ec57a5f86aa6a0adc3f260a45997daf4113e0351280af94d69fb6e026af97ea3",
   "certificateSha256": "7374684814395e3df3e4a41b6d0d20a739dddba331a828d0f72d5d37ea78e6c1",
-  "url": "https://raw.githubusercontent.com/Arlbode/google_sheet_bill/actualizaciones-android/Hogar_finanzas_1.6.4.apk",
-  "notes": "Inicio: se retira el panel de registros de sincronización; Registrar sube y Previsión del mes pasa al final. Saldos por moneda incluye Ver libre para el día a día, con asistente de tres pasos.\nCompras: cesta del hogar compartida al final de la vista, también en Modo compra. Imagen para Papa (patata) acorde con la app. Guía adaptada.\nMisma firma, identidad y código nativo de 1.6.3. Instala encima sin desinstalar; no requiere cambios adicionales de Apps Script."
+  "url": "https://raw.githubusercontent.com/Arlbode/google_sheet_bill/actualizaciones-android/Hogar_finanzas_1.6.5.apk",
+  "notes": "Descarga interna compatible con TLS 1.2 y preferencia por ChaCha20 cuando está disponible. Hasta tres intentos ante fallos de lectura SSL o descargas interrumpidas, con conexiones y archivos nuevos. Se descartan archivos parciales y se mantienen las comprobaciones originales de integridad, identidad y firma.\nSi falla, la pantalla ofrece Descargar con el navegador. Para instalar esta primera corrección desde una versión cuyo descargador falla, abre el enlace de la APK en Chrome e instala encima, sin desinstalar. No cambia datos ni Apps Script."
 }
