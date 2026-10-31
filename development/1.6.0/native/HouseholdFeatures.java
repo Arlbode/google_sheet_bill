@@ -62,6 +62,8 @@ public final class HouseholdFeatures {
             AppStore s=AppStore.get(a);JSONObject d=request.optJSONObject("data");if(d==null)d=new JSONObject();
             boolean empty=s.profiles().length()==0;
             String who="";if(!(empty&&action.equals("featuresRestore")))who=actor(a);
+            if(action.equals("featuresUpdateBrowser")){CompatibleUpdate.browser(a);reply(a,id,new JSONObject().put("opened",true),null);return;}
+            if(action.equals("featuresUpdateDownload")){CompatibleUpdate.start(a);reply(a,id,new JSONObject().put("started",true),null);return;}
             JSONObject v=get(s);
             if(action.equals("featuresGet")){reply(a,id,v,null);return;}
             if(action.equals("featuresBackup")||action.equals("featuresRestore")||action.equals("featuresVerify")||action.equals("featuresImage")){
