@@ -1,3 +1,7 @@
+## Hogar finanzas 1.6.4 · Inicio y Compras
+
+[APK firmada](Hogar_finanzas_1.6.4.apk) · [Cambios y validación](VERSION_1.6.4.md). Registrar más arriba, Previsión al final, dinero libre en un asistente dentro de Saldos por moneda, cesta compartida al final de Compras e imagen para Papa (patata). Se retira el panel de registros de sincronización. Actualiza desde Perfil → Actualizaciones, sin desinstalar ni cambiar Apps Script.
+
 ## Hogar finanzas 1.6.3 · Mejoras integradas
 
 [APK firmada](Hogar_finanzas_1.6.3.apk) · [Cambios y validación](VERSION_1.6.3.md). Inicio reúne análisis y envío; Comprar incorpora lista, ofertas y herramientas; Movimientos incluye precios históricos; Perfil conserva ajustes y respaldo. Guía actualizada. Actualiza desde Perfil → Actualizaciones → Buscar actualizaciones, sin desinstalar ni cambiar el script si ya utilizas 1.6.0.
