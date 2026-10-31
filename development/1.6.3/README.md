@@ -1,0 +1,9 @@
+# Hogar finanzas 1.6.3 — herramientas dentro de sus pantallas
+
+Retira el menú aislado Mejoras del hogar. Inicio muestra previsión y margen del mes, con desglose desplegable, y estado de envío con pendientes, errores y reintentos. Comprar reúne la lista compartida y ofertas en secciones desplegables junto al catálogo; permite comparar unidades, añadir productos y editar nombre, referencia, proveedor y foto desde cada tarjeta. También conserva estas herramientas durante Modo compra. Movimientos incorpora el historial de precios por producto antes del listado de actividad. Perfil conserva conexión, permisos, perfiles, actualizaciones, guía y respaldo cifrado, sustituyendo la exportación JSON duplicada (sigue accesible dentro de Respaldo).
+
+Las secciones presentan los datos existentes; formularios de edición y comparación se abren desde su contexto. La lista compartida sigue sin producir gastos. Los historiales conservan monedas, unidades y UUID. La guía mantiene sus 21 temas y progreso, con rutas actualizadas. No necesita cambios en Apps Script sobre la versión 1.6.0 ya desplegada.
+
+Construir con `python3 development/1.6.3/build.py`. Base: APK publicada 1.6.2 con SHA fijado. Conserva byte por byte DEX y recursos compilados y todas las entradas salvo manifiesto de versión y tres assets (app.js/app.css/guide.js). Firma existente, paquete cu.hogarplaya.recuperada, código 21. No recompila Java ni modifica almacenamiento.
+
+Verificación: `development/1.6.0/tests/browser_features.py` prueba flujos integrados con datos ficticios y puente simulado; `development/1.6.1/tests/browser_guide.py` comprueba rutas, 34 pasos y ocho demos. Navegador Chromium local, ancho 320/360/390. No accede al Sheet privado. El constructor verifica firma, versión, alineación y conservación íntegra del DEX de 1.6.2.
