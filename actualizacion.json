@@ -1,11 +1,11 @@
 {
   "applicationId": "cu.hogarplaya.recuperada",
-  "versionCode": 20,
-  "versionName": "1.6.2",
+  "versionCode": 21,
+  "versionName": "1.6.3",
   "minSdk": 26,
   "bytes": 237828,
-  "sha256": "2bd39ab59b722ed4fdfe65cb53793c2135dd57ecadfffa4556206886e1bca857",
+  "sha256": "135f39caffbfd5b52ed4a66b4191405d18e822e4b3b278ccfc233a671e77ed56",
   "certificateSha256": "7374684814395e3df3e4a41b6d0d20a739dddba331a828d0f72d5d37ea78e6c1",
-  "url": "https://raw.githubusercontent.com/Arlbode/google_sheet_bill/actualizaciones-android/Hogar_finanzas_1.6.2.apk",
-  "notes": "Perfil reorganizado: Mejoras del hogar aparece primero; Permisos reúne Avisos de necesidad de CUP y Ubicación en las compras. Se retiran de Perfil Plan de pagos y Probar aviso de protección USD.\nMovimientos muestra el nombre con más espacio y una etiqueta Confirmado más compacta.\nCapturas de pantalla permitidas en la aplicación. Guía actualizada con las nuevas rutas.\nMisma identidad y firma; instala encima sin desinstalar. No requiere cambios en Apps Script si ya utilizas 1.6.0/1.6.1."
+  "url": "https://raw.githubusercontent.com/Arlbode/google_sheet_bill/actualizaciones-android/Hogar_finanzas_1.6.3.apk",
+  "notes": "Las ocho mejoras forman parte de las pantallas habituales. Inicio: previsión del mes y estado de envío al Sheet. Comprar: lista compartida, ofertas, comparación por unidad y edición con foto en cada producto. Movimientos: historial de precios por producto. Perfil: respaldo y recuperación, conexión y ajustes personales. Se retira el menú separado Mejoras del hogar.\nGuía adaptada a las nuevas ubicaciones. Misma firma y código nativo de 1.6.2; instala encima sin desinstalar. No requiere cambios adicionales en Apps Script sobre 1.6.0 ya desplegado."
 }

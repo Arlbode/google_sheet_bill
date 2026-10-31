@@ -1,0 +1,22 @@
+{
+  "versionName": "1.6.3",
+  "versionCode": 21,
+  "baseSha256": "2bd39ab59b722ed4fdfe65cb53793c2135dd57ecadfffa4556206886e1bca857",
+  "sha256": "135f39caffbfd5b52ed4a66b4191405d18e822e4b3b278ccfc233a671e77ed56",
+  "bytes": 237828,
+  "certificateSha256": "7374684814395e3df3e4a41b6d0d20a739dddba331a828d0f72d5d37ea78e6c1",
+  "nativeDexIdenticalTo162": true,
+  "compiledResourcesIdenticalTo162": true,
+  "modifiedAssets": [
+    "assets/guide.js",
+    "assets/app.css",
+    "assets/app.js"
+  ],
+  "signatureVerified": true,
+  "alignmentVerified": true,
+  "browserTests": "PASS: integración en cuatro pantallas, edición y foto, comparación, lista sin gastos, ofertas escapadas, respaldo y ancho 320/360/390px",
+  "guideTests": "PASS: 21 temas, 34 pasos nuevos, 8 demostraciones; rutas actualizadas, búsqueda y progreso conservados",
+  "modelTests": "PASS: 7 comprobaciones de precios, unidades, previsión, ofertas e identidad",
+  "scriptChangesRequired": false,
+  "privateSheetTested": false
+}
