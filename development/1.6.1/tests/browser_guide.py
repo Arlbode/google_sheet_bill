@@ -24,7 +24,7 @@ try:
   for id in ids:
    page.evaluate('(id)=>openGuide(id)',id);count=next(t['steps'] for t in topics if t['id']==id)
    for index in range(count):
-    expect(page.locator('.g-step-counter')).to_have_text(str(index+1)+' / '+str(count));assert page.locator('#guideStepTitle').inner_text();assert page.locator('.g-route').inner_text().startswith({'respaldo':'Perfil → Respaldo','estado-envio':'Inicio → Envío','precios':'Movimientos → Historial','comparador':'Comprar → Comparar','catalogo':'Comprar → Editar','lista-compartida':'Comprar → Lista','prevision':'Inicio → Previsión','ofertas':'Comprar → Ofertas'}[id]);assert not page.evaluate('document.documentElement.scrollWidth>innerWidth')
+    expect(page.locator('.g-step-counter')).to_have_text(str(index+1)+' / '+str(count));assert page.locator('#guideStepTitle').inner_text();assert page.locator('.g-route').inner_text().startswith({'respaldo':'Perfil → Respaldo','estado-envio':'Movimientos · Perfil','precios':'Movimientos → Historial','comparador':'Comprar → Comparar','catalogo':'Comprar → Editar','lista-compartida':'Comprar → Cesta','prevision':'Inicio → Previsión','ofertas':'Comprar → Ofertas'}[id]);assert not page.evaluate('document.documentElement.scrollWidth>innerWidth')
     if page.locator('[data-g="demo"]').count():
      page.locator('[data-g="demo"]').click();expect(page.locator('.g-result')).to_be_visible();demos+=1;assert page.evaluate('nativeCalls.length')==0
     page.locator('[data-g="next"]').click();steps+=1

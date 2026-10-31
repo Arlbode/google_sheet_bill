@@ -1,0 +1,25 @@
+{
+  "versionName": "1.6.4",
+  "versionCode": 22,
+  "baseSha256": "135f39caffbfd5b52ed4a66b4191405d18e822e4b3b278ccfc233a671e77ed56",
+  "sha256": "44c8657d225744067c8cae49c956ceb9b27ef19854c686a6d8cbad0c1079b20f",
+  "bytes": 889161,
+  "certificateSha256": "7374684814395e3df3e4a41b6d0d20a739dddba331a828d0f72d5d37ea78e6c1",
+  "nativeDexIdenticalTo163": true,
+  "compiledResourcesIdenticalTo163": true,
+  "modifiedAssets": [
+    "assets/guide.js",
+    "assets/app.css",
+    "assets/app.js",
+    "assets/product-images.json"
+  ],
+  "signatureVerified": true,
+  "alignmentVerified": true,
+  "addedAssets": [
+    "assets/product-papa.png"
+  ],
+  "browserTests": "PASS: asistente de tres pasos sin escrituras ni llamadas nativas; orden de Inicio y cesta al fondo en catálogo y Modo compra; imagen Papa cargada; funciones y 320/360/390px",
+  "guideTests": "PASS: 21 temas, 34 pasos nuevos y 8 demos; rutas y progreso conservados",
+  "scriptChangesRequired": false,
+  "privateSheetTested": false
+}

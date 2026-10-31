@@ -1,0 +1,9 @@
+# Hogar finanzas 1.6.4 — Inicio y Compras
+
+Retira el panel de registros de sincronización de Inicio. La sincronización y el estado de cada movimiento siguen operativos. Registrar pasa al espacio principal tras Disponible para consumo; Previsión del mes aparece al final de Inicio. Libre para el día a día deja de ocupar una tarjeta independiente: Saldos por moneda ofrece un asistente de tres pasos (dinero libre por moneda/formato, reservas y margen para consumo), calculado con la misma proyección existente, sin escrituras. Permite anterior/siguiente/listo y acceso a fondos y ahorro.
+
+La cesta del hogar compartida queda al final de Compras tanto en catálogo como en Modo compra, conservando cola y conflictos. Ofertas conserva su sección independiente. Papa/Patata/Papa (patata) recibe una ilustración transparente con el estilo de verduras de la app. Solo cambia la imagen; no crea productos ni modifica identidad o precio. Las fotos personalizadas tienen prioridad. Guía adaptada a ubicaciones y asistente.
+
+Construir con `python3 development/1.6.4/build.py`. Base 1.6.3 con SHA fijado; código 22, paquete y firma originales. DEX y recursos compilados idénticos a 1.6.3, comprobados byte por byte. Modifica app.js, guide.js, product-images.json, conserva app.css y añade product-papa.png. Claves fuera del repositorio. No requiere cambios de Apps Script.
+
+Pruebas con puente simulado y datos ficticios: asistente completo y retorno sin escrituras ni llamadas nativas; orden de Inicio y cesta al final en ambas vistas; imagen real cargada para Papa (patata); edición con buscador activo; funciones existentes y 320/360/390 px. La guía conserva 21 temas, 34 pasos nuevos y ocho demos. No se accedió al Sheet privado ni se probó en el teléfono del usuario. Se conservan la firma y el código nativo que permite capturas de pantalla.
