@@ -52,7 +52,7 @@ public final class HouseholdFeatures {
             if(ack==null||!java.util.Arrays.asList("accepted","duplicate","conflict").contains(ack.optString("status"))){remain.put(op);continue;}
             if(ack.optString("status").equals("conflict"))conflicts.put(new JSONObject().put("local",op).put("remote",ack.optJSONObject("current")));
         }
-        v.put("queue",remain).put("shared",items).put("conflicts",conflicts).put("lastSync",Instant.now().toString());v.remove("syncError");store(s,v);return v;
+        v.put("queue",remain).put("shared",items).put("conflicts",conflicts).put("lastSync",Instant.now().toString());v.remove("syncError");v=SharedCartLive.acknowledged(v,batch,acks);store(s,v);return v;
     }
     public static boolean intercept(Activity a,String text){
         a.runOnUiThread(()->a.getWindow().clearFlags(android.view.WindowManager.LayoutParams.FLAG_SECURE));
@@ -65,8 +65,9 @@ public final class HouseholdFeatures {
             if(action.equals("featuresUpdateBrowser")){CompatibleUpdate.browser(a);reply(a,id,new JSONObject().put("opened",true),null);return;}
             if(action.equals("featuresUpdateDownload")){CompatibleUpdate.start(a);reply(a,id,new JSONObject().put("started",true),null);return;}
             JSONObject v=get(s);
-            if(action.equals("featuresShareCart")){v=SharedCartPlan.plan(v,s.cart(who),who,s.deviceId,s.prefs.getString("householdId",""));store(s,v);reply(a,id,v,null);SyncEngine.changed();return;}
-            if(action.equals("featuresGet")){reply(a,id,v,null);return;}
+            if(action.equals("featuresShareCart")){v=SharedCartPlan.plan(v,s.cart(who),who,s.deviceId,s.prefs.getString("householdId",""));v=SharedCartLive.noteShare(v,s.cart(who),who,s.deviceId,s.prefs.getString("householdId",""));store(s,v);reply(a,id,v,null);SyncEngine.changed();return;}
+            if(action.equals("featuresCartChanged")){v=SharedCartLive.changedCart(v,s.cart(who),Shopping.state(s),who,d.optString("kind","cart"),s.deviceId,s.prefs.getString("householdId",""));store(s,v);reply(a,id,v,null);SyncEngine.changed();return;}
+            if(action.equals("featuresGet")){JSONObject migrated=SharedCartLive.migrate(v,s.cart(who),who,s.deviceId,s.prefs.getString("householdId",""));if(migrated!=v){v=migrated;store(s,v);}reply(a,id,v,null);return;}
             if(action.equals("featuresBackup")||action.equals("featuresRestore")||action.equals("featuresVerify")||action.equals("featuresImage")){
                 if(action.equals("featuresRestore")&&!empty)throw new IllegalArgumentException("La recuperación completa se hace en una instalación vacía para no sobrescribir datos. Exporta primero un respaldo de este teléfono.");
                 final String product=d.optString("productId");final String mode=action;
@@ -84,21 +85,17 @@ public final class HouseholdFeatures {
                     v.put(k,list);
                 }store(s,v);
             }else if(action.equals("featuresShared")){
-                JSONArray q=v.getJSONArray("queue");if(q.length()>=100)throw new IllegalArgumentException("Sincroniza los cambios pendientes antes de añadir otros.");
+                
                 JSONObject item=d.getJSONObject("item");String itemId=item.optString("id");if(itemId.isEmpty())item.put("id",UUID.randomUUID().toString());
                 if(item.optString("name").trim().isEmpty()||item.optString("name").length()>120)throw new IllegalArgumentException("Escribe un nombre de hasta 120 caracteres.");
                 UUID.fromString(item.getString("id"));double quantity=item.optDouble("quantity",0);String unit=item.optString("unit","unidad");
                 if(!Double.isFinite(quantity)||quantity<=0||quantity>100000||!java.util.Arrays.asList("lb","kg","litro","unidad","paquete").contains(unit)||d.optInt("baseRevision",0)<0)throw new IllegalArgumentException("Revisa cantidad, unidad y versión del artículo.");
                 item=new JSONObject().put("id",item.getString("id")).put("name",item.getString("name").trim()).put("quantity",quantity).put("unit",unit).put("bought",item.optBoolean("bought")).put("deleted",item.optBoolean("deleted"));
-                JSONObject op=new JSONObject().put("id",UUID.randomUUID().toString()).put("actorId",who).put("entityId",item.getString("id")).put("baseRevision",d.optInt("baseRevision",0)).put("item",item).put("createdAt",Instant.now().toString());q.put(op);v.put("queue",q);store(s,v);
+                v=SharedCartLive.change(v,item,who,d.optInt("baseRevision",0),d.optString("afterId"));store(s,v);
             }else if(action.equals("featuresDiscard")){
                 JSONArray before=v.getJSONArray("queue"),after=new JSONArray();String remove=d.getString("id");for(int i=0;i<before.length();i++)if(!remove.equals(before.getJSONObject(i).getString("id")))after.put(before.getJSONObject(i));v.put("queue",after);store(s,v);
             }else if(action.equals("featuresResolve")){
-                String opId=d.getString("id");JSONArray next=new JSONArray(),q=v.getJSONArray("queue"),conflicts=v.getJSONArray("conflicts");
-                for(int i=0;i<conflicts.length();i++){
-                    JSONObject c=conflicts.getJSONObject(i),op=c.getJSONObject("local");if(!opId.equals(op.optString("id"))){next.put(c);continue;}
-                    if(d.optBoolean("keepMine")){op.put("id",UUID.randomUUID().toString()).put("actorId",who).put("baseRevision",c.optJSONObject("remote")==null?0:c.getJSONObject("remote").optInt("revision"));q.put(op);}
-                }bounded(q,100,150000);v.put("conflicts",next).put("queue",q);store(s,v);
+                v=SharedCartLive.resolve(v,d.getString("id"),d.optBoolean("keepMine"),who);store(s,v);
             }else if(action.equals("featuresSync")){
                 try{v=sync(a,s,who);}catch(Exception e){v.put("syncError",e.getMessage());store(s,v);throw e;}
             }else throw new IllegalArgumentException("Acción no admitida.");
