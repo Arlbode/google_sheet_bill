@@ -1,0 +1,39 @@
+{
+  "versionName": "1.6.6",
+  "versionCode": 24,
+  "baseSha256": "ec57a5f86aa6a0adc3f260a45997daf4113e0351280af94d69fb6e026af97ea3",
+  "sha256": "c2ac700748b999758c4b568c978bf29c1fdbb47b2e823c25de0d78e68279216c",
+  "bytes": 823625,
+  "certificateSha256": "7374684814395e3df3e4a41b6d0d20a739dddba331a828d0f72d5d37ea78e6c1",
+  "originalNativeClassesPreserved": true,
+  "compiledResourcesIdenticalTo165": true,
+  "modifiedAssets": [
+    "assets/app.js",
+    "assets/app.css",
+    "assets/guide.js",
+    "assets/product-images.json"
+  ],
+  "addedAssets": [
+    "assets/product-papa.svg"
+  ],
+  "removedAssets": [
+    "assets/product-papa.png"
+  ],
+  "signatureVerified": true,
+  "alignmentVerified": true,
+  "nativeModifiedClasses": [
+    "HouseholdFeatures"
+  ],
+  "nativeAddedClasses": [
+    "SharedCartPlan"
+  ],
+  "tlsAndInstallerUnchanged": true,
+  "financialClassesUnchanged": true,
+  "nativeMimeDiagnosis": "MainActivity$2 serves all graphic assets as image/svg+xml; original PNG replaced with SVG containing original illustration",
+  "browserTests": "PASS: SVG loads under native MIME, no standalone shared/offers blocks, sharing from populated cart, viewing shared with empty cart, quantities, no expenses, no duplicates, preserved purchase location, 320/360/390px",
+  "jvmTests": "PASS: 22 checks; atomic queue plan, identities, duplicate shares, revisions, conflicts, discarded retry, capacity and units; original cart/features untouched",
+  "guideTests": "PASS: 20 topics, 7 current tools, 30 steps and 7 demos, routes/search/progress",
+  "scriptChangesRequired": false,
+  "privateSheetTested": false,
+  "physicalAndroidTested": false
+}

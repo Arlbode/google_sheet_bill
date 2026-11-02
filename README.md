@@ -1,3 +1,7 @@
+## Hogar finanzas 1.6.6 · Imagen SVG y compartir desde el carrito
+
+[APK firmada](Hogar_finanzas_1.6.6.apk) · [Cambios y validación](VERSION_1.6.6.md). Papa se muestra con SVG compatible. Compartir se ofrece dentro del carrito preparado; se retiran de Compras los bloques de cesta compartida y ofertas. Misma firma y datos. Actualiza desde Perfil → Actualizaciones o instala encima sin desinstalar.
+
 ## Hogar finanzas 1.6.5 · Descarga TLS compatible
 
 [APK firmada](Hogar_finanzas_1.6.5.apk) · [Instrucciones y validación](VERSION_1.6.5.md). Descarga con TLS 1.2, reintentos ante errores SSL de lectura y alternativa de navegador. Si tu descargador actual falla, abre el enlace de esta APK en Chrome e instala encima sin desinstalar: la corrección solo entra en funcionamiento después de instalarla. Misma identidad y firma; no cambia datos ni Apps Script.
