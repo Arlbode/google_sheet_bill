@@ -50,3 +50,5 @@
 
 /* Herramientas integradas en el contexto de cada pantalla. */
 .integrated-feature h2{font-size:19px;margin:0 0 12px}.integrated-feature{min-width:0;scroll-margin-top:16px}.integrated-feature .kpis strong{display:block;font-size:22px}.integrated-details{margin-top:12px}.integrated-details summary{cursor:pointer;color:var(--green,#246b4b);padding:10px 0;font-weight:600}.integrated-feature select{width:100%;max-width:100%;padding:12px;border:1px solid #d9e3dc;border-radius:12px;background:white}.product-tools .secondary{font-size:12px;padding:8px;width:100%}.integrated-feature .secondary{white-space:normal}.integrated-feature .cart-line{min-width:0;overflow-wrap:anywhere}
+
+.cart-sharing{padding:12px 0 18px;border-bottom:1px solid #d9e3dc;margin-bottom:18px}.cart-sharing h3{margin:0 0 10px}.cart-sharing p{font-size:14px}.modal .product-image.thumb{flex-shrink:0}

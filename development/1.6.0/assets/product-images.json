@@ -416,31 +416,31 @@
     "alt": "Ají pimiento"
   },
   "papa": {
-    "src": "product-papa.png",
+    "src": "product-papa.svg",
     "alt": "Papa o patata"
   },
   "patata": {
-    "src": "product-papa.png",
+    "src": "product-papa.svg",
     "alt": "Papa o patata"
   },
   "papa (patata)": {
-    "src": "product-papa.png",
+    "src": "product-papa.svg",
     "alt": "Papa o patata"
   },
   "patata (papa)": {
-    "src": "product-papa.png",
+    "src": "product-papa.svg",
     "alt": "Papa o patata"
   },
   "papas": {
-    "src": "product-papa.png",
+    "src": "product-papa.svg",
     "alt": "Papa o patata"
   },
   "patatas": {
-    "src": "product-papa.png",
+    "src": "product-papa.svg",
     "alt": "Papa o patata"
   },
   "papa / patata": {
-    "src": "product-papa.png",
+    "src": "product-papa.svg",
     "alt": "Papa o patata"
   }
 }
