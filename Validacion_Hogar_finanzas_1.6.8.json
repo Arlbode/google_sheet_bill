@@ -1,0 +1,21 @@
+{
+  "versionName": "1.6.8",
+  "versionCode": 26,
+  "baseSha256": "fa423a652c7a24febbf221ce008032eb50c65024af493fe05bfee1cdbe155dc3",
+  "sha256": "dcaafcddfffe23247d0c18e51d3fecbd02ad4fe3c3a2bb8097db3feabde0902e",
+  "bytes": 827721,
+  "certificateSha256": "7374684814395e3df3e4a41b6d0d20a739dddba331a828d0f72d5d37ea78e6c1",
+  "nativeDexIdenticalTo167": true,
+  "compiledResourcesIdenticalTo167": true,
+  "modifiedAssets": [
+    "assets/app.js",
+    "assets/app.css",
+    "assets/guide.js"
+  ],
+  "signatureVerified": true,
+  "alignmentVerified": true,
+  "browserTests": "PASS: funciones y enlaces conservados; 320/360/390px",
+  "placement": "PASS: enlaces link después del contenedor de productos, sin botones superiores",
+  "guideTests": "PASS: 20 temas,30 pasos y7 demos; ubicación nueva, búsqueda y progreso",
+  "scriptChangesRequired": false
+}

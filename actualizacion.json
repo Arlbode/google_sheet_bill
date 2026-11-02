@@ -1,11 +1,11 @@
 {
   "applicationId": "cu.hogarplaya.recuperada",
-  "versionCode": 25,
-  "versionName": "1.6.7",
+  "versionCode": 26,
+  "versionName": "1.6.8",
   "minSdk": 26,
   "bytes": 827721,
-  "sha256": "fa423a652c7a24febbf221ce008032eb50c65024af493fe05bfee1cdbe155dc3",
+  "sha256": "dcaafcddfffe23247d0c18e51d3fecbd02ad4fe3c3a2bb8097db3feabde0902e",
   "certificateSha256": "7374684814395e3df3e4a41b6d0d20a739dddba331a828d0f72d5d37ea78e6c1",
-  "url": "https://raw.githubusercontent.com/Arlbode/google_sheet_bill/actualizaciones-android/Hogar_finanzas_1.6.7.apk",
-  "notes": "Cesta compartida compacta: fotos del catálogo, cantidades, autor/estado, búsqueda y filtros Pendientes/Comprados. Opciones de cantidad y retirada en menú compacto, con Deshacer.\nActualización automática al compartir, marcar comprado, editar o retirar. La vista recibe cambios del hogar aproximadamente cada 10 segundos mientras está abierta. Sin conexión conserva cambios y reintenta al recuperar red. Los cambios del carrito vinculado y sus compras se reflejan en la coordinación.\nMarcar comprado en la lista compartida no registra gastos; los pagos se confirman desde Comprar. Misma firma y datos; instala encima sin desinstalar. No requiere cambios adicionales de Apps Script sobre el script 1.6.0 ya desplegado."
+  "url": "https://raw.githubusercontent.com/Arlbode/google_sheet_bill/actualizaciones-android/Hogar_finanzas_1.6.8.apk",
+  "notes": "Añadir producto al catálogo y Comparar por unidad pasan a enlaces simples al final del catálogo, con el estilo de Ocultar productos mensuales ya comprados. Se retiran los botones superiores y se actualiza la guía.\nMismo código nativo, firma y datos que 1.6.7. Instala encima sin desinstalar; no requiere cambios en Apps Script."
 }

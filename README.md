@@ -1,3 +1,7 @@
+## Hogar finanzas 1.6.8 · Enlaces al final del catálogo
+
+[APK firmada](Hogar_finanzas_1.6.8.apk) · [Cambios y validación](VERSION_1.6.8.md). Añadir producto y Comparar por unidad pasan a enlaces simples después de los productos. Actualiza desde Perfil → Actualizaciones, sin desinstalar.
+
 ## Hogar finanzas 1.6.7 · Cesta compartida operativa
 
 [APK firmada](Hogar_finanzas_1.6.7.apk) · [Cambios y validación](VERSION_1.6.7.md). Fotos, filas compactas, búsqueda y filtros. Envío automático al marcar, editar o retirar y recepción aproximada cada10 segundos con la cesta abierta. Sin conexión conserva cambios. Actualiza desde Perfil → Actualizaciones, sin desinstalar.
