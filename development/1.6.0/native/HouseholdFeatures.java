@@ -85,7 +85,7 @@ public final class HouseholdFeatures {
                     v.put(k,list);
                 }store(s,v);
             }else if(action.equals("featuresShared")){
-                
+
                 JSONObject item=d.getJSONObject("item");String itemId=item.optString("id");if(itemId.isEmpty())item.put("id",UUID.randomUUID().toString());
                 if(item.optString("name").trim().isEmpty()||item.optString("name").length()>120)throw new IllegalArgumentException("Escribe un nombre de hasta 120 caracteres.");
                 UUID.fromString(item.getString("id"));double quantity=item.optDouble("quantity",0);String unit=item.optString("unit","unidad");
