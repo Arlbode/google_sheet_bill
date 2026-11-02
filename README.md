@@ -1,3 +1,7 @@
+## Hogar finanzas 1.6.7 · Cesta compartida operativa
+
+[APK firmada](Hogar_finanzas_1.6.7.apk) · [Cambios y validación](VERSION_1.6.7.md). Fotos, filas compactas, búsqueda y filtros. Envío automático al marcar, editar o retirar y recepción aproximada cada10 segundos con la cesta abierta. Sin conexión conserva cambios. Actualiza desde Perfil → Actualizaciones, sin desinstalar.
+
 ## Hogar finanzas 1.6.6 · Imagen SVG y compartir desde el carrito
 
 [APK firmada](Hogar_finanzas_1.6.6.apk) · [Cambios y validación](VERSION_1.6.6.md). Papa se muestra con SVG compatible. Compartir se ofrece dentro del carrito preparado; se retiran de Compras los bloques de cesta compartida y ofertas. Misma firma y datos. Actualiza desde Perfil → Actualizaciones o instala encima sin desinstalar.

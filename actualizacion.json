@@ -1,11 +1,11 @@
 {
   "applicationId": "cu.hogarplaya.recuperada",
-  "versionCode": 24,
-  "versionName": "1.6.6",
+  "versionCode": 25,
+  "versionName": "1.6.7",
   "minSdk": 26,
-  "bytes": 823625,
-  "sha256": "c2ac700748b999758c4b568c978bf29c1fdbb47b2e823c25de0d78e68279216c",
+  "bytes": 827721,
+  "sha256": "fa423a652c7a24febbf221ce008032eb50c65024af493fe05bfee1cdbe155dc3",
   "certificateSha256": "7374684814395e3df3e4a41b6d0d20a739dddba331a828d0f72d5d37ea78e6c1",
-  "url": "https://raw.githubusercontent.com/Arlbode/google_sheet_bill/actualizaciones-android/Hogar_finanzas_1.6.6.apk",
-  "notes": "Papa (patata): imagen SVG compatible con el cargador Android; se corrige el texto alternativo que aparecía en lugar de la ilustración.\nCompras: se retiran los bloques de cesta compartida y Ofertas y proveedores. Dentro de Mi carrito aparece Compartir este carrito con el hogar; se comparten nombres, cantidades y unidades, sin crear gastos ni vaciar el carrito. Ver mi carrito permite consultar lo compartido aunque esté vacío.\nGuía adaptada. Misma identidad y firma; conserva datos y el descargador TLS corregido. Instala encima sin desinstalar. No hay cambios adicionales de Apps Script sobre el script 1.6.0 ya desplegado."
+  "url": "https://raw.githubusercontent.com/Arlbode/google_sheet_bill/actualizaciones-android/Hogar_finanzas_1.6.7.apk",
+  "notes": "Cesta compartida compacta: fotos del catálogo, cantidades, autor/estado, búsqueda y filtros Pendientes/Comprados. Opciones de cantidad y retirada en menú compacto, con Deshacer.\nActualización automática al compartir, marcar comprado, editar o retirar. La vista recibe cambios del hogar aproximadamente cada 10 segundos mientras está abierta. Sin conexión conserva cambios y reintenta al recuperar red. Los cambios del carrito vinculado y sus compras se reflejan en la coordinación.\nMarcar comprado en la lista compartida no registra gastos; los pagos se confirman desde Comprar. Misma firma y datos; instala encima sin desinstalar. No requiere cambios adicionales de Apps Script sobre el script 1.6.0 ya desplegado."
 }

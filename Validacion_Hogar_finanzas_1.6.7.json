@@ -1,0 +1,36 @@
+{
+  "versionName": "1.6.7",
+  "versionCode": 25,
+  "baseSha256": "c2ac700748b999758c4b568c978bf29c1fdbb47b2e823c25de0d78e68279216c",
+  "sha256": "fa423a652c7a24febbf221ce008032eb50c65024af493fe05bfee1cdbe155dc3",
+  "bytes": 827721,
+  "certificateSha256": "7374684814395e3df3e4a41b6d0d20a739dddba331a828d0f72d5d37ea78e6c1",
+  "originalNativeClassesPreserved": true,
+  "compiledResourcesIdenticalTo166": true,
+  "modifiedAssets": [
+    "assets/app.js",
+    "assets/app.css",
+    "assets/guide.js"
+  ],
+  "signatureVerified": true,
+  "alignmentVerified": true,
+  "nativeModifiedClasses": [
+    "HouseholdFeatures"
+  ],
+  "nativeAddedClasses": [
+    "SharedCartLive"
+  ],
+  "financialClassesUnchanged": true,
+  "installerAndTLSUnchanged": true,
+  "sharedPlan166Unchanged": true,
+  "jvmTests": "PASS: 31 comprobaciones de recibos inmutables, intenciones, revisión, conflictos, borrar/deshacer, migración, conciliación de cantidades y compras/importación",
+  "sharedBrowserTests": "PASS: fotos, búsqueda y filtros, filas compactas, recepción automática de cantidad y retirada remotas, envío al marcar/editar/retirar sin botón manual, offline/deshacer/reconexión, editor conservado y 320/360/390px",
+  "financialBrowserTests": "PASS: confirmación financiera fallida no concilia; fallo de coordinación tras compra exitosa conserva el gasto y no repite confirmación",
+  "existingBrowserTests": "PASS: carrito/guía/actualizaciones y funciones anteriores",
+  "guideTests": "PASS: 20 temas, 30 pasos y 7 demos de herramientas actuales; rutas, búsqueda y progreso",
+  "foregroundRefreshSeconds": 10,
+  "backgroundExecutionGuaranteed": false,
+  "scriptChangesRequired": false,
+  "privateSheetTested": false,
+  "physicalAndroidTested": false
+}
