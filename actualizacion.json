@@ -1,11 +1,11 @@
 {
   "applicationId": "cu.hogarplaya.recuperada",
-  "versionCode": 27,
-  "versionName": "1.6.9",
+  "versionCode": 28,
+  "versionName": "1.7.0",
   "minSdk": 26,
-  "bytes": 827721,
-  "sha256": "9cc6a5519b8cd208e2b9d81a7dd67c8aa0c8ae3e4fc3c138ee25247beb0e4033",
+  "bytes": 831817,
+  "sha256": "d67706ff6020e28e9ec0783398e5b18db286ec46e642daa9e8d6f8fbde229ced",
   "certificateSha256": "7374684814395e3df3e4a41b6d0d20a739dddba331a828d0f72d5d37ea78e6c1",
-  "url": "https://raw.githubusercontent.com/Arlbode/google_sheet_bill/actualizaciones-android/Hogar_finanzas_1.6.9.apk",
-  "notes": "Nueva opción Eliminar cesta compartida dentro de esa vista, con confirmación. Retira todos los artículos de la cesta actual, pendientes y comprados, aunque haya filtros o búsqueda activos; cierra la cesta y envía el cambio automáticamente al hogar. Sin conexión conserva la retirada y la envía al recuperar la red.\nConserva el carrito personal y los gastos registrados. Desactiva los vínculos de la cesta eliminada para evitar que reaparezca al editar el carrito. Permite compartir explícitamente una cesta de nuevo.\nMisma firma y datos; instala encima sin desinstalar. No hay cambios adicionales de Apps Script sobre el script 1.6.0 ya desplegado."
+  "url": "https://raw.githubusercontent.com/Arlbode/google_sheet_bill/actualizaciones-android/Hogar_finanzas_1.7.0.apk",
+  "notes": "Foto por perfil: desde Perfil puedes agregar una imagen de la galería, cambiarla o quitarla. Aparece en el avatar superior, en Perfil y al elegir persona. Sin foto se conserva la inicial.\nLa imagen se guarda en este teléfono y se incluye en el respaldo cifrado; no se envía al Sheet. Cada persona modifica su foto después de entrar con su PIN. Se comprueban sesión, perfil, día y versión del PIN antes de guardar.\nMisma identidad y firma; instala encima sin desinstalar. Conserva movimientos y configuración, sin cambios de Apps Script."
 }
