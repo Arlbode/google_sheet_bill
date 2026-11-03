@@ -21,9 +21,10 @@ public final class HouseholdDocuments extends Activity {
     private static final String[] PREFS={"deviceId","deviceName","householdId","endpoint"};
     private byte[] pending;private char[] password;private String mode;
     @Override public void onCreate(Bundle b){super.onCreate(b);getWindow().clearFlags(WindowManager.LayoutParams.FLAG_SECURE);mode=getIntent().getStringExtra("mode");if(b!=null){finish();return;}
-        if("featuresImage".equals(mode)){Intent i=new Intent(Intent.ACTION_OPEN_DOCUMENT).setType("image/*").addCategory(Intent.CATEGORY_OPENABLE);startActivityForResult(i,3);return;}
+        if("featuresImage".equals(mode)||"featuresProfileImage".equals(mode)){Intent i=new Intent(Intent.ACTION_OPEN_DOCUMENT).setType("image/*").addCategory(Intent.CATEGORY_OPENABLE);startActivityForResult(i,"featuresProfileImage".equals(mode)?4:3);return;}
         if("featuresBackup".equals(mode))passwordDialog(true,null);else{Intent i=new Intent(Intent.ACTION_OPEN_DOCUMENT).setType("*/*").addCategory(Intent.CATEGORY_OPENABLE);startActivityForResult(i,2);}
     }
+    private void profileError(String message){runOnUiThread(()->new AlertDialog.Builder(this).setTitle("Foto de perfil").setMessage(message==null?"No se pudo guardar la foto. La anterior se conserva.":message).setPositiveButton("Cerrar",(d,w)->finish()).setOnCancelListener(d->finish()).show());}
     private void error(){runOnUiThread(()->new AlertDialog.Builder(this).setTitle("No se completó la operación").setMessage("El archivo, contraseña o estado del teléfono no permiten continuar. No se sobrescribieron tus datos. Usa un respaldo .hgf generado con esta versión; la recuperación requiere una instalación vacía.").setPositiveButton("Cerrar",(d,w)->finish()).setOnCancelListener(d->finish()).show());}
     private void info(String message){runOnUiThread(()->new AlertDialog.Builder(this).setTitle("Respaldo de Hogar finanzas").setMessage(message).setPositiveButton("Cerrar",(d,w)->finish()).setOnCancelListener(d->finish()).show());}
     private void passwordDialog(boolean create,byte[] encrypted){
@@ -64,6 +65,7 @@ public final class HouseholdDocuments extends Activity {
         if(request==1){if(pending==null)throw new IOException();try(OutputStream out=getContentResolver().openOutputStream(uri,"wt")){if(out==null)throw new IOException();out.write(pending);}pending=null;AppStore.get(this).prefs.edit().putString("featuresLastBackup",Instant.now().toString()).commit();SyncEngine.changed();info("Respaldo cifrado guardado. Compruébalo desde Perfil antes de cambiar de teléfono. Conserva su contraseña fuera del teléfono.");}
         else if(request==2){byte[] bytes=read(uri,24000000);runOnUiThread(()->passwordDialog(false,bytes));}
         else if(request==3)image(uri);
-    }catch(Exception e){pending=null;error();}});}
+        else if(request==4){ProfilePhotos.save(AppStore.get(this),getIntent().getStringExtra("profileId"),getIntent().getStringExtra("profileSession"),read(uri,12000000));runOnUiThread(()->{Toast.makeText(this,"Foto de perfil guardada.",Toast.LENGTH_SHORT).show();finish();});}
+    }catch(Exception e){pending=null;if("featuresProfileImage".equals(mode))profileError(e.getMessage());else error();}});}
     @Override protected void onDestroy(){clearPassword();super.onDestroy();}
 }

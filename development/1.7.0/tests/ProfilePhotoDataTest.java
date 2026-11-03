@@ -1,0 +1,16 @@
+package cu.hogarplaya;
+import org.json.*;import java.util.*;import java.nio.charset.StandardCharsets;
+public class ProfilePhotoDataTest {
+ static int n;static void ok(boolean b){if(!b)throw new AssertionError();n++;}
+ interface Call{void run()throws Exception;}static void rejects(Call c)throws Exception{try{c.run();throw new AssertionError("Aceptado");}catch(IllegalArgumentException e){n++;}}
+ public static void main(String[] args)throws Exception {
+  JSONArray profiles=new JSONArray("[{id:'ana',name:'Ana'},{id:'luis',name:'Luis'}]");String jpeg="data:image/jpeg;base64,"+Base64.getEncoder().encodeToString(new byte[]{(byte)255,(byte)216,9,8,(byte)255,(byte)217}),other="data:image/jpeg;base64,"+Base64.getEncoder().encodeToString(new byte[]{(byte)255,(byte)216,7,6,(byte)255,(byte)217});
+  JSONObject empty=new JSONObject(),one=ProfilePhotoData.save(empty,profiles,"ana",jpeg);ok(empty.length()==0);ok(one.getString("ana").equals(jpeg));JSONObject two=ProfilePhotoData.save(one,profiles,"luis",other);ok(two.getString("ana").equals(jpeg));ok(two.getString("luis").equals(other));ok(one.length()==1);
+  JSONObject removed=ProfilePhotoData.save(two,profiles,"ana",null);ok(!removed.has("ana"));ok(removed.getString("luis").equals(other));ok(two.length()==2);
+  rejects(()->ProfilePhotoData.save(two,profiles,"unknown",jpeg));rejects(()->ProfilePhotoData.save(two,profiles,"ana","https://example.com/photo.jpg"));rejects(()->ProfilePhotoData.save(two,profiles,"ana","data:image/svg+xml;base64,PHN2Zy8+"));rejects(()->ProfilePhotoData.save(two,profiles,"ana","data:image/jpeg;base64,AAAA"));rejects(()->ProfilePhotoData.save(two,profiles,"ana","data:image/jpeg;base64,"+"A".repeat(120001)));
+  JSONObject visible=ProfilePhotoData.visible(new JSONObject(two.toString()).put("token","private").put("orphan",jpeg),profiles);ok(visible.length()==2);ok(!visible.has("token"));ok(!visible.has("orphan"));
+  String session=new JSONObject().put("profileId","ana").put("day","2026-11-03").put("pinVersion","current-pin-version").toString();ok(ProfilePhotoData.session(session,session,"ana","2026-11-03","current-pin-version"));ok(!ProfilePhotoData.session(session,session,"luis","2026-11-03","current-pin-version"));ok(!ProfilePhotoData.session(session,session,"ana","2026-11-04","current-pin-version"));ok(!ProfilePhotoData.session(session,session,"ana","2026-11-03","new-pin-version"));ok(!ProfilePhotoData.session("",session,"ana","2026-11-03","current-pin-version"));ok(!ProfilePhotoData.session(session,"changed-session","ana","2026-11-03","current-pin-version"));
+  JSONObject cache=new JSONObject().put("tables",new JSONObject().put("cache",new JSONArray().put(new JSONObject().put("key","profilePhotos170").put("value",two.toString()))));byte[] encrypted=BackupCipher.encrypt(cache.toString().getBytes(StandardCharsets.UTF_8),"copia-prueba-1234".toCharArray());JSONObject recovered=new JSONObject(new String(BackupCipher.decrypt(encrypted,"copia-prueba-1234".toCharArray()),StandardCharsets.UTF_8));JSONObject photos=new JSONObject(recovered.getJSONObject("tables").getJSONArray("cache").getJSONObject(0).getString("value"));ok(photos.getString("ana").equals(jpeg));ok(photos.getString("luis").equals(other));
+  System.out.println("PASS: "+n+" checks; fotos por perfil, quitar sin afectar otros, filtro público acotado, sesión/PIN/día y copia cifrada.");
+ }
+}

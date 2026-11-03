@@ -1,0 +1,36 @@
+{
+  "versionName": "1.7.0",
+  "versionCode": 28,
+  "baseSha256": "9cc6a5519b8cd208e2b9d81a7dd67c8aa0c8ae3e4fc3c138ee25247beb0e4033",
+  "sha256": "d67706ff6020e28e9ec0783398e5b18db286ec46e642daa9e8d6f8fbde229ced",
+  "bytes": 831817,
+  "certificateSha256": "7374684814395e3df3e4a41b6d0d20a739dddba331a828d0f72d5d37ea78e6c1",
+  "originalNativeClassesPreserved": true,
+  "compiledResourcesIdenticalTo169": true,
+  "modifiedAssets": [
+    "assets/app.js",
+    "assets/app.css",
+    "assets/guide.js"
+  ],
+  "signatureVerified": true,
+  "alignmentVerified": true,
+  "nativeModifiedClasses": [
+    "HouseholdFeatures",
+    "HouseholdDocuments"
+  ],
+  "nativeAddedClasses": [
+    "ProfilePhotos",
+    "ProfilePhotoData"
+  ],
+  "existingBackupRestoreSourcePreserved": true,
+  "financialClassesUnchanged": true,
+  "authenticationAndInstallerUnchanged": true,
+  "photoStorage": "local per profile in SQLite cache, included in existing encrypted backup",
+  "jvmTests": "PASS: 24 comprobaciones de perfiles, formatos/límites, lector público, sesión/día/PIN y datos de fotos en copia cifrada",
+  "browserTests": "PASS: selección/cancelación simuladas, foto en Perfil/avatar/selector, círculo, quitar solo actual y datos financieros intactos",
+  "existingBrowserTests": "PASS: catálogo/carrito/cesta/actualizaciones y anchos 320/360/390px",
+  "guideTests": "PASS: 20 temas,31 pasos y7 demos de herramientas; nuevo paso de foto en Perfiles y conexión",
+  "nativePickerTestedOnDevice": false,
+  "privateSheetTested": false,
+  "scriptChangesRequired": false
+}

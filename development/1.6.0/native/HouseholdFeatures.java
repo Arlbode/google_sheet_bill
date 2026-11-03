@@ -60,10 +60,13 @@ public final class HouseholdFeatures {
         try{if(text.length()>4000000)return false;request=new JSONObject(text);action=request.getString("action");id=request.getString("id");if(!action.startsWith("features"))return false;}catch(Exception e){return false;}
         SyncEngine.WORK.execute(()->{try{
             AppStore s=AppStore.get(a);JSONObject d=request.optJSONObject("data");if(d==null)d=new JSONObject();
+            if(action.equals("featuresProfileAvatars")){reply(a,id,new JSONObject().put("photos",ProfilePhotos.read(s)),null);return;}
             boolean empty=s.profiles().length()==0;
             String who="";if(!(empty&&action.equals("featuresRestore")))who=actor(a);
             if(action.equals("featuresUpdateBrowser")){CompatibleUpdate.browser(a);reply(a,id,new JSONObject().put("opened",true),null);return;}
             if(action.equals("featuresUpdateDownload")){CompatibleUpdate.start(a);reply(a,id,new JSONObject().put("started",true),null);return;}
+            if(action.equals("featuresProfileImage")){final String profile=who,session=s.prefs.getString("authenticatedDay","");a.runOnUiThread(()->a.startActivity(new Intent(a,HouseholdDocuments.class).putExtra("mode","featuresProfileImage").putExtra("profileId",profile).putExtra("profileSession",session)));reply(a,id,new JSONObject().put("opened",true),null);return;}
+            if(action.equals("featuresProfileRemove")){ProfilePhotos.remove(s,who);reply(a,id,new JSONObject().put("photos",ProfilePhotos.read(s)),null);SyncEngine.changed();return;}
             JSONObject v=get(s);
             if(action.equals("featuresShareCart")){v=SharedCartPlan.plan(v,s.cart(who),who,s.deviceId,s.prefs.getString("householdId",""));v=SharedCartLive.noteShare(v,s.cart(who),who,s.deviceId,s.prefs.getString("householdId",""));store(s,v);reply(a,id,v,null);SyncEngine.changed();return;}
             if(action.equals("featuresClearShared")){v=SharedCartClear.plan(v,d.getJSONArray("ids"),who);store(s,v);reply(a,id,v,null);SyncEngine.changed();return;}
