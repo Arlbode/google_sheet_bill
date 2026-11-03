@@ -66,6 +66,7 @@ public final class HouseholdFeatures {
             if(action.equals("featuresUpdateDownload")){CompatibleUpdate.start(a);reply(a,id,new JSONObject().put("started",true),null);return;}
             JSONObject v=get(s);
             if(action.equals("featuresShareCart")){v=SharedCartPlan.plan(v,s.cart(who),who,s.deviceId,s.prefs.getString("householdId",""));v=SharedCartLive.noteShare(v,s.cart(who),who,s.deviceId,s.prefs.getString("householdId",""));store(s,v);reply(a,id,v,null);SyncEngine.changed();return;}
+            if(action.equals("featuresClearShared")){v=SharedCartClear.plan(v,d.getJSONArray("ids"),who);store(s,v);reply(a,id,v,null);SyncEngine.changed();return;}
             if(action.equals("featuresCartChanged")){v=SharedCartLive.changedCart(v,s.cart(who),Shopping.state(s),who,d.optString("kind","cart"),s.deviceId,s.prefs.getString("householdId",""));store(s,v);reply(a,id,v,null);SyncEngine.changed();return;}
             if(action.equals("featuresGet")){JSONObject migrated=SharedCartLive.migrate(v,s.cart(who),who,s.deviceId,s.prefs.getString("householdId",""));if(migrated!=v){v=migrated;store(s,v);}reply(a,id,v,null);return;}
             if(action.equals("featuresBackup")||action.equals("featuresRestore")||action.equals("featuresVerify")||action.equals("featuresImage")){

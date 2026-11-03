@@ -61,3 +61,5 @@
 body.shared-open{overflow:hidden}.shared-open .backdrop{overflow:hidden}
 
 .catalog-tools{display:flex;flex-direction:column;align-items:flex-start;gap:4px;margin:14px 0}.catalog-tools .link{padding:8px 0;text-align:left}
+
+.shared-footer{flex-shrink:0;background:#fff;border-top:1px solid #e0e8dc}.shared-footer .shared-foot{display:block;border-top:0;padding-top:3px}.shared-clear.link{display:block;color:#9e473b;font-size:12px;text-align:left;padding:8px 16px 3px;margin:0}.shared-clear:disabled{opacity:.45;cursor:default}

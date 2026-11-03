@@ -38,7 +38,7 @@ public final class SharedCartLive {
  }
  static String entity(String actor,String device,String household,String line){return UUID.nameUUIDFromBytes(new JSONArray().put(household).put(device).put(actor).put(line).toString().getBytes(StandardCharsets.UTF_8)).toString();}
  public static JSONObject migrate(JSONObject original,JSONArray cart,String actor,String device,String household)throws Exception {
-  JSONObject links=original.optJSONObject("cartShares");if(links==null)return original;JSONArray known=new JSONArray();for(int i=0;i<cart.length();i++){JSONObject line=cart.getJSONObject(i);String id=entity(actor,device,household,line.optString("id"));JSONObject owners=original.optJSONObject("sharedCartOwners");if(links.has(id)&&(owners==null||!owners.has(id)))known.put(line);}return known.length()==0?original:noteShare(original,known,actor,device,household);
+  JSONObject links=original.optJSONObject("cartShares");if(links==null)return original;JSONArray known=new JSONArray();for(int i=0;i<cart.length();i++){JSONObject line=cart.getJSONObject(i);String id=entity(actor,device,household,line.optString("id"));JSONObject owners=original.optJSONObject("sharedCartOwners");JSONObject r=remote(original,id);if(links.has(id)&&(r==null||!r.optBoolean("deleted"))&&(owners==null||!owners.has(id)))known.put(line);}return known.length()==0?original:noteShare(original,known,actor,device,household);
  }
  public static JSONObject changedCart(JSONObject original,JSONArray cart,JSONObject shopping,String actor,String kind,String device,String household)throws Exception{
   JSONObject v=copy(original),owners=object(v,"sharedCartOwners");Map<String,JSONObject> local=new HashMap<>();for(int i=0;i<cart.length();i++)local.put(cart.getJSONObject(i).getString("id"),cart.getJSONObject(i));
@@ -60,6 +60,6 @@ public final class SharedCartLive {
   }return pump(v);
  }
  public static JSONObject acknowledged(JSONObject original,JSONArray batch,JSONArray acks)throws Exception{
-  JSONObject v=copy(original),owners=object(v,"sharedCartOwners");for(int i=0;i<batch.length();i++){JSONObject op=batch.getJSONObject(i),r=remote(v,op.getString("entityId")),o=owners.optJSONObject(op.getString("entityId"));if(o!=null&&r!=null&&op.getString("id").equals(r.optString("lastChangeId")))o.put("seenRevision",r.optInt("revision"));}return pump(v);
+  JSONObject v=copy(original),owners=object(v,"sharedCartOwners");for(int i=0;i<batch.length();i++){JSONObject op=batch.getJSONObject(i),r=remote(v,op.getString("entityId")),o=owners.optJSONObject(op.getString("entityId"));if(o!=null&&r!=null&&op.getString("id").equals(r.optString("lastChangeId")))o.put("seenRevision",r.optInt("revision"));}return pump(SharedCartClear.received(v));
  }
 }

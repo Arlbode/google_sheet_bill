@@ -1,0 +1,34 @@
+{
+  "versionName": "1.6.9",
+  "versionCode": 27,
+  "baseSha256": "dcaafcddfffe23247d0c18e51d3fecbd02ad4fe3c3a2bb8097db3feabde0902e",
+  "sha256": "9cc6a5519b8cd208e2b9d81a7dd67c8aa0c8ae3e4fc3c138ee25247beb0e4033",
+  "bytes": 827721,
+  "certificateSha256": "7374684814395e3df3e4a41b6d0d20a739dddba331a828d0f72d5d37ea78e6c1",
+  "originalNativeClassesPreserved": true,
+  "compiledResourcesIdenticalTo168": true,
+  "modifiedAssets": [
+    "assets/app.js",
+    "assets/app.css",
+    "assets/guide.js"
+  ],
+  "signatureVerified": true,
+  "alignmentVerified": true,
+  "nativeModifiedClasses": [
+    "HouseholdFeatures",
+    "SharedCartLive"
+  ],
+  "nativeAddedClasses": [
+    "SharedCartClear"
+  ],
+  "financialClassesUnchanged": true,
+  "installerAndTLSUnchanged": true,
+  "clearJvmTests": "PASS: 30 comprobaciones de eliminación completa, estados, cola inmutable, repetición, lotes, referencias, original intacto y compartir explícitamente de nuevo",
+  "liveJvmTests": "PASS: 31 comprobaciones anteriores",
+  "browserTests": "PASS: confirmar/cancelar, búsqueda activa sin restringir alcance, cierre, cesta vacía al reabrir, offline/reconexión, ningún cambio financiero",
+  "sharedRegression": "PASS: fotos, filtros, edición y envíos/recepción automáticos, 320/360/390px",
+  "guideTests": "PASS: 20 temas,31 pasos y7 demos, búsqueda y progreso",
+  "scriptChangesRequired": false,
+  "privateSheetTested": false,
+  "physicalAndroidTested": false
+}
