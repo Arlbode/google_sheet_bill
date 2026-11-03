@@ -1,3 +1,7 @@
+## Hogar finanzas 1.6.9 · Eliminar cesta compartida
+
+[APK firmada](Hogar_finanzas_1.6.9.apk) · [Cambios y validación](VERSION_1.6.9.md). Opción de retirar todos los artículos de la cesta compartida con confirmación y envío automático, conservando gastos y carrito personal. Actualiza desde Perfil → Actualizaciones, sin desinstalar.
+
 ## Hogar finanzas 1.6.8 · Enlaces al final del catálogo
 
 [APK firmada](Hogar_finanzas_1.6.8.apk) · [Cambios y validación](VERSION_1.6.8.md). Añadir producto y Comparar por unidad pasan a enlaces simples después de los productos. Actualiza desde Perfil → Actualizaciones, sin desinstalar.
