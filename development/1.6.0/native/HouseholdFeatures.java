@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.webkit.WebView;
 import java.lang.reflect.*;
-import java.time.Instant;
 import java.util.UUID;
 import org.json.*;
 
@@ -35,25 +34,6 @@ public final class HouseholdFeatures {
         a.runOnUiThread(()->{try{Field f=a.getClass().getDeclaredField("web");f.setAccessible(true);WebView w=(WebView)f.get(a);if(w!=null)w.evaluateJavascript(script,null);}catch(Exception ignored){}});}catch(Exception ignored){}
     }
     static void bounded(JSONArray list,int limit,int bytes)throws Exception{if(list.length()>limit||list.toString().length()>bytes)throw new IllegalArgumentException("Hay demasiados datos. Exporta un respaldo y reduce la lista.");}
-    static JSONObject sync(Activity a,AppStore s,String actor)throws Exception {
-        JSONObject v=get(s);JSONArray queue=v.getJSONArray("queue");bounded(queue,100,150000);
-        if(s.prefs.getString("householdId","").isEmpty())throw new IllegalArgumentException("Conecta primero este teléfono con tu Sheet.");
-        if(!SyncEngine.online(a))throw new IllegalArgumentException("Sin conexión. La lista sigue guardada en este teléfono.");
-        JSONArray batch=new JSONArray();for(int i=0;i<Math.min(20,queue.length());i++)batch.put(queue.getJSONObject(i));
-        JSONObject req=new JSONObject().put("apiVersion",3).put("action","featuresSync").put("deviceId",s.deviceId).put("householdId",s.prefs.getString("householdId","")).put("token",new Vault(a).token()).put("profiles",s.profiles()).put("changes",batch);
-        JSONObject response=ApiClient.post(s.prefs.getString("endpoint",""),req);
-        if(!response.optBoolean("ok")||!req.getString("householdId").equals(response.optString("householdId")))throw new IllegalArgumentException("El Sheet no confirmó la lista. Instala el script 1.6.0 y conserva la misma URL /exec.");
-        JSONArray acks=response.getJSONArray("featureAcks"),items=response.getJSONArray("shared");bounded(items,500,500000);
-        java.util.HashMap<String,JSONObject> receipts=new java.util.HashMap<>();
-        for(int i=0;i<acks.length();i++){JSONObject ack=acks.getJSONObject(i);String id=ack.getString("id");if(receipts.put(id,ack)!=null)throw new IllegalArgumentException("Confirmación repetida; se conserva la cola.");}
-        JSONArray remain=new JSONArray(),conflicts=v.getJSONArray("conflicts");
-        for(int i=0;i<queue.length();i++){
-            JSONObject op=queue.getJSONObject(i),ack=i<batch.length()?receipts.get(op.getString("id")):null;
-            if(ack==null||!java.util.Arrays.asList("accepted","duplicate","conflict").contains(ack.optString("status"))){remain.put(op);continue;}
-            if(ack.optString("status").equals("conflict"))conflicts.put(new JSONObject().put("local",op).put("remote",ack.optJSONObject("current")));
-        }
-        v.put("queue",remain).put("shared",items).put("conflicts",conflicts).put("lastSync",Instant.now().toString());v.remove("syncError");v=SharedCartLive.acknowledged(v,batch,acks);store(s,v);return v;
-    }
     public static boolean intercept(Activity a,String text){
         a.runOnUiThread(()->a.getWindow().clearFlags(android.view.WindowManager.LayoutParams.FLAG_SECURE));
         final JSONObject request;final String action,id;
@@ -101,7 +81,7 @@ public final class HouseholdFeatures {
             }else if(action.equals("featuresResolve")){
                 v=SharedCartLive.resolve(v,d.getString("id"),d.optBoolean("keepMine"),who);store(s,v);
             }else if(action.equals("featuresSync")){
-                try{v=sync(a,s,who);}catch(Exception e){v.put("syncError",e.getMessage());store(s,v);throw e;}
+                SharedSync.start(a,s,who,id);return;
             }else throw new IllegalArgumentException("Acción no admitida.");
             reply(a,id,v,null);SyncEngine.changed();
         }catch(Exception e){reply(a,id,null,e);}});return true;
