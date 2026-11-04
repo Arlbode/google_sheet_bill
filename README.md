@@ -1,3 +1,7 @@
+## Hogar finanzas 1.7.3 · inicio de producción
+
+[APK firmada](Hogar_finanzas_1.7.3.apk) · [Instrucciones, alcance y validación](VERSION_1.7.3.md). Nueva acción explícita para retirar datos de prueba con copia previa y conservar catálogo, PIN y fotos. Requiere primero dejarListoParaProduccion en el Sheet y luego limpiar cada teléfono en modo avión. Actualiza desde Perfil → Actualizaciones, sin desinstalar.
+
 ## Hogar finanzas 1.7.2 · espaguetis
 
 [APK firmada](Hogar_finanzas_1.7.2.apk) · [Cambios y validación](VERSION_1.7.2.md). Espaguetis con ilustración del catálogo, sin inventar precio, y lectura más clara de los USD/CUP disponibles. Actualiza desde Perfil → Actualizaciones, sin desinstalar ni cambiar Apps Script.

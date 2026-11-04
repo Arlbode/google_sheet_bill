@@ -1,0 +1,43 @@
+{
+  "versionName": "1.7.3",
+  "versionCode": 31,
+  "baseSha256": "09ba6138dd09e329a0b2abbde45bb1609f6a07dc4f03525fe1ddef1c18758b89",
+  "sha256": "421cf2412b0ea622cd3a9f7ec97b3487118a5f0d445f459166b50afc3ea03d87",
+  "bytes": 1241492,
+  "certificateSha256": "7374684814395e3df3e4a41b6d0d20a739dddba331a828d0f72d5d37ea78e6c1",
+  "originalNativeClassesPreserved": true,
+  "compiledResourcesIdenticalTo172": true,
+  "modifiedAssets": [
+    "assets/app.js",
+    "assets/app.css",
+    "assets/guide.js",
+    "assets/improvements.js"
+  ],
+  "signatureVerified": true,
+  "alignmentVerified": true,
+  "nativeModifiedClasses": [
+    "HouseholdFeatures",
+    "HouseholdDocuments"
+  ],
+  "nativeAddedClasses": [
+    "ProductionReset",
+    "ProductionData"
+  ],
+  "ordinaryFinancialAndAuthenticationClassesPreserved": true,
+  "existingSnapshotValidateRestorePreserved": true,
+  "migrationTests": 5,
+  "productionDataChecks": 33,
+  "nativeResetChecks": 67,
+  "browserProductionFlow": "PASS: confirmación, offline, una solicitud, sin borrar desde JS, protección de finalización y URL de reconexión",
+  "existingRegressions": "PASS: catálogo, fotos, espaguetis,7 pruebas de herramientas, backend de autorización y guía20/31/7",
+  "resetActivatedByUpdate": false,
+  "googleSheetMigrationExecuted": false,
+  "googleDriveBackupCreated": false,
+  "physicalAndroidResetTested": false,
+  "androidEmulatorResetTested": false,
+  "userProvidedScriptPrefixPreserved": true,
+  "serverEntryPoint": "dejarListoParaProduccion",
+  "publishedContainsPrivateData": false,
+  "fullUserScriptMigrationTests": "PASS: cinco pruebas ejecutadas sobre el archivo completo con la acción añadida",
+  "completedReceiptSurvivesFullBackupRestore": true
+}

@@ -1,11 +1,11 @@
 {
   "applicationId": "cu.hogarplaya.recuperada",
-  "versionCode": 30,
-  "versionName": "1.7.2",
+  "versionCode": 31,
+  "versionName": "1.7.3",
   "minSdk": 26,
-  "bytes": 1237396,
-  "sha256": "09ba6138dd09e329a0b2abbde45bb1609f6a07dc4f03525fe1ddef1c18758b89",
+  "bytes": 1241492,
+  "sha256": "421cf2412b0ea622cd3a9f7ec97b3487118a5f0d445f459166b50afc3ea03d87",
   "certificateSha256": "7374684814395e3df3e4a41b6d0d20a739dddba331a828d0f72d5d37ea78e6c1",
-  "url": "https://raw.githubusercontent.com/Arlbode/google_sheet_bill/actualizaciones-android/Hogar_finanzas_1.7.2.apk",
-  "notes": "Espaguetis en Comprar, con ilustración del estilo del catálogo. También se encuentra buscando spaguetis, spaghetti o espagueti. Confirma el precio y el peso del paquete al comprar; no se inventan precio ni proveedor.\nAparece aunque el Sheet conserve el catálogo anterior, respetando los productos y las ediciones existentes.\nDisponible para consumo aclara que incluye el equivalente de los CUP libres. Cambiar USD muestra los dólares libres sin convertir CUP. Guía actualizada; las reglas de ahorro y fondos se conservan.\nMisma identidad y firma. Instala encima sin desinstalar. No requiere cambiar Apps Script ni ejecutar iniciarHogar."
+  "url": "https://raw.githubusercontent.com/Arlbode/google_sheet_bill/actualizaciones-android/Hogar_finanzas_1.7.3.apk",
+  "notes": "Inicio de producción en Perfil: permite retirar datos de prueba de este teléfono conservando PIN, fotos y catálogo. Es una acción explícita de una sola vez; actualizar la APK conserva los datos.\nPrimero ejecuta dejarListoParaProduccion en Apps Script del Sheet. Crea copia privada, limpia registros y saldos iniciales y revoca conexiones anteriores.\nDespués activa modo avión y usa Perfil → Inicio de producción. Exige guardar y verificar una copia cifrada antes de vaciar movimientos, carritos, planes y listas locales. La app se cierra; vuelve a entrar con tu PIN y conecta con un código nuevo. Repite en cada teléfono.\nMisma identidad y firma. Se conservan las reglas financieras, las ilustraciones de espaguetis y las mejoras de rendimiento. No se activa ninguna limpieza al instalar."
 }
