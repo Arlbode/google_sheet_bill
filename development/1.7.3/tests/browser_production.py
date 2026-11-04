@@ -1,0 +1,13 @@
+from pathlib import Path
+from playwright.sync_api import sync_playwright,expect
+BASE=Path(__file__).resolve().parents[2]/'1.6.0/tests/browser_features.py';ns={'__file__':str(BASE)};exec(BASE.read_text().split('try:\n with sync_playwright()')[0],ns);server=ns['server']
+script=ns['script'].replace("else if(q.action==='featuresGet')", "else if(q.action==='featuresProductionReset'){if(testState.online)err='Activa el modo avión';else d={opened:true};}\nelse if(q.action==='featuresGet')")
+try:
+ with sync_playwright() as pw:
+  b=pw.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox']);ctx=b.new_context(viewport={'width':390,'height':844},locale='es-ES');ctx.add_init_script(script);p=ctx.new_page();errors=[];p.on('pageerror',lambda e:errors.append(str(e)));p.goto('http://127.0.0.1:'+str(server.server_port)+'/index.html');p.locator('.nav [data-tab="profile"]').click();p.locator('[data-feature="production"]').click()
+  expect(p.locator('#overlay')).to_contain_text('dejarListoParaProduccion');expect(p.locator('#overlay')).to_contain_text('modo avión');start=p.locator('[data-feature="productionStart"]');expect(start).to_be_disabled();p.locator('#productionReady').check();expect(start).to_be_enabled();start.click();expect(p.locator('#toast')).to_contain_text('modo avión');expect(start).to_be_enabled();assert p.evaluate("calls.filter(q=>q.action==='featuresProductionReset').length")==1
+  p.evaluate('testState.online=false');start.click();expect(start).to_be_disabled();assert p.evaluate("calls.filter(q=>q.action==='featuresProductionReset').length")==2;assert p.evaluate('testState.operations.length')==1
+  p.locator('#closeModal').click();p.evaluate("features.production={completedAt:'2026-11-04',endpointHint:'https://script.google.com/macros/s/fixture/exec'};window.hogarChanged()");p.wait_for_timeout(450);p.locator('[data-feature="production"]').click();expect(p.locator('#overlay')).to_contain_text('No se vuelven a borrar los registros nuevos');assert p.locator('[data-feature="productionStart"]').count()==0;p.locator('#closeModal').click();p.locator('[data-action="pair"]').click();expect(p.locator('#pairUrl')).to_have_value('https://script.google.com/macros/s/fixture/exec')
+  for width in [320,390]:p.set_viewport_size({'width':width,'height':844});assert not p.evaluate('document.documentElement.scrollWidth>innerWidth')
+  assert not errors,errors;b.close();print('PASS: pasos Sheet/teléfono, casilla obligatoria, rechazo online, una solicitud por pulsación, sin borrar mediante JS, protección de producción terminada y URL de reconexión.')
+finally:server.shutdown();server.server_close()

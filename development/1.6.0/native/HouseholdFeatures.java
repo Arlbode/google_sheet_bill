@@ -25,7 +25,7 @@ public final class HouseholdFeatures {
         }
         v.put("householdId",household);
         for(String k:new String[]{"products","offers","shared","queue","conflicts"})if(!v.has(k))v.put(k,new JSONArray());
-        v.put("lastBackup",s.prefs.getString("featuresLastBackup","")).put("backupVerified",s.prefs.getString("featuresBackupVerified",""));return v;
+        v.put("lastBackup",s.prefs.getString("featuresLastBackup","")).put("backupVerified",s.prefs.getString("featuresBackupVerified","")).put("production",ProductionReset.info(s));return v;
     }
     static void store(AppStore s,JSONObject v){s.cache(KEY,v);}
     static void reply(Activity a,String id,JSONObject value,Exception error){
@@ -35,6 +35,7 @@ public final class HouseholdFeatures {
     }
     static void bounded(JSONArray list,int limit,int bytes)throws Exception{if(list.length()>limit||list.toString().length()>bytes)throw new IllegalArgumentException("Hay demasiados datos. Exporta un respaldo y reduce la lista.");}
     public static boolean intercept(Activity a,String text){
+        if(ProductionReset.guard(a,text))return true;
         a.runOnUiThread(()->a.getWindow().clearFlags(android.view.WindowManager.LayoutParams.FLAG_SECURE));
         final JSONObject request;final String action,id;
         try{if(text.length()>4000000)return false;request=new JSONObject(text);action=request.getString("action");id=request.getString("id");if(!action.startsWith("features"))return false;}catch(Exception e){return false;}
@@ -47,6 +48,7 @@ public final class HouseholdFeatures {
             if(action.equals("featuresUpdateDownload")){CompatibleUpdate.start(a);reply(a,id,new JSONObject().put("started",true),null);return;}
             if(action.equals("featuresProfileImage")){final String profile=who,session=s.prefs.getString("authenticatedDay","");a.runOnUiThread(()->a.startActivity(new Intent(a,HouseholdDocuments.class).putExtra("mode","featuresProfileImage").putExtra("profileId",profile).putExtra("profileSession",session)));reply(a,id,new JSONObject().put("opened",true),null);return;}
             if(action.equals("featuresProfileRemove")){ProfilePhotos.remove(s,who);reply(a,id,new JSONObject().put("photos",ProfilePhotos.read(s)),null);SyncEngine.changed();return;}
+            if(action.equals("featuresProductionReset")){ProductionReset.begin(a);a.runOnUiThread(()->a.startActivity(new Intent(a,HouseholdDocuments.class).putExtra("mode","featuresProductionReset")));reply(a,id,new JSONObject().put("opened",true),null);return;}
             JSONObject v=get(s);
             if(action.equals("featuresShareCart")){v=SharedCartPlan.plan(v,s.cart(who),who,s.deviceId,s.prefs.getString("householdId",""));v=SharedCartLive.noteShare(v,s.cart(who),who,s.deviceId,s.prefs.getString("householdId",""));store(s,v);reply(a,id,v,null);SyncEngine.changed();return;}
             if(action.equals("featuresClearShared")){v=SharedCartClear.plan(v,d.getJSONArray("ids"),who);store(s,v);reply(a,id,v,null);SyncEngine.changed();return;}
