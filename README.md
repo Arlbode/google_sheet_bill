@@ -1,3 +1,7 @@
+## Hogar finanzas 1.7.2 · espaguetis
+
+[APK firmada](Hogar_finanzas_1.7.2.apk) · [Cambios y validación](VERSION_1.7.2.md). Espaguetis con ilustración del catálogo, sin inventar precio, y lectura más clara de los USD/CUP disponibles. Actualiza desde Perfil → Actualizaciones, sin desinstalar ni cambiar Apps Script.
+
 ## Hogar finanzas 1.7.1 · rendimiento y cesta
 
 [APK firmada](Hogar_finanzas_1.7.1.apk) · [Cambios y validación](VERSION_1.7.1.md). Guardado local sin esperar la red compartida, catálogo optimizado, formulario sin texto bajo el botón, retiradas por orden e icono de cesta en Comprar. Actualiza desde Perfil → Actualizaciones, sin desinstalar ni cambiar el script.

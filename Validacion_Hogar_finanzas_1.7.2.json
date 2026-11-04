@@ -1,0 +1,42 @@
+{
+  "versionName": "1.7.2",
+  "versionCode": 30,
+  "baseSha256": "38863a429ead1eabd4bb402913f1799d2f7c5374526a9de8a9b1cb03fe65754e",
+  "sha256": "09ba6138dd09e329a0b2abbde45bb1609f6a07dc4f03525fe1ddef1c18758b89",
+  "bytes": 1237396,
+  "certificateSha256": "7374684814395e3df3e4a41b6d0d20a739dddba331a828d0f72d5d37ea78e6c1",
+  "nativeDexIdenticalTo171": true,
+  "compiledResourcesIdenticalTo171": true,
+  "modifiedAssets": [
+    "assets/app.js",
+    "assets/guide.js",
+    "assets/improvements.js",
+    "assets/catalog.json",
+    "assets/product-images.json"
+  ],
+  "addedAssets": [
+    "assets/product-espaguetis.svg"
+  ],
+  "signatureVerified": true,
+  "alignmentVerified": true,
+  "catalogTests": 5,
+  "previousToolTests": 7,
+  "browserTests": "PASS: catálogo remoto antiguo, alias, píxeles visibles en SVG, 320/360/390px, precio editable, carrito, sin gastos, aclaración USD/CUP",
+  "guideRegression": "PASS: 20 temas;31 pasos y7 demos de herramientas",
+  "bundledProduct": "Espaguetis",
+  "defaultPrice": null,
+  "defaultVendor": "",
+  "bundledProductAppearsWithOlderSheet": true,
+  "scriptChangesRequired": false,
+  "financialRulesUnchanged": true,
+  "privateWorkbookIncludedInRelease": false,
+  "artwork": {
+    "format": "SVG con PNG interno autocontenido",
+    "pngSha256": "638256967ad1040fe967259faf3ab04cba247c72a0384352cd2aab52859e6588",
+    "svgSha256": "bb37f4dcdcecca7d70ae3db9edd4d6b87bea94528a5d4bcd5734f811f69c3b21",
+    "externalResources": false,
+    "browserPixelsVerified": true
+  },
+  "physicalAndroidTested": false,
+  "performanceRegression": "PASS: 3000 movimientos ficticios, 93 productos, índice reutilizado/invalidado, 50/100 filas y sin RPC compartido para carrito privado"
+}
