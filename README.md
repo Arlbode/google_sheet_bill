@@ -1,3 +1,7 @@
+## Hogar finanzas 1.7.1 · rendimiento y cesta
+
+[APK firmada](Hogar_finanzas_1.7.1.apk) · [Cambios y validación](VERSION_1.7.1.md). Guardado local sin esperar la red compartida, catálogo optimizado, formulario sin texto bajo el botón, retiradas por orden e icono de cesta en Comprar. Actualiza desde Perfil → Actualizaciones, sin desinstalar ni cambiar el script.
+
 ## Hogar finanzas 1.7.0 · Foto de perfil
 
 [APK firmada](Hogar_finanzas_1.7.0.apk) · [Cambios y validación](VERSION_1.7.0.md). Agrega, cambia o quita tu foto desde Perfil. Se muestra en el avatar y al elegir persona; es local y se incluye en tu respaldo cifrado. Actualiza desde Perfil → Actualizaciones, sin desinstalar ni cambiar el script.

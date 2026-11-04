@@ -1,0 +1,83 @@
+{
+  "versionName": "1.7.1",
+  "versionCode": 29,
+  "baseSha256": "d67706ff6020e28e9ec0783398e5b18db286ec46e642daa9e8d6f8fbde229ced",
+  "sha256": "38863a429ead1eabd4bb402913f1799d2f7c5374526a9de8a9b1cb03fe65754e",
+  "bytes": 835913,
+  "certificateSha256": "7374684814395e3df3e4a41b6d0d20a739dddba331a828d0f72d5d37ea78e6c1",
+  "originalNativeClassesPreserved": true,
+  "compiledResourcesIdenticalTo170": true,
+  "modifiedAssets": [
+    "assets/app.js",
+    "assets/app.css",
+    "assets/guide.js",
+    "assets/improvements.js"
+  ],
+  "signatureVerified": true,
+  "alignmentVerified": true,
+  "nativeModifiedClasses": [
+    "HouseholdFeatures"
+  ],
+  "nativeAddedClasses": [
+    "SharedSync",
+    "SharedSyncBatch"
+  ],
+  "financialClassesUnchanged": true,
+  "storageAuthenticationPhotosBackupAndInstallerUnchanged": true,
+  "scriptChangesRequired": false,
+  "privateSheetTested": false,
+  "physicalAndroidProfiled": false,
+  "androidEmulatorTested": false,
+  "nativeQueueTests": {
+    "checks": 67,
+    "http": "controlled blocked transport",
+    "localWorkMs": [
+      0,
+      2
+    ],
+    "queueAndConcurrentEdits": "PASS",
+    "changedConnectionAndSessionRejected": "PASS"
+  },
+  "existingModelTests": 107,
+  "toolModelTests": 7,
+  "browserTests": [
+    "large-history performance and cache invalidation",
+    "private cart without shared RPC",
+    "single render per state refresh",
+    "profile photos reused",
+    "50/100 history rows",
+    "long note with fixed footer",
+    "320/360/390px width and 360/420px height",
+    "rapid removals serialized and failed removal retry",
+    "existing catalog/shared/clear/photo/guide regressions"
+  ],
+  "benchmark": {
+    "fixtureOperations": 3000,
+    "itemsPerOperation": 5,
+    "catalogProducts": 92,
+    "sameStateRenders": 5,
+    "baselineFullHistoryScans": 460,
+    "optimizedAdditionalFullHistoryScans": 0,
+    "baselineRenderMs": [
+      137.9,
+      162.7,
+      128,
+      128.3,
+      146.2
+    ],
+    "firstOptimizedRenderMs": [
+      10.6,
+      14.1,
+      10.1,
+      14.7,
+      15.6
+    ],
+    "scope": "Chromium in cloud environment, warmed history/index; not a phone measurement"
+  },
+  "guide": {
+    "topics": 20,
+    "newToolSteps": 31,
+    "newToolDemos": 7,
+    "purchaseAndHistoryInstructionsUpdated": true
+  }
+}

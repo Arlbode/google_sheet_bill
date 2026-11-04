@@ -1,11 +1,11 @@
 {
   "applicationId": "cu.hogarplaya.recuperada",
-  "versionCode": 28,
-  "versionName": "1.7.0",
+  "versionCode": 29,
+  "versionName": "1.7.1",
   "minSdk": 26,
-  "bytes": 831817,
-  "sha256": "d67706ff6020e28e9ec0783398e5b18db286ec46e642daa9e8d6f8fbde229ced",
+  "bytes": 835913,
+  "sha256": "38863a429ead1eabd4bb402913f1799d2f7c5374526a9de8a9b1cb03fe65754e",
   "certificateSha256": "7374684814395e3df3e4a41b6d0d20a739dddba331a828d0f72d5d37ea78e6c1",
-  "url": "https://raw.githubusercontent.com/Arlbode/google_sheet_bill/actualizaciones-android/Hogar_finanzas_1.7.0.apk",
-  "notes": "Foto por perfil: desde Perfil puedes agregar una imagen de la galería, cambiarla o quitarla. Aparece en el avatar superior, en Perfil y al elegir persona. Sin foto se conserva la inicial.\nLa imagen se guarda en este teléfono y se incluye en el respaldo cifrado; no se envía al Sheet. Cada persona modifica su foto después de entrar con su PIN. Se comprueban sesión, perfil, día y versión del PIN antes de guardar.\nMisma identidad y firma; instala encima sin desinstalar. Conserva movimientos y configuración, sin cambios de Apps Script."
+  "url": "https://raw.githubusercontent.com/Arlbode/google_sheet_bill/actualizaciones-android/Hogar_finanzas_1.7.1.apk",
+  "notes": "Más agilidad al añadir, editar y quitar productos: el guardado local ya no espera las peticiones de la cesta compartida. Se reducen los cálculos repetidos y los redibujados del catálogo.\nEl formulario separa la información del proveedor del botón de guardar, también con poco espacio. Las retiradas rápidas del carrito se guardan por orden y conservan el lugar escrito.\nComprar estrena un icono de cesta. Movimientos muestra el historial por tramos de 50 con Ver más movimientos. Guía de uso actualizada.\nMisma identidad y firma. Instala encima sin desinstalar; conserva datos, fotos y configuración. No requiere cambiar Apps Script ni ejecutar iniciarHogar."
 }
