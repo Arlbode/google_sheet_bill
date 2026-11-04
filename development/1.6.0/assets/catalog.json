@@ -1379,6 +1379,28 @@
       "quotedAt": "",
       "note": "Añadido a petición del hogar. Precio y proveedor pendientes: introduce el precio real por lb. Cantidad mensual inicial 0, editable.",
       "sourceUrl": ""
+    },
+    {
+      "id": "Espaguetis",
+      "name": "Espaguetis",
+      "category": "Canasta básica",
+      "unit": "paquete",
+      "price": null,
+      "currency": "CUP",
+      "priceUnitPending": false,
+      "publishedPrice": null,
+      "vendor": "",
+      "quotedAt": "",
+      "note": "Confirma el precio y el peso del paquete antes de comprar.",
+      "sourceUrl": "",
+      "monthlyLimit": 0,
+      "plannedQuantity": null,
+      "aliases": [
+        "spaguetis",
+        "spaghetti",
+        "espagueti"
+      ],
+      "bundledDefault": true
     }
   ],
   "categories": [

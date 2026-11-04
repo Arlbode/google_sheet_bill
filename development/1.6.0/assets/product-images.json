@@ -442,5 +442,21 @@
   "papa / patata": {
     "src": "product-papa.svg",
     "alt": "Papa o patata"
+  },
+  "espaguetis": {
+    "src": "product-espaguetis.svg",
+    "alt": "Espaguetis"
+  },
+  "spaguetis": {
+    "src": "product-espaguetis.svg",
+    "alt": "Espaguetis"
+  },
+  "spaghetti": {
+    "src": "product-espaguetis.svg",
+    "alt": "Espaguetis"
+  },
+  "espagueti": {
+    "src": "product-espaguetis.svg",
+    "alt": "Espaguetis"
   }
 }
