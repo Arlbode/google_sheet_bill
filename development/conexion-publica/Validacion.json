@@ -1,0 +1,13 @@
+{
+  "fix": "URL pública /exec independiente del contexto /dev",
+  "sha256PrivatePreparedScript": "94c48fbc410c1d94dbf7d0953f93f988a1886f2cc7f5a7ae4ffa1a9c91aa4d04",
+  "changedExistingFunctions": [
+    "generarCodigoAndroid",
+    "doGet"
+  ],
+  "pairSyncAuthorizationFinancialAndMigrationSourcePreserved": true,
+  "tests": 8,
+  "apkChangesRequired": false,
+  "googleDeploymentUpdated": false,
+  "liveConnectionVerifiedHere": false
+}
