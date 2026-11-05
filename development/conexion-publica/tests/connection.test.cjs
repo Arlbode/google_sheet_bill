@@ -1,8 +1,6 @@
 const fs=require('node:fs'),vm=require('node:vm'),crypto=require('node:crypto'),zlib=require('node:zlib'),assert=require('node:assert/strict'),test=require('node:test');
-const path=require('node:path'),os=require('node:os'),cp=require('node:child_process');
-let temporary=null,script=process.env.HOGAR_CONNECTION_SCRIPT;
-if(!script){temporary=fs.mkdtempSync(path.join(os.tmpdir(),'hogar-public-url-'));script=path.join(temporary,'script.txt');cp.execFileSync('python3',[path.resolve(__dirname,'../build_script.py'),'--input',path.resolve(__dirname,'../../../Script_Completo_Hogar_1.6.0.txt'),'--output',script]);}
-const source=fs.readFileSync(script,'utf8');test.after(()=>{if(temporary)fs.rmSync(temporary,{recursive:true,force:true});});
+const script=process.env.HOGAR_CONNECTION_SCRIPT;if(!script)throw new Error('Ejecuta primero python3 development/conexion-publica/tests/run.py, o define HOGAR_CONNECTION_SCRIPT con el script construido.');
+const source=fs.readFileSync(script,'utf8');
 const exec='https://script.google.com/macros/s/fixture-public/exec',dev='https://script.google.com/macros/s/fixture-test/dev';
 function context(options={}){
  const properties=new Map([['MOVIL_PAIR','old-code-must-survive-errors'],['MOVIL_HOGAR_ID','household'],['MOVIL_DEVICE_existing','credential-kept']]);let calls=[],prepared=0,alerts=[],uiValue=exec,cancel=false;
