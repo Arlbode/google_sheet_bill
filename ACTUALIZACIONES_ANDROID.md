@@ -1,3 +1,11 @@
+# Hogar finanzas 1.7.4
+
+APK firmada y actualizacion.json publicados para actualización desde la app. Registra compras por artículo o cantidades parciales en las dos cestas. Los gastos reales muestran avisos de reservas y pueden guardarse. Instala encima para conservar datos.
+
+Requiere publicar el script 1.7.4 entregado privadamente, mediante Nueva versión de la misma implementación Apps Script /exec. No ejecutar iniciarHogar, limpiezas ni reinicios. Publicar la APK no despliega el script ni modifica el Sheet.
+
+Fuentes y validación: [development/1.7.4](https://github.com/Arlbode/google_sheet_bill/tree/779c9c8adcb440e96023809ff229d024c0206282/development/1.7.4). Firma y recursos conservados; 85 comprobaciones JVM de compras/colas/sesión, 28 comprobaciones del backend real y pruebas móviles en Chromium. No se ejecutó instrumentación Android en un dispositivo.
+
 # Actualizaciones desde Hogar finanzas · 1.5.4
 
 La 1.5.4 añade aviso de nueva versión y Perfil → Actualizaciones. Es necesario instalar esta primera APK encima de la versión actual una vez. Después, las versiones futuras se podrán descargar e iniciar desde la app.

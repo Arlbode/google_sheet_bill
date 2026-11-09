@@ -1,0 +1,37 @@
+{
+  "versionName": "1.7.4",
+  "versionCode": 32,
+  "baseSha256": "421cf2412b0ea622cd3a9f7ec97b3487118a5f0d445f459166b50afc3ea03d87",
+  "sha256": "b82e08446fb13309f3468c914186a3c30d884463632ab48d140cbcaae06601e5",
+  "bytes": 1249684,
+  "certificateSha256": "7374684814395e3df3e4a41b6d0d20a739dddba331a828d0f72d5d37ea78e6c1",
+  "originalNativeClassesPreserved": true,
+  "compiledResourcesIdenticalTo173": true,
+  "modifiedAssets": [
+    "assets/app.js",
+    "assets/app.css",
+    "assets/guide.js",
+    "assets/improvements.js"
+  ],
+  "signatureVerified": true,
+  "alignmentVerified": true,
+  "nativeModifiedClasses": [
+    "HouseholdFeatures"
+  ],
+  "nativeAddedClasses": [
+    "ExpenseBridge",
+    "ExpensePurchases"
+  ],
+  "nativeJvmChecks": 85,
+  "backendChecks": 28,
+  "browserPurchaseFlowsPassed": true,
+  "browserExistingFeaturesPassed": true,
+  "browserModalLayoutPassed": true,
+  "sharedConcurrencyChecks": 67,
+  "financialDataOrConnectionReset": false,
+  "appsScriptDeployed": false,
+  "privateSheetModified": false,
+  "androidDeviceInstrumentationRun": false,
+  "scriptExecutableSourcePreservedOutsideExpensePolicy": true,
+  "guideUpdated": true
+}
