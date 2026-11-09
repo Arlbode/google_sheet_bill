@@ -16,6 +16,10 @@ public class AppStore extends SQLiteOpenHelper {
  public String cache(String key,String fallback){return fallback;}
  public void cache(String key,Object value){}
  public void correctRejected(String actor,String id,JSONObject data)throws Exception{}
+ public String saveOperation(String actor,JSONObject data)throws Exception{return null;}
+ public JSONObject snapshot()throws Exception{return null;}
+ JSONObject operation(String actor,JSONObject data)throws Exception{return null;}
+ void insert(SQLiteDatabase db,JSONObject op)throws Exception{}
  public JSONArray cart(String actor)throws Exception{return null;}
  public void saveCart(String actor,JSONArray items)throws Exception{}
  public int checkout(String actor,String date,boolean repeat)throws Exception{return 0;}

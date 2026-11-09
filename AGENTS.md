@@ -1,5 +1,7 @@
 # Hogar finanzas — continuidad de desarrollo
 
+- Continuidad 1.7.4: compras por artículo/parciales y política de gastos reales autorizada por el usuario en `development/1.7.4/`. Las reservas avisan y no vetan `Gasto`; conservar validación, autenticación, recibos, jornada y su gasto acumulado. No aplicar esa excepción a aportes, retiros o cambios. El script completo se entrega privadamente y requiere nueva versión de la misma implementación, sin limpiar producción.
+
 - Usa el checkout existente y conserva cambios locales. No crees worktrees salvo petición explícita.
 - La APK estable de partida es 1.5.7, paquete `cu.hogarplaya.recuperada`, certificado SHA-256 `7374684814395e3df3e4a41b6d0d20a739dddba331a828d0f72d5d37ea78e6c1`.
 - La propuesta 1.6.0 y sus pruebas están en `development/1.6.0/`. Lee su README y la validación de la entrega antes de continuar. No confundas una candidata firmada con una versión activa en `actualizacion.json` ni con un despliegue del Sheet.

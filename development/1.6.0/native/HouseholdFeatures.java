@@ -36,6 +36,7 @@ public final class HouseholdFeatures {
     static void bounded(JSONArray list,int limit,int bytes)throws Exception{if(list.length()>limit||list.toString().length()>bytes)throw new IllegalArgumentException("Hay demasiados datos. Exporta un respaldo y reduce la lista.");}
     public static boolean intercept(Activity a,String text){
         if(ProductionReset.guard(a,text))return true;
+        if(ExpenseBridge.intercept(a,text))return true;
         a.runOnUiThread(()->a.getWindow().clearFlags(android.view.WindowManager.LayoutParams.FLAG_SECURE));
         final JSONObject request;final String action,id;
         try{if(text.length()>4000000)return false;request=new JSONObject(text);action=request.getString("action");id=request.getString("id");if(!action.startsWith("features"))return false;}catch(Exception e){return false;}
